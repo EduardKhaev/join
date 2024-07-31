@@ -83,7 +83,6 @@ header {
   display: flex;
   justify-content: center;
 }
-
 .add-contact-btn {
   width: 80%;
   height: 56px;
@@ -158,6 +157,7 @@ header {
 .contact-out {
   left: 100%;
 }
+
 .navigation {
   background-color: rgb(43, 53, 72);
   height: 100vh;
