@@ -15,6 +15,8 @@ body {
   margin: 0;
   box-sizing: border-box;
   font-family: "Inter";
+  height: 100vh;
+  overflow: hidden;
 }
 
 /* header */
@@ -65,6 +67,15 @@ header {
 
 /* header end */
 
+.main {
+  background-color: aqua;
+  height: calc(100% - 96px);
+  margin-top: 96px;
+  margin-left: 232px;
+  display: flex;
+  justify-content: flex-start;
+}
+
 .contact-details {
   width: 456px;
   height: 100%;
@@ -92,4 +103,33 @@ header {
 }
 .contact-list {
   width: 400px;
+}
+
+.show-full-contact {
+  width: 100%;
+  background-color: antiquewhite;
+  display: flex;
+  flex-direction: column;
+}
+
+.contacts-headline {
+  margin-top: 110px;
+  margin-left: 55px;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  font-size: 27px;
+  font-weight: 400;
+}
+
+.spacer {
+  background-color: var(--brand-blue);
+  height: 59px;
+  width: 3px;
+}
+
+.contacts-headline h1 {
+  font-size: 61px;
+  font-weight: 700;
+  line-height: 73.2px;
 }
