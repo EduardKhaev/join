@@ -16,15 +16,19 @@ body {
   box-sizing: border-box;
   font-family: "Inter";
 }
+
 .contact-details {
   width: 456px;
   height: 100%;
   display: flex;
   justify-content: center;
 }
+
 .add-contact-btn {
   width: 80%;
   height: 56px;
+  margin-top: 22.5px;
+  margin-bottom: 8px;
   background-color: #2A3647;
   color: #FFFFFF;
   font-size: 21px;
@@ -37,12 +41,82 @@ body {
   border: 1px;
   border-radius: 10px;
 }
+
 .add-contact-btn img {
   width: 32px;
   height: 32px;
 }
+
 .contact-list {
   width: 400px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+}
+
+.letter-alph {
+  width: 80%;
+  margin-left: 28px;
+  height: 58px;
+  padding: 32px, 24px, 32px, 24px;
+  display: flex;
+  align-items: center;
+}
+
+.letter-alph span {
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.separator-contacts{
+  height: 1px;
+  width: 80%;
+  background-color: #D1D1D1;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.single-contact {
+  width: 80%;
+  height: 78px;;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 35px;
+  border-radius: 10px;
+}
+
+.single-contact:hover {
+  cursor: pointer;
+  background-color: lightgray;
+} 
+
+.contact-image-container {
+  position: relative;
+  text-align: center;
+}
+
+.contact-image-container img {
+  width: 42px;
+  height: 42px;
+}
+
+.overlay-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 12px;
+  font-weight: 400;
+  color: white;
+}
+
+.single-contact-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
 }
 
 header {
