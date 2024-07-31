@@ -71,6 +71,7 @@ header {
   display: flex;
   justify-content: center;
 }
+
 .add-contact-btn {
   width: 80%;
   height: 56px;
@@ -86,10 +87,75 @@ header {
   border: 1px;
   border-radius: 10px;
 }
+
 .add-contact-btn img {
   width: 32px;
   height: 32px;
 }
+
 .contact-list {
   width: 400px;
+}
+
+.navigation {
+  background-color: rgb(43, 53, 72);
+  height: 100vh;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  align-items: center;
+  top: 0;
+  left: 0;
+  padding: 10px;
+}
+
+.join-logo {
+  height: 121px;
+  width: 100px;
+  margin-top: 64px;
+  margin-bottom: 114px;
+}
+
+.navigation-items-section {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 114px;
+}
+
+.navigation-item {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+  color: #CDCDCD;
+  font-size: 16px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.navigation-item:hover {
+  background-color: #485669;
+}
+
+.navigation-icon {
+  height: 30px;
+  width: 30px;
+  margin-right: 10px;
+}
+
+.footer-notes {
+  display: flex;
+  flex-direction: column;
+  color: #CDCDCD;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.footer-notes span {
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.footer-notes span:hover {
+  color: #29abe1;
 }
