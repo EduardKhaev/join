@@ -134,3 +134,24 @@ header {
   font-weight: 700;
   line-height: 73.2px;
 }
+
+.full-contact-container {
+  background-color: aqua;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  margin-left: 55px;
+}
+
+.full-contact-text {
+  background-color: antiquewhite;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  transition: all 200ms ease-in-out;
+}
+
+.contact-out {
+  left: 100%;
+}
