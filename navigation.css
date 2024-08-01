@@ -38,7 +38,7 @@
 .navigation-item {
   display: flex;
   align-items: center;
-  margin: 10px 0;
+  padding: 10px 0;
   color: #cdcdcd;
   font-size: 16px;
   cursor: pointer;
@@ -47,7 +47,18 @@
 }
 
 .navigation-item:hover {
-  background-color: #485669;
+  background-color: rgba(9, 25, 49, 1);
+  color: white;
+}
+
+.navigation-item svg {
+  height: 30px;
+  width: 30px;
+  margin-right: 10px;
+}
+
+.navigation-item:hover svg path {
+  fill: white;
 }
 
 .navigation-icon {
