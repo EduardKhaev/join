@@ -3,14 +3,12 @@
 .navigation {
   background-color: rgb(43, 53, 72);
   height: 100vh;
-  width: 200px;
+  width: 232px;
   display: flex;
   flex-direction: column;
   position: fixed;
-  align-items: center;
   top: 0;
   left: 0;
-  padding: 10px;
 }
 
 .join-logo {
@@ -18,12 +16,23 @@
   width: 100px;
   margin-top: 64px;
   margin-bottom: 114px;
+  margin-left: 56px;
+}
+
+.navigation-main {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex: 1;
+  padding-bottom: 64px;
+  width: 100%;
 }
 
 .navigation-items-section {
   display: flex;
   flex-direction: column;
-  margin-bottom: 114px;
+  width: 100%;
 }
 
 .navigation-item {
@@ -33,7 +42,8 @@
   color: #cdcdcd;
   font-size: 16px;
   cursor: pointer;
-  width: 100%;
+  padding-left: 56px;
+  width: calc(100%-56px);
 }
 
 .navigation-item:hover {
@@ -52,6 +62,7 @@
   color: #cdcdcd;
   font-size: 16px;
   cursor: pointer;
+  padding-left: 56px;
 }
 
 .footer-notes span {

@@ -24,7 +24,7 @@ body {
   background-color: var(--background-main);
   height: calc(100% - 96px);
   margin-top: 96px;
-  margin-left: 220px;
+  margin-left: 232px;
   display: flex;
   justify-content: flex-start;
 }
