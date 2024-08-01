@@ -86,12 +86,6 @@
   background: linear-gradient(180deg, #f5f5f5, #e0e0e0);
 }
 
-
-.single-contact:hover {
-  cursor: pointer;
-  background-color: lightgray;
-}
-
 .cl-avatar {
   background-color: orange;
   color: white;

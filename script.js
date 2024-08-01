@@ -6,6 +6,7 @@ let dataSet = {};
 
 async function init() {
   await loadUsers();
+  console.log(users[1]);
   sortAllUsers();
   displayUsers();
 }
@@ -36,29 +37,39 @@ function displayUsers() {
   let contacts = document.getElementById("contact-list");
   contacts.innerHTML = "";
   let currentLetter = "";
-  for (let i = 0; i < users.length; i++) {
+  for (let i = 1; i < users.length; i++) {
+    let user = users[i];
+    let name = user.name;
+    let email = user.email;
+    let color = user.color;
+    let initials = user.initials;
+
     if (firstletter(i) != currentLetter) {
       contacts.innerHTML += `
             <div class="letter-alph">
-              <span>A</span>
+              <span>${firstletter(i)}</span>
             </div>
             <div class="separator-contacts"></div>
             `;
       currentLetter = firstletter(i);
     }
     contacts.innerHTML += `<div class="single-contact">
-              <div class="cl-avatar">
-                <div class="cl-overlay-text">AM</div>
+              <div class="cl-avatar" style = "background-color: ${color};">
+                <div class="cl-overlay-text">${initials}</div>
               </div>
               <div class="single-contact-details">
-                <span>Anton Müller</span>
-                <a href="">antom@gmail.com</a>
+                <span>${name}</span>
+                <a href="">${email}</a>
               </div>
             </div>`;
   }
 }
 
-function firstletter(index) {} // Max
+function firstletter(index) {
+  let firstLetter = users[index].name.charAt(0);
+  return firstLetter;
+
+} // Max
 
 function showUserDetails(index, element) {
   setUserActive(element);
