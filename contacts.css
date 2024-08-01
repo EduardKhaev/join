@@ -117,8 +117,16 @@
   margin-right: 32px;
 }
 
+.single-contact-details span {
+  font-size: 20px;
+  font-weight: 400;
+}
+
 .single-contact-details a {
   color: var(--brand-blue);
+  font-size: 16px;
+  font-weight: 400;
+  text-decoration: none;
 }
 
 
