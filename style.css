@@ -24,7 +24,21 @@ body {
   background-color: var(--background-main);
   height: calc(100% - 96px);
   margin-top: 96px;
-  margin-left: 232px;
+  margin-left: 220px;
   display: flex;
   justify-content: flex-start;
+}
+
+.button-primary {
+  background-color: #2a3647;
+  color: #ffffff;
+  font-size: 21px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 12px, 0px, 12px, 0px;
+  border: 1px;
+  border-radius: 10px;
 }
