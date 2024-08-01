@@ -6,6 +6,8 @@
   display: flex;
   justify-content: center;
   background-color: white;
+  box-shadow: 4px -1px 4px var(--shadow-color);
+  z-index: 1;
 }
 
 .list-container {
@@ -24,6 +26,11 @@
 .add-contact-btn {
   width: 80%;
   height: 56px;
+  margin-top: 22.5px;
+  margin-bottom: 8px;
+  position: sticky;
+  top: 22.5px;
+  z-index: 1;
 }
 
 .add-contact-btn img {
@@ -34,18 +41,22 @@
 .contact-list {
   width: 400px;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 80px;
 }
 
 .letter-alph {
   width: 80%;
-  margin-left: 52px;
   height: 58px;
-  padding: 32px, 24px, 32px, 24px;
+  padding: 32px 24px 32px 24px;
   display: flex;
   align-items: center;
 }
 
 .letter-alph span {
+  margin-left: 48px;
   font-size: 20px;
   font-weight: 400;
 }
@@ -56,40 +67,44 @@
   background-color: #d1d1d1;
   margin-top: 8px;
   margin-bottom: 8px;
-  margin-left: 52px;
+  padding: 1px 0 0 0;
 }
 
 .single-contact {
   width: 80%;
   height: 78px;
-  margin-left: 52px;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   gap: 35px;
   border-radius: 10px;
+  padding: 15px 0px 15px 0px;
 }
+
+.single-contact:hover {
+  cursor: pointer;
+  background: linear-gradient(180deg, #f5f5f5, #e0e0e0);
+}
+
 
 .single-contact:hover {
   cursor: pointer;
   background-color: lightgray;
 }
 
-.contact-image-container {
-  position: relative;
-  text-align: center;
-}
-
-.contact-image-container img {
+.cl-avatar {
+  background-color: orange;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid white;
+  border-radius: 100%;
   width: 42px;
   height: 42px;
 }
 
-.overlay-text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.cl-overlay-text {
   font-size: 12px;
   font-weight: 400;
   color: white;
@@ -98,9 +113,23 @@
 .single-contact-details {
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 5px;
+  margin-right: 32px;
 }
+
+.single-contact-details span {
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.single-contact-details a {
+  color: var(--brand-blue);
+  font-size: 16px;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+
 
 /* contact list */
 

@@ -1,0 +1,53 @@
+.show-full-contact {
+    margin-top: 96px; 
+    margin-left: 232px; 
+    padding: 20px;
+    background-color: var(--background-main);
+    display: flex;
+    flex-direction: column;
+    width: calc(100% - 232px);
+    overflow-y: auto; 
+    max-height: 700px;
+}
+
+.legal-notice-section {
+    margin-left: 96px;
+    margin-right: 96px;
+    display: flex;
+    flex-direction: column;
+    position:relative;
+}
+
+.legal-notice-section h1 {
+    font-size: 61px;
+    font-weight: 700;
+    margin-bottom: 32px;
+    display: flex;
+    align-items: center; 
+    justify-content: space-between;
+}
+
+.legal-notice-section h2 {
+    font-size: 27px;
+    font-weight: 700;
+    line-height: 32.4px;
+}
+
+.legal-notice-section h3 {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 19.2px;
+}
+
+.legal-notice-section span {
+    font-weight: 400;
+}
+.back-button {
+    cursor: pointer;
+    margin-left: auto; 
+    height: 32px;
+}
+
+.blue {
+    color: rgba(41, 171, 226, 1);
+}
