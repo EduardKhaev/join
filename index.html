@@ -1,34 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="header.css" />
-    <link rel="stylesheet" href="navigation.css" />
-    <link rel="stylesheet" href="contacts.css" />
-    <link rel="stylesheet" href="style.css" />
-    <script src="script.js"></script>
-    <title>Join - Contacts</title>
-  </head>
-  <body>
-    <header>
-      <div class="header-left">Kanban Project Management Tool</div>
-      <div class="header-right">
-        <img src="./img/question-icon.png" alt="help icon" />
-        <div class="user-profile-initials" id="user-profile-initials">DA</div>
-      </div>
-    </header>
-    <div class="navigation">
-      <img class="join-logo" src="./img/join-logo.png" alt="Join Logo" />
-      <div class="navigation-main">
-        <div class="navigation-items-section">
-          <div class="navigation-item">
-            <svg xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M23.2273 0.48291H2.77273H2.5C1.39543 0.48291 0.5 1.37864 0.5 2.48321C0.5 2.663 0.5 2.79037 0.5 2.82288V23.2774V23.4829C0.5 24.5875 1.39572 25.4829 2.50029 25.4829C2.64377 25.4829 2.74401 25.4829 2.77272 25.4829H23.2273C23.256 25.4829 23.3562 25.4829 23.4997 25.4829C24.6043 25.4829 25.5 24.587 25.5 23.4824C25.5 23.3756 25.5 23.3017 25.5 23.2774V2.82285C25.5 2.79035 25.5 2.66299 25.5 2.48321C25.5 1.37864 24.6043 0.48291 23.4997 0.48291C23.3562 0.48291 23.256 0.48291 23.2273 0.48291ZM15.2727 23.2774H2.77273V14.1865H15.2727V23.2774ZM15.2727 11.9138H2.77273V2.82288L15.2727 2.82285V11.9138ZM23.2273 23.2774H17.5455V2.82288H23.2273V23.2774Z"
-                fill="#CDCDCD"
-              />
-            </svg>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="header.css" />
+  <link rel="stylesheet" href="navigation.css" />
+  <link rel="stylesheet" href="contacts.css" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js"></script>
+  <title>Join - Contacts</title>
+</head>
+
+<body>
+  <header>
+    <div class="header-left">Kanban Project Management Tool</div>
+    <div class="header-right">
+      <img src="./img/question-icon.png" alt="help icon" />
+      <div class="user-profile-initials" id="user-profile-initials">DA</div>
+    </div>
+  </header>
+  <div class="navigation">
+    <img class="join-logo" src="./img/join-logo.png" alt="Join Logo" />
+    <div class="navigation-main">
+      <div class="navigation-items-section">
+        <div class="navigation-item">
+          <svg xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M23.2273 0.48291H2.77273H2.5C1.39543 0.48291 0.5 1.37864 0.5 2.48321C0.5 2.663 0.5 2.79037 0.5 2.82288V23.2774V23.4829C0.5 24.5875 1.39572 25.4829 2.50029 25.4829C2.64377 25.4829 2.74401 25.4829 2.77272 25.4829H23.2273C23.256 25.4829 23.3562 25.4829 23.4997 25.4829C24.6043 25.4829 25.5 24.587 25.5 23.4824C25.5 23.3756 25.5 23.3017 25.5 23.2774V2.82285C25.5 2.79035 25.5 2.66299 25.5 2.48321C25.5 1.37864 24.6043 0.48291 23.4997 0.48291C23.3562 0.48291 23.256 0.48291 23.2273 0.48291ZM15.2727 23.2774H2.77273V14.1865H15.2727V23.2774ZM15.2727 11.9138H2.77273V2.82288L15.2727 2.82285V11.9138ZM23.2273 23.2774H17.5455V2.82288H23.2273V23.2774Z"
+              fill="#CDCDCD" />
+          </svg>
 
           <a href="summary.html"><span>Summary</span></a>
         </div>
@@ -62,139 +63,140 @@
         </div>
       </div>
 
-        <div class="footer-notes">
-          <span>Privacy Policy</span>
-          <span>Legal notice</span>
-          <span>Impressum</span>
+      <div class="footer-notes">
+        <a href="privacy_policy.html" target="_blank"><span>Privacy Policy</span></a>
+        <a href="impressum.html" target="_blank"><span>Legal notice</span></a>
+
+      </div>
+    </div>
+  </div>
+  <div class="main" id="main">
+    <div class="contact-details" id="contact-details">
+      <div class="list-container">
+        <div class="button-container">
+          <button class="button-primary add-contact-btn">
+            Add new contact <img src="./img/person_add.png" alt="" />
+          </button>
+        </div>
+        <div class="contact-list">
+          <div class="letter-alph">
+            <span>A</span>
+          </div>
+          <div class="separator-contacts"></div>
+          <div class="single-contact">
+            <div class="contact-image-container">
+              <img src="./img/profile-badge.png" alt="" />
+              <div class="overlay-text">AM</div>
+            </div>
+            <div class="single-contact-details">
+              <span>Anton Mayer</span>
+              <a href="">antom@gmail.com</a>
+            </div>
+          </div>
+          <div class="single-contact">
+            <div class="contact-image-container">
+              <img src="./img/profile-badge.png" alt="" />
+              <div class="overlay-text">AM</div>
+            </div>
+            <div class="single-contact-details">
+              <span>Anton Mayer</span>
+              <a href="">antom@gmail.com</a>
+            </div>
+          </div>
+          <div class="separator-contacts"></div>
+          <div class="letter-alph">
+            <span>B</span>
+          </div>
+          <div class="single-contact">
+            <div class="contact-image-container">
+              <img src="./img/profile-badge.png" alt="" />
+              <div class="overlay-text">AM</div>
+            </div>
+            <div class="single-contact-details">
+              <span>Anton Mayer</span>
+              <a href="">antom@gmail.com</a>
+            </div>
+          </div>
+          <div class="separator-contacts"></div>
+          <div class="letter-alph">
+            <span>C</span>
+          </div>
+          <div class="single-contact">
+            <div class="contact-image-container">
+              <img src="./img/profile-badge.png" alt="" />
+              <div class="overlay-text">AM</div>
+            </div>
+            <div class="single-contact-details">
+              <span>Anton Mayer</span>
+              <a href="">antom@gmail.com</a>
+            </div>
+          </div>
+          <div class="separator-contacts"></div>
+          <div class="letter-alph">
+            <span>C</span>
+          </div>
+          <div class="single-contact">
+            <div class="contact-image-container">
+              <img src="./img/profile-badge.png" alt="" />
+              <div class="overlay-text">AM</div>
+            </div>
+            <div class="single-contact-details">
+              <span>Anton Mayer</span>
+              <a href="">antom@gmail.com</a>
+            </div>
+          </div>
+          <div class="separator-contacts"></div>
+          <div class="letter-alph">
+            <span>C</span>
+          </div>
+          <div class="single-contact">
+            <div class="contact-image-container">
+              <img src="./img/profile-badge.png" alt="" />
+              <div class="overlay-text">AM</div>
+            </div>
+            <div class="single-contact-details">
+              <span>Anton Mayer</span>
+              <a href="">antom@gmail.com</a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    <div class="main" id="main">
-      <div class="contact-details" id="contact-details">
-        <div class="list-container">
-          <div class="button-container">
-            <button class="button-primary add-contact-btn">
-              Add new contact <img src="./img/person_add.png" alt="" />
-            </button>
-          </div>
-          <div class="contact-list">
-            <div class="letter-alph">
-              <span>A</span>
-            </div>
-            <div class="separator-contacts"></div>
-            <div class="single-contact">
-              <div class="contact-image-container">
-                <img src="./img/profile-badge.png" alt="" />
-                <div class="overlay-text">AM</div>
-              </div>
-              <div class="single-contact-details">
-                <span>Anton Mayer</span>
-                <a href="">antom@gmail.com</a>
-              </div>
-            </div>
-            <div class="single-contact">
-              <div class="contact-image-container">
-                <img src="./img/profile-badge.png" alt="" />
-                <div class="overlay-text">AM</div>
-              </div>
-              <div class="single-contact-details">
-                <span>Anton Mayer</span>
-                <a href="">antom@gmail.com</a>
-              </div>
-            </div>
-            <div class="separator-contacts"></div>
-            <div class="letter-alph">
-              <span>B</span>
-            </div>
-            <div class="single-contact">
-              <div class="contact-image-container">
-                <img src="./img/profile-badge.png" alt="" />
-                <div class="overlay-text">AM</div>
-              </div>
-              <div class="single-contact-details">
-                <span>Anton Mayer</span>
-                <a href="">antom@gmail.com</a>
-              </div>
-            </div>
-            <div class="separator-contacts"></div>
-            <div class="letter-alph">
-              <span>C</span>
-            </div>
-            <div class="single-contact">
-              <div class="contact-image-container">
-                <img src="./img/profile-badge.png" alt="" />
-                <div class="overlay-text">AM</div>
-              </div>
-              <div class="single-contact-details">
-                <span>Anton Mayer</span>
-                <a href="">antom@gmail.com</a>
-              </div>
-            </div>
-            <div class="separator-contacts"></div>
-            <div class="letter-alph">
-              <span>C</span>
-            </div>
-            <div class="single-contact">
-              <div class="contact-image-container">
-                <img src="./img/profile-badge.png" alt="" />
-                <div class="overlay-text">AM</div>
-              </div>
-              <div class="single-contact-details">
-                <span>Anton Mayer</span>
-                <a href="">antom@gmail.com</a>
-              </div>
-            </div>
-            <div class="separator-contacts"></div>
-            <div class="letter-alph">
-              <span>C</span>
-            </div>
-            <div class="single-contact">
-              <div class="contact-image-container">
-                <img src="./img/profile-badge.png" alt="" />
-                <div class="overlay-text">AM</div>
-              </div>
-              <div class="single-contact-details">
-                <span>Anton Mayer</span>
-                <a href="">antom@gmail.com</a>
-              </div>
-            </div>
-          </div>
-        </div>
+    <div class="show-full-contact">
+      <div class="contacts-headline">
+        <h1>Contacts</h1>
+        <div class="spacer"></div>
+        <span>Better with a team</span>
       </div>
-      <div class="show-full-contact">
-        <div class="contacts-headline">
-          <h1>Contacts</h1>
-          <div class="spacer"></div>
-          <span>Better with a team</span>
-        </div>
-        <div class="full-contact-container">
-          <div class="full-contact-text">
-            <div class="ci-head">
-              <div class="ci-avatar">AM</div>
-              <div class="ci-elements">
-                <div class="ci-name">Anton Mayer</div>
-                <div class="ci-actions">
-                  <div class="ci-actions-item">
-                    <img src="./icons/edit.svg" alt="edit icon" />
-                    <div>Edit</div>
-                  </div>
-                  <div class="ci-actions-item">
-                    <img src="./icons/delete.svg" alt="edit icon" />
-                    <div>Delete</div>
-                  </div>
+      <div class="full-contact-container">
+        <div class="full-contact-text">
+          <div class="ci-head">
+            <div class="ci-avatar">AM</div>
+            <div class="ci-elements">
+              <div class="ci-name">Anton Mayer</div>
+              <div class="ci-actions">
+                <div class="ci-actions-item">
+                  <img src="./icons/edit.svg" alt="edit icon" />
+                  <div>Edit</div>
+                </div>
+                <div class="ci-actions-item">
+                  <img src="./icons/delete.svg" alt="edit icon" />
+                  <div>Delete</div>
                 </div>
               </div>
             </div>
-            <div class="ci-text">Contact Information</div>
-            <div class="info-block">
-              <div class="ci-info-text">Email</div>
-              <div class="ci-mailaddress">anton.maier@mail.de</div>
-              <div class="ci-info-text">Phone</div>
-              <div>0176 23445669</div>
-            </div>
+          </div>
+          <div class="ci-text">Contact Information</div>
+          <div class="info-block">
+            <div class="ci-info-text">Email</div>
+            <div class="ci-mailaddress">anton.maier@mail.de</div>
+            <div class="ci-info-text">Phone</div>
+            <div>0176 23445669</div>
           </div>
         </div>
       </div>
     </div>
-  </body>
+  </div>
+</body>
+
 </html>
