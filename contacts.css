@@ -6,6 +6,8 @@
   display: flex;
   justify-content: center;
   background-color: white;
+  box-shadow: 4px -1px 4px var(--shadow-color);
+  z-index: 1;
 }
 
 .list-container {
@@ -24,6 +26,11 @@
 .add-contact-btn {
   width: 80%;
   height: 56px;
+  margin-top: 22.5px;
+  margin-bottom: 8px;
+  position: sticky;
+  top: 22.5px;
+  z-index: 1;
 }
 
 .add-contact-btn img {

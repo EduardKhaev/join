@@ -42,3 +42,9 @@ body {
   border: 1px;
   border-radius: 10px;
 }
+
+.button-primary:hover {
+  background-color: #29ABE2;
+  cursor: pointer;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
+}
