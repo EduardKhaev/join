@@ -32,6 +32,16 @@ header {
   gap: 12px;
 }
 
+.header-right img {
+  height: 28px;
+  transition: all 200ms ease-in-out;
+}
+
+.header-right img:hover {
+  height: 32px;
+  cursor: pointer;
+}
+
 .user-profile-initials {
   width: 56px;
   height: 56px;
@@ -42,6 +52,11 @@ header {
   border-radius: 100%;
   color: var(--brand-blue);
   font-weight: 500;
+}
+
+.user-profile-initials:hover {
+  background-color: rgba(12, 46, 98, 0.12);
+  cursor: pointer;
 }
 
 /* header end */

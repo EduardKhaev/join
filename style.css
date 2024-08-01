@@ -17,8 +17,18 @@ body {
   margin: 0;
   box-sizing: border-box;
   font-family: "Inter";
+  font-size: 16px;
   height: 100vh;
   overflow: hidden;
+}
+
+button {
+  font-family: "Inter";
+  font-size: 16px;
+  font-weight: 400;
+  margin: 0;
+  padding-block: 0;
+  padding-inline: 0;
 }
 
 .main {
@@ -47,6 +57,10 @@ body {
   font-weight: 700;
 }
 
+.btn-with-icon {
+  font-size: 21px;
+}
+
 .button-primary:hover {
   background-color: var(--brand-blue);
   cursor: pointer;
@@ -61,6 +75,7 @@ body {
 
 .button-secondary {
   background-color: transparent;
+  font-weight: 400;
   color: var(--brand-dark);
   display: flex;
   align-items: center;
