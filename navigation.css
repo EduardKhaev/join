@@ -1,0 +1,88 @@
+/* navigation */
+
+.navigation {
+  background-color: rgb(43, 53, 72);
+  height: 100vh;
+  width: 232px;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.join-logo {
+  height: 121px;
+  width: 100px;
+  margin-top: 64px;
+  margin-bottom: 114px;
+  margin-left: 56px;
+}
+
+.navigation-main {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex: 1;
+  padding-bottom: 64px;
+  width: 100%;
+}
+
+.navigation-items-section {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.navigation-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+  color: #cdcdcd;
+  font-size: 16px;
+  cursor: pointer;
+  padding-left: 56px;
+  width: calc(100%-56px);
+}
+
+.navigation-item:hover {
+  background-color: rgba(9, 25, 49, 1);
+  color: white;
+}
+
+.navigation-item svg {
+  height: 30px;
+  width: 30px;
+  margin-right: 10px;
+}
+
+.navigation-item:hover svg path {
+  fill: white;
+}
+
+.navigation-icon {
+  height: 30px;
+  width: 30px;
+  margin-right: 10px;
+}
+
+.footer-notes {
+  display: flex;
+  flex-direction: column;
+  color: #cdcdcd;
+  font-size: 16px;
+  cursor: pointer;
+  padding-left: 56px;
+}
+
+.footer-notes span {
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.footer-notes span:hover {
+  color: #29abe1;
+}
+
+/* navigation end */
