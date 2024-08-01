@@ -28,8 +28,7 @@ async function loadUsers(path = "/names") {
 }
 
 function sortAllUsers() {
-  // sort Users alphabetically / Patrick
-  console.log(users);
+  users.sort((a, b) => a.name.localeCompare(b.name));
 }
 
 function displayUsers() {
