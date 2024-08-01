@@ -1,15 +1,23 @@
 const FIREBASE_URL =
   "https://join-e8e95-default-rtdb.europe-west1.firebasedatabase.app/";
 
-let users = [{}];
-let dataSet = {};
+let users = [];
+let dataSet = [];
 
 async function init() {
   await loadUsers();
-  console.log(users[1]);
   sortAllUsers();
   displayUsers();
 }
+
+/*
+
+function pushDatasets() {
+  for (let i = 0; i < dataSet.length; i++) {
+    postData("/names", dataSet[i]);
+  }
+}
+  */
 
 async function loadUsers(path = "/names") {
   let userResponse = await fetch(FIREBASE_URL + path + ".json");
@@ -37,7 +45,7 @@ function displayUsers() {
   let contacts = document.getElementById("contact-list");
   contacts.innerHTML = "";
   let currentLetter = "";
-  for (let i = 1; i < users.length; i++) {
+  for (let i = 0; i < users.length; i++) {
     let user = users[i];
     let name = user.name;
     let email = user.email;
@@ -68,7 +76,6 @@ function displayUsers() {
 function firstletter(index) {
   let firstLetter = users[index].name.charAt(0);
   return firstLetter;
-
 } // Max
 
 function showUserDetails(index, element) {
