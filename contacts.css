@@ -92,21 +92,19 @@
   background-color: lightgray;
 }
 
-.contact-image-container {
-  position: relative;
-  text-align: center;
-}
-
-.contact-image-container img {
+.cl-avatar {
+  background-color: orange;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid white;
+  border-radius: 100%;
   width: 42px;
   height: 42px;
 }
 
-.overlay-text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.cl-overlay-text {
   font-size: 12px;
   font-weight: 400;
   color: white;
@@ -120,7 +118,7 @@
 }
 
 .single-contact-details a {
-  color: blue;
+  color: var(--brand-blue);
 }
 
 
