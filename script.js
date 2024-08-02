@@ -127,7 +127,29 @@ function setUserActive(element) { //Galina
   activeUser.style.color = 'white';
 }
 
-function addNewUser(index) {} // Eduard
+function addNewUser() {
+  let nameInput = document.getElementById('inputname').value;
+  let mailInput = document.getElementById('inputemail').value;
+  let phoneInput = document.getElementById('inputphone').value;
+
+  let initials = getInitials(nameInput);
+
+  let newUser = {
+    name: nameInput,
+    email: mailInput,
+    phone: phoneInput,
+    color: 'red'
+
+    
+  };
+  postData("/names", newUser);
+  
+  };
+  function getInitials(name) {
+    let initials = '';
+  }
+
+ // Eduard
 
 function editUser(index) {}
 
