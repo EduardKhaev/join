@@ -12,15 +12,6 @@ async function init() {
   displayUsers();
 }
 
-/*
-
-function pushDatasets() {
-  for (let i = 0; i < dataSet.length; i++) {
-    postData("/names", dataSet[i]);
-  }
-}
-  */
-
 async function loadUsers(path = "/names") {
   let userResponse = await fetch(FIREBASE_URL + path + ".json");
   let responseToJson = await userResponse.json();
@@ -43,76 +34,40 @@ function sortAllUsers() {
 }
 
 function displayUsers() {
-  // show all users in list / Max
   let contacts = document.getElementById("contact-list");
   contacts.innerHTML = "";
   let currentLetter = "";
   for (let i = 0; i < users.length; i++) {
     let user = users[i];
-    let name = user.name;
-    let email = user.email;
-    let color = user.color;
-    let initials = user.initials;
-
-    if (firstletter(i) != currentLetter) {
-      contacts.innerHTML += `
-            <div class="letter-alph">
-              <span>${firstletter(i)}</span>
-            </div>
-            <div class="separator-contacts"></div>
-            `;
-      currentLetter = firstletter(i);
-    }
-    contacts.innerHTML += `<div id="single-contact" class="single-contact sc-color" onclick="showUserDetails(${i}, this)" >
-              <div class="cl-avatar" style = "background-color: ${color};">
-                <div class="cl-overlay-text">${initials}</div>
-              </div>
-              <div class="single-contact-details">
-                <span>${name}</span>
-                <a href="">${email}</a>
-              </div>
-            </div>`;
+    currentLetter = setFirstLetter(i, currentLetter, contacts);
+    contacts.innerHTML += returnContactListItems(i, user);
   }
+}
+
+function setFirstLetter(i, currentLetter, contacts) {
+  if (firstletter(i) != currentLetter) {
+    contacts.innerHTML += `
+          <div class="letter-alph">
+            <span>${firstletter(i)}</span>
+          </div>
+          <div class="separator-contacts"></div>
+          `;
+    currentLetter = firstletter(i);
+  }
+  return currentLetter;
 }
 
 function firstletter(index) {
   let firstLetter = users[index].name.charAt(0);
   return firstLetter;
-} // Max
+}
 
 function showUserDetails(index, element) {
   setUserActive(element);
   let user = users[index];
   let fullContactDetails = document.getElementById("full-contact-details");
-  fullContactDetails.innerHTML = ` 
-    <div class="full-contact-text">
-      <div class="ci-head">
-        <div class="ci-avatar" style="background-color: ${user.color};">
-          <div class="ci-overlay-text">${user.initials}</div>
-        </div>
-        <div class="ci-elements">
-          <div class="ci-name">${user.name}</div>
-          <div class="ci-actions">
-            <div class="ci-actions-item">
-              <img src="./icons/edit.svg" alt="edit icon" />
-              <div>Edit</div>
-            </div>
-            <div class="ci-actions-item">
-              <img src="./icons/delete.svg" alt="delete icon" />
-              <div>Delete</div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="ci-text">Contact Information</div>
-      <div class="info-block">
-        <div class="ci-info-text">Email</div>
-        <div class="ci-mailaddress">${user.email}</div>
-        <div class="ci-info-text">Phone</div>
-        <div>${user.phone}</div>
-      </div>
-    </div>
-  `;
+  fullContactDetails.innerHTML = returnUserDetails(user);
+  fullContactDetails.classList.remove("contact-out");
 }
 
 function setUserActive(element) {
