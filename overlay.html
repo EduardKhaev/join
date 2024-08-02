@@ -150,11 +150,11 @@
     <section class="overlay-maincontainer">
         <div class="overlay-brandcontainer">
             <div class="overlay-brandarea">
-            <img class="overlay-brandlogo" src="img/join-logo.png" alt="">
+                <img class="overlay-brandlogo" src="img/join-logo.png" alt="">
             <div class="overlay-brandtext">
-            <h1 class="overlay-h1">Add contact</h1>
-            <span class="overlay-span">Tasks are better with a team!</span>
-            <div class="overlay-brandline"></div>
+                <h1 class="overlay-h1">Add contact</h1>
+                <span class="overlay-span">Tasks are better with a team!</span>
+                <div class="overlay-brandline"></div>
             </div>
         </div>
         </div>
@@ -162,15 +162,17 @@
             <div class="overlay-loginprofile">
                 <img src="img/profile-icon.png" alt="">
             </div>
+            <form onsubmit="addNewUser()">
             <div class="overlay-logininputs">
-                <input class="inputtextname" type="text" placeholder="Name">
-                <input class="inputtextemail" type="text" placeholder="Email">
-                <input class="inputtextphone" type="text" placeholder="Phone">
-                <div class="overlay-buttons">
-                    <button class="overlay-cancelbutton">Cancel <img src="img/close.png" alt=""></button>
-                    <button class="overlay-addcontactbutton">Create contact <img src="img/check.png" alt=""></button>
+                <input required id="inputname" class="inputtextname" type="text" placeholder="Name">
+                <input required id="inputemail" class="inputtextemail" type="email" placeholder="Email">
+                <input required id="inputphone" class="inputtextphone" type="text" placeholder="Phone">
+                    <div class="overlay-buttons">
+                        <button class="overlay-cancelbutton">Cancel <img src="img/close.png" alt=""></button>
+                        <button type="submit" id="overlay-AddContact" class="overlay-addcontactbutton">Create contact <img src="img/check.png" alt=""></button>
+                    </div>
                 </div>
-            </div>
+            </form>
         </div>
     </section>
 
