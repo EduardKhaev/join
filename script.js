@@ -79,6 +79,7 @@ function setUserActive(element) {
   activeUser.classList.remove("sc-color");
   activeUser.style.backgroundColor = "#2b3548";
   activeUser.style.color = "white";
+  activeUser.style.cursor = "pointer";
 }
 
 function getInitials(name) {
