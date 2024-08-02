@@ -65,9 +65,9 @@ function showUserDetails(index, element) {
   setUserActive(element);
   let user = users[index];
   let fullContactDetails = document.getElementById("full-contact-details");
-  
+
   // Clear previous content and prevent immediate visibility
-  fullContactDetails.innerHTML = ''; 
+  fullContactDetails.innerHTML = "";
   fullContactDetails.classList.add("contact-out"); // Use the class to prepare for the animation
 
   // Use a timeout to allow for the removal of the content then set new content
@@ -124,7 +124,7 @@ function getUserDataFromInput() {
 
 function renderAddUserInputField() {
   let overlayContent = createOverlay("adduser-overlay", "overlay");
-  
+
   setTimeout(() => {
     overlayContent.innerHTML = getAddUserInputHtml();
     overlayContent = document.getElementById("adduser-maincontainer");
@@ -139,8 +139,6 @@ function cancelAddUser() {
   setTimeout(() => {
     document.getElementById("adduser-overlay").remove();
   }, 200);
-  
-  
 }
 
 function renderEditUserInputField(index) {
@@ -154,9 +152,9 @@ function editUser(index, event) {
   putData("/names/", userId, newUser);
 }
 
-function deleteUser(index) {
+function deleteUser(userId) {
   let overlayContent = createOverlay("deleteUser-overlay", "overlay");
-  overlayContent.innerHTML = renderConfirmationModal(index);
+  overlayContent.innerHTML = renderConfirmationModal(userId);
 }
 
 async function addUser() {
