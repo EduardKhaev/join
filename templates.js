@@ -88,13 +88,13 @@ function getAddUserInputHtml() {
               placeholder="Phone"
             />
             <div class="adduser-buttons">
-              <div class="adduser-cancelbutton button-secondary" onclick="cancelAddUser()" return false;>
+              <div class="button-secondary btn-with-icon" onclick="cancelAddUser()" return false;>
                 Cancel <img src="img/close.png" alt="" />
               </div>
               <button
                 type="submit"
                 id="adduser-AddContact"
-                class="adduser-addcontactbutton button-primary"
+                class="button-primary action-button-text"
               >
                 Create contact <img src="img/check.png" alt="" />
               </button>
