@@ -114,7 +114,11 @@ function getUserDataFromInput() {
   return newUser;
 }
 
-function renderAddUserInputField() {}
+function renderAddUserInputField() {
+  createOverlay("adduser-overlay", "overlay");
+  let overlayContent = document.getElementById("adduser-overlay");
+  overlayContent.innerHTML = getAddUserInputHtml();
+}
 
 function renderEditUserInputField(index) {
   console.log(index);

@@ -42,3 +42,62 @@ function returnUserDetails(user) {
     </div>
   `;
 }
+
+function getAddUserInputHtml() {
+    return `
+    <section class="adduser-maincontainer">
+      <div class="adduser-brandcontainer">
+        <div class="adduser-brandarea">
+          <img class="adduser-brandlogo" src="img/join-logo.png" alt="" />
+          <div class="adduser-brandtext">
+            <h1 class="adduser-h1">Add contact</h1>
+            <span class="adduser-span">Tasks are better with a team!</span>
+            <div class="adduser-brandline"></div>
+          </div>
+        </div>
+      </div>
+      <div class="adduser-logincontainer">
+        <div class="adduser-loginprofile">
+          <img src="img/profile-icon.png" alt="" />
+        </div>
+        <form onsubmit="addNewUser(event)">
+          <div class="adduser-logininputs">
+            <input
+              required
+              id="inputname"
+              class="inputtextname"
+              type="text"
+              placeholder="Name"
+            />
+            <input
+              required
+              id="inputemail"
+              class="inputtextemail"
+              type="email"
+              placeholder="Email"
+            />
+            <input
+              required
+              id="inputphone"
+              class="inputtextphone"
+              type="text"
+              placeholder="Phone"
+            />
+            <div class="adduser-buttons">
+              <button class="adduser-cancelbutton button-secondary">
+                Cancel <img src="img/close.png" alt="" />
+              </button>
+              <button
+                type="submit"
+                id="adduser-AddContact"
+                class="adduser-addcontactbutton button-primary"
+              >
+                Create contact <img src="img/check.png" alt="" />
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+    `;
+  }
