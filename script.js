@@ -125,7 +125,11 @@ function getUserDataFromInput() {
 function renderAddUserInputField() {
   createOverlay("adduser-overlay", "overlay");
   let overlayContent = document.getElementById("adduser-overlay");
-  overlayContent.innerHTML = getAddUserInputHtml();
+  overlayContent.classList.add("contact-out");
+  setTimeout(() => {
+    overlayContent.innerHTML = getAddUserInputHtml();
+    overlayContent.classList.remove("contact-out");
+  }, 200); // Short delay to allow the "out" class to complete if needed
 }
 
 function renderEditUserInputField(index) {
