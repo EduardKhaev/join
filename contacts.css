@@ -170,12 +170,24 @@
   margin-left: 55px;
 }
 
+@keyframes slideIn {
+  from {
+    transform: translateX(100%); /* Start from off-screen to the right */
+    opacity: 0; /* Start fully transparent */
+  }
+  to {
+    transform: translateX(0); /* End at the original position */
+    opacity: 1; /* End fully opaque */
+  }
+}
+
 .full-contact-text {
   height: 100%;
   width: 100%;
   position: absolute;
   top: 0;
-  transition: all 200ms ease-in-out;
+  animation: slideIn 0.2s ease-out forwards; /* Apply the slide-in animation */
+  opacity: 0; /* Start fully transparent */
 }
 
 .contact-out {

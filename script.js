@@ -65,8 +65,16 @@ function showUserDetails(index, element) {
   setUserActive(element);
   let user = users[index];
   let fullContactDetails = document.getElementById("full-contact-details");
-  fullContactDetails.innerHTML = returnUserDetails(user);
-  fullContactDetails.classList.remove("contact-out");
+  
+  // Clear previous content and prevent immediate visibility
+  fullContactDetails.innerHTML = ''; 
+  fullContactDetails.classList.add("contact-out"); // Use the class to prepare for the animation
+
+  // Use a timeout to allow for the removal of the content then set new content
+  setTimeout(() => {
+    fullContactDetails.innerHTML = returnUserDetails(user);
+    fullContactDetails.classList.remove("contact-out");
+  }, 200); // Short delay to allow the "out" class to complete if needed
 }
 
 function setUserActive(element) {
