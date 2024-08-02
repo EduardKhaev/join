@@ -67,6 +67,7 @@ function showUserDetails(index, element) {
   let user = users[index];
   let fullContactDetails = document.getElementById("full-contact-details");
   fullContactDetails.innerHTML = returnUserDetails(user);
+  fullContactDetails.classList.remove("contact-out");
 }
 
 function setUserActive(element) {
