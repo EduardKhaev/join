@@ -109,7 +109,11 @@
   display: flex;
   flex-direction: column;
   gap: 5px;
-  margin-right: 32px;
+}
+
+.max-mail-length {
+  max-width: 200px;
+  text-overflow: ellipsis;
 }
 
 .single-contact-details span {

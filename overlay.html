@@ -1,181 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-        body{
-            background-color: grey;
-        }
-        .overlay-maincontainer{
-            height: 592px;
-            width: 1212px;
-            border-radius: 15px;
-            display: flex;
-        }
-        .overlay-brandcontainer{
-            background-color: #2A3647;
-            width: 467px;
-            height: 592px;
-            border-top-left-radius: 15px;
-            border-bottom-left-radius: 15px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            
-        }
-        .overlay-brandlogo{
-            height: 66px;
-            width: 55px;
-           
-            margin-bottom: 30px;
-        }
-        .overlay-brandarea{
-            margin-left: 50px;
-        }
-        .overlay-brandtext{
-            color: white;
-            width: 371px;
-            height: 129px;
-            gap: 10px;
-            display: flex;
-            flex-direction: column;
-        }
-        .overlay-h1{
-            font-size: 61px;
-            font-family: sans-serif;
-            margin: 0;
-            width: 366px;
-        }
-        .overlay-span{
-            font-size: 27px;
-            font-family: sans-serif;
-            margin: 0;
-            width: 366px;
-        }
-        .overlay-brandline{
-            height: 3px;
-            width: 87px;
-            background-color: #29abe2;
-        
-            
-        }
-        .overlay-logincontainer{
-            background-color: white;
-            width: 745px;
-            height: 592px;
-            border-top-right-radius: 15px;
-            border-bottom-right-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+      body {
+        background-color: grey;
+      }
+      .overlay-maincontainer {
+        height: 592px;
+        width: 1212px;
+        border-radius: 15px;
+        display: flex;
+      }
+      .overlay-brandcontainer {
+        background-color: #2a3647;
+        width: 467px;
+        height: 592px;
+        border-top-left-radius: 15px;
+        border-bottom-left-radius: 15px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .overlay-brandlogo {
+        height: 66px;
+        width: 55px;
 
-        }
-        .overlay-logininputs{
-            display: flex;
-            flex-direction: column;
-            gap: 32px;
-            margin-right: 48px;
-        }
-        .overlay-logininputs input{
-            height: 50px;
-            width: 422px;
-            border-radius: 10px;
-            border: solid 1px;
-            font-size: 20px;
-            
-        }
-        ::placeholder {
+        margin-bottom: 30px;
+      }
+      .overlay-brandarea {
+        margin-left: 50px;
+      }
+      .overlay-brandtext {
+        color: white;
+        width: 371px;
+        height: 129px;
+        gap: 10px;
+        display: flex;
+        flex-direction: column;
+      }
+      .overlay-h1 {
+        font-size: 61px;
+        font-family: sans-serif;
+        margin: 0;
+        width: 366px;
+      }
+      .overlay-span {
+        font-size: 27px;
+        font-family: sans-serif;
+        margin: 0;
+        width: 366px;
+      }
+      .overlay-brandline {
+        height: 3px;
+        width: 87px;
+        background-color: #29abe2;
+      }
+      .overlay-logincontainer {
+        background-color: white;
+        width: 745px;
+        height: 592px;
+        border-top-right-radius: 15px;
+        border-bottom-right-radius: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .overlay-logininputs {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+        margin-right: 48px;
+      }
+      .overlay-logininputs input {
+        height: 50px;
+        width: 422px;
+        border-radius: 10px;
+        border: solid 1px;
+        font-size: 20px;
+      }
+      ::placeholder {
         color: #d1d1d1;
         padding-left: 15px;
-        
-        }
-        .inputtextname{
-            background-image: url(img/person-icon.png);
-            background-position: right 10px center;
-            background-repeat: no-repeat;
-        }
-        .inputtextemail{
-            background-image: url(img/mail-icon.png);
-            background-position: right 10px center;
-            background-repeat: no-repeat;
-        }
-        .inputtextphone{
-            background-image: url(img/phone-icon.png);
-            background-position: right 10px center;
-            background-repeat: no-repeat;
-        }
-        
+      }
+      .inputtextname {
+        background-image: url(img/person-icon.png);
+        background-position: right 10px center;
+        background-repeat: no-repeat;
+      }
+      .inputtextemail {
+        background-image: url(img/mail-icon.png);
+        background-position: right 10px center;
+        background-repeat: no-repeat;
+      }
+      .inputtextphone {
+        background-image: url(img/phone-icon.png);
+        background-position: right 10px center;
+        background-repeat: no-repeat;
+      }
 
-
-        .overlay-loginprofile{
-            margin-left: 90px;
-        }
-        .overlay-buttons{
-            display: flex;
-            gap: 24px;
-        }
-        .overlay-cancelbutton{
-            height: 56px;
-            width: 126px;
-            border-radius: 10px;
-            border: solid 2px;
-            background-color: white;
-            font-size: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-        .overlay-addcontactbutton{
-            height: 57px;
-            width: 214px;
-            border-radius: 10px;
-            border: solid 1px;
-            background-color: #2A3647;
-            color: white;
-            font-size: 21px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-        
-
-
+      .overlay-loginprofile {
+        margin-left: 90px;
+      }
+      .overlay-buttons {
+        display: flex;
+        gap: 24px;
+      }
+      .overlay-cancelbutton {
+        height: 56px;
+        width: 126px;
+        border-radius: 10px;
+        border: solid 2px;
+        background-color: white;
+        font-size: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+      }
+      .overlay-addcontactbutton {
+        height: 57px;
+        width: 214px;
+        border-radius: 10px;
+        border: solid 1px;
+        background-color: #2a3647;
+        color: white;
+        font-size: 21px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <section class="overlay-maincontainer">
-        <div class="overlay-brandcontainer">
-            <div class="overlay-brandarea">
-                <img class="overlay-brandlogo" src="img/join-logo.png" alt="">
-            <div class="overlay-brandtext">
-                <h1 class="overlay-h1">Add contact</h1>
-                <span class="overlay-span">Tasks are better with a team!</span>
-                <div class="overlay-brandline"></div>
+      <div class="overlay-brandcontainer">
+        <div class="overlay-brandarea">
+          <img class="overlay-brandlogo" src="img/join-logo.png" alt="" />
+          <div class="overlay-brandtext">
+            <h1 class="overlay-h1">Add contact</h1>
+            <span class="overlay-span">Tasks are better with a team!</span>
+            <div class="overlay-brandline"></div>
+          </div>
+        </div>
+      </div>
+      <div class="overlay-logincontainer">
+        <div class="overlay-loginprofile">
+          <img src="img/profile-icon.png" alt="" />
+        </div>
+        <form onsubmit="addNewUser(event)">
+          <div class="overlay-logininputs">
+            <input
+              required
+              id="inputname"
+              class="inputtextname"
+              type="text"
+              placeholder="Name"
+            />
+            <input
+              required
+              id="inputemail"
+              class="inputtextemail"
+              type="email"
+              placeholder="Email"
+            />
+            <input
+              required
+              id="inputphone"
+              class="inputtextphone"
+              type="text"
+              placeholder="Phone"
+            />
+            <div class="overlay-buttons">
+              <button class="overlay-cancelbutton">
+                Cancel <img src="img/close.png" alt="" />
+              </button>
+              <button
+                type="submit"
+                id="overlay-AddContact"
+                class="overlay-addcontactbutton"
+              >
+                Create contact <img src="img/check.png" alt="" />
+              </button>
             </div>
-        </div>
-        </div>
-        <div class="overlay-logincontainer">
-            <div class="overlay-loginprofile">
-                <img src="img/profile-icon.png" alt="">
-            </div>
-            <form onsubmit="addNewUser()">
-            <div class="overlay-logininputs">
-                <input required id="inputname" class="inputtextname" type="text" placeholder="Name">
-                <input required id="inputemail" class="inputtextemail" type="email" placeholder="Email">
-                <input required id="inputphone" class="inputtextphone" type="text" placeholder="Phone">
-                    <div class="overlay-buttons">
-                        <button class="overlay-cancelbutton">Cancel <img src="img/close.png" alt=""></button>
-                        <button type="submit" id="overlay-AddContact" class="overlay-addcontactbutton">Create contact <img src="img/check.png" alt=""></button>
-                    </div>
-                </div>
-            </form>
-        </div>
+          </div>
+        </form>
+      </div>
     </section>
 
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
