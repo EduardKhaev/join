@@ -6,7 +6,7 @@ function returnContactListItems(i, user) {
               </div>
               <div class="single-contact-details">
                 <span>${user.name}</span>
-                <a href="">${user.email}</a>
+             <div class="ci-mailaddress">${user.email}</div>
               </div>
             </div>`;
 }
