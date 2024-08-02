@@ -65,16 +65,12 @@ function showUserDetails(index, element) {
   setUserActive(element);
   let user = users[index];
   let fullContactDetails = document.getElementById("full-contact-details");
-
-  // Clear previous content and prevent immediate visibility
   fullContactDetails.innerHTML = "";
-  fullContactDetails.classList.add("contact-out"); // Use the class to prepare for the animation
-
-  // Use a timeout to allow for the removal of the content then set new content
+  fullContactDetails.classList.add("contact-out");
   setTimeout(() => {
-    fullContactDetails.innerHTML = returnUserDetails(user);
+    fullContactDetails.innerHTML = returnUserDetails(index, user);
     fullContactDetails.classList.remove("contact-out");
-  }, 200); // Short delay to allow the "out" class to complete if needed
+  }, 200);
 }
 
 function setUserActive(element) {
@@ -124,12 +120,11 @@ function getUserDataFromInput() {
 
 function renderAddUserInputField() {
   let overlayContent = createOverlay("adduser-overlay", "overlay");
-
   setTimeout(() => {
     overlayContent.innerHTML = getAddUserInputHtml();
     overlayContent = document.getElementById("adduser-maincontainer");
     overlayContent.classList.remove("contact-out");
-  }, 200); // Short delay to allow the "out" class to complete if needed
+  }, 200);
 }
 
 function cancelAddUser() {
@@ -142,7 +137,14 @@ function cancelAddUser() {
 }
 
 function renderEditUserInputField(index) {
+  let overlayContent = createOverlay("adduser-overlay", "overlay");
   console.log(index);
+  let user = users[index];
+  setTimeout(() => {
+    overlayContent.innerHTML = getUserEditHtml(user);
+    overlayContent = document.getElementById("adduser-maincontainer");
+    overlayContent.classList.remove("contact-out");
+  }, 200);
 }
 
 function editUser(index, event) {
@@ -155,16 +157,6 @@ function editUser(index, event) {
 function deleteUser(userId) {
   let overlayContent = createOverlay("deleteUser-overlay", "overlay");
   overlayContent.innerHTML = renderConfirmationModal(userId);
-}
-
-async function addUser() {
-  let nameValue = document.getElementById("name").value;
-  let phoneValue = document.getElementById("phone").value;
-  let newUser = { name: nameValue, phone: phoneValue };
-  document.getElementById("name").value = "";
-  document.getElementById("phone").value = "";
-  await postData("/names", newUser);
-  await loadUsers("/names");
 }
 
 async function putData(path = "/names/", id, data) {
@@ -195,9 +187,6 @@ async function deleteData(path = "/names/", id) {
     },
   });
 }
-
-// let myOverlay = createOverlay("my-overlay-id", "classname");
-// myOverlay.innerHTML =
 
 function createOverlay(id, overlayclass = "overlay") {
   let parent = document.getElementById("body");

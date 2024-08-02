@@ -11,7 +11,7 @@ function returnContactListItems(i, user) {
             </div>`;
 }
 
-function returnUserDetails(user) {
+function returnUserDetails(index, user) {
   return ` 
     <div class="full-contact-text">
       <div class="ci-head">
@@ -21,7 +21,7 @@ function returnUserDetails(user) {
         <div class="ci-elements">
           <div class="ci-name">${user.name}</div>
           <div class="ci-actions">
-            <div class="ci-actions-item" onclick="renderEditUserInputField('${user.id}')">
+            <div class="ci-actions-item" onclick="renderEditUserInputField(${index})">
               <svg fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M2 17H3.4L12.025 8.375L10.625 6.975L2 15.6V17ZM16.3 6.925L12.05 2.725L13.45 1.325C13.8333 0.941667 14.3042 0.75 14.8625 0.75C15.4208 0.75 15.8917 0.941667 16.275 1.325L17.675 2.725C18.0583 3.10833 18.2583 3.57083 18.275 4.1125C18.2917 4.65417 18.1083 5.11667 17.725 5.5L16.3 6.925ZM14.85 8.4L4.25 19H0V14.75L10.6 4.15L14.85 8.4Z" fill="#2A3647"/>
               </svg>
@@ -97,6 +97,66 @@ function getAddUserInputHtml() {
                 class="button-primary action-button-text"
               >
                 Create contact <img src="img/check.png" alt="" />
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+    `;
+}
+
+function getUserEditHtml(user) {
+  return `
+    <section class="adduser-maincontainer">
+      <div class="adduser-brandcontainer">
+        <div class="adduser-brandarea">
+          <img class="adduser-brandlogo" src="img/join-logo.png" alt="" />
+          <div class="adduser-brandtext">
+            <h1 class="adduser-h1">Edit contact</h1>
+
+            <div class="adduser-brandline"></div>
+          </div>
+        </div>
+      </div>
+      <div class="adduser-logincontainer">
+        <div class="adduser-loginprofile">
+          <img src="img/profile-icon.png" alt="" />
+        </div>
+        <form onsubmit="addEditedUser(event)">
+          <div class="adduser-logininputs">
+            <input
+              required
+              id="inputname"
+              class="inputtextname"
+              type="text"
+              placeholder="Name"
+              value="${user.name}"
+            />
+            <input
+              required
+              id="inputemail"
+              class="inputtextemail"
+              type="email"
+              placeholder="Email"
+              value="${user.email}"
+            />
+            <input
+              required
+              id="inputphone"
+              class="inputtextphone"
+              type="text"
+              placeholder="Phone"
+              value="${user.phone}"
+            />
+            <div class="adduser-buttons">
+              <button class="button-secondary btn-with-icon">Delete</button>
+              <button
+                type="submit"
+                id="adduser-AddContact"
+                class="action-button-text button-primary"
+              >
+                Save <img src="img/check.png" alt="" />
               </button>
             </div>
           </div>
