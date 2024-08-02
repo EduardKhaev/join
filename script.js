@@ -6,7 +6,6 @@ let dataSet = {};
 
 async function init() {
   await loadUsers();
-  console.log(users[1]);
   sortAllUsers();
   displayUsers();
 }
