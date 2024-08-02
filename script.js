@@ -2,7 +2,6 @@ const FIREBASE_URL =
   "https://join-e8e95-default-rtdb.europe-west1.firebasedatabase.app/";
 
 let users = [];
-let dataSet = [];
 
 let activeUser = undefined;
 
@@ -82,23 +81,6 @@ function setUserActive(element) {
   activeUser.style.color = "white";
 }
 
-function addNewUser() {
-  let nameInput = document.getElementById("inputname").value;
-  let mailInput = document.getElementById("inputemail").value;
-  let phoneInput = document.getElementById("inputphone").value;
-  let initials = getInitials(nameInput);
-  mykey = "username";
-
-  let newUser = {
-    name: nameInput,
-    email: mailInput,
-    phone: phoneInput,
-    color: "red",
-    initials: initials,
-  };
-  postData("/names", newUser);
-}
-
 function getInitials(name) {
   let initials = name
     .split(" ")
@@ -124,7 +106,7 @@ async function addUser() {
   await loadUsers("/names");
 }
 
-async function postData(path = "/names", data = dataSet) {
+async function postData(path = "/names", data) {
   await fetch(FIREBASE_URL + path + ".json", {
     method: "POST",
     headers: {
@@ -132,4 +114,20 @@ async function postData(path = "/names", data = dataSet) {
     },
     body: JSON.stringify(data),
   });
+}
+
+function addNewUser(event) {
+  event.preventDefault();
+  let nameInput = document.getElementById("inputname").value;
+  let mailInput = document.getElementById("inputemail").value;
+  let phoneInput = document.getElementById("inputphone").value;
+  let initials = getInitials(nameInput);
+  let newUser = {
+    name: nameInput,
+    email: mailInput,
+    phone: phoneInput,
+    color: "red",
+    initials: initials,
+  };
+  postData("/names", newUser);
 }
