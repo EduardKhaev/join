@@ -123,13 +123,24 @@ function getUserDataFromInput() {
 }
 
 function renderAddUserInputField() {
-  createOverlay("adduser-overlay", "overlay");
-  let overlayContent = document.getElementById("adduser-overlay");
-  overlayContent.classList.add("contact-out");
+  let overlayContent = createOverlay("adduser-overlay", "overlay");
+  
   setTimeout(() => {
     overlayContent.innerHTML = getAddUserInputHtml();
+    overlayContent = document.getElementById("adduser-maincontainer");
     overlayContent.classList.remove("contact-out");
   }, 200); // Short delay to allow the "out" class to complete if needed
+}
+
+function cancelAddUser() {
+  let overlayContent = document.getElementById("adduser-maincontainer");
+  overlayContent.classList.add("adduser-maincontainer-out");
+  overlayContent.classList.remove("contact-out");
+  setTimeout(() => {
+    document.getElementById("adduser-overlay").remove();
+  }, 200);
+  
+  
 }
 
 function renderEditUserInputField(index) {

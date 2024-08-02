@@ -49,7 +49,7 @@ function returnUserDetails(user) {
 
 function getAddUserInputHtml() {
   return `
-    <section class="adduser-maincontainer">
+    <section id="adduser-maincontainer" class="adduser-maincontainer">
       <div class="adduser-brandcontainer">
         <div class="adduser-brandarea">
           <img class="adduser-brandlogo" src="img/join-logo.png" alt="" />
@@ -88,9 +88,9 @@ function getAddUserInputHtml() {
               placeholder="Phone"
             />
             <div class="adduser-buttons">
-              <button class="adduser-cancelbutton button-secondary">
+              <div class="adduser-cancelbutton button-secondary" onclick="cancelAddUser()" return false;>
                 Cancel <img src="img/close.png" alt="" />
-              </button>
+              </div>
               <button
                 type="submit"
                 id="adduser-AddContact"

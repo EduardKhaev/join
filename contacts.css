@@ -181,6 +181,17 @@
   }
 }
 
+@keyframes slideOut {
+  from {
+    transform: translateX(0); /* Start from off-screen to the right */
+    opacity: 1; /* Start fully transparent */
+  }
+  to {
+    transform: translateX(100%); /* End at the original position */
+    opacity: 0; /* End fully opaque */
+  }
+}
+
 .full-contact-text {
   height: 100%;
   width: 100%;
@@ -191,7 +202,9 @@
 }
 
 .contact-out {
+  
   left: 100%;
+ 
 }
 
 .ci-head {

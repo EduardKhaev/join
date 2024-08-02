@@ -1,4 +1,5 @@
 .adduser-maincontainer {
+  position: relative;
   height: 592px;
   width: 1212px;
   border-radius: 15px;
@@ -6,7 +7,14 @@
   animation: slideIn 0.2s ease-out forwards;
 }
 
-
+.adduser-maincontainer-out {
+  position: relative;
+  height: 592px;
+  width: 1212px;
+  border-radius: 15px;
+  display: flex;
+  animation: slideOut 0.2s ease-out forwards;
+}
 
 .adduser-brandcontainer {
   background-color: #2a3647;
