@@ -78,7 +78,7 @@ function firstletter(index) {
   return firstLetter;
 } // Max
 
-function showUserDetails(index, element) {
+function showUserDetails(index, element) { //Galina
   setUserActive(element);
   let user = users[index];
   let fullContactDetails = document.getElementById('full-contact-details');
@@ -116,7 +116,7 @@ function showUserDetails(index, element) {
 
 let activeUser = null;
 
-function setUserActive(element) {
+function setUserActive(element) { //Galina
   if (activeUser) {
     activeUser.style.backgroundColor = ''; 
     activeUser.style.color = '';
