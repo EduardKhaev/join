@@ -4,6 +4,8 @@ const FIREBASE_URL =
 let users = [];
 let dataSet = [];
 
+let activeUser = undefined;
+
 async function init() {
   await loadUsers();
   sortAllUsers();
@@ -61,7 +63,7 @@ function displayUsers() {
             `;
       currentLetter = firstletter(i);
     }
-    contacts.innerHTML += `<div id="single-contact" class="single-contact" onclick="showUserDetails(${i}, this)" >
+    contacts.innerHTML += `<div id="single-contact" class="single-contact sc-color" onclick="showUserDetails(${i}, this)" >
               <div class="cl-avatar" style = "background-color: ${color};">
                 <div class="cl-overlay-text">${initials}</div>
               </div>
@@ -78,11 +80,10 @@ function firstletter(index) {
   return firstLetter;
 } // Max
 
-function showUserDetails(index, element) { //Galina
+function showUserDetails(index, element) {
   setUserActive(element);
   let user = users[index];
-  let fullContactDetails = document.getElementById('full-contact-details');
-  
+  let fullContactDetails = document.getElementById("full-contact-details");
   fullContactDetails.innerHTML = ` 
     <div class="full-contact-text">
       <div class="ci-head">
@@ -114,17 +115,16 @@ function showUserDetails(index, element) { //Galina
   `;
 }
 
-let activeUser = null;
-
-function setUserActive(element) { //Galina
+function setUserActive(element) {
   if (activeUser) {
-    activeUser.style.backgroundColor = ''; 
-    activeUser.style.color = '';
+    activeUser.style.backgroundColor = "";
+    activeUser.style.color = "";
+    activeUser.classList.add("sc-color");
   }
-  
   activeUser = element;
-  activeUser.style.backgroundColor = '#2b3548';
-  activeUser.style.color = 'white';
+  activeUser.classList.remove("sc-color");
+  activeUser.style.backgroundColor = "#2b3548";
+  activeUser.style.color = "white";
 }
 
 function addNewUser(index) {} // Eduard
