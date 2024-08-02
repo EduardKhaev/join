@@ -3,7 +3,11 @@
   width: 1212px;
   border-radius: 15px;
   display: flex;
+  animation: slideIn 0.2s ease-out forwards;
 }
+
+
+
 .adduser-brandcontainer {
   background-color: #2a3647;
   width: 467px;
@@ -17,9 +21,9 @@
 .adduser-brandlogo {
   height: 66px;
   width: 55px;
-
   margin-bottom: 30px;
 }
+
 .adduser-brandarea {
   margin-left: 50px;
 }
