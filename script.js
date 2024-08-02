@@ -1,14 +1,23 @@
 const FIREBASE_URL =
   "https://join-e8e95-default-rtdb.europe-west1.firebasedatabase.app/";
 
-let users = [{}];
-let dataSet = {};
+let users = [];
+let dataSet = [];
 
 async function init() {
   await loadUsers();
   sortAllUsers();
   displayUsers();
 }
+
+/*
+
+function pushDatasets() {
+  for (let i = 0; i < dataSet.length; i++) {
+    postData("/names", dataSet[i]);
+  }
+}
+  */
 
 async function loadUsers(path = "/names") {
   let userResponse = await fetch(FIREBASE_URL + path + ".json");
@@ -28,8 +37,7 @@ async function loadUsers(path = "/names") {
 }
 
 function sortAllUsers() {
-  // sort Users alphabetically / Patrick
-  console.log(users);
+  users.sort((a, b) => a.name.localeCompare(b.name));
 }
 
 function displayUsers() {
@@ -38,28 +46,37 @@ function displayUsers() {
   contacts.innerHTML = "";
   let currentLetter = "";
   for (let i = 0; i < users.length; i++) {
+    let user = users[i];
+    let name = user.name;
+    let email = user.email;
+    let color = user.color;
+    let initials = user.initials;
+
     if (firstletter(i) != currentLetter) {
       contacts.innerHTML += `
             <div class="letter-alph">
-              <span>A</span>
+              <span>${firstletter(i)}</span>
             </div>
             <div class="separator-contacts"></div>
             `;
       currentLetter = firstletter(i);
     }
     contacts.innerHTML += `<div class="single-contact">
-              <div class="cl-avatar">
-                <div class="cl-overlay-text">AM</div>
+              <div class="cl-avatar" style = "background-color: ${color};">
+                <div class="cl-overlay-text">${initials}</div>
               </div>
               <div class="single-contact-details">
-                <span>Anton Müller</span>
-                <a href="">antom@gmail.com</a>
+                <span>${name}</span>
+                <a href="">${email}</a>
               </div>
             </div>`;
   }
 }
 
-function firstletter(index) {} // Max
+function firstletter(index) {
+  let firstLetter = users[index].name.charAt(0);
+  return firstLetter;
+} // Max
 
 function showUserDetails(index, element) {
   setUserActive(element);
