@@ -131,7 +131,10 @@ function editUser(index, event) {
   putData("/names/", userId, newUser);
 }
 
-// function deleteUser(index) {}
+function deleteUser(index) {
+  let overlayContent = createOverlay("deleteUser-overlay", "overlay");
+  overlayContent.innerHTML = renderConfirmationModal(index);
+}
 
 async function addUser() {
   let nameValue = document.getElementById("name").value;
@@ -160,6 +163,15 @@ async function postData(path = "/names", data) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(data),
+  });
+}
+
+async function deleteData(path = "/names/", id) {
+  await fetch(FIREBASE_URL + path + id + ".json", {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+    },
   });
 }
 

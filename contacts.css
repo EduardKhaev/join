@@ -223,8 +223,17 @@
   cursor: pointer;
 }
 
-.ci-actions img {
+.ci-actions svg {
   height: 20px;
+  width: 20px;
+}
+
+.ci-actions-item:hover {
+  color: var(--brand-blue);
+}
+
+.ci-actions-item:hover svg path {
+  fill: var(--brand-blue);
 }
 
 .ci-text {
