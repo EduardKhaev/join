@@ -108,7 +108,7 @@ function getAddUserInputHtml() {
 
 function getUserEditHtml(user) {
   return `
-    <section class="adduser-maincontainer">
+    <section id="adduser-maincontainer" class="adduser-maincontainer">
       <div class="adduser-brandcontainer">
         <div class="adduser-brandarea">
           <img class="adduser-brandlogo" src="img/join-logo.png" alt="" />
@@ -123,7 +123,7 @@ function getUserEditHtml(user) {
         <div class="adduser-loginprofile">
           <img src="img/profile-icon.png" alt="" />
         </div>
-        <form onsubmit="addEditedUser(event)">
+        <form onsubmit="addEditedUser(event, '${user.id}', true)">
           <div class="adduser-logininputs">
             <input
               required
@@ -150,7 +150,7 @@ function getUserEditHtml(user) {
               value="${user.phone}"
             />
             <div class="adduser-buttons">
-              <button class="button-secondary btn-with-icon">Delete</button>
+              <button class="button-secondary btn-with-icon" onclick="addEditedUser(event, '${user.id}', false)">Delete</button>
               <button
                 type="submit"
                 id="adduser-AddContact"

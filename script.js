@@ -138,20 +138,26 @@ function cancelAddUser() {
 
 function renderEditUserInputField(index) {
   let overlayContent = createOverlay("adduser-overlay", "overlay");
-  console.log(index);
   let user = users[index];
   setTimeout(() => {
     overlayContent.innerHTML = getUserEditHtml(user);
     overlayContent = document.getElementById("adduser-maincontainer");
-    overlayContent.classList.remove("contact-out");
   }, 200);
 }
 
-function editUser(index, event) {
+async function addEditedUser(event, userId, saveData) {
   event.preventDefault();
-  let userId = users[index].id;
   let newUser = getUserDataFromInput();
-  putData("/names/", userId, newUser);
+  cancelAddUser();
+  if (saveData) {
+    await putData("/names/", userId, newUser);
+    users = [];
+    init();
+  } else {
+    await deleteData("/names/", userId);
+    users = [];
+    init();
+  }
 }
 
 function deleteUser(userId) {
