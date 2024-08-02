@@ -93,7 +93,39 @@ function getInitials(name) {
   return initials;
 }
 
-function editUser(index) {}
+function addNewUser(event) {
+  event.preventDefault();
+  let newUser = getUserDataFromInput();
+  postData("/names", newUser);
+}
+
+function getUserDataFromInput() {
+  let nameInput = document.getElementById("inputname").value;
+  let mailInput = document.getElementById("inputemail").value;
+  let phoneInput = document.getElementById("inputphone").value;
+  let initials = getInitials(nameInput);
+  let newUser = {
+    name: nameInput,
+    email: mailInput,
+    phone: phoneInput,
+    color: "red",
+    initials: initials,
+  };
+  return newUser;
+}
+
+function renderAddUserInputField() {}
+
+function renderEditUserInputField(index) {
+  console.log(index);
+}
+
+function editUser(index, event) {
+  event.preventDefault();
+  let userId = users[index].id;
+  let newUser = getUserDataFromInput();
+  putData("/names/", userId, newUser);
+}
 
 // function deleteUser(index) {}
 
@@ -107,6 +139,16 @@ async function addUser() {
   await loadUsers("/names");
 }
 
+async function putData(path = "/names/", id, data) {
+  await fetch(FIREBASE_URL + path + id + ".json", {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  });
+}
+
 async function postData(path = "/names", data) {
   await fetch(FIREBASE_URL + path + ".json", {
     method: "POST",
@@ -117,18 +159,19 @@ async function postData(path = "/names", data) {
   });
 }
 
-function addNewUser(event) {
-  event.preventDefault();
-  let nameInput = document.getElementById("inputname").value;
-  let mailInput = document.getElementById("inputemail").value;
-  let phoneInput = document.getElementById("inputphone").value;
-  let initials = getInitials(nameInput);
-  let newUser = {
-    name: nameInput,
-    email: mailInput,
-    phone: phoneInput,
-    color: "red",
-    initials: initials,
-  };
-  postData("/names", newUser);
+// let myOverlay = createOverlay("my-overlay-id", "classname");
+// myOverlay.innerHTML =
+
+function createOverlay(id, overlayclass = "overlay") {
+  let parent = document.getElementById("body");
+  let overlay = elementBuilder(parent, "div", overlayclass, id);
+  return overlay;
+}
+
+function elementBuilder(parent, childType, childClass, childID = "") {
+  let child = document.createElement(childType);
+  child.className = childClass;
+  child.id = childID;
+  parent.appendChild(child);
+  return child;
 }

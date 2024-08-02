@@ -21,7 +21,7 @@ function returnUserDetails(user) {
         <div class="ci-elements">
           <div class="ci-name">${user.name}</div>
           <div class="ci-actions">
-            <div class="ci-actions-item">
+            <div class="ci-actions-item" onclick="renderEditUserInputField('${user.id}')">
               <img src="./icons/edit.svg" alt="edit icon" />
               <div>Edit</div>
             </div>
