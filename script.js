@@ -128,28 +128,29 @@ function setUserActive(element) {
 }
 
 function addNewUser() {
-  let nameInput = document.getElementById('inputname').value;
-  let mailInput = document.getElementById('inputemail').value;
-  let phoneInput = document.getElementById('inputphone').value;
-
+  let nameInput = document.getElementById("inputname").value;
+  let mailInput = document.getElementById("inputemail").value;
+  let phoneInput = document.getElementById("inputphone").value;
   let initials = getInitials(nameInput);
+  mykey = "username";
 
   let newUser = {
     name: nameInput,
     email: mailInput,
     phone: phoneInput,
-    color: 'red'
-
-    
+    color: "red",
+    initials: initials,
   };
   postData("/names", newUser);
-  
-  };
-  function getInitials(name) {
-    let initials = '';
-  }
+}
 
- // Eduard
+function getInitials(name) {
+  let initials = "";
+
+  return initials;
+}
+
+// Eduard
 
 function editUser(index) {}
 
