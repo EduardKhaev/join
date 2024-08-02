@@ -61,7 +61,7 @@ function displayUsers() {
             `;
       currentLetter = firstletter(i);
     }
-    contacts.innerHTML += `<div class="single-contact">
+    contacts.innerHTML += `<div id="single-contact" class="single-contact" onclick="showUserDetails(${i}, this)" >
               <div class="cl-avatar" style = "background-color: ${color};">
                 <div class="cl-overlay-text">${initials}</div>
               </div>
@@ -80,11 +80,51 @@ function firstletter(index) {
 
 function showUserDetails(index, element) {
   setUserActive(element);
-  // show details of selected user  // Galina
+  let user = users[index];
+  let fullContactDetails = document.getElementById('full-contact-details');
+  
+  fullContactDetails.innerHTML = ` 
+    <div class="full-contact-text">
+      <div class="ci-head">
+        <div class="ci-avatar" style="background-color: ${user.color};">
+          <div class="ci-overlay-text">${user.initials}</div>
+        </div>
+        <div class="ci-elements">
+          <div class="ci-name">${user.name}</div>
+          <div class="ci-actions">
+            <div class="ci-actions-item">
+              <img src="./icons/edit.svg" alt="edit icon" />
+              <div>Edit</div>
+            </div>
+            <div class="ci-actions-item">
+              <img src="./icons/delete.svg" alt="delete icon" />
+              <div>Delete</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="ci-text">Contact Information</div>
+      <div class="info-block">
+        <div class="ci-info-text">Email</div>
+        <div class="ci-mailaddress">${user.email}</div>
+        <div class="ci-info-text">Phone</div>
+        <div>${user.phone}</div>
+      </div>
+    </div>
+  `;
 }
 
+let activeUser = null;
+
 function setUserActive(element) {
-  // shows user as active in list  // Galina
+  if (activeUser) {
+    activeUser.style.backgroundColor = ''; 
+    activeUser.style.color = '';
+  }
+  
+  activeUser = element;
+  activeUser.style.backgroundColor = '#2b3548';
+  activeUser.style.color = 'white';
 }
 
 function addNewUser(index) {} // Eduard
