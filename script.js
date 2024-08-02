@@ -100,11 +100,15 @@ function addNewUser() {
 }
 
 function getInitials(name) {
-  let initials = name.split(' ').map(word => word.charAt(0).toUpperCase()).join('');
+  let initials = name
+    .split(" ")
+    .map((word) => word.charAt(0).toUpperCase())
+    .join("");
+  let firstLetter = initials.charAt(0);
+  let lastLetter = initials.charAt(initials.length - 1);
+  initials = firstLetter + lastLetter;
   return initials;
 }
-
-// Eduard
 
 function editUser(index) {}
 
