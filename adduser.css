@@ -83,6 +83,7 @@
   font-size: 20px;
   padding-left: 8px;
 }
+
 .adduser-logininputs input:focus{
   border: solid 1px;
   border-color:#29abe2;
@@ -126,6 +127,7 @@
   position: absolute;
   top: 35px;
   right: 55px;
+  cursor: pointer;
 }
 .adduser-close-button img{
   height: 18px;
