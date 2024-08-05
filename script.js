@@ -113,7 +113,14 @@ function setUserActive(element) {
   activeUser.style.cursor = "pointer";
 }
 
-function clearActiveUser() {}
+function clearActiveUser() {
+  if (activeUser) {
+    activeUser.style.backgroundColor = "";
+    activeUser.style.color = "";
+    activeUser.classList.add("sc-color");
+  }
+  activeUser = undefined;
+}
 
 function getInitials(name) {
   let initials = name
