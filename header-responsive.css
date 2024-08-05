@@ -1,0 +1,45 @@
+@media (max-width:1000px) {
+
+    .join-logo-header {
+        display: block;
+        height: 39px;
+        padding-left: 20px;
+    }
+
+    .join-logo {
+        display: none;
+    }
+
+    .header-title {
+        display: none;
+    }
+
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+    }
+
+    .header-left {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        padding-right: 0;
+    }
+
+    .header-right {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+    
+    .header-right img {
+        display: none;
+    }
+
+    .user-profile-initials {
+        width: 40px;
+        height: 40px;
+    }
+}
