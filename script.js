@@ -5,6 +5,8 @@ let users = [];
 
 let activeUser = undefined;
 
+let activeNavItem = undefined;
+
 async function init() {
   await loadUsers();
   sortAllUsers();
@@ -275,4 +277,28 @@ function hslToHex(h, s, l) {
       .padStart(2, "0");
   };
   return `#${f(0)}${f(8)}${f(4)}`;
+}
+
+function setNavActive(element) {
+  if (activeNavItem) {
+    activeNavItem.classList.remove("active");
+  }
+  activeNavItem = element;
+  activeNavItem.classList.add("active");
+}
+
+function setSummaryActive(element) {
+  setNavActive(element);
+}
+
+function setAddTaskActive(element) {
+  setNavActive(element);
+}
+
+function setBoardActive(element) {
+  setNavActive(element);
+}
+
+function setContactsActive(element) {
+  setNavActive(element);
 }

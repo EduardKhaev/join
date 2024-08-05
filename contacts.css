@@ -349,3 +349,28 @@
   gap: 8px;
   margin-bottom: 12px;
 }
+
+.add-btn-responsive {
+  position: absolute;
+  background-color: var(--brand-dark);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  width: 56px;
+  height: 56px; 
+  z-index: 3;
+  border: 1px;
+  bottom: 120px;
+  right: 16px;
+  display: none;
+}
+
+.add-btn-responsive img {
+  width: 32px;
+  height: 32px;
+}
+
+.add-btn-responsive:hover {
+  cursor: pointer; 
+}
