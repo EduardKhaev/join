@@ -373,7 +373,11 @@
 }
 
 .add-btn-responsive:hover {
-  cursor: pointer;
+  cursor: pointer; 
+}
+
+.add-btn-active {
+  background-color: var(--brand-blue);
 }
 
 .overlay-small {

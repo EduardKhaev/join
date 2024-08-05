@@ -84,6 +84,10 @@ function showUserDetailsBig(index) {
   }, 200);
 }
 
+function showUserDetailsResponsive() {
+  document.getElementById("add-btn-responsive").classList.add("add-btn-active");
+}
+
 function showUserDetailsSmall(index) {
   let user = users[index];
   let overlay = createOverlay("overlay-small", "overlay-small");

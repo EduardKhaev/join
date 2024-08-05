@@ -144,6 +144,12 @@
   .add-btn-responsive {
     display: flex;
   }
+  .separator-contacts {
+    width: 90%;
+  }
+  .single-contact {
+    width: 90%;
+  }
 }
 
 @media (max-width: 410px) {
