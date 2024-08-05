@@ -5,6 +5,8 @@ let users = [];
 
 let activeUser = undefined;
 
+let activeNavItem = undefined;
+
 async function init() {
   await loadUsers();
   sortAllUsers();
@@ -207,4 +209,29 @@ function elementBuilder(parent, childType, childClass, childID = "") {
   child.id = childID;
   parent.appendChild(child);
   return child;
+}
+
+
+function setNavActive(element) {
+  if (activeNavItem) {
+    activeNavItem.classList.remove("active");
+  }
+  activeNavItem = element;
+  activeNavItem.classList.add("active");
+}
+
+function setSummaryActive(element) {
+  setNavActive(element);
+}
+
+function setAddTaskActive(element) {
+  setNavActive(element);
+}
+
+function setBoardActive(element) {
+  setNavActive(element);
+}
+
+function setContactsActive(element) {
+  setNavActive(element);
 }
