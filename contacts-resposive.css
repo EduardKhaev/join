@@ -99,6 +99,9 @@
   .main {
     justify-content: center;
   }
+  .contact-details {
+    width: 100%;
+  }
 }
 
 @media (max-width: 540px) {
@@ -117,5 +120,29 @@
 }
 
 @media (max-width: 410px) {
-  
+  .contact-list {
+    width: 310px;
+  }
+  .single-contact {
+    width: 90%;
+    gap: 24px;
+  }
+  .cl-avatar {
+    width: 32px;
+    height: 32px;
+  }
+  .single-contact span {
+    font-size: 18px;
+  }
+  .ci-mailaddress {
+    font-size: 14px;
+    line-break: auto;
+    hyphens: auto;
+  }
+  .max-mail-length {
+    max-width: 150px;  
+  }
+  .letter-alph span {
+    margin-left: 20px;
+  }
 }
