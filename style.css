@@ -5,6 +5,7 @@
   --brand-dark: rgba(42, 54, 71, 1);
   --brand-active: rgba(9, 25, 49, 1);
   --overlay-background: rgba(0, 0, 0, 0.3);
+  --navigation-hover: rgba(42, 61, 89, 1);
 }
 
 @font-face {
@@ -34,9 +35,10 @@ button {
 
 .main {
   background-color: var(--background-main);
-  height: calc(100% - 96px);
-  margin-top: 96px;
-  margin-left: 232px;
+  height: calc(100% - 104px);
+  width: calc(100% - 232px);
+  padding-top: 96px;
+  padding-left: 232px;
   display: flex;
   justify-content: flex-start;
 }
@@ -119,4 +121,8 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.d-none {
+  display: none;
 }

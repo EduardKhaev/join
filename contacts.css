@@ -165,7 +165,7 @@
 
 .full-contact-container {
   height: 100%;
-  width: 100%;
+  width: calc(100%-55px);
   position: relative;
   margin-left: 55px;
 }
@@ -194,7 +194,7 @@
 
 .full-contact-text {
   height: 100%;
-  width: 100%;
+  width: calc(100% - 55px);
   position: absolute;
   top: 0;
   animation: slideIn 0.2s ease-out forwards; /* Apply the slide-in animation */
@@ -202,9 +202,7 @@
 }
 
 .contact-out {
-  
   left: 100%;
- 
 }
 
 .ci-head {

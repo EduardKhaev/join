@@ -66,6 +66,7 @@ function showUserDetails(index, element) {
   let user = users[index];
   let fullContactDetails = document.getElementById("full-contact-details");
   fullContactDetails.innerHTML = "";
+  fullContactDetails.classList.remove("d-none");
   fullContactDetails.classList.add("contact-out");
   setTimeout(() => {
     fullContactDetails.innerHTML = returnUserDetails(index, user);
