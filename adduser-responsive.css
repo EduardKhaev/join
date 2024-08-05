@@ -1,0 +1,38 @@
+@media (max-width: 1250px){
+    .adduser-maincontainer {
+        
+        height: 592px;
+        width: 1212px;
+        border-radius: 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        animation: slideIn 0.2s ease-out forwards;
+        
+    }
+    .adduser-brandcontainer{
+        
+        width: 80%;
+        height: 550px;
+        border-top-left-radius: 15px;
+        border-bottom-left-radius: 0px;
+        border-top-right-radius: 15px;
+        
+    }
+    .adduser-logincontainer{
+        width:  80%;
+        height: 550px;
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 15px;
+        border-bottom-left-radius: 15px;
+        display: flex;
+        flex-direction:column;
+        justify-content:flex-end;
+        
+    }
+    .adduser-brandlogo {
+        display: none;
+    }
+
+      
+}
