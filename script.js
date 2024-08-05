@@ -5,6 +5,8 @@ let users = [];
 
 let activeUser = undefined;
 
+let activeNavItem = undefined;
+
 async function init() {
   await loadUsers();
   sortAllUsers();
@@ -105,6 +107,7 @@ function addNewUser(event) {
   cancelAddUser();
   users = [];
   init();
+  showChangeSuccess("Contact successfully added");
 }
 
 function getUserDataFromInput() {
@@ -155,19 +158,56 @@ async function addEditedUser(event, userId, saveData) {
   let newUser = getUserDataFromInput();
   cancelAddUser();
   if (saveData) {
-    await putData("/names/", userId, newUser);
-    users = [];
-    init();
+    await performEdit(userId, newUser);
   } else {
-    await deleteData("/names/", userId);
-    users = [];
-    init();
+    await performDelete(userId);
   }
 }
 
+async function performEdit(userId, newUser) {
+  await putData("/names/", userId, newUser);
+  users = [];
+  init();
+  showChangeSuccess("Contact successfully edited");
+}
+
+async function performDelete(userId) {
+  await deleteData("/names/", userId);
+  users = [];
+  init();
+  showChangeSuccess("Contact deleted");
+}
+
 function deleteUser(userId) {
-  let overlayContent = createOverlay("deleteUser-overlay", "overlay");
+  let overlayContent = createOverlay("adduser-overlay", "overlay");
   overlayContent.innerHTML = renderConfirmationModal(userId);
+}
+
+function confirmDelete(userId) {
+  cancelDelete();
+  performDelete(userId);
+}
+
+function cancelDelete() {
+  let overlayContent = document.getElementById("confirmation-modal");
+  overlayContent.classList.add("confirmation-modal-out");
+  setTimeout(() => {
+    document.getElementById("adduser-overlay").remove();
+  }, 200);
+}
+
+function showChangeSuccess(message) {
+  let parent = document.getElementById("body");
+  let messagePopUp = elementBuilder(parent, "div", "display-message");
+  messagePopUp.innerHTML = message;
+  messagePopUp.style.opacity = "0";
+  messagePopUp.style.opacity = "1";
+  setTimeout(() => {
+    messagePopUp.style.opacity = "0";
+  }, 2000);
+  setTimeout(() => {
+    messagePopUp.remove();
+  }, 2300);
 }
 
 async function putData(path = "/names/", id, data) {
@@ -237,4 +277,28 @@ function hslToHex(h, s, l) {
       .padStart(2, "0");
   };
   return `#${f(0)}${f(8)}${f(4)}`;
+}
+
+function setNavActive(element) {
+  if (activeNavItem) {
+    activeNavItem.classList.remove("active");
+  }
+  activeNavItem = element;
+  activeNavItem.classList.add("active");
+}
+
+function setSummaryActive(element) {
+  setNavActive(element);
+}
+
+function setAddTaskActive(element) {
+  setNavActive(element);
+}
+
+function setBoardActive(element) {
+  setNavActive(element);
+}
+
+function setContactsActive(element) {
+  setNavActive(element);
 }
