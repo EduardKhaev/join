@@ -6,7 +6,7 @@
     width: 100%;
     height: 80px;
     min-height: auto;
-    z-index: 2;
+    z-index: 20;
   }
 
   .footer-notes {
@@ -80,9 +80,9 @@
   .header-right img {
     display: none;
   }
-    .navigation-item:hover {
-        background-color: rgba(9, 25, 49, 1);
-        color: white;
-        border-radius: 8px;
-    }
+  .navigation-item:hover {
+    background-color: rgba(9, 25, 49, 1);
+    color: white;
+    border-radius: 8px;
+  }
 }
