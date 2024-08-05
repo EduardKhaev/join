@@ -65,6 +65,14 @@ function firstletter(index) {
 
 function showUserDetails(index, element) {
   setUserActive(element);
+  if (window.innerWidth > 745) {
+    showUserDetailsBig(index);
+  } else {
+    showUserDetailsSmall(index);
+  }
+}
+
+function showUserDetailsBig(index) {
   let user = users[index];
   let fullContactDetails = document.getElementById("full-contact-details");
   fullContactDetails.innerHTML = "";
@@ -74,6 +82,22 @@ function showUserDetails(index, element) {
     fullContactDetails.innerHTML = returnUserDetails(index, user);
     fullContactDetails.classList.remove("contact-out");
   }, 200);
+}
+
+function showUserDetailsSmall(index) {
+  let user = users[index];
+  let overlay = createOverlay("overlay-small", "overlay-small");
+  overlay.innerHTML = returnUserDetailsSmall(index, user);
+  overlay.style.left = "0";
+}
+
+function closeUserDetails() {
+  let overlay = document.getElementById("overlay-small");
+  overlay.style.left = "100%";
+  setTimeout(() => {
+    overlay.remove();
+  }, 200);
+  clearActiveUser();
 }
 
 function setUserActive(element) {
@@ -88,6 +112,8 @@ function setUserActive(element) {
   activeUser.style.color = "white";
   activeUser.style.cursor = "pointer";
 }
+
+function clearActiveUser() {}
 
 function getInitials(name) {
   let initials = name

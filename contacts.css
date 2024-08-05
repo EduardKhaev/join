@@ -358,7 +358,7 @@
   align-items: center;
   border-radius: 100%;
   width: 56px;
-  height: 56px; 
+  height: 56px;
   z-index: 3;
   border: 1px;
   bottom: 120px;
@@ -372,5 +372,16 @@
 }
 
 .add-btn-responsive:hover {
-  cursor: pointer; 
+  cursor: pointer;
+}
+
+.overlay-small {
+  position: absolute;
+  z-index: 5;
+  top: 98px;
+  bottom: 80px;
+  left: 100%;
+  width: 100%;
+  background-color: var(--background-main);
+  transition: all 200ms ease-in-out;
 }

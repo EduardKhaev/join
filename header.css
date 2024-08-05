@@ -8,6 +8,7 @@ header {
   left: 0;
   right: 0;
   display: flex;
+  background-color: white;
   box-shadow: 0 4px 4px 0 var(--shadow-color);
   display: flex;
   align-items: center;
