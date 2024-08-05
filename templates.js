@@ -65,7 +65,7 @@ function getAddUserInputHtml() {
           <img src="img/profile-icon.png" alt="" />
         </div>
         <div class="adduser-overlay-close">
-          <button class="adduser-close-button"><img src="img/close.png" alt=""></button>
+          <button onclick"cancelAddUser()" class="adduser-close-button"><img src="img/close.png" alt=""></button>
         </div>
         <form onsubmit="addNewUser(event)">
           <div class="adduser-logininputs">
