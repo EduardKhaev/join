@@ -211,7 +211,6 @@ function elementBuilder(parent, childType, childClass, childID = "") {
   return child;
 }
 
-
 function setNavActive(element) {
   if (activeNavItem) {
     activeNavItem.classList.remove("active");

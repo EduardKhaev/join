@@ -107,6 +107,7 @@
   background-color: rgba(9, 25, 49, 1);
   color: white;
 }
+
 .active svg path {
   fill: white;
 }
