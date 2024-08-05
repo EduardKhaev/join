@@ -1,0 +1,34 @@
+@media (max-width: 1300px) {
+  .ci-head {
+    height: auto;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+
+  .header-right {
+    flex: none;
+    margin-left: 56px;
+  }
+}
+
+@media (max-width: 1170px) {
+  .contacts-headline {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    font-size: 27px;
+    font-weight: 400;
+    margin-bottom: 24px;
+  }
+
+  .spacer {
+    background-color: var(--brand-blue);
+    height: 3px;
+    width: 64px;
+  }
+
+  .contacts-headline h1 {
+    margin-bottom: 0;
+  }
+}
