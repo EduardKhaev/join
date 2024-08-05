@@ -124,7 +124,9 @@ function getUserEditHtml(user) {
       </div>
       <div class="adduser-logincontainer">
         <div class="adduser-loginprofile">
-          <img src="img/profile-icon.png" alt="" />
+          <div class="ci-avatar" style="background-color: ${user.color};">
+          <div class="ci-overlay-text">${user.initials}</div>
+        </div>
         </div>
         <div class="adduser-overlay-close">
           <img class="adduser-close-button" src="img/close.png" alt="" onclick="cancelAddUser()" return false;>
