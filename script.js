@@ -76,6 +76,10 @@ function showUserDetails(index, element) {
   }, 200);
 }
 
+function showUserDetailsResponsive() {
+  document.getElementById("add-btn-responsive").classList.add("add-btn-active");
+}
+
 function setUserActive(element) {
   if (activeUser) {
     activeUser.style.backgroundColor = "";

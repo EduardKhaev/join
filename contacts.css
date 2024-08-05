@@ -375,3 +375,7 @@
 .add-btn-responsive:hover {
   cursor: pointer; 
 }
+
+.add-btn-active {
+  background-color: var(--brand-blue);
+}
