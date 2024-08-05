@@ -104,6 +104,10 @@ function addNewUser(event) {
   event.preventDefault();
   let newUser = getUserDataFromInput();
   postData("/names", newUser);
+  cancelAddUser();
+  users = [];
+  init();
+  showChangeSuccess("Contact successfully added");
 }
 
 function getUserDataFromInput() {
@@ -111,11 +115,12 @@ function getUserDataFromInput() {
   let mailInput = document.getElementById("inputemail").value;
   let phoneInput = document.getElementById("inputphone").value;
   let initials = getInitials(nameInput);
+  let color = getRandomColor();
   let newUser = {
     name: nameInput,
     email: mailInput,
     phone: phoneInput,
-    color: "red",
+    color: color,
     initials: initials,
   };
   return newUser;
@@ -153,19 +158,56 @@ async function addEditedUser(event, userId, saveData) {
   let newUser = getUserDataFromInput();
   cancelAddUser();
   if (saveData) {
-    await putData("/names/", userId, newUser);
-    users = [];
-    init();
+    await performEdit(userId, newUser);
   } else {
-    await deleteData("/names/", userId);
-    users = [];
-    init();
+    await performDelete(userId);
   }
 }
 
+async function performEdit(userId, newUser) {
+  await putData("/names/", userId, newUser);
+  users = [];
+  init();
+  showChangeSuccess("Contact successfully edited");
+}
+
+async function performDelete(userId) {
+  await deleteData("/names/", userId);
+  users = [];
+  init();
+  showChangeSuccess("Contact deleted");
+}
+
 function deleteUser(userId) {
-  let overlayContent = createOverlay("deleteUser-overlay", "overlay");
+  let overlayContent = createOverlay("adduser-overlay", "overlay");
   overlayContent.innerHTML = renderConfirmationModal(userId);
+}
+
+function confirmDelete(userId) {
+  cancelDelete();
+  performDelete(userId);
+}
+
+function cancelDelete() {
+  let overlayContent = document.getElementById("confirmation-modal");
+  overlayContent.classList.add("confirmation-modal-out");
+  setTimeout(() => {
+    document.getElementById("adduser-overlay").remove();
+  }, 200);
+}
+
+function showChangeSuccess(message) {
+  let parent = document.getElementById("body");
+  let messagePopUp = elementBuilder(parent, "div", "display-message");
+  messagePopUp.innerHTML = message;
+  messagePopUp.style.opacity = "0";
+  messagePopUp.style.opacity = "1";
+  setTimeout(() => {
+    messagePopUp.style.opacity = "0";
+  }, 2000);
+  setTimeout(() => {
+    messagePopUp.remove();
+  }, 2300);
 }
 
 async function putData(path = "/names/", id, data) {
@@ -209,6 +251,32 @@ function elementBuilder(parent, childType, childClass, childID = "") {
   child.id = childID;
   parent.appendChild(child);
   return child;
+}
+
+function getRandomColor() {
+  let color = "";
+  let hue = getRandomInt(255);
+  let saturation = getRandomInt(30) + 70;
+  color = hslToHex(hue, saturation, 50);
+  console.log(color);
+  return color;
+}
+
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
+}
+
+function hslToHex(h, s, l) {
+  l /= 100;
+  const a = (s * Math.min(l, 1 - l)) / 100;
+  const f = (n) => {
+    const k = (n + h / 30) % 12;
+    const color = l - a * Math.max(Math.min(k - 3, 9 - k, 1), -1);
+    return Math.round(255 * color)
+      .toString(16)
+      .padStart(2, "0");
+  };
+  return `#${f(0)}${f(8)}${f(4)}`;
 }
 
 function setNavActive(element) {
