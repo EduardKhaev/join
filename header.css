@@ -24,6 +24,10 @@ header {
   padding-right: 20px;
 }
 
+.header-title {
+  margin-left: 232px;
+}
+
 .header-right {
   display: flex;
   flex: 1;
