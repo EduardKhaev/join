@@ -124,6 +124,8 @@
     flex-direction: row;
     align-items: center;
     gap: 16px;
+  }
+
   .contact-details {
     width: 100%;
   }
@@ -165,7 +167,7 @@
     hyphens: auto;
   }
   .max-mail-length {
-    max-width: 150px;  
+    max-width: 150px;
   }
   .letter-alph span {
     margin-left: 20px;
