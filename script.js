@@ -176,7 +176,7 @@ function renderAddUserInputField() {
 function cancelAddUser() {
   let overlayContent = document.getElementById("adduser-maincontainer");
   overlayContent.classList.add("adduser-maincontainer-out");
-  overlayContent.classList.remove("contact-out");
+  overlayContent.classList.remove("adduser-maincontainer");
   setTimeout(() => {
     document.getElementById("adduser-overlay").remove();
   }, 200);
