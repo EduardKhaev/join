@@ -156,21 +156,42 @@ async function addEditedUser(event, userId, saveData) {
   let newUser = getUserDataFromInput();
   cancelAddUser();
   if (saveData) {
-    await putData("/names/", userId, newUser);
-    users = [];
-    init();
-    showChangeSuccess("Contact successfully edited");
+    await performEdit(userId, newUser);
   } else {
-    await deleteData("/names/", userId);
-    users = [];
-    init();
-    showChangeSuccess("Contact deleted");
+    await performDelete(userId);
   }
 }
 
+async function performEdit(userId, newUser) {
+  await putData("/names/", userId, newUser);
+  users = [];
+  init();
+  showChangeSuccess("Contact successfully edited");
+}
+
+async function performDelete(userId) {
+  await deleteData("/names/", userId);
+  users = [];
+  init();
+  showChangeSuccess("Contact deleted");
+}
+
 function deleteUser(userId) {
-  let overlayContent = createOverlay("deleteUser-overlay", "overlay");
+  let overlayContent = createOverlay("adduser-overlay", "overlay");
   overlayContent.innerHTML = renderConfirmationModal(userId);
+}
+
+function confirmDelete(userId) {
+  cancelDelete();
+  performDelete(userId);
+}
+
+function cancelDelete() {
+  let overlayContent = document.getElementById("confirmation-modal");
+  overlayContent.classList.add("confirmation-modal-out");
+  setTimeout(() => {
+    document.getElementById("adduser-overlay").remove();
+  }, 200);
 }
 
 function showChangeSuccess(message) {
