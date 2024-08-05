@@ -328,3 +328,24 @@ function setBoardActive(element) {
 function setContactsActive(element) {
   setNavActive(element);
 }
+
+function toggleDropdown(event) {
+  event.stopPropagation();
+  const dropdownMenu = document.getElementById("dropdownMenu");
+  if (dropdownMenu.style.display === "block") {
+    dropdownMenu.style.display = "none";
+  } else {
+    dropdownMenu.style.display = "block";
+  }
+}
+
+// Funktion zum Schließen des Dropdown-Menüs, wenn außerhalb geklickt wird
+window.onclick = function (event) {
+  const dropdownMenu = document.getElementById("dropdownMenu");
+  if (
+    event.target !== dropdownMenu &&
+    event.target !== document.getElementById("user-profile-initials")
+  ) {
+    dropdownMenu.style.display = "none";
+  }
+};

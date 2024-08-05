@@ -80,4 +80,9 @@
   .header-right img {
     display: none;
   }
+    .navigation-item:hover {
+        background-color: rgba(9, 25, 49, 1);
+        color: white;
+        border-radius: 8px;
+    }
 }
