@@ -105,6 +105,7 @@ function addNewUser(event) {
   cancelAddUser();
   users = [];
   init();
+  showChangeSuccess("Contact successfully added");
 }
 
 function getUserDataFromInput() {
@@ -158,16 +159,32 @@ async function addEditedUser(event, userId, saveData) {
     await putData("/names/", userId, newUser);
     users = [];
     init();
+    showChangeSuccess("Contact successfully edited");
   } else {
     await deleteData("/names/", userId);
     users = [];
     init();
+    showChangeSuccess("Contact deleted");
   }
 }
 
 function deleteUser(userId) {
   let overlayContent = createOverlay("deleteUser-overlay", "overlay");
   overlayContent.innerHTML = renderConfirmationModal(userId);
+}
+
+function showChangeSuccess(message) {
+  let parent = document.getElementById("body");
+  let messagePopUp = elementBuilder(parent, "div", "display-message");
+  messagePopUp.innerHTML = message;
+  messagePopUp.style.opacity = "0";
+  messagePopUp.style.opacity = "1";
+  setTimeout(() => {
+    messagePopUp.style.opacity = "0";
+  }, 2000);
+  setTimeout(() => {
+    messagePopUp.remove();
+  }, 2300);
 }
 
 async function putData(path = "/names/", id, data) {
