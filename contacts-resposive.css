@@ -91,3 +91,31 @@
     margin-top: 36px;
   }
 }
+
+@media (max-width: 746px) {
+  .show-full-contact {
+    display: none;
+  }
+  .main {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 540px) {
+  .contact-details {
+    width: 100%;
+  }
+  .button-container {
+    display: none;
+  }
+  .contact-list {
+    margin-top: 16px;
+  }
+  .add-btn-responsive {
+    display: flex;
+  }
+}
+
+@media (max-width: 410px) {
+  
+}
