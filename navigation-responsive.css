@@ -37,48 +37,6 @@
     .navigation-item:hover {
         background-color: rgba(9, 25, 49, 1);
         color: white;
-    }
-
-    .join-logo-header {
-        display: block;
-        height: 39px;
-        padding-left: 20px;
-    }
-
-    .join-logo {
-        display: none;
-    }
-
-    .header-title {
-        display: none;
-    }
-
-    header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px 20px;
-    }
-
-    .header-left {
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        padding-right: 0;
-    }
-
-    .header-right {
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-    }
-
-    .user-profile-initials {
-        width: 40px;
-        height: 40px;
-    }
-
-    .header-right img {
-        display: none;
+        border-radius: 8px;
     }
 }
