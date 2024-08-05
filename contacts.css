@@ -197,8 +197,8 @@
   width: calc(100% - 55px);
   position: absolute;
   top: 0;
-  animation: slideIn 0.2s ease-out forwards; /* Apply the slide-in animation */
-  opacity: 0; /* Start fully transparent */
+  animation: slideIn 0.2s ease-out forwards;
+  opacity: 0;
 }
 
 .contact-out {
@@ -384,5 +384,6 @@
   left: 100%;
   width: 100%;
   background-color: var(--background-main);
+  animation: slideIn 150ms ease-out forwards;
   transition: all 200ms ease-in-out;
 }

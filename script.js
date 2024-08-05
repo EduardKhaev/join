@@ -88,6 +88,7 @@ function showUserDetailsSmall(index) {
   let user = users[index];
   let overlay = createOverlay("overlay-small", "overlay-small");
   overlay.innerHTML = returnUserDetailsSmall(index, user);
+  overlay.style.left = "100%";
   overlay.style.left = "0";
 }
 
