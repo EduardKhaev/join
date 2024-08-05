@@ -1,0 +1,27 @@
+.mobile-edit-container{
+    height: 100px;
+    width: 116px;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 20px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-top-right-radius: 20px;
+    gap: 10px;
+    box-shadow: 0px 10px 28px -6px #b8b8b8
+}
+.mobile-edit-child span{
+    font-size: 19px;
+}
+.mobile-edit-child{
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+.mobile-edit-child img{
+    height: 24px;
+    width: 24px;
+}

@@ -84,9 +84,9 @@
   padding-left: 8px;
 }
 
-.adduser-logininputs input:focus {
+.adduser-logininputs input:focus{
   border: solid 1px;
-  border-color: #29abe2;
+  border-color:#29abe2;
   outline: none;
 }
 
@@ -117,23 +117,19 @@
   display: flex;
   gap: 24px;
 }
-.adduser-overlay-close {
-  display: flex;
-  justify-content: flex-end;
-  margin-bottom: 150px;
+.adduser-overlay-close{
+ display: flex;
+ justify-content: flex-end;
+ margin-bottom: 150px;
 }
-.adduser-close-button {
+.adduser-close-button{
   border: none;
   position: absolute;
   top: 35px;
   right: 55px;
   cursor: pointer;
 }
-.adduser-close-button img {
+.adduser-close-button img{
   height: 18px;
   width: 18px;
-  position: absolute;
-  top: 35px;
-  right: 55px;
-  cursor: pointer;
 }

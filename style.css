@@ -27,6 +27,7 @@ body {
   font-size: 16px;
   height: 100vh;
   overflow: hidden;
+  background-color: white;
 }
 
 button {
@@ -42,7 +43,7 @@ button {
   background-color: var(--background-main);
   height: calc(100% - 104px);
   width: calc(100% - 232px);
-  padding-top: 96px;
+  padding-top: 100px;
   padding-left: 232px;
   display: flex;
   justify-content: flex-start;

@@ -65,6 +65,14 @@ function firstletter(index) {
 
 function showUserDetails(index, element) {
   setUserActive(element);
+  if (window.innerWidth > 745) {
+    showUserDetailsBig(index);
+  } else {
+    showUserDetailsSmall(index);
+  }
+}
+
+function showUserDetailsBig(index) {
   let user = users[index];
   let fullContactDetails = document.getElementById("full-contact-details");
   fullContactDetails.innerHTML = "";
@@ -80,6 +88,22 @@ function showUserDetailsResponsive() {
   document.getElementById("add-btn-responsive").classList.add("add-btn-active");
 }
 
+function showUserDetailsSmall(index) {
+  let user = users[index];
+  let overlay = createOverlay("overlay-small", "overlay-small");
+  overlay.innerHTML = returnUserDetailsSmall(index, user);
+  overlay.style.left = "0";
+}
+
+function closeUserDetails() {
+  let overlay = document.getElementById("overlay-small");
+  overlay.style.left = "100%";
+  setTimeout(() => {
+    overlay.remove();
+  }, 200);
+  clearActiveUser();
+}
+
 function setUserActive(element) {
   if (activeUser) {
     activeUser.style.backgroundColor = "";
@@ -91,6 +115,15 @@ function setUserActive(element) {
   activeUser.style.backgroundColor = "#2b3548";
   activeUser.style.color = "white";
   activeUser.style.cursor = "pointer";
+}
+
+function clearActiveUser() {
+  if (activeUser) {
+    activeUser.style.backgroundColor = "";
+    activeUser.style.color = "";
+    activeUser.classList.add("sc-color");
+  }
+  activeUser = undefined;
 }
 
 function getInitials(name) {
@@ -311,16 +344,19 @@ function toggleDropdown(event) {
   event.stopPropagation();
   const dropdownMenu = document.getElementById("dropdownMenu");
   if (dropdownMenu.style.display === "block") {
-      dropdownMenu.style.display = "none";
+    dropdownMenu.style.display = "none";
   } else {
-      dropdownMenu.style.display = "block";
+    dropdownMenu.style.display = "block";
   }
 }
 
 // Funktion zum Schließen des Dropdown-Menüs, wenn außerhalb geklickt wird
-window.onclick = function(event) {
+window.onclick = function (event) {
   const dropdownMenu = document.getElementById("dropdownMenu");
-  if (event.target !== dropdownMenu && event.target !== document.getElementById("user-profile-initials")) {
-      dropdownMenu.style.display = "none";
+  if (
+    event.target !== dropdownMenu &&
+    event.target !== document.getElementById("user-profile-initials")
+  ) {
+    dropdownMenu.style.display = "none";
   }
 };
