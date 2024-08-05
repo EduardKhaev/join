@@ -65,7 +65,7 @@ function getAddUserInputHtml() {
           <img src="img/profile-icon.png" alt="" />
         </div>
         <div class="adduser-overlay-close">
-          <button onclick"cancelAddUser()" class="adduser-close-button"><img src="img/close.png" alt=""></button>
+          <img class="adduser-close-button" src="img/close.png" alt="" onclick="cancelAddUser()" return false;>
         </div>
         <form onsubmit="addNewUser(event)">
           <div class="adduser-logininputs">
@@ -127,7 +127,7 @@ function getUserEditHtml(user) {
           <img src="img/profile-icon.png" alt="" />
         </div>
         <div class="adduser-overlay-close">
-          <button class="adduser-close-button"><img src="img/close.png" alt=""></button>
+          <img class="adduser-close-button" src="img/close.png" alt="" onclick="cancelAddUser()" return false;>
         </div>
         <form onsubmit="addEditedUser(event, '${user.id}', true)">
           <div class="adduser-logininputs">
