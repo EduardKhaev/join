@@ -96,12 +96,13 @@ function showUserDetailsSmall(index) {
   overlay.style.left = "0";
   let parent = document.getElementById("navigation-items");
   parent.innerHTML += `
-  <div class="edit-btn-responsive" id="edit-btn-responsive" onclick="renderEditUserChoice(${index})">
+  <div class="edit-btn-responsive" id="edit-btn-responsive" onclick="renderEditUserChoice(event, ${index})">
     <img src="./img/edit-responsive.png" alt="" />
   </div>`;
 }
 
-function renderEditUserChoice(index, user) {
+function renderEditUserChoice(event, index) {
+  event.stopPropagation();
   // let overlayContent = createOverlay("choice-overlay", "choice-overlay");
   let content = document.getElementById("navigation-items");
   content.innerHTML += `
