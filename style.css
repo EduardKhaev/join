@@ -30,6 +30,23 @@ body {
   background-color: white;
 }
 
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: white;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(168, 168, 168, 1);
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #7e7e7e;
+}
+
 button {
   font-family: "Inter";
   font-size: 16px;
