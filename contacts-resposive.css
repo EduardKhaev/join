@@ -100,10 +100,6 @@
     justify-content: center;
   }
 
-  .ci-actions {
-    display: none;
-  }
-
   .small-details-container {
     margin-left: 20px;
   }
@@ -130,6 +126,11 @@
     width: 100%;
   }
 
+  .ci-actions svg {
+    position: static;
+      width: 100%;
+  }
+
   .list-container {
     overflow-y: scroll;
     width: 100%;
@@ -147,6 +148,10 @@
 }
 
 @media (max-width: 540px) {
+  .ci-actions {
+    display: none;
+  }
+
   .contact-details {
     width: 100%;
   }
