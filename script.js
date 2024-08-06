@@ -408,9 +408,9 @@ window.onclick = function (event) {
     dropdownMenu.style.display = "none";
   }
   if (
-    editChoice && 
-    event.target !== editChoice && 
-    !editChoice.contains(event.target) && 
+    editChoice &&
+    event.target !== editChoice &&
+    !editChoice.contains(event.target) &&
     event.target !== button
   ) {
     editChoice.remove();
