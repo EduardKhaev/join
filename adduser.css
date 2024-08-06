@@ -26,6 +26,7 @@
   flex-direction: column;
   justify-content: center;
 }
+
 .adduser-brandlogo {
   height: 66px;
   width: 55px;
@@ -35,6 +36,7 @@
 .adduser-brandarea {
   margin-left: 50px;
 }
+
 .adduser-brandtext {
   color: white;
   width: 371px;
@@ -43,21 +45,25 @@
   display: flex;
   flex-direction: column;
 }
+
 .adduser-h1 {
   font-size: 61px;
   margin: 0;
   width: 366px;
 }
+
 .adduser-span {
   font-size: 27px;
   margin: 0;
   width: 366px;
 }
+
 .adduser-brandline {
   height: 3px;
   width: 87px;
   background-color: #29abe2;
 }
+
 .adduser-logincontainer {
   background-color: white;
   width: 745px;
@@ -68,12 +74,14 @@
   align-items: center;
   justify-content: space-between;
 }
+
 .adduser-logininputs {
   display: flex;
   flex-direction: column;
   gap: 32px;
   margin-right: 48px;
 }
+
 .adduser-logininputs input {
   height: 50px;
   width: 422px;
@@ -100,16 +108,19 @@
   color: #d1d1d1;
   padding-left: 15px;
 }
+
 .inputtextname {
   background-image: url(img/person-icon.png);
   background-position: right 10px center;
   background-repeat: no-repeat;
 }
+
 .inputtextemail {
   background-image: url(img/mail-icon.png);
   background-position: right 10px center;
   background-repeat: no-repeat;
 }
+
 .inputtextphone {
   background-image: url(img/phone-icon.png);
   background-position: right 10px center;
@@ -119,15 +130,18 @@
 .adduser-loginprofile {
   margin-left: 90px;
 }
+
 .adduser-buttons {
   display: flex;
   gap: 24px;
 }
+
 .adduser-overlay-close {
   display: flex;
   justify-content: flex-end;
   margin-bottom: 150px;
 }
+
 .adduser-close-button {
   border: none;
   position: absolute;
@@ -135,6 +149,7 @@
   right: 55px;
   cursor: pointer;
 }
+
 .adduser-close-button img {
   height: 18px;
   width: 18px;
@@ -142,4 +157,5 @@
 
 .adduser-maincontainer svg {
   display: none;
+  cursor: pointer;
 }
