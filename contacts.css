@@ -226,6 +226,11 @@
   border-radius: 100%;
 }
 
+.ci-elements {
+  display: flex;
+  flex-direction: column;
+}
+
 .ci-name {
   font-size: 47px;
   font-weight: 500;
@@ -373,7 +378,7 @@
 }
 
 .add-btn-responsive:hover {
-  cursor: pointer; 
+  cursor: pointer;
 }
 
 .add-btn-active {
