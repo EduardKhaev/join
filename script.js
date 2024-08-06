@@ -138,10 +138,10 @@ function getInitials(name) {
   return initials;
 }
 
-function addNewUser(event) {
+async function addNewUser(event) {
   event.preventDefault();
   let newUser = getUserDataFromInput();
-  postData("/names", newUser);
+  await postData("/names", newUser);
   cancelAddUser();
   users = [];
   init();
@@ -224,6 +224,16 @@ function deleteUser(userId) {
 function confirmDelete(userId) {
   cancelDelete();
   performDelete(userId);
+  removeUserDetails();
+}
+
+function removeUserDetails() {
+  let overlay = document.getElementById("overlay-small");
+  if (overlay) {
+    overlay.remove();
+  } else {
+    document.getElementById("full-contact-details").innerHTML = "";
+  }
 }
 
 function cancelDelete() {
