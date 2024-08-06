@@ -120,6 +120,7 @@ function getAddUserInputHtml() {
           <div class="adduser-logininputs">
             <input
               required
+              oninvalid="event.preventDefault()"
               id="inputname"
               class="inputtextname"
               type="text"
@@ -127,6 +128,7 @@ function getAddUserInputHtml() {
             />
             <input
               required
+              oninvalid="event.preventDefault()"
               id="inputemail"
               class="inputtextemail"
               type="email"
@@ -134,6 +136,7 @@ function getAddUserInputHtml() {
             />
             <input
               required
+              oninvalid="event.preventDefault()"
               id="inputphone"
               class="inputtextphone"
               type="text"
@@ -188,6 +191,7 @@ function getUserEditHtml(user) {
           <div class="adduser-logininputs">
             <input
               required
+              oninvalid="event.preventDefault()"
               id="inputname"
               class="inputtextname"
               type="text"
@@ -196,6 +200,7 @@ function getUserEditHtml(user) {
             />
             <input
               required
+              oninvalid="event.preventDefault()"
               id="inputemail"
               class="inputtextemail"
               type="email"
@@ -204,6 +209,7 @@ function getUserEditHtml(user) {
             />
             <input
               required
+              oninvalid="event.preventDefault()"
               id="inputphone"
               class="inputtextphone"
               type="text"
