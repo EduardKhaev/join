@@ -94,13 +94,30 @@ function showUserDetailsSmall(index) {
   overlay.innerHTML = returnUserDetailsSmall(index, user);
   overlay.style.left = "100%";
   overlay.style.left = "0";
+  let parent = document.getElementById("navigation-items");
+  parent.innerHTML += `
+  <div class="edit-btn-responsive" id="edit-btn-responsive" onclick="renderEditUserInputField(${index})">
+    <img src="./img/edit-responsive.png" alt="" />
+  </div>`;
+
+
+
+  // let editBtn = elementBuilder(parent, "div", "edit-btn-responsive");
+  // editBtn.innerHTML = `
+  //   <img src="./img/edit-responsive.png" alt="" />
+  // `;
+  // let img;
+  // editBtn.appendChild(img);
+  // img.innerHTML = `<img src="./img/edit-responsive.png" alt="" />`; 
 }
 
 function closeUserDetails() {
   let overlay = document.getElementById("overlay-small");
+  let editBtn = document.getElementById("edit-btn-responsive");
   overlay.style.left = "100%";
   setTimeout(() => {
     overlay.remove();
+    editBtn.remove();
   }, 200);
   clearActiveUser();
 }

@@ -84,115 +84,111 @@
     top: 6%;
     left: 35%;
   }
-  .button-secondary{
+  .button-secondary {
     display: none;
   }
-  .adduser-brandline{
+  .adduser-brandline {
     width: 115px;
   }
-  .adduser-overlay-close {
-    border: none;
-    position: absolute;
-    
-    top: 5px;
-    right: 5px;
-    cursor: pointer;
+}
+@media (max-width: 650px) {
+  form {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .adduser-maincontainer {
+    width: 95%;
+  }
+
+  .adduser-brandcontainer {
+    width: 100%;
+  }
+
+  .adduser-logincontainer {
+    width: 100%;
+  }
+
+  .adduser-h1 {
+    font-size: 46px;
+    margin: 0;
+    width: 366px;
+  }
+  .adduser-span {
+    font-size: 20px;
+    margin: 0;
+    width: 366px;
+  }
+  .adduser-logininputs {
+    display: flex;
+    align-items: center;
+    margin-right: 0;
+    width: 80%;
+    gap: 15px;
+  }
+  .adduser-brandline {
+    width: 88px;
+  }
+  .adduser-brandarea {
+    margin-left: 35px;
   }
 }
-@media (max-width: 650px){
-    .adduser-h1 {
-        font-size: 46px;
-        margin: 0;
-        width: 366px;
-      } 
-    .adduser-span {
-        font-size: 20px;
-        margin: 0;
-        width: 366px;
-      }
-    .adduser-logininputs {
-        display: flex;
-        align-items: center;
-        margin-right: 0;
-        width: 322px;
-        gap: 15px;
-      }
-    .adduser-brandline{
-        width: 88px;
-    }
-    .adduser-brandarea {
-        margin-left: 35px;
-    }
-}  
 
-@media (max-width: 500px){
-    .adduser-h1 {
-        font-size: 36px;
-        margin: 0;
-        width: 366px;
-      } 
-    .adduser-span {
-        font-size: 15px;
-        margin: 0;
-        width: 366px;
-      }
-    .adduser-logininputs {
-        display: flex;
-        align-items: center;
-        margin-right: 0;
-        width: 222px;
-        gap: 15px;
-      }
-    .adduser-brandline{
-        width: 67px;
-    }
-    .adduser-brandarea {
-        margin-left: 25px;
-    }
-    .action-button-text {
-        font-size: 15px;
-        font-weight: 700;
-    }
-    
-}
-@media (max-width: 400px){
-    .adduser-h1 {
-        font-size: 26px;
-        margin: 0;
-        width: 366px;
-      } 
-    .adduser-span {
-        font-size: 11px;
-        margin: 0;
-        width: 366px;
-      }
-    .adduser-logininputs {
-        display: flex;
-        align-items: center;
-        margin-right: 0;
-        width: 172px;
-        gap: 15px;
-      }
-    .adduser-brandline{
-        width: 57px;
-    }
-    .adduser-brandarea {
-        margin-left: 25px;
-    }
-    .adduser-loginprofile img{
-        height: 110px;
-    }
-    .adduser-loginprofile {
-        position: relative;
-        top: -50px;
-        margin-left: 0;
-    }
-    .action-button-text {
-        font-size: 14px;
-        font-weight: 700;
-    }
-}
+@media (max-width: 500px) {
+  .adduser-h1 {
+    font-size: 36px;
+    margin: 0;
+    width: 366px;
+  }
+  .adduser-span {
+    font-size: 15px;
+    margin: 0;
+    width: 366px;
+  }
 
+  .adduser-brandline {
+    width: 67px;
+  }
+  .adduser-brandarea {
+    margin-left: 25px;
+  }
+  .action-button-text {
+    font-size: 15px;
+    font-weight: 700;
+  }
+}
+@media (max-width: 400px) {
+  .adduser-h1 {
+    font-size: 26px;
+    margin: 0;
+    width: 366px;
+  }
+  .adduser-span {
+    font-size: 11px;
+    margin: 0;
+    width: 366px;
+  }
+
+  .adduser-brandline {
+    width: 57px;
+  }
+  .adduser-brandarea {
+    margin-left: 25px;
+  }
+  .adduser-loginprofile img {
+    height: 110px;
+  }
+  .adduser-loginprofile {
+    position: relative;
+    top: -50px;
+    margin-left: 0;
+  }
+  .action-button-text {
+    font-size: 14px;
+    font-weight: 700;
+  }
+}
 
 @media (max-width: 540px) {
   @keyframes slideBottomIn {
