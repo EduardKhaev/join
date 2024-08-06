@@ -101,8 +101,6 @@ function showUserDetailsSmall(index) {
   </div>`;
 }
 
-
-
 function closeUserDetails() {
   let overlay = document.getElementById("overlay-small");
   let editBtn = document.getElementById("edit-btn-responsive");
