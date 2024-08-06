@@ -135,15 +135,15 @@
     width: 100%;
     display: flex;
     justify-content: center;
-}
+  }
 
-.button-container {
-  width: 100%;
-}
+  .button-container {
+    width: calc(100% - 8px);
+  }
 
-.contact-list {
-  width: 100%;
-}
+  .contact-list {
+    width: 100%;
+  }
 }
 
 @media (max-width: 540px) {
