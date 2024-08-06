@@ -54,6 +54,10 @@ header {
   background-color: rgba(0, 0, 0, 0.1);
 }
 
+.help-span {
+  display: none !important;
+}
+
 .join-logo-header {
   display: none;
 }
