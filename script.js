@@ -191,6 +191,14 @@ function getUserDataFromInput() {
   return newUser;
 }
 
+function showInvalid(element) {
+  element.style.borderColor = "red";
+}
+
+function removeInvalid(element) {
+  element.style = "";
+}
+
 function renderAddUserInputField() {
   let overlayContent = createOverlay("adduser-overlay", "overlay");
   setTimeout(() => {

@@ -144,6 +144,9 @@
   .contact-list {
     width: 100%;
   }
+  .max-mail-length {
+    max-width: 450px;
+  }
 }
 
 @media (max-width: 540px) {
@@ -169,6 +172,9 @@
   .single-contact {
     width: 90%;
   }
+  .max-mail-length {
+    max-width: 350px;
+  }
 }
 
 @media (max-width: 410px) {
@@ -192,7 +198,7 @@
     hyphens: auto;
   }
   .max-mail-length {
-    max-width: 150px;
+    max-width: 250px;
   }
   .letter-alph span {
     margin-left: 20px;
