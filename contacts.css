@@ -226,11 +226,6 @@
   border-radius: 100%;
 }
 
-.ci-elements {
-  display: flex;
-  flex-direction: column;
-}
-
 .ci-name {
   font-size: 47px;
   font-weight: 500;
