@@ -75,3 +75,35 @@
     left: 35%;
   }
 }
+
+@media (max-width: 540px) {
+  @keyframes slideBottomIn {
+    from {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideBottomOut {
+    from {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    to {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+  }
+
+  .adduser-maincontainer {
+    animation: slideBottomIn 0.2s ease-out forwards;
+  }
+
+  .adduser-maincontainer-out {
+    animation: slideBottomOut 0.2s ease-out forwards;
+  }
+}
