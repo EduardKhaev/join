@@ -102,3 +102,7 @@ header {
 .dropdown-content {
   display: block;
 }
+
+.help-icon {
+  cursor: pointer;
+}
