@@ -90,6 +90,12 @@
   .adduser-brandline {
     width: 115px;
   }
+
+  .adduser-logininputs-invalid {
+    border: solid 2px;
+    border-color: red;
+    outline: none;
+  }
 }
 @media (max-width: 650px) {
   form {
@@ -133,6 +139,12 @@
   .adduser-brandarea {
     margin-left: 35px;
   }
+
+  .adduser-logininputs-invalid {
+    border: solid 2px;
+    border-color: red;
+    outline: none;
+  }
 }
 
 @media (max-width: 500px) {
@@ -156,6 +168,12 @@
   .action-button-text {
     font-size: 15px;
     font-weight: 700;
+  }
+
+  .adduser-logininputs-invalid {
+    border: solid 2px;
+    border-color: red;
+    outline: none;
   }
 }
 @media (max-width: 400px) {
@@ -187,6 +205,12 @@
   .action-button-text {
     font-size: 14px;
     font-weight: 700;
+  }
+
+  .adduser-logininputs-invalid {
+    border: solid 2px;
+    border-color: red;
+    outline: none;
   }
 }
 

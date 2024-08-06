@@ -100,15 +100,13 @@ function showUserDetailsSmall(index) {
     <img src="./img/edit-responsive.png" alt="" />
   </div>`;
 
-
-
   // let editBtn = elementBuilder(parent, "div", "edit-btn-responsive");
   // editBtn.innerHTML = `
   //   <img src="./img/edit-responsive.png" alt="" />
   // `;
   // let img;
   // editBtn.appendChild(img);
-  // img.innerHTML = `<img src="./img/edit-responsive.png" alt="" />`; 
+  // img.innerHTML = `<img src="./img/edit-responsive.png" alt="" />`;
 }
 
 function closeUserDetails() {
@@ -179,6 +177,14 @@ function getUserDataFromInput() {
     initials: initials,
   };
   return newUser;
+}
+
+function showInvalid(element) {
+  element.style.borderColor = "red";
+}
+
+function removeInvalid(element) {
+  element.style = "";
 }
 
 function renderAddUserInputField() {

@@ -120,7 +120,8 @@ function getAddUserInputHtml() {
           <div class="adduser-logininputs">
             <input
               required
-              oninvalid="event.preventDefault()"
+              oninvalid="event.preventDefault(); showInvalid(this)"
+              onfocus="removeInvalid(this)"
               id="inputname"
               class="inputtextname"
               type="text"
@@ -128,7 +129,8 @@ function getAddUserInputHtml() {
             />
             <input
               required
-              oninvalid="event.preventDefault()"
+              oninvalid="event.preventDefault(); showInvalid(this)"
+              onfocus="removeInvalid(this)"
               id="inputemail"
               class="inputtextemail"
               type="email"
@@ -136,7 +138,8 @@ function getAddUserInputHtml() {
             />
             <input
               required
-              oninvalid="event.preventDefault()"
+              oninvalid="event.preventDefault(); showInvalid(this)"
+              onfocus="removeInvalid(this)"
               id="inputphone"
               class="inputtextphone"
               type="text"
