@@ -18,6 +18,7 @@
     align-items: center;
     animation: slideOut 0.2s ease-out forwards;
   }
+  
 
   .adduser-brandcontainer {
     width: 80%;
@@ -37,6 +38,11 @@
     justify-content: flex-end;
     padding-bottom: 40px;
   }
+
+  .adduser-logincontainer .button-secondary {
+    display: none;
+  }
+
   .adduser-logininputs input {
     height: 35px;
     width: 100%;
@@ -84,14 +90,12 @@
   .adduser-maincontainer svg {
     display: block;
     position: relative;
-    height: 32px;
-    width: 32px;
-    top: 6%;
-    left: 35%;
+    height: 14px;
+    width: 14px;
+    top: 4%;
+    right: 13%;
   }
-  .button-secondary {
-    display: none;
-  }
+
   .adduser-brandline {
     width: 115px;
   }
@@ -102,6 +106,7 @@
     display: flex;
     justify-content: center;
   }
+
 
   .adduser-maincontainer {
     width: 95%;
@@ -138,6 +143,14 @@
   .adduser-brandarea {
     margin-left: 35px;
   }
+  .adduser-maincontainer svg {
+    display: block;
+    position: relative;
+    height: 14px;
+    width: 14px;
+    top: 4%;
+    right: 3%;
+  }
 }
 
 @media (max-width: 500px) {
@@ -161,6 +174,14 @@
   .action-button-text {
     font-size: 15px;
     font-weight: 700;
+  }
+  .adduser-maincontainer svg {
+    display: block;
+    position: relative;
+    height: 14px;
+    width: 14px;
+    top: 4%;
+    right: 3%;
   }
 }
 @media (max-width: 400px) {
@@ -192,6 +213,14 @@
   .action-button-text {
     font-size: 14px;
     font-weight: 700;
+  }
+  .adduser-maincontainer svg {
+    display: block;
+    position: relative;
+    height: 14px;
+    width: 14px;
+    top: 4%;
+    right: 3%;
   }
 }
 

@@ -175,6 +175,16 @@
   .max-mail-length {
     max-width: 350px;
   }
+
+  .ci-avatar {
+    width: 80px;
+    height: 80px;
+    font-size: 36px;
+  }
+
+  .ci-name {
+    font-size: 36px;
+  }
 }
 
 @media (max-width: 410px) {
