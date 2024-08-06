@@ -432,11 +432,15 @@
   margin-left: 12px;
   width: 96px;
   height: 40px;
-  background-color: lightgray;
   border-radius: 8px; 
 }
 
 .ci-actions-item-responsive svg {
   height: 24px;
   width: 24px;
+  margin-left: 8px;
+}
+.ci-actions-item-responsive:hover {
+  background-color: lightgray;
+  cursor: pointer;
 }
