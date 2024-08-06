@@ -92,7 +92,7 @@
   }
 }
 
-@media (max-width: 746px) {
+@media (max-width: 741px) {
   .show-full-contact {
     display: none;
   }
@@ -129,6 +129,21 @@
   .contact-details {
     width: 100%;
   }
+
+  .list-container {
+    overflow-y: scroll;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.button-container {
+  width: 100%;
+}
+
+.contact-list {
+  width: 100%;
+}
 }
 
 @media (max-width: 540px) {
@@ -154,7 +169,7 @@
 
 @media (max-width: 410px) {
   .contact-list {
-    width: 310px;
+    width: 100%;
   }
   .single-contact {
     width: 90%;
