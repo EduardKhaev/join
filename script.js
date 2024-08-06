@@ -118,7 +118,7 @@ function renderEditUserChoice(index, user) {
               </svg>
               <div>Delete</div>
             </div>
-  </div>`; 
+  </div>`;
 }
 
 function closeUserDetails() {
