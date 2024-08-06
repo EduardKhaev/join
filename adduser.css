@@ -96,12 +96,6 @@
   outline: none;
 }
 
-.adduser-logininputs-invalid {
-  border: solid 2px;
-  border-color: red;
-  outline: none;
-}
-
 ::placeholder {
   color: #d1d1d1;
   padding-left: 15px;
