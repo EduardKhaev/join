@@ -87,9 +87,9 @@
     position: relative;
   }
 
-  .adduser-maincontainer svg {
+  .adduser-brandcontainer svg {
     display: block;
-    position: relative;
+    position: absolute;
     height: 14px;
     width: 14px;
     top: 4%;
@@ -143,9 +143,9 @@
   .adduser-brandarea {
     margin-left: 35px;
   }
-  .adduser-maincontainer svg {
+  .adduser-brandcontainer svg {
     display: block;
-    position: relative;
+    position: absolute;
     height: 14px;
     width: 14px;
     top: 4%;
@@ -175,9 +175,9 @@
     font-size: 15px;
     font-weight: 700;
   }
-  .adduser-maincontainer svg {
+  .adduser-brandcontainer svg {
     display: block;
-    position: relative;
+    position: absolute;
     height: 14px;
     width: 14px;
     top: 4%;
@@ -214,9 +214,9 @@
     font-size: 14px;
     font-weight: 700;
   }
-  .adduser-maincontainer svg {
+  .adduser-brandcontainer svg {
     display: block;
-    position: relative;
+    position: absolute;
     height: 14px;
     width: 14px;
     top: 4%;
