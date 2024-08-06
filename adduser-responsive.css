@@ -38,6 +38,11 @@
     justify-content: flex-end;
     padding-bottom: 40px;
   }
+
+  .adduser-logincontainer .button-secondary {
+    display: none;
+  }
+
   .adduser-logininputs input {
     height: 35px;
     width: 100%;
@@ -90,9 +95,7 @@
     top: 4%;
     right: 13%;
   }
-  .button-secondary {
-    display: none;
-  }
+
   .adduser-brandline {
     width: 115px;
   }
