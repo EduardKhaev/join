@@ -378,7 +378,6 @@ function toggleDropdown(event) {
   }
 }
 
-// Funktion zum Schließen des Dropdown-Menüs, wenn außerhalb geklickt wird
 window.onclick = function (event) {
   const dropdownMenu = document.getElementById("dropdownMenu");
   if (

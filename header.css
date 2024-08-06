@@ -50,6 +50,14 @@ header {
   cursor: pointer;
 }
 
+.user-profile-initials:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.help-span {
+  display: none !important;
+}
+
 .join-logo-header {
   display: none;
 }
@@ -93,4 +101,8 @@ header {
 
 .dropdown-content {
   display: block;
+}
+
+.help-icon {
+  cursor: pointer;
 }

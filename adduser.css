@@ -90,6 +90,12 @@
   outline: none;
 }
 
+.adduser-logininputs input:not(:focus):not(:placeholder-shown):invalid {
+  border: solid 1px;
+  border-color: red;
+  outline: none;
+}
+
 ::placeholder {
   color: #d1d1d1;
   padding-left: 15px;

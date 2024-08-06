@@ -47,6 +47,13 @@
     cursor: pointer;
     margin-left: auto; 
     height: 32px;
+    position: sticky;
+    top:20px;
+}
+
+.back-button:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 50px;
 }
 
 .blue {
