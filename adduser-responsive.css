@@ -72,11 +72,6 @@
     justify-content: center;
     gap: 24px;
   }
-
-  .adduser-overlay-close {
-    display: none;
-  }
-
   .adduser-maincontainer {
     position: relative;
   }
@@ -94,7 +89,15 @@
   }
   .adduser-brandline{
     width: 115px;
-}
+  }
+  .adduser-overlay-close {
+    border: none;
+    position: absolute;
+    
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+  }
 }
 @media (max-width: 650px){
     .adduser-h1 {
