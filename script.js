@@ -212,7 +212,7 @@ function getInitials(name) {
  */
 async function addNewUser(event) {
   event.preventDefault();
-  let newUser = getUserDataFromInput();
+  let newUser = getUserDataFromInput(true);
   await postData("/names", newUser);
   cancelAddUser();
   users = [];
@@ -221,15 +221,23 @@ async function addNewUser(event) {
 }
 
 /**
+ *
  * reads input values from form
+ * @param {boolean} newInput - new contact (true) or edited contact (false)
+ * @param {int} index - index in users array
  * @returns object from input data
  */
-function getUserDataFromInput() {
+function getUserDataFromInput(newInput, index) {
   let nameInput = document.getElementById("inputname").value;
   let mailInput = document.getElementById("inputemail").value;
   let phoneInput = document.getElementById("inputphone").value;
   let initials = getInitials(nameInput);
-  let color = getRandomColor();
+  let color = "";
+  if (newInput === true) {
+    color = getRandomColor();
+  } else {
+    color = users[index].color;
+  }
   let newUser = {
     name: nameInput,
     email: mailInput,
@@ -301,7 +309,8 @@ function renderEditUserInputField(index) {
  */
 async function addEditedUser(event, userId, saveData) {
   event.preventDefault();
-  let newUser = getUserDataFromInput();
+  let index = getUserIndex(userId);
+  let newUser = getUserDataFromInput(false, index);
   cancelAddUser();
   if (saveData) {
     await performEdit(userId, newUser);
@@ -320,6 +329,7 @@ async function performEdit(userId, newUser) {
   users = [];
   await initContacts();
   let index = getUserIndex(userId);
+  showUserDetails(index, activeUser);
   showChangeSuccess("Contact successfully edited");
 }
 
