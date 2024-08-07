@@ -20,6 +20,7 @@ body {
   margin-left: 40px;
   font-size: 61px;
 }
+<<<<<<< HEAD
 .at-body-maincontainer {
   height: 60%;
   display: flex;
@@ -31,17 +32,42 @@ body {
   height: 70%;
   width: 40%;
   margin-top: 20px;
+=======
+.at-body-maincontainer{
+    height: 60%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-left: 40px;
+    margin-right: 40px;
+    gap: 48px;
+    
+}
+.at-body-leftinput{
+    background-color: rgb(128, 128, 128, 0.5);
+    height: 70%;
+    flex: 1;
+    margin-top: 20px;
+>>>>>>> ca7c3eb137c52fd1147eb4bd107bad32bcc674ba
 }
 .at-body-emptydiv {
   background-color: rgb(128, 128, 128, 0.5);
   width: 1px;
   height: 85%;
 }
+<<<<<<< HEAD
 .at-body-rightinput {
   background-color: rgb(128, 128, 128, 0.5);
   height: 80%;
   width: 40%;
   margin-top: 20px;
+=======
+.at-body-rightinput{
+    background-color: rgb(128, 128, 128, 0.5);
+    height: 80%;
+    flex: 1;
+    margin-top: 20px;
+>>>>>>> ca7c3eb137c52fd1147eb4bd107bad32bcc674ba
 }
 .at-footer-maincontainer {
   background-color: rgb(128, 128, 128, 0.2);
@@ -79,6 +105,7 @@ body {
   justify-content: center;
   gap: 10px;
 }
+<<<<<<< HEAD
 /*
 .at-footer-createbtn button{
     height: 50px;
@@ -92,3 +119,5 @@ body {
     justify-content: center;
 }
     */
+=======
+>>>>>>> ca7c3eb137c52fd1147eb4bd107bad32bcc674ba
