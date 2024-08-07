@@ -32,6 +32,9 @@ h1 {
 
 .search-container {
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 312px;
     height: 48px;
 }
@@ -60,7 +63,7 @@ h1 {
 
 .separator-search {
     position: absolute;
-    top: 11px;
+    top: 8px;
     bottom: 0;
     right: 48px;
     height: 70%;
