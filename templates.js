@@ -143,7 +143,7 @@ function getAddUserInputHtml() {
               onfocus="removeInvalid(this)"
               id="inputphone"
               class="inputtextphone"
-              type="text"
+              type="tel"
               placeholder="Phone"
             />
             <div class="adduser-buttons">
@@ -216,7 +216,7 @@ function getUserEditHtml(user) {
               oninvalid="event.preventDefault()"
               id="inputphone"
               class="inputtextphone"
-              type="text"
+              type="tel"
               placeholder="Phone"
               value="${user.phone}"
             />
