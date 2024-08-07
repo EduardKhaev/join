@@ -216,7 +216,7 @@ function getUserEditHtml(user) {
               oninvalid="event.preventDefault()"
               id="inputphone"
               class="inputtextphone"
-              type="text"
+              type="tel"
               placeholder="Phone"
               value="${user.phone}"
             />
