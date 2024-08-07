@@ -11,7 +11,7 @@ body{
     flex-direction: column;
 }
 .at-headline-maincontainer{
-    background-color: rgb(128, 128, 128, 0.3);
+    
     height: 20%;
     display: flex;
     align-items: center;
@@ -32,7 +32,7 @@ body{
     
 }
 .at-body-leftinput{
-    background-color: rgb(128, 128, 128, 0.5);
+    
     height: 70%;
     flex: 1;
     margin-top: 20px;
@@ -43,13 +43,13 @@ body{
     height: 85%;
 }
 .at-body-rightinput{
-    background-color: rgb(128, 128, 128, 0.5);
+    
     height: 80%;
     flex: 1;
     margin-top: 20px;
 }
 .at-footer-maincontainer{
-    background-color: rgb(128, 128, 128, 0.2);
+    
     height: 20%;
     display: flex;
     justify-content: space-between;
@@ -57,7 +57,7 @@ body{
 
 }
 .at-footer-requiredtext{
-    background-color: rgb(128, 128, 128, 0.2);
+    
     height: 20px;
     width: 200px;
     position: relative;
@@ -65,24 +65,13 @@ body{
     left: 3%;
 }
 .at-footer-buttoncontainer{
-    background-color: rgb(128, 128, 128, 0.2);
+    
     height: 40%;
-    width: 267px;
+    width: 300px;
     position: relative;
     right: 3%;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
-.at-footer-clearbtn button{
-    height: 50px;
-    width: 80px;
-    background-color: #f6f7f8;
-    border: solid 1px;
-    border-radius: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
 
-}
