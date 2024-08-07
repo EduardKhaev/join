@@ -216,7 +216,7 @@ async function addNewUser(event) {
   await postData("/names", newUser);
   cancelAddUser();
   users = [];
-  init();
+  initContacts();
   showChangeSuccess("Contact successfully added");
 }
 
@@ -318,7 +318,7 @@ async function addEditedUser(event, userId, saveData) {
 async function performEdit(userId, newUser) {
   await putData("/names/", userId, newUser);
   users = [];
-  init();
+  initContacts();
   showChangeSuccess("Contact successfully edited");
 }
 
@@ -329,7 +329,7 @@ async function performEdit(userId, newUser) {
 async function performDelete(userId) {
   await deleteData("/names/", userId);
   users = [];
-  init();
+  initContacts();
   showChangeSuccess("Contact deleted");
 }
 
