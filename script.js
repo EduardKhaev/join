@@ -342,12 +342,19 @@ function deleteUser(userId) {
   overlayContent.innerHTML = renderConfirmationModal(userId);
 }
 
+/**
+ *
+ * @param {string} userId - firebase id
+ */
 function confirmDelete(userId) {
   cancelDelete();
   performDelete(userId);
   removeUserDetails();
 }
 
+/**
+ * removes the user details view
+ */
 function removeUserDetails() {
   let overlay = document.getElementById("overlay-small");
   if (overlay) {
@@ -357,6 +364,9 @@ function removeUserDetails() {
   }
 }
 
+/**
+ * cancels the delete of an contact and closes the modal
+ */
 function cancelDelete() {
   let overlayContent = document.getElementById("confirmation-modal");
   overlayContent.classList.add("confirmation-modal-out");
@@ -365,6 +375,10 @@ function cancelDelete() {
   }, 200);
 }
 
+/**
+ * toggle dropdown menue in header
+ * @param {event} event - click event
+ */
 function toggleDropdown(event) {
   event.stopPropagation();
   const dropdownMenu = document.getElementById("dropdownMenu");
@@ -375,6 +389,10 @@ function toggleDropdown(event) {
   }
 }
 
+/**
+ * eventlistener for clicks outside of opened menues to close them
+ * @param {event} event - click event
+ */
 window.onclick = function (event) {
   const dropdownMenu = document.getElementById("dropdownMenu");
   const editChoice = document.getElementById("choice-container");
