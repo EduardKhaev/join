@@ -10,11 +10,10 @@ body {
   display: flex;
   flex-direction: column;
 }
-.at-headline-maincontainer{
-    
-    height: 20%;
-    display: flex;
-    align-items: center;
+.at-headline-maincontainer {
+  height: 20%;
+  display: flex;
+  align-items: center;
 }
 .at-headline-maincontainer h1 {
   margin-left: 40px;
@@ -29,47 +28,162 @@ body {
   margin-right: 40px;
   gap: 48px;
 }
-.at-body-leftinput{
-    
-    height: 70%;
-    flex: 1;
-    margin-top: 20px;
+.at-body-leftinput {
+  height: 70%;
+  flex: 1;
+  margin-top: 20px;
 }
 .at-body-emptydiv {
   background-color: rgb(128, 128, 128, 0.5);
   width: 1px;
   height: 85%;
 }
-.at-body-rightinput{
-    
-    height: 80%;
-    flex: 1;
-    margin-top: 20px;
+.at-body-rightinput {
+  height: 80%;
+  flex: 1;
+  margin-top: 20px;
 }
-.at-footer-maincontainer{
-    
-    height: 20%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
+.at-footer-maincontainer {
+  height: 20%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-.at-footer-requiredtext{
-    
-    height: 20px;
-    width: 200px;
-    position: relative;
-    top: 25%;
-    left: 3%;
+.at-footer-requiredtext {
+  height: 20px;
+  width: 200px;
+  position: relative;
+  top: 25%;
+  left: 3%;
 }
-.at-footer-buttoncontainer{
-    
-    height: 40%;
-    width: 300px;
-    position: relative;
-    right: 3%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+.at-footer-buttoncontainer {
+  height: 40%;
+  width: 300px;
+  position: relative;
+  right: 3%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
+/* urgency selector buttons */
+
+.urgency-button {
+  width: 100%;
+  height: 56px;
+  border: none;
+  border-radius: 10px;
+  padding: 16px 10px 16px 10px;
+  flex: 1;
+  font-family: "Inter";
+  font-size: 20px;
+  line-height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 125ms ease-in-out;
+}
+
+.urgency-button svg {
+  margin-left: 8px;
+}
+
+.urgency-button:hover {
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+}
+
+.urgent-button {
+  background-color: white;
+}
+
+.urgent-button:active {
+  background-color: #ff3d00;
+  color: white;
+  font-size: 21px;
+  font-weight: 700;
+  box-shadow: none;
+}
+
+.urgent-button:active svg path {
+  fill: white;
+}
+
+.urgent-active {
+  background-color: #ff3d00;
+  color: white;
+  font-size: 21px;
+  font-weight: 700;
+}
+
+.urgent-active svg path {
+  fill: white;
+}
+
+.urgent-active:hover {
+  box-shadow: none;
+}
+
+.medium-button {
+  background-color: white;
+}
+
+.medium-button:active {
+  background-color: rgba(255, 168, 0, 1);
+  color: white;
+  font-size: 21px;
+  font-weight: 700;
+  box-shadow: none;
+}
+
+.medium-button:active svg path {
+  fill: white;
+}
+
+.medium-active {
+  background-color: rgba(255, 168, 0, 1);
+  color: white;
+  font-size: 21px;
+  font-weight: 700;
+}
+
+.medium-active svg path {
+  fill: white;
+}
+
+.medium-active:hover {
+  box-shadow: none;
+}
+
+.low-button {
+  background-color: white;
+}
+
+.low-button:active {
+  background-color: rgba(122, 226, 41, 1);
+  color: white;
+  font-size: 21px;
+  font-weight: 700;
+  box-shadow: none;
+}
+
+.low-button:active svg path {
+  fill: white;
+}
+
+.low-active {
+  background-color: rgba(122, 226, 41, 1);
+  color: white;
+  font-size: 21px;
+  font-weight: 700;
+}
+
+.low-active svg path {
+  fill: white;
+}
+
+.low-active:hover {
+  box-shadow: none;
+}
+
+/* urgency selector buttons end */
