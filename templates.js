@@ -162,6 +162,7 @@ function getAddUserInputHtml() {
               id="inputphone"
               class="inputtextphone"
               type="tel"
+              pattern="^[0-9\ \+]{3,20}$"
               placeholder="Phone"
             />
             <div class="adduser-buttons">
@@ -235,6 +236,7 @@ function getUserEditHtml(user) {
               id="inputphone"
               class="inputtextphone"
               type="tel"
+              pattern="^[0-9\ \+]{3,20}$"
               placeholder="Phone"
               value="${user.phone}"
             />
