@@ -409,6 +409,10 @@
   z-index: 21;
 }
 
+.edit-btn-responsive:hover {
+  cursor: pointer;
+}
+
 .choice-container {
   width: 116px;
   height: 100px;
