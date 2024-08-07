@@ -318,8 +318,19 @@ async function addEditedUser(event, userId, saveData) {
 async function performEdit(userId, newUser) {
   await putData("/names/", userId, newUser);
   users = [];
-  initContacts();
+  await initContacts();
+  let index = getUserIndex(userId);
   showChangeSuccess("Contact successfully edited");
+}
+
+/**
+ * gets user index in users array that matches firebase ID
+ * @param {string} userId - firebase ID
+ * @returns the index
+ */
+function getUserIndex(userId) {
+  let index = users.findIndex((user) => user["id"] == userId);
+  return index;
 }
 
 /**
@@ -329,7 +340,7 @@ async function performEdit(userId, newUser) {
 async function performDelete(userId) {
   await deleteData("/names/", userId);
   users = [];
-  initContacts();
+  await initContacts();
   showChangeSuccess("Contact deleted");
 }
 
