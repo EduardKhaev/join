@@ -25,13 +25,16 @@ body{
     height: 60%;
     display: flex;
     align-items: flex-start;
-    justify-content: space-around;
+    justify-content: space-between;
+    margin-left: 40px;
+    margin-right: 40px;
+    gap: 48px;
     
 }
 .at-body-leftinput{
     background-color: rgb(128, 128, 128, 0.5);
     height: 70%;
-    width: 40%;
+    flex: 1;
     margin-top: 20px;
 }
 .at-body-emptydiv{
@@ -42,7 +45,7 @@ body{
 .at-body-rightinput{
     background-color: rgb(128, 128, 128, 0.5);
     height: 80%;
-    width: 40%;
+    flex: 1;
     margin-top: 20px;
 }
 .at-footer-maincontainer{
@@ -82,15 +85,4 @@ body{
     justify-content: center;
     gap: 10px;
 
-}
-.at-footer-createbtn button{
-    height: 50px;
-    width: 175px;
-    color: white;
-    background-color: #2a3647;
-    border: solid 1px;
-    border-radius: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
