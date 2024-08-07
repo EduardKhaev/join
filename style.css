@@ -169,3 +169,11 @@ button {
   font-family: "Inter", sans-serif;
   color: #D1D1D1;
 }
+
+.date-input {
+  background-image: url('img/calendar.png');
+  background-repeat: no-repeat;
+  background-position: calc(100% - 6px) center;
+  background-size: 16px; 
+  padding-right: 10px;
+}
