@@ -1,0 +1,51 @@
+.maincard{
+    box-shadow: 0px 0px 10px 3px rgba(0,0,0,0.08);
+    height: 263px;
+    width: 252px;
+    border-radius: 24px;
+    padding: 16px 16px;
+    
+}
+.card-labels{
+    background-color: rgb(181, 181, 181);
+    height: 27px;
+    width: 113px;
+    border-radius: 8px;
+}
+.card-textcontainer{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.card-textheadline{
+    background-color: rgb(181, 181, 181);
+    margin-top: 24px;
+    height: 36px;
+}
+.card-text{
+    background-color: rgb(181, 181, 181);
+    height: 38px;
+}
+.card-subtasks{
+    background-color: rgb(181, 181, 181);
+    height: 16px;
+    margin-top: 24px;
+}
+.card-footer{
+    background-color: rgb(181, 181, 181);
+    height: 32px;
+    margin-top: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.card-initials{
+    background-color: red;
+    height: 32px;
+    width: 80px;
+}
+.card-priority{
+    background-color: red;
+    height: 32px;
+    width: 32px;
+}
