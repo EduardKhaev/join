@@ -50,24 +50,79 @@
   fill: white;
 }
 
-.urgent-button:has([value="active"]) {
+.urgent-active {
   background-color: #ff3d00;
   color: white;
   font-size: 21px;
   font-weight: 700;
 }
 
-.urgent-button:has(.active-urgency) svg path {
+.urgent-active svg path {
   fill: white;
+}
+
+.urgent-active:hover {
+  box-shadow: none;
 }
 
 .medium-button {
   background-color: white;
 }
 
+.medium-button:active {
+  background-color: rgba(255, 168, 0, 1);
+  color: white;
+  font-size: 21px;
+  font-weight: 700;
+  box-shadow: none;
+}
+
+.medium-button:active svg path {
+  fill: white;
+}
+
+.medium-active {
+  background-color: rgba(255, 168, 0, 1);
+  color: white;
+  font-size: 21px;
+  font-weight: 700;
+}
+
+.medium-active svg path {
+  fill: white;
+}
+
+.medium-active:hover {
+  box-shadow: none;
+}
+
 .low-button {
   background-color: white;
 }
 
-.active-urgency {
+.low-button:active {
+  background-color: rgba(122, 226, 41, 1);
+  color: white;
+  font-size: 21px;
+  font-weight: 700;
+  box-shadow: none;
+}
+
+.low-button:active svg path {
+  fill: white;
+}
+
+.low-active {
+  background-color: rgba(122, 226, 41, 1);
+  color: white;
+  font-size: 21px;
+  font-weight: 700;
+}
+
+.low-active svg path {
+  fill: white;
+}
+
+.low-active:hover {
+  box-shadow: none;
 }
