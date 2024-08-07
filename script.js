@@ -136,12 +136,20 @@ function showUserDetailsSmall(index) {
   </div>`;
 }
 
+/**
+ * shows selection element after button is clicked
+ * @param {event} event - click event
+ * @param {int} index - index of user (users array) in detail view
+ */
 function renderEditUserChoice(event, index) {
   event.stopPropagation();
   let content = document.getElementById("navigation-items");
   content.innerHTML += returnEditUserChoice(index);
 }
 
+/**
+ * close user details
+ */
 function closeUserDetails() {
   let overlay = document.getElementById("overlay-small");
   let editBtn = document.getElementById("edit-btn-responsive");
@@ -153,6 +161,10 @@ function closeUserDetails() {
   clearActiveUser();
 }
 
+/**
+ * Highlights the selected contact list entry
+ * @param {HTMLElement} element
+ */
 function setUserActive(element) {
   if (activeUser) {
     activeUser.style.backgroundColor = "";
@@ -166,6 +178,9 @@ function setUserActive(element) {
   activeUser.style.cursor = "pointer";
 }
 
+/**
+ * unhighlightes the previously selected user
+ */
 function clearActiveUser() {
   if (activeUser) {
     activeUser.style.backgroundColor = "";
@@ -175,6 +190,11 @@ function clearActiveUser() {
   activeUser = undefined;
 }
 
+/**
+ * Gets the initials of a newly created contact
+ * @param {String} name - name of the contact
+ * @returns - initials of the contact
+ */
 function getInitials(name) {
   let initials = name
     .split(" ")
@@ -186,6 +206,10 @@ function getInitials(name) {
   return initials;
 }
 
+/**
+ * creates a new contact after input, gets values and stores in firebase
+ * @param {event} event - click event
+ */
 async function addNewUser(event) {
   event.preventDefault();
   let newUser = getUserDataFromInput();
@@ -196,6 +220,10 @@ async function addNewUser(event) {
   showChangeSuccess("Contact successfully added");
 }
 
+/**
+ * reads input values from form
+ * @returns object from input data
+ */
 function getUserDataFromInput() {
   let nameInput = document.getElementById("inputname").value;
   let mailInput = document.getElementById("inputemail").value;
@@ -212,14 +240,25 @@ function getUserDataFromInput() {
   return newUser;
 }
 
+/**
+ * invoked after invalid user input
+ * @param {HTMLElement} element - validated input element
+ */
 function showInvalid(element) {
   element.style.borderColor = "red";
 }
 
+/**
+ * removes styling if invalid element gets focus
+ * @param {HTMLElement} element - focussed on element
+ */
 function removeInvalid(element) {
   element.style = "";
 }
 
+/**
+ * created a user input field to create a new contact
+ */
 function renderAddUserInputField() {
   let overlayContent = createOverlay("adduser-overlay", "overlay");
   setTimeout(() => {
@@ -229,6 +268,9 @@ function renderAddUserInputField() {
   }, 200);
 }
 
+/**
+ * closes the create/edit user modal without applying input data
+ */
 function cancelAddUser() {
   let overlayContent = document.getElementById("adduser-maincontainer");
   overlayContent.classList.add("adduser-maincontainer-out");
@@ -238,6 +280,10 @@ function cancelAddUser() {
   }, 200);
 }
 
+/**
+ * opens an input modal to edit existing user data
+ * @param {int} index - index in users array
+ */
 function renderEditUserInputField(index) {
   let overlayContent = createOverlay("adduser-overlay", "overlay");
   let user = users[index];
@@ -247,6 +293,12 @@ function renderEditUserInputField(index) {
   }, 200);
 }
 
+/**
+ * add data of edited user to firebase or delete user data
+ * @param {event} event - click event
+ * @param {string} userId - firebase id
+ * @param {boolean} saveData - true for save / false for delete
+ */
 async function addEditedUser(event, userId, saveData) {
   event.preventDefault();
   let newUser = getUserDataFromInput();
@@ -258,6 +310,11 @@ async function addEditedUser(event, userId, saveData) {
   }
 }
 
+/**
+ * saves changes to firebase
+ * @param {string} userId - firebase id
+ * @param {object} newUser - new object to push
+ */
 async function performEdit(userId, newUser) {
   await putData("/names/", userId, newUser);
   users = [];
@@ -265,6 +322,10 @@ async function performEdit(userId, newUser) {
   showChangeSuccess("Contact successfully edited");
 }
 
+/**
+ * deletes entry in firebase
+ * @param {string} userId - firebase id
+ */
 async function performDelete(userId) {
   await deleteData("/names/", userId);
   users = [];
@@ -272,6 +333,10 @@ async function performDelete(userId) {
   showChangeSuccess("Contact deleted");
 }
 
+/**
+ * opens confirmation modal
+ * @param {string} userId - firebase id
+ */
 function deleteUser(userId) {
   let overlayContent = createOverlay("adduser-overlay", "overlay");
   overlayContent.innerHTML = renderConfirmationModal(userId);
