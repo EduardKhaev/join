@@ -5,11 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="urgent.css" />
+    <script src="task.js"></script>
     <title>Document</title>
   </head>
   <body>
     <div class="outer">
-      <button class="urgency-button urgent-button" value="active">
+      <button
+        class="urgency-button urgent-button"
+        id="urgent-button"
+        onclick="setUrgency(event, 'urgent')"
+      >
         Urgent
         <svg
           width="21"
@@ -28,7 +33,11 @@
           />
         </svg>
       </button>
-      <button class="urgency-button medium-button">
+      <button
+        class="urgency-button medium-button"
+        id="medium-button"
+        onclick="setUrgency(event, 'medium')"
+      >
         Medium<svg
           width="21"
           height="8"
@@ -46,7 +55,11 @@
           />
         </svg>
       </button>
-      <button class="urgency-button low-button">
+      <button
+        class="urgency-button low-button"
+        id="low-button"
+        onclick="setUrgency(event, 'low')"
+      >
         Low<svg
           width="21"
           height="16"
