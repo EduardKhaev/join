@@ -214,3 +214,19 @@
     margin-left: 20px;
   }
 }
+
+@media (max-height: 750px) {
+  .contacts-headline h1 {
+    display: none;
+  }
+  .contacts-headline span {
+    display: none;
+  }
+  .contacts-headline .spacer {
+    display: none;
+  }
+
+  .contacts-headline {
+    margin-top: 44px;
+  }
+}
