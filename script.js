@@ -342,7 +342,6 @@ function getRandomColor() {
   let hue = getRandomInt(255);
   let saturation = getRandomInt(30) + 70;
   color = hslToHex(hue, saturation, 50);
-  console.log(color);
   return color;
 }
 
