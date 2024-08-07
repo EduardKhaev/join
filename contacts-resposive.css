@@ -175,6 +175,16 @@
   .max-mail-length {
     max-width: 350px;
   }
+
+  .ci-avatar {
+    width: 80px;
+    height: 80px;
+    font-size: 36px;
+  }
+
+  .ci-name {
+    font-size: 36px;
+  }
 }
 
 @media (max-width: 410px) {
@@ -202,5 +212,21 @@
   }
   .letter-alph span {
     margin-left: 20px;
+  }
+}
+
+@media (max-height: 750px) {
+  .contacts-headline h1 {
+    display: none;
+  }
+  .contacts-headline span {
+    display: none;
+  }
+  .contacts-headline .spacer {
+    display: none;
+  }
+
+  .contacts-headline {
+    margin-top: 44px;
   }
 }
