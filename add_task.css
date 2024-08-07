@@ -1,0 +1,96 @@
+body{
+    padding-left: 120px;
+}
+.addtask-maincontainer{
+    height: 80vh;
+    width: 75%;
+    position: fixed;
+    top: 15%;
+    left: 290px;
+    display: flex;
+    flex-direction: column;
+}
+.at-headline-maincontainer{
+    background-color: rgb(128, 128, 128, 0.3);
+    height: 20%;
+    display: flex;
+    align-items: center;
+}
+.at-headline-maincontainer h1{
+    margin-left: 40px;
+    font-size: 61px;
+
+}
+.at-body-maincontainer{
+    height: 60%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+    
+}
+.at-body-leftinput{
+    background-color: rgb(128, 128, 128, 0.5);
+    height: 70%;
+    width: 40%;
+    margin-top: 20px;
+}
+.at-body-emptydiv{
+    background-color: rgb(128, 128, 128, 0.5);
+    width: 1px;
+    height: 85%;
+}
+.at-body-rightinput{
+    background-color: rgb(128, 128, 128, 0.5);
+    height: 80%;
+    width: 40%;
+    margin-top: 20px;
+}
+.at-footer-maincontainer{
+    background-color: rgb(128, 128, 128, 0.2);
+    height: 20%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+.at-footer-requiredtext{
+    background-color: rgb(128, 128, 128, 0.2);
+    height: 20px;
+    width: 200px;
+    position: relative;
+    top: 25%;
+    left: 3%;
+}
+.at-footer-buttoncontainer{
+    background-color: rgb(128, 128, 128, 0.2);
+    height: 40%;
+    width: 267px;
+    position: relative;
+    right: 3%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.at-footer-clearbtn button{
+    height: 50px;
+    width: 80px;
+    background-color: #f6f7f8;
+    border: solid 1px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+}
+.at-footer-createbtn button{
+    height: 50px;
+    width: 175px;
+    color: white;
+    background-color: #2a3647;
+    border: solid 1px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
