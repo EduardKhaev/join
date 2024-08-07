@@ -7,12 +7,19 @@ let activeUser = undefined;
 
 let activeNavItem = undefined;
 
+/**
+ * initializes basic functions on contacts page
+ */
 async function initContacts() {
   await loadUsers();
   sortAllUsers();
   displayUsers();
 }
 
+/**
+ * load users data from firebase
+ * @param {string} path - defines path to data on db
+ */
 async function loadUsers(path = "/names") {
   let userResponse = await fetch(FIREBASE_URL + path + ".json");
   let responseToJson = await userResponse.json();
@@ -30,10 +37,16 @@ async function loadUsers(path = "/names") {
   }
 }
 
+/**
+ * sorts users alphabetically
+ */
 function sortAllUsers() {
   users.sort((a, b) => a.name.localeCompare(b.name));
 }
 
+/**
+ * displays users in contact list element
+ */
 function displayUsers() {
   let contacts = document.getElementById("contact-list");
   contacts.innerHTML = "";
@@ -45,6 +58,13 @@ function displayUsers() {
   }
 }
 
+/**
+ * Sets first letter of each section in contacts list
+ * @param {int} i - index of loop in displayUsers()
+ * @param {String} currentLetter - Letter of Section-Header in List
+ * @param {HTMLElement} contacts - contact-list HTML Element
+ * @returns - current letter if changed
+ */
 function setFirstLetter(i, currentLetter, contacts) {
   if (firstletter(i) != currentLetter) {
     contacts.innerHTML += `
@@ -58,11 +78,22 @@ function setFirstLetter(i, currentLetter, contacts) {
   return currentLetter;
 }
 
+/**
+ * helper function to get first letter of a contacts name
+ * @param {int} index
+ * @returns - the first letter
+ */
 function firstletter(index) {
   let firstLetter = users[index].name.charAt(0);
   return firstLetter;
 }
 
+/**
+ * evoked by click on contact in contact list to show the detailed user info
+ * highlights clicked on entry
+ * @param {int} index - index in users array
+ * @param {HTMLElement} element - element that was clicked on
+ */
 function showUserDetails(index, element) {
   setUserActive(element);
   if (window.innerWidth > 745) {
@@ -72,6 +103,10 @@ function showUserDetails(index, element) {
   }
 }
 
+/**
+ * shows user information on screens > 745px
+ * @param {int} index - index in users array
+ */
 function showUserDetailsBig(index) {
   let user = users[index];
   let fullContactDetails = document.getElementById("full-contact-details");
@@ -84,10 +119,10 @@ function showUserDetailsBig(index) {
   }, 200);
 }
 
-function showUserDetailsResponsive() {
-  document.getElementById("add-btn-responsive").classList.add("add-btn-active");
-}
-
+/**
+ * shows user information on screens < 745px
+ * @param {int} index - index in users array
+ */
 function showUserDetailsSmall(index) {
   let user = users[index];
   let overlay = createOverlay("overlay-small", "overlay-small");
@@ -263,30 +298,6 @@ function cancelDelete() {
   setTimeout(() => {
     document.getElementById("adduser-overlay").remove();
   }, 200);
-}
-
-function setNavActive(element) {
-  if (activeNavItem) {
-    activeNavItem.classList.remove("active");
-  }
-  activeNavItem = element;
-  activeNavItem.classList.add("active");
-}
-
-function setSummaryActive(element) {
-  setNavActive(element);
-}
-
-function setAddTaskActive(element) {
-  setNavActive(element);
-}
-
-function setBoardActive(element) {
-  setNavActive(element);
-}
-
-function setContactsActive(element) {
-  setNavActive(element);
 }
 
 function toggleDropdown(event) {
