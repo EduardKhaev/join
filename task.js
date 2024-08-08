@@ -1,4 +1,20 @@
+let newTask = {
+  id: "8549058390jk",
+  title: "Meine Aufgabe",
+  description: "Räum dein Zimmer auf",
+  assigned: ["id of user - you", "id1fghzusdu4342", "589834359023"],
+  date: "2024-08-22",
+  priority: "urgent",
+  category: "string",
+  subtasks: [
+    { name: "string", done: false },
+    { name: "string", done: false },
+  ],
+  taskState: "to do",
+};
+
 let selectedUrgency = "";
+// set urgency medium at start?
 
 /**
  * function to runb at page loading
@@ -7,7 +23,35 @@ async function initTask() {
   await loadUsers();
   sortAllUsers();
   insertContactsToInput();
+  updateDate();
 }
+
+function createTask(event, taskState = "to do") {
+  event.preventDefault();
+  console.log("create task button presses");
+}
+
+function clearTaskForm(event) {
+  event.preventDefault();
+}
+
+function createSubtask(event) {
+  event.preventDefault();
+}
+
+function deleteSubtask(event, subtaskIndex) {
+  event.preventDefault();
+}
+
+function editSubtask(event) {
+  event.preventDefault();
+}
+
+function updateSubtask(event, subtaskIndex) {
+  event.preventDefault();
+}
+
+function searchContacts(searchterm) {}
 
 /**
  * adding contacts to select element in input form
@@ -15,6 +59,11 @@ async function initTask() {
 function insertContactsToInput() {
   console.log(users.length);
 }
+
+/**
+ * set date of today to date selector
+ */
+function updateDate() {}
 
 /**
  * Determines which priority button was pressed and changes styles
