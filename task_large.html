@@ -1,77 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="task-large.css">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="task-large.css" />
+    <link rel="stylesheet" href="style.css" />
     <title>Document</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="task-large">
-        <div class="task-large-content">
-            <div class="tl-category">
-                <div class="tl-category-text">
-                    <span>User Story</span>
-                </div>
-                <div class="tl-close-btn" onclick="">
-                    <img src="./img/close.png" alt="">
-                </div>
-            </div>
-            <div class="tl-title">
-                CSS Architecture Planning
-            </div>
-            <div class="tl-description">
-                Define CSS naming conventions and structure.
-            </div>
-            <div class="tl-date">
-                <span>Due date:</span>
-                <div>02/09/2024</div>
-            </div>
-            <div class="tl-priority">
-                <span>Priority:</span>
-                <div class="tl-priority-marker">
-                    <div>Medium</div>
-                    <svg width="17" height="12" viewBox="0 0 21 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M19.7596 7.91693H1.95136C1.66071 7.91693 1.38197 7.80063 1.17645 7.59362C0.970928 7.3866 0.855469 7.10584 0.855469 6.81308C0.855469 6.52032 0.970928 6.23955 1.17645 6.03254C1.38197 5.82553 1.66071 5.70923 1.95136 5.70923H19.7596C20.0502 5.70923 20.329 5.82553 20.5345 6.03254C20.74 6.23955 20.8555 6.52032 20.8555 6.81308C20.8555 7.10584 20.74 7.3866 20.5345 7.59362C20.329 7.80063 20.0502 7.91693 19.7596 7.91693Z"
-                            fill="#FFA800" />
-                        <path
-                            d="M19.7596 2.67376H1.95136C1.66071 2.67376 1.38197 2.55746 1.17645 2.35045C0.970928 2.14344 0.855469 1.86267 0.855469 1.56991C0.855469 1.27715 0.970928 0.996386 1.17645 0.789374C1.38197 0.582363 1.66071 0.466064 1.95136 0.466064L19.7596 0.466064C20.0502 0.466064 20.329 0.582363 20.5345 0.789374C20.74 0.996386 20.8555 1.27715 20.8555 1.56991C20.8555 1.86267 20.74 2.14344 20.5345 2.35045C20.329 2.55746 20.0502 2.67376 19.7596 2.67376Z"
-                            fill="#FFA800" />
-                    </svg>
-                </div>
-            </div>
-            <div class="tl-assignment">
-                <span>Assigned to:</span>
-                <div class="tl-persons" id="tl-persons">
-                    <div class="tl-person">
-                        <div class="tl-avatar">MS</div>
-                        <div class="tl-name">Max Stigler</div>
-                    </div>
-                    <div class="tl-person">
-                        <div class="tl-avatar">SM</div>
-                        <div class="tl-name">Stax Migler</div>
-                    </div>
-                </div>
-            </div>
-            <div class="tl-subtasks">
-                <span>Subtasks:</span>
-                <div class="tl-sub-checks">
-                    <div class="tl-sub-check">
-                        <img src="./img/check-button-checked.png" alt="">
-                        <div>Establish CSS methology</div>
-                    </div>
-                    <div class="tl-sub-check">
-                        <img src="./img/check-button.png" alt="">
-                        <div>Setup base styles</div>
-                    </div>
-                </div>
-            </div>
+      <div class="task-large-content">
+        <div class="tl-category">
+          <div class="tl-category-text">
+            <span>User Story</span>
+          </div>
+          <div class="tl-close-btn" onclick="">
+            <img src="./img/close.png" alt="" />
+          </div>
         </div>
+        <div class="tl-title">CSS Architecture Planning</div>
+        <div class="tl-description">
+          Define CSS naming conventions and structure.
+        </div>
+        <div class="tl-date">
+          <span>Due date:</span>
+          <div>02/09/2024</div>
+        </div>
+        <div class="tl-priority">
+          <span>Priority:</span>
+          <div class="tl-priority-marker">
+            <div>Medium</div>
+            <svg
+              width="17"
+              height="12"
+              viewBox="0 0 21 8"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M19.7596 7.91693H1.95136C1.66071 7.91693 1.38197 7.80063 1.17645 7.59362C0.970928 7.3866 0.855469 7.10584 0.855469 6.81308C0.855469 6.52032 0.970928 6.23955 1.17645 6.03254C1.38197 5.82553 1.66071 5.70923 1.95136 5.70923H19.7596C20.0502 5.70923 20.329 5.82553 20.5345 6.03254C20.74 6.23955 20.8555 6.52032 20.8555 6.81308C20.8555 7.10584 20.74 7.3866 20.5345 7.59362C20.329 7.80063 20.0502 7.91693 19.7596 7.91693Z"
+                fill="#FFA800"
+              />
+              <path
+                d="M19.7596 2.67376H1.95136C1.66071 2.67376 1.38197 2.55746 1.17645 2.35045C0.970928 2.14344 0.855469 1.86267 0.855469 1.56991C0.855469 1.27715 0.970928 0.996386 1.17645 0.789374C1.38197 0.582363 1.66071 0.466064 1.95136 0.466064L19.7596 0.466064C20.0502 0.466064 20.329 0.582363 20.5345 0.789374C20.74 0.996386 20.8555 1.27715 20.8555 1.56991C20.8555 1.86267 20.74 2.14344 20.5345 2.35045C20.329 2.55746 20.0502 2.67376 19.7596 2.67376Z"
+                fill="#FFA800"
+              />
+            </svg>
+          </div>
+        </div>
+        <div class="tl-assignment">
+          <span>Assigned to:</span>
+          <div class="tl-persons" id="tl-persons">
+            <div class="tl-person">
+              <div class="tl-avatar">MS</div>
+              <div class="tl-name">Max Stigler</div>
+            </div>
+            <div class="tl-person">
+              <div class="tl-avatar">SM</div>
+              <div class="tl-name">Stax Migler</div>
+            </div>
+          </div>
+        </div>
+        <div class="tl-subtasks">
+          <span>Subtasks:</span>
+          <div class="tl-sub-checks">
+            <div class="tl-sub-check">
+              <input type="checkbox" id="checkbox1" class="custom-checkbox" />
+              <label for="checkbox1" class="custom-checkbox-label">
+                <div class="checkbox-icon">
+                  <svg
+                    width="19"
+                    height="18"
+                    viewBox="0 0 19 18"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <rect
+                      class="unchecked"
+                      x="1.38818"
+                      y="1"
+                      width="16"
+                      height="16"
+                      rx="3"
+                      stroke="#2A3647"
+                      stroke-width="2"
+                    />
+                    <path
+                      class="checked"
+                      d="M17.3882 8V14C17.3882 15.6569 16.045 17 14.3882 17H4.38818C2.73133 17 1.38818 15.6569 1.38818 14V4C1.38818 2.34315 2.73133 1 4.38818 1H12.3882"
+                      stroke="#2A3647"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                    />
+                    <path
+                      class="checked"
+                      d="M5.38818 9L9.38818 13L17.3882 1.5"
+                      stroke="#2A3647"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </div>
+                <span class="checkbox-text">Establish CSS methology</span>
+              </label>
+            </div>
+            <div class="tl-sub-check">
+              <input type="checkbox" id="checkbox2" class="custom-checkbox" />
+              <label for="checkbox2" class="custom-checkbox-label">
+                <div class="checkbox-icon">
+                  <svg
+                    width="19"
+                    height="18"
+                    viewBox="0 0 19 18"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <rect
+                      class="unchecked"
+                      x="1.38818"
+                      y="1"
+                      width="16"
+                      height="16"
+                      rx="3"
+                      stroke="#2A3647"
+                      stroke-width="2"
+                    />
+                    <path
+                      class="checked"
+                      d="M17.3882 8V14C17.3882 15.6569 16.045 17 14.3882 17H4.38818C2.73133 17 1.38818 15.6569 1.38818 14V4C1.38818 2.34315 2.73133 1 4.38818 1H12.3882"
+                      stroke="#2A3647"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                    />
+                    <path
+                      class="checked"
+                      d="M5.38818 9L9.38818 13L17.3882 1.5"
+                      stroke="#2A3647"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </div>
+                <span class="checkbox-text">Setup base styles</span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-</body>
-
+  </body>
 </html>
