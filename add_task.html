@@ -185,12 +185,18 @@
               </svg>
             </button>
           </div>
-          <label for="category">Category<span class="required">*</span></label>
-          <select class="inputfield-basic-design" id="category" required>
-            <option value="" disabled selected>Select task category</option>
-            <option value="technical">Technical Task</option>
-            <option value="user-story">User Story</option>
-          </select>
+          <label for="categoryLabel">Category<span class="required">*</span></label>
+          <details class="inputfield-basic-design" id="categoryDetails">
+            <summary>
+              <span class="summary-text">Select task category</span>
+            </summary>
+            <div style="padding-top: 8px;">
+              <ul>
+                <li class="category-option" data-value="technical">Technical Task</li>
+                <li class="category-option" data-value="user-story">User Story</li>
+              </ul>
+            </div>
+          </details>
 
           <label for="subtasks">Subtasks</label>
           <div class="subtask-field">
