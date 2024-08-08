@@ -175,6 +175,40 @@
   padding: 6px 16px 6px 16px;
 }
 
+.tl-choice-buttons {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 12px;
+  gap: 8px;
+}
+
+.tl-choice {
+  border: none;
+  background-color: transparent;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.tl-choice:hover {
+  color: var(--brand-blue);
+  font-weight: 700;
+}
+
+.tl-choice:hover svg path {
+  fill: var(--brand-blue);
+}
+
+.tl-buttons-separator {
+  height: 18px;
+  width: 1px;
+  background-color: rgba(209, 209, 209, 1);
+}
+
 /* checkbox */
 
 .tl-sub-check:hover {
