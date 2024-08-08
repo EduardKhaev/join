@@ -388,3 +388,16 @@ details ul li:hover {
 .custom-checkbox + .custom-checkbox-label .checkbox-icon svg .checked {
   display: none;
 }
+
+/* category item */
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 5px;
+}
+
+.dropdown-item:hover {
+  background-color: #f0f0f0;
+}

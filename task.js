@@ -104,3 +104,17 @@ function markContactAssigned(id) {
   let checkbox = document.getElementById(id);
   checkbox.checked = !checkbox.checked;
 }
+
+/**
+ * Selecting and storing an item from a dropdown
+ * @param {HTMLElement} element - HTMLElement that was clicked on
+ */
+function selectCategory(element) {
+  let value = element.getAttribute("data-value");
+  let text = element.querySelector(".assigned-person").textContent;
+  document.getElementById("dropdown-title").textContent = text;
+  let dropdown = document.getElementById("dropdown");
+  dropdown.dataset.selectedValue = value;
+  dropdown.removeAttribute("open");
+  console.log(getSelectedValue());
+}

@@ -383,22 +383,29 @@
             <label for="categoryLabel"
               >Category<span class="required">*</span></label
             >
-            <details class="inputfield-basic-design" id="categoryDetails">
+            <details id="dropdown" class="inputfield-basic-design">
               <summary>
-                <span class="summary-text">Select task category</span>
+                <span id="dropdown-title" class="summary-text"
+                  >Select task category</span
+                >
               </summary>
-              <div style="padding-top: 8px">
-                <ul>
-                  <li class="category-option" data-value="technical">
-                    Technical Task
-                  </li>
-                  <li class="category-option" data-value="user-story">
-                    User Story
-                  </li>
-                </ul>
-              </div>
+              <ul>
+                <li
+                  class="dropdown-item"
+                  data-value="Technical Task"
+                  onclick="selectCategory(this)"
+                >
+                  <span class="assigned-person">Technical Task</span>
+                </li>
+                <li
+                  class="dropdown-item"
+                  data-value="User Story"
+                  onclick="selectCategory(this)"
+                >
+                  <span class="assigned-person">User Story</span>
+                </li>
+              </ul>
             </details>
-
             <label for="subtasks">Subtasks</label>
             <div class="subtask-field">
               <input
