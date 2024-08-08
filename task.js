@@ -1,6 +1,6 @@
 let selectedUrgency = "";
 
-async function init_task() {
+async function initTask() {
   await loadUsers();
   sortAllUsers();
   insertContactsToInput();
@@ -8,6 +8,8 @@ async function init_task() {
 
 function insertContactsToInput() {
   console.log(users.length);
+
+  // document.getElementById('day').options.add(new Option("text", "value"))
 }
 
 function setUrgency(event, urgency) {
