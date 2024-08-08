@@ -17,6 +17,7 @@
   <script src="task.js"></script>
 
   <title>Document</title>
+
 </head>
 
 <body>
@@ -113,12 +114,30 @@
           </div>
           <div>
             <label for="assignedTo">Assigned to</label>
-            <select class="inputfield-basic-design" id="assignedTo" name="assignedTo">
-              <option value="" disabled selected>Select contacts to assign</option>
-              <option value="person1">Person 1</option>
-              <option value="person2">Person 2</option>
-              <option value="person3">Person 3</option>
-            </select>
+            <details class="inputfield-basic-design">
+              <summary>
+                <span class="summary-text">Select contacts to assign</span>
+              </summary>
+              <form>
+                <fieldset>
+                  <legend>Contacts</legend>
+                  <ul>
+                    <li>
+                      <label for="person1">Person 1</label>
+                      <input type="checkbox" id="person1" name="assignedTo" value="person1" />
+                    </li>
+                    <li>
+                      <label for="person2">Person 2</label>
+                      <input type="checkbox" id="person2" name="assignedTo" value="person2" />
+                    </li>
+                    <li>
+                      <label for="person3">Person 3</label>
+                      <input type="checkbox" id="person3" name="assignedTo" value="person3" />
+                    </li>
+                  </ul>
+                </fieldset>
+              </form>
+            </details>
           </div>
         </form>
       </div>

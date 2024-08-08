@@ -111,11 +111,95 @@
         flex-grow: 1;
         justify-content: space-between;
       }
+
+      HTML CSSResult Skip Results Iframe
+EDIT ON
+details {
+  border: 1px solid #767676;
+  border-radius: 3px;
+  display: inline-flex;
+  flex-direction: column;
+  padding: 3px 6px;
+}
+
+details summary::marker {
+  display: none;
+  font-size: 0;
+}
+
+details summary::-webkit-details-marker {
+  display: none;
+  font-size: 0;
+}
+
+details summary::after {
+  content: "\25BC" / "";
+  display: inline-block;
+  font-size: 0.6rem;
+  height: 1rem;
+  line-height: 1rem;
+  margin-left: 0.5rem;
+  position: relative;
+  transition: transform 0.25s;
+}
+
+details[open] summary {
+  margin-bottom: 1rem;
+}
+
+details[open] summary::after {
+  top: -0.15rem;
+  transform: rotate(180deg);
+}
+
+form {
+  display: flex;
+}
+
+fieldset {
+  border: 0;
+  padding: 0;
+  width: 100%;
+}
+
+fieldset legend {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+ul li {
+  border-radius: 3px;
+  margin: 0;
+  padding: 4px 2px;
+}
+
+ul li:hover {
+  background: #eee;
+}
+
+ul li label {
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-between;
+}
     </style>
   </head>
 
   <body>
-    <!--
+
     <div class="inputfields-section">
       <form>
         <div>
@@ -139,22 +223,28 @@
             required
           ></textarea>
         </div>
-        <div>
-          <label for="assignedTo">Assigned to</label>
-          <select
-            class="inputfield-basic-design"
-            id="assignedTo"
-            name="assignedTo"
-            required
-          >
-            <option value="" disabled selected>
-              Select contacts to assign
-            </option>
-            <option value="person1">Person 1</option>
-            <option value="person2">Person 2</option>
-            <option value="person3">Person 3</option>
-          </select>
-        </div>
+        <details>
+            <summary>Assigned Contacts</summary>
+            <form>
+                <fieldset>
+                    <legend>Contacts</legend>
+                    <ul>
+                        <li>
+                            <label for="person1">Person 1</label>
+                            <input type="checkbox" id="person1" name="assignedTo" value="person1" />
+                        </li>
+                        <li>
+                            <label for="person2">Person 2</label>
+                            <input type="checkbox" id="person2" name="assignedTo" value="person2" />
+                        </li>
+                        <li>
+                            <label for="person3">Person 3</label>
+                            <input type="checkbox" id="person3" name="assignedTo" value="person3" />
+                        </li>
+                    </ul>
+                </fieldset>
+            </form>
+        </details>
       </form>
 
       <form>
@@ -256,43 +346,4 @@
           />
         </div>
       </form>
-    </div> -->
-    <details>
-      <summary>Your favourite cars list</summary>
-      <form>
-        <fieldset>
-          <legend>Cars</legend>
-          <ul>
-            <li>
-              <label for="bmw"
-                >BMW<input type="checkbox" id="bmw" name="bmw" value="bmw"
-              /></label>
-            </li>
-            <li>
-              <label for="citroen"
-                >Citroen
-                <input
-                  type="checkbox"
-                  id="citroen"
-                  name="citroen"
-                  value="citroen"
-              /></label>
-            </li>
-            <li>
-              <label for="skoda"
-                >Skoda
-                <input type="checkbox" id="skoda" name="skoda" value="skoda"
-              /></label>
-            </li>
-            <li>
-              <label for="volvo"
-                >Volvo
-                <input type="checkbox" id="volvo" name="volvo" value="volvo"
-              /></label>
-            </li>
-          </ul>
-        </fieldset>
-      </form>
-    </details>
-  </body>
-</html>
+    </div> 
