@@ -4,7 +4,7 @@
 
 .addtask-maincontainer {
   height: 100%;
-  width: calc(100%-232px);
+  width: calc(100% - 232px);
   margin-left: 232px;
   display: flex;
   flex-direction: column;
