@@ -1,0 +1,81 @@
+.provisonal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+}
+
+.card-large {
+    height: 871px;
+    width: 525px;
+    background-color: white;
+    box-shadow: 0px 0px 4px 1px lightgray;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    height: 90vh;
+}
+
+.card-large-content {
+    padding: 48px 40px 48px 40px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    
+}
+
+.cl-category {
+    margin-top: 48px;
+    height: 36px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cl-category-text {
+    width: 208px;
+    background-color: orange;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    height: 36px;
+    font-size: 23px;
+    font-weight: 400;
+    border-radius: 8px;
+}
+
+.cl-close-btn:hover {
+    cursor: pointer;
+}
+
+.cl-title {
+    height: 219px;
+    margin-top: 24px;
+    font-size: 61px;
+    font-weight: 700;
+}
+
+.cl-description {
+    margin-top: 24px;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.cl-date {
+    margin-top: 24px;
+    font-weight: 400;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 25px;
+}
+
+.cl-date span {
+    font-size: 20px;
+    color: var(--brand-dark);
+} 
+
+.cl-date div {
+    font-size: 19px;
+}
+
