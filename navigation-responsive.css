@@ -20,6 +20,12 @@
     flex-direction: row;
   }
 
+  .navigation-item {
+    padding-left: 0;
+    flex: 1;
+    justify-content: center;
+  }
+
   .navigation-item a {
     display: flex;
     flex-direction: column;
