@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="add_task.css" />
   <link rel="stylesheet" href="urgent.css" />
+  <link rel="stylesheet" href="contacts.css">
   <link rel="stylesheet" href="navigation-responsive.css" />
   <link rel="stylesheet" href="add_task_responsive.css" />
   <script src="apiscripts.js"></script>
@@ -103,7 +104,7 @@
       <div class="at-body-leftinput">
         <form>
           <div>
-            <label for="title">Title*</label>
+            <label for="title">Title<span class="required">*</span></label>
             <input class="inputfield-basic-design" type="text" id="title" name="title" placeholder="Enter a title"
               required>
           </div>
@@ -114,37 +115,40 @@
           </div>
           <div>
             <label for="assignedTo">Assigned to</label>
-            <details class="inputfield-basic-design">
-              <summary>
-                <span class="summary-text">Select contacts to assign</span>
-              </summary>
-              <form>
-                <fieldset>
-                  <legend>Contacts</legend>
-                  <ul>
-                    <li>
-                      <label for="person1">Person 1</label>
-                      <input type="checkbox" id="person1" name="assignedTo" value="person1" />
-                    </li>
-                    <li>
-                      <label for="person2">Person 2</label>
-                      <input type="checkbox" id="person2" name="assignedTo" value="person2" />
-                    </li>
-                    <li>
-                      <label for="person3">Person 3</label>
-                      <input type="checkbox" id="person3" name="assignedTo" value="person3" />
-                    </li>
-                  </ul>
-                </fieldset>
-              </form>
-            </details>
+<details class="inputfield-basic-design">
+  <summary>
+    <span class="summary-text">Select contacts to assign</span>
+  </summary>
+  <form>
+    <fieldset>
+      <legend>Contacts</legend>
+      <ul>
+        <li>
+          <div class="cl-avatar cl-avatar-space">P1</div>
+          <span class="assigned-person" for="person1">Person 1</span>
+          <input type="checkbox" id="person1" name="assignedTo" value="person1" />
+        </li>
+        <li>
+          <div class="cl-avatar cl-avatar-space">P2</div>
+          <span class="assigned-person" for="person2">Person 2</span>
+          <input type="checkbox" id="person2" name="assignedTo" value="person2" />
+        </li>
+        <li>
+          <div class="cl-avatar cl-avatar-space">P3</div>
+          <span class="assigned-person" for="person3">Person 3</span>
+          <input type="checkbox" id="person3" name="assignedTo" value="person3" />
+        </li>
+      </ul>
+    </fieldset>
+  </form>
+</details>
           </div>
         </form>
       </div>
       <div class="at-body-emptydiv"></div>
       <div class="at-body-rightinput">
         <form>
-          <label for="due-date">Due date*</label>
+          <label for="due-date">Due date<span class="required">*</span></label>
           <input class="inputfield-basic-design " type="date" name="begin" id="due-date" placeholder="dd/mm/yyyy"
             value="" min="2024-08-08" max="2030-12-31" required>
           <label class="label-spacing" for="priority">Prio</label>
@@ -181,8 +185,7 @@
               </svg>
             </button>
           </div>
-
-          <label for="category">Category*</label>
+          <label for="category">Category<span class="required">*</span></label>
           <select class="inputfield-basic-design" id="category" required>
             <option value="" disabled selected>Select task category</option>
             <option value="technical">Technical Task</option>
