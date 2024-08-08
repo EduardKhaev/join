@@ -17,3 +17,63 @@
     --outer-margin: 24px;
   }
 }
+
+@media (max-width: 860px) {
+  .at-body-emptydiv {
+    display: none;
+  }
+
+  .at-body-maincontainer {
+    align-items: stretch;
+    justify-content: flex-start;
+    margin-left: var(--outer-margin);
+    margin-right: var(--outer-margin);
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .at-footer-maincontainer {
+    height: auto;
+    margin-bottom: 120px;
+  }
+
+  .subtasks-input {
+    margin-bottom: 80px;
+  }
+}
+
+@media (max-width: 600px) {
+  .at-footer-maincontainer {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .at-footer-requiredtext {
+    height: auto;
+    width: calc(100% - var(--outer-margin));
+    position: static;
+    margin-bottom: 20px;
+    margin-left: var(--outer-margin);
+  }
+
+  .at-footer-buttoncontainer {
+    margin-right: var(--outer-margin);
+    width: calc(100% - var(--outer-margin));
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 420px) {
+  :root {
+    --outer-margin: 8px;
+  }
+  .urgency-button {
+    font-size: 16px;
+  }
+  .outer {
+    gap: 4px;
+  }
+}

@@ -14,8 +14,6 @@ async function initTask() {
  */
 function insertContactsToInput() {
   console.log(users.length);
-
-  // document.getElementById('day').options.add(new Option("text", "value"))
 }
 
 /**
@@ -24,6 +22,7 @@ function insertContactsToInput() {
  * @param {string} urgency - selected prio level
  */
 function setUrgency(event, urgency) {
+  event.preventDefault();
   event.stopPropagation();
   if (selectedUrgency) clearUrgencyButton(selectedUrgency);
   selectedUrgency = urgency;
