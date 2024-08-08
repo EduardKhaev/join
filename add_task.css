@@ -221,6 +221,28 @@ details:focus {
   display: flex;
   align-items: center;
   padding-right: 8px;
+  margin-bottom: 64px;
+  display: flex;
+  align-items: center;
+}
+
+.subtask-field svg {
+  height: 20px;
+  width: 20px;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.subtask-field div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.subtask-field div:hover {
+  border-radius: 100px;
+  border: none;
+  background-color: #f0f0f0;
 }
 
 .subtask-field:focus-within {
@@ -243,7 +265,7 @@ details:focus {
   border-radius: 10px;
 }
 
-.subtasks-input:is(:placeholder-shown) ~ button {
+.subtasks-input:is(:placeholder-shown) ~ div {
   display: none;
 }
 
