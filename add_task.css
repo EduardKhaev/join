@@ -8,17 +8,21 @@
   margin-left: 232px;
   display: flex;
   flex-direction: column;
+  background-color: var(--background-main);
 }
+
 .at-headline-maincontainer {
   height: auto;
-  margin-top: 200px;
+  margin-top: 110px;
   display: flex;
   align-items: center;
 }
+
 .at-headline-maincontainer h1 {
   margin-left: var(--outer-margin);
   font-size: 61px;
 }
+
 .at-body-maincontainer {
   height: 100%;
   display: flex;
@@ -28,21 +32,25 @@
   margin-right: var(--outer-margin);
   gap: 48px;
 }
+
 .at-body-leftinput {
   height: 100%;
   flex: 1;
   margin-top: 20px;
 }
+
 .at-body-emptydiv {
   background-color: rgb(128, 128, 128, 0.5);
   width: 1px;
   height: 100%;
 }
+
 .at-body-rightinput {
   height: 100%;
   flex: 1;
   margin-top: 20px;
 }
+
 .at-footer-maincontainer {
   height: 200px;
   margin-bottom: 80px;
@@ -50,6 +58,7 @@
   justify-content: space-between;
   align-items: center;
 }
+
 .at-footer-requiredtext {
   height: 20px;
   width: 200px;
@@ -57,6 +66,7 @@
   top: 25%;
   left: 3%;
 }
+
 .at-footer-buttoncontainer {
   margin-right: var(--outer-margin);
   display: flex;
@@ -66,6 +76,16 @@
 }
 
 /* urgency selector buttons */
+
+.outer {
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  background-color: rgba(246, 247, 248, 1);
+  margin-bottom: 20px;
+}
 
 .urgency-button {
   width: 100%;
@@ -186,3 +206,47 @@
 }
 
 /* urgency selector buttons end */
+
+
+/* inputfields */
+
+label {
+  margin-bottom: 8px;
+  display: block;
+}
+
+.inputfield-basic-design {
+  border-radius: 10px;
+  border: 1px solid #D1D1D1;
+  background-color: white;
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 16px;
+}
+
+.inputfield-basic-design:focus {
+  border: solid 1px;
+  border-color: #29abe2;
+  outline: none;
+}
+
+::placeholder {
+  font-family: "Inter", sans-serif;
+  color: #D1D1D1;
+}
+
+.subtasks-input {
+  background-image: url('img/add-subtask-icon.png');
+  background-position: right center; 
+  background-repeat: no-repeat;
+  padding-right: 30px; 
+  cursor: pointer;
+  margin-bottom: 146px;
+}
+
+.label-spacing {
+  margin-top: 16px;
+}
+
+/* inputfields end */

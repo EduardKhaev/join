@@ -150,30 +150,3 @@ button {
   display: none;
 }
 
-.inputfield-basic-design {
-  border-radius: 10px;
-  border: 1px solid #D1D1D1;
-  background-color: white;
-  padding: 10px;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.inputfield-basic-design:focus {
-  border: solid 1px;
-  border-color: #29abe2;
-  outline: none;
-}
-
-::placeholder {
-  font-family: "Inter", sans-serif;
-  color: #D1D1D1;
-}
-
-.subtasks-input {
-  background-image: url('img/add-subtask-icon.png');
-  background-position: right center; 
-  background-repeat: no-repeat;
-  padding-right: 30px; 
-  cursor: pointer;
-}
