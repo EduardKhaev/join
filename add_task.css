@@ -329,4 +329,10 @@ details[open] summary .summary-text {
   color: red;
 }
 
+.assigned-person {
+  display: flex;
+  flex-grow: 1; 
+  justify-content: space-between; 
+  margin-left: 10px; 
+}
 /* inputfields end */
