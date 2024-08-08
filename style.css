@@ -170,10 +170,10 @@ button {
   color: #D1D1D1;
 }
 
-.date-input {
-  background-image: url('img/calendar.png');
+.subtasks-input {
+  background-image: url('img/add-subtask-icon.png');
+  background-position: right center; 
   background-repeat: no-repeat;
-  background-position: calc(100% - 6px) center;
-  background-size: 16px; 
-  padding-right: 10px;
+  padding-right: 30px; 
+  cursor: pointer;
 }
