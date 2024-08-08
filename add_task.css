@@ -1,50 +1,51 @@
-body {
-  padding-left: 120px;
+:root {
+  --outer-margin: 80px;
 }
+
 .addtask-maincontainer {
-  height: 80vh;
-  width: 75%;
-  position: fixed;
-  top: 15%;
-  left: 290px;
+  height: 100%;
+  width: calc(100%-232px);
+  margin-left: 232px;
   display: flex;
   flex-direction: column;
 }
 .at-headline-maincontainer {
-  height: 20%;
+  height: auto;
+  margin-top: 200px;
   display: flex;
   align-items: center;
 }
 .at-headline-maincontainer h1 {
-  margin-left: 40px;
+  margin-left: var(--outer-margin);
   font-size: 61px;
 }
 .at-body-maincontainer {
-  height: 60%;
+  height: 100%;
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  margin-left: 40px;
-  margin-right: 40px;
+  margin-left: var(--outer-margin);
+  margin-right: var(--outer-margin);
   gap: 48px;
 }
 .at-body-leftinput {
-  height: 70%;
+  height: 100%;
   flex: 1;
   margin-top: 20px;
 }
 .at-body-emptydiv {
   background-color: rgb(128, 128, 128, 0.5);
   width: 1px;
-  height: 85%;
+  height: 100%;
 }
 .at-body-rightinput {
-  height: 80%;
+  height: 100%;
   flex: 1;
   margin-top: 20px;
 }
 .at-footer-maincontainer {
-  height: 20%;
+  height: 200px;
+  margin-bottom: 80px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -57,13 +58,11 @@ body {
   left: 3%;
 }
 .at-footer-buttoncontainer {
-  height: 40%;
-  width: 300px;
-  position: relative;
-  right: 3%;
+  margin-right: var(--outer-margin);
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 16px;
 }
 
 /* urgency selector buttons */

@@ -1,0 +1,19 @@
+@media (max-width: 1250px) {
+  :root {
+    --outer-margin: 40px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .addtask-maincontainer {
+    height: 100%;
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 900px) {
+  :root {
+    --outer-margin: 24px;
+  }
+}

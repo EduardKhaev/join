@@ -17,6 +17,7 @@
     display: flex;
     width: 100%;
     justify-content: space-around;
+    flex-direction: row;
   }
 
   .navigation-item a {
@@ -46,7 +47,7 @@
   }
 
   .help-span {
-  display: block !important;
+    display: block !important;
   }
 
   .join-logo {
@@ -92,7 +93,7 @@
   }
 }
 
-@media (max-width:420px) {
+@media (max-width: 420px) {
   .navigation-item span {
     display: none;
   }
