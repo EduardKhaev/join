@@ -96,6 +96,10 @@ function setActiveUrgencyButton(selectedUrgency) {
   button.classList.add(`${selectedUrgency}-active`);
 }
 
+/**
+ * Toggles Checkbox when parent element is clicked
+ * @param {string} id - id of input checkbox
+ */
 function markContactAssigned(id) {
   let checkbox = document.getElementById(id);
   checkbox.checked = !checkbox.checked;
