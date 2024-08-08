@@ -210,13 +210,45 @@ details:focus {
   color: #d1d1d1;
 }
 
+.subtask-field {
+  border-radius: 10px;
+  border: 1px solid #d1d1d1;
+  background-color: white;
+  padding: 0;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  padding-right: 8px;
+}
+
+.subtask-field:focus-within {
+  border: solid 1px;
+  border-color: #29abe2;
+  outline: none;
+}
+
 .subtasks-input {
   background-image: url("img/add-subtask-icon.png");
   background-position: right center;
   background-repeat: no-repeat;
   padding-right: 30px;
+  flex: 1;
   cursor: pointer;
-  margin-bottom: 146px;
+  margin: 0;
+  outline: none;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.subtasks-input:is(:placeholder-shown) ~ button {
+  display: none;
+}
+
+.subtasks-input:not(:placeholder-shown) {
+  background-image: none;
 }
 
 fieldset {
