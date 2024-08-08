@@ -10,6 +10,7 @@
   flex-direction: column;
   background-color: var(--background-main);
   overflow-y: scroll;
+  scrollbar-color: rgba(168, 168, 168, 1) var(--background-main);
 }
 
 .at-headline-maincontainer {

@@ -1,6 +1,28 @@
+@media (min-width: 1920px) {
+  .addtask-maincontainer {
+    height: 100%;
+    max-width: 1560px;
+    width: calc(100% - 232px);
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
 @media (max-width: 1250px) {
   :root {
     --outer-margin: 40px;
+  }
+}
+
+@media (max-width: 1160px) {
+  :root {
+    --outer-margin: 28px;
+  }
+  .urgency-button {
+    font-size: 18px;
+  }
+  .outer {
+    gap: 8px;
   }
 }
 
