@@ -24,7 +24,7 @@
 }
 
 .at-body-maincontainer {
-  height: 100%;
+  height: auto;
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
@@ -207,7 +207,6 @@
 
 /* urgency selector buttons end */
 
-
 /* inputfields */
 
 label {
@@ -217,7 +216,7 @@ label {
 
 .inputfield-basic-design {
   border-radius: 10px;
-  border: 1px solid #D1D1D1;
+  border: 1px solid #d1d1d1;
   background-color: white;
   padding: 10px;
   width: 100%;
@@ -233,14 +232,14 @@ label {
 
 ::placeholder {
   font-family: "Inter", sans-serif;
-  color: #D1D1D1;
+  color: #d1d1d1;
 }
 
 .subtasks-input {
-  background-image: url('img/add-subtask-icon.png');
-  background-position: right center; 
+  background-image: url("img/add-subtask-icon.png");
+  background-position: right center;
   background-repeat: no-repeat;
-  padding-right: 30px; 
+  padding-right: 30px;
   cursor: pointer;
   margin-bottom: 146px;
 }
