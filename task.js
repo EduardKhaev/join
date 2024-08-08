@@ -95,3 +95,8 @@ function setActiveUrgencyButton(selectedUrgency) {
   let button = document.getElementById(`${selectedUrgency}-button`);
   button.classList.add(`${selectedUrgency}-active`);
 }
+
+function markContactAssigned(id) {
+  let checkbox = document.getElementById(id);
+  checkbox.checked = !checkbox.checked;
+}
