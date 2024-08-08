@@ -14,8 +14,6 @@ async function initTask() {
  */
 function insertContactsToInput() {
   console.log(users.length);
-
-  // document.getElementById('day').options.add(new Option("text", "value"))
 }
 
 /**
