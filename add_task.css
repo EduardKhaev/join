@@ -195,6 +195,12 @@ label {
   outline: none;
 }
 
+details:focus {
+  border: solid 1px;
+  border-color: #29abe2;
+  outline: none;
+}
+
 ::placeholder {
   font-family: "Inter", sans-serif;
   color: #d1d1d1;
@@ -276,16 +282,23 @@ ul {
   list-style: none;
   margin: 0;
   padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  margin-right: 16px;
 }
 
 ul li {
-  border-radius: 3px;
-  margin: 0;
   padding: 4px 2px;
 }
 
 ul li:hover {
   background: #eee;
+  border-radius: 10px;
 }
 
 ul li label {
@@ -305,6 +318,14 @@ summary .summary-text {
 
 details[open] summary .summary-text {
   opacity: 0;
+}
+
+.cl-avatar-space {
+  margin-right: 10px;
+}
+
+.required {
+  color: red;
 }
 
 /* inputfields end */
