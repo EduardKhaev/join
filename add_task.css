@@ -9,6 +9,8 @@
   display: flex;
   flex-direction: column;
   background-color: var(--background-main);
+  overflow-y: scroll;
+  scrollbar-color: rgba(168, 168, 168, 1) var(--background-main);
 }
 
 .at-headline-maincontainer {
@@ -24,7 +26,7 @@
 }
 
 .at-body-maincontainer {
-  height: 100%;
+  height: auto;
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
@@ -116,18 +118,6 @@
   background-color: white;
 }
 
-.urgent-button:active {
-  background-color: #ff3d00;
-  color: white;
-  font-size: 21px;
-  font-weight: 700;
-  box-shadow: none;
-}
-
-.urgent-button:active svg path {
-  fill: white;
-}
-
 .urgent-active {
   background-color: #ff3d00;
   color: white;
@@ -145,18 +135,6 @@
 
 .medium-button {
   background-color: white;
-}
-
-.medium-button:active {
-  background-color: rgba(255, 168, 0, 1);
-  color: white;
-  font-size: 21px;
-  font-weight: 700;
-  box-shadow: none;
-}
-
-.medium-button:active svg path {
-  fill: white;
 }
 
 .medium-active {
@@ -178,18 +156,6 @@
   background-color: white;
 }
 
-.low-button:active {
-  background-color: rgba(122, 226, 41, 1);
-  color: white;
-  font-size: 21px;
-  font-weight: 700;
-  box-shadow: none;
-}
-
-.low-button:active svg path {
-  fill: white;
-}
-
 .low-active {
   background-color: rgba(122, 226, 41, 1);
   color: white;
@@ -207,7 +173,6 @@
 
 /* urgency selector buttons end */
 
-
 /* inputfields */
 
 label {
@@ -217,7 +182,7 @@ label {
 
 .inputfield-basic-design {
   border-radius: 10px;
-  border: 1px solid #D1D1D1;
+  border: 1px solid #d1d1d1;
   background-color: white;
   padding: 10px;
   width: 100%;
@@ -233,20 +198,114 @@ label {
 
 ::placeholder {
   font-family: "Inter", sans-serif;
-  color: #D1D1D1;
+  color: #d1d1d1;
 }
 
 .subtasks-input {
-  background-image: url('img/add-subtask-icon.png');
-  background-position: right center; 
+  background-image: url("img/add-subtask-icon.png");
+  background-position: right center;
   background-repeat: no-repeat;
-  padding-right: 30px; 
+  padding-right: 30px;
   cursor: pointer;
   margin-bottom: 146px;
 }
 
 .label-spacing {
   margin-top: 16px;
+}
+
+details {
+  border: 1px solid #767676;
+  border-radius: 3px;
+  display: inline-flex;
+  flex-direction: column;
+  padding: 3px 6px;
+}
+
+details summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+details summary::marker {
+  display: none;
+}
+
+details summary::-webkit-details-marker {
+  display: none;
+  font-size: 0;
+}
+
+details summary::after {
+  content: "\25BC" / "";
+  display: inline-block;
+  font-size: 0.6rem;
+  height: 1rem;
+  line-height: 1rem;
+  margin-left: 0.5rem;
+  transition: transform 0.25s;
+}
+
+details[open] summary {
+  margin-bottom: 1rem;
+}
+
+details[open] summary::after {
+  transform: rotate(180deg);
+}
+
+fieldset {
+  border: 0;
+  padding: 0;
+  width: 100%;
+}
+
+fieldset legend {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+ul li {
+  border-radius: 3px;
+  margin: 0;
+  padding: 4px 2px;
+}
+
+ul li:hover {
+  background: #eee;
+}
+
+ul li label {
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-between;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+summary .summary-text {
+  display: inline;
+  transition: opacity 0.2s ease;
+}
+
+details[open] summary .summary-text {
+  opacity: 0;
 }
 
 /* inputfields end */
