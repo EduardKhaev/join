@@ -28,7 +28,7 @@
 .at-body-maincontainer {
   height: auto;
   display: flex;
-  align-items: flex-start;
+  align-items: stretch;
   justify-content: space-between;
   margin-left: var(--outer-margin);
   margin-right: var(--outer-margin);
@@ -44,7 +44,6 @@
 .at-body-emptydiv {
   background-color: rgb(128, 128, 128, 0.5);
   width: 1px;
-  height: 100%;
 }
 
 .at-body-rightinput {
