@@ -1,17 +1,15 @@
 .full-board {
   display: flex;
   flex-direction: column;
-  /* position: fixed;
-    left: 232px;
-    top: 100px;
-    right: 0; */
   width: 100%;
+  margin-left: 64px;
+  margin-right: 88px;
+  max-width: 1560;
 }
 
 h1 {
   font-size: 61px;
   font-weight: 700;
-  margin-left: 88px;
 }
 .board-top {
   display: flex;
@@ -26,7 +24,7 @@ h1 {
   align-items: center;
   gap: 32px;
   box-sizing: border-box;
-  margin-right: 88px;
+  max-width: 1920px;
 }
 
 .search-container {
@@ -78,7 +76,7 @@ h1 {
 
 .board-columns {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   margin-right: 64px;
   gap: 26px;
   width: 100%;
@@ -88,13 +86,13 @@ h1 {
 .single-column {
   display: flex;
   flex-direction: column;
+  flex: 1;
   margin-top: 48px;
   width: 20%;
 }
 
 .tasks {
   height: 100%;
-  width: 104%;
   border-color: black;
   border: dashed 1px;
   display: flex;
