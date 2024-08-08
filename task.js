@@ -22,6 +22,7 @@ function insertContactsToInput() {
  * @param {string} urgency - selected prio level
  */
 function setUrgency(event, urgency) {
+  event.preventDefault();
   event.stopPropagation();
   if (selectedUrgency) clearUrgencyButton(selectedUrgency);
   selectedUrgency = urgency;
