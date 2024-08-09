@@ -37,15 +37,15 @@ function clearTaskForm(event) {
 
 function clearSubtask(event, subtaskIndex) {
   event.preventDefault();
-  let subtaskField = document.getElementById('subtasks');
-  subtaskField.value = '';
+  let subtaskField = document.getElementById("subtasks");
+  subtaskField.value = "";
 }
 
 function addSubtask(event, subtaskIndex) {
   event.preventDefault();
- let subtaskField = document.getElementById('subtasks');
- let subtaskValue = subtaskField.value.trim();
- newTask.subtasks.push(subtaskValue);
+  let subtaskField = document.getElementById("subtasks");
+  let subtaskValue = subtaskField.value.trim();
+  newTask.subtasks.push(subtaskValue);
 }
 
 function deleteSubtask(event, subtaskIndex) {
@@ -120,7 +120,22 @@ function markContactAssigned(id) {
   updateSelectedContacts();
 }
 
-function updateSelectedContacts() {}
+function updateSelectedContacts() {
+  let nodeList = document.getElementsByClassName("assigned-user");
+  let checkboxList = Array.from(nodeList);
+  let selectedContacts = [];
+  checkboxList.forEach((element) => {
+    if (element.checked) selectedContacts.push(element.id);
+  });
+  displaySelectedContacts(selectedContacts);
+}
+
+function displaySelectedContacts(contacts) {
+  for (let i = 0; i < contacts.length; i++) {
+    let index = getUserIndex(contacts[i]);
+    console.log(users[index].initials, users[index].color);
+  }
+}
 
 /**
  * Selecting and storing an item from a dropdown

@@ -287,7 +287,7 @@ function renderContactDropdown(user) {
                         type="checkbox"
                         id="${user.id}"
                         name="assignedTo"
-                        class="custom-checkbox"
+                        class="custom-checkbox assigned-user"
                       />
                       <label for="${user.id}"" class="custom-checkbox-label">
                         <div class="checkbox-icon">
