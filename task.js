@@ -1,4 +1,4 @@
-let newTask = {
+let protoTask = {
   id: "8549058390jk",
   title: "Meine Aufgabe",
   description: "Räum dein Zimmer auf",
@@ -30,12 +30,16 @@ function createTask(event, taskState = "to do") {
   event.preventDefault();
   let validity = validateCategory();
   if (validity === false) return validity;
-  console.log("create task button presses");
+  let newTask = getAddTaskFormData(taskState);
 }
 
 function clearTaskForm(event) {
   event.preventDefault();
   console.log("clear form pressed");
+}
+
+function getAddTaskFormData(taskState) {
+  console.log("let's get the data");
 }
 
 /**
@@ -49,7 +53,7 @@ function clearSubtask(event) {
 }
 
 /**
- *
+ * add a new subtask to a list
  * @param {event} event - triggered event from a button click
  */
 function addSubtask(event) {
@@ -62,7 +66,7 @@ function addSubtask(event) {
 }
 
 /**
- *
+ * delete the subtask
  * @param {event} event - triggered event from a button click
  */
 function deleteSubtask(event) {
@@ -73,23 +77,34 @@ function deleteSubtask(event) {
   }
 }
 
-let isEditing = false;
-
 function editSubtask(event) {
   event.preventDefault();
   let subtaskItem = event.target.closest('li');
+
   if (subtaskItem) {
     let subtaskInput = subtaskItem.querySelector('.subtask-input');
-
-    if (isEditing) {
-      subtaskInput.disabled = true;
-      isEditing = false;
-    } else {
+    let editSvg = subtaskItem.querySelector('.edit-svg');
+    let addSvg = subtaskItem.querySelector('.add-svg');
+    let isEditing = subtaskItem.dataset.editing === 'true';
+    
+    if (!isEditing) {
       subtaskInput.disabled = false;
-      subtaskInput.focus();
-      isEditing = true;
+      subtaskInput.focus(); 
+      editSvg.style.display = 'none';  
+      addSvg.style.display = 'block';  
+      subtaskItem.dataset.editing = 'true';
+    
+    } else {
+      updateEditedSubtask(subtaskInput.value, subtaskItem);  
+      subtaskInput.disabled = true;
+      editSvg.style.display = 'block';  
+      addSvg.style.display = 'none';    
+      subtaskItem.dataset.editing = 'false'; 
     }
-  }}
+  }
+}
+
+
 
 function searchContacts(searchterm) {}
 
