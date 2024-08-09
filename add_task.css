@@ -271,11 +271,11 @@ details:focus {
   border-radius: 10px;
 }
 
-.subtasks-input:is(:placeholder-shown) ~ div {
+.subtasks-input:is(:placeholder-shown)~div {
   display: none;
 }
 
-.subtasks-input:is(:placeholder-shown) ~ hr {
+.subtasks-input:is(:placeholder-shown)~hr {
   display: none;
 }
 
@@ -443,18 +443,15 @@ details ul li:hover {
   transition: all 0.3s ease;
 }
 
-.custom-checkbox:checked
-  + .custom-checkbox-label
-  .checkbox-icon
-  svg
-  .unchecked {
+.custom-checkbox:checked+.custom-checkbox-label .checkbox-icon svg .unchecked {
   display: none;
 }
-.custom-checkbox:checked + .custom-checkbox-label .checkbox-icon svg .checked {
+
+.custom-checkbox:checked+.custom-checkbox-label .checkbox-icon svg .checked {
   display: block;
 }
 
-.custom-checkbox + .custom-checkbox-label .checkbox-icon svg .checked {
+.custom-checkbox+.custom-checkbox-label .checkbox-icon svg .checked {
   display: none;
 }
 
@@ -469,4 +466,37 @@ details ul li:hover {
 
 .dropdown-item:hover {
   background-color: #f0f0f0;
+}
+
+
+/* subtasks */
+.addedsubtasks {
+  padding-inline-start: 0px;
+  margin: 16px 0;
+}
+
+.addedsubtasks li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.addedsubtasks li:hover {
+  background-color: #f0f0f0;
+}
+
+.subtask-icons {
+  display: none;
+  align-items: center;
+  gap: 10px;
+}
+
+.addedsubtasks li:hover .subtask-icons {
+  display: flex;
+}
+
+.edit-svg,
+.delete-svg {
+  cursor: pointer;
 }
