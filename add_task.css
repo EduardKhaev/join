@@ -479,8 +479,21 @@ details ul li:hover {
 
 /* subtasks */
 .addedsubtasks {
-  padding-inline-start: 0px;
-  margin: 16px 0;
+  margin: 0;
+  list-style-type: disc;
+}
+
+.addedsubtasks svg {
+  height: 20px;
+  width: 20px;
+  padding: 8px;
+  cursor: pointer;
+}
+.subtask-icons hr {
+  height: 24px;
+  width: 1px;
+  background-color: #d1d1d1;
+  border: none;
 }
 
 .addedsubtasks li {
@@ -488,16 +501,18 @@ details ul li:hover {
   align-items: center;
   justify-content: space-between;
   position: relative;
+  margin-bottom: 12px;
 }
 
 .addedsubtasks li:hover {
   background-color: #f0f0f0;
+  border-radius: 10px;
 }
 
 .subtask-icons {
   display: none;
   align-items: center;
-  gap: 10px;
+  gap: 10px; 
 }
 
 .addedsubtasks li:hover .subtask-icons {
@@ -508,3 +523,6 @@ details ul li:hover {
 .delete-svg {
   cursor: pointer;
 }
+
+
+
