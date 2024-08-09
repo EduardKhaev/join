@@ -1,37 +1,52 @@
-.maincard{
+.task-small-main {
     box-shadow: 0px 0px 10px 3px rgba(0,0,0,0.08);
-    height: 263px;
+    min-height: 215px;
     width: 252px;
     border-radius: 24px;
-    padding: 16px 16px;
-    
+    padding: 16px 16px;    
 }
-.card-labels{
-    background-color: rgb(181, 181, 181);
+
+.ts-category{
+    background-color: #0038FF;
     height: 27px;
     width: 113px;
     border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    color: white;
+    font-weight: 400;
 }
-.card-textcontainer{
+
+.ts-text-container{
     display: flex;
     flex-direction: column;
     gap: 8px;
-}
-.card-textheadline{
-    background-color: rgb(181, 181, 181);
     margin-top: 24px;
+}
+.ts-title{ 
     height: 36px;
+    font-size: 16px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-wrap: break-word;
+    hyphens: auto;
 }
-.card-text{
-    background-color: rgb(181, 181, 181);
+.ts-description{
     height: 38px;
+    color: #A8A8A8;
+    font-weight: 400;
+    font-size: 16px;
 }
-.card-subtasks{
+.ts-subtasks{
     background-color: rgb(181, 181, 181);
     height: 16px;
     margin-top: 24px;
 }
-.card-footer{
+.ts-footer{
     background-color: rgb(181, 181, 181);
     height: 32px;
     margin-top: 24px;
@@ -39,12 +54,12 @@
     align-items: center;
     justify-content: space-between;
 }
-.card-initials{
+.ts-initials{
     background-color: red;
     height: 32px;
     width: 80px;
 }
-.card-priority{
+.ts-priority{
     background-color: red;
     height: 32px;
     width: 32px;

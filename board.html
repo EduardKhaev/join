@@ -8,13 +8,14 @@
     <link rel="stylesheet" href="navigation.css" />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="board.css" />
+    <script src="board.js"></script>
     <link rel="stylesheet" href="header.css" />
     <link rel="stylesheet" href="navigation-responsive.css" />
 
     <title>Document</title>
 </head>
 
-<body>
+<body onload="initBoard()">
     <header>
         <div class="header-left">
             <img class="join-logo-header" src="./img/join-logo-blue.png" alt="Join Logo" />
@@ -113,7 +114,7 @@
                             <img src="./img/mini-add.png" alt="" />
                         </div>
                         <div class="tasks">
-                            <div class="task-scroll">
+                            <div class="task-scroll" id="task-scroll" onWheel="event.preventDefault(); this.scrollLeft += event.deltaY > 0 ? 100 : -100">
                                 <div class="empty-column"><span>No tasks to do</span></div>
                             </div>
                         </div>
@@ -124,7 +125,7 @@
                             <img src="./img/mini-add.png" alt="" />
                         </div>
                         <div class="tasks">
-                            <div class="task-scroll">
+                            <div class="task-scroll" id="task-scroll" onWheel="event.preventDefault(); this.scrollLeft += event.deltaY > 0 ? 100 : -100">
                                 <div class="example">example</div>
                             </div>
                         </div>
@@ -135,7 +136,7 @@
                             <img src="./img/mini-add.png" alt="" />
                         </div>
                         <div class="tasks">
-                            <div class="task-scroll">
+                            <div class="task-scroll" id="task-scroll" onWheel="event.preventDefault(); this.scrollLeft += event.deltaY > 0 ? 100 : -100">
                                 <div class="example">example</div>
                                 <div class="example">example</div>
                                 <div class="example">example</div>
@@ -149,7 +150,7 @@
                             <span>Done</span>
                         </div>
                         <div class="tasks">
-                            <div class="task-scroll">
+                            <div class="task-scroll" id="task-scroll" onWheel="event.preventDefault(); this.scrollLeft += event.deltaY > 0 ? 100 : -100">
                                 <div class="example">example</div>
                             </div>
                         </div>
