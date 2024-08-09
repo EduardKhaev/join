@@ -20,3 +20,8 @@ function editTask(Index) {}
 function deleteTask(Index) {}
 
 function updateProgress(subtask, task) {}
+
+function addTaskBoard() {} //Eduard
+
+function addTaskStatus() {} //Eduard
+

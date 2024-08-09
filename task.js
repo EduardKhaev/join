@@ -37,12 +37,15 @@ function clearTaskForm(event) {
 
 function clearSubtask(event, subtaskIndex) {
   event.preventDefault();
-  console.log("clear");
+  let subtaskField = document.getElementById('subtasks');
+  subtaskField.value = '';
 }
 
 function addSubtask(event, subtaskIndex) {
   event.preventDefault();
-  console.log("create");
+ let subtaskField = document.getElementById('subtasks');
+ let subtaskValue = subtaskField.value.trim();
+ newTask.subtasks.push(subtaskValue);
 }
 
 function deleteSubtask(event, subtaskIndex) {
