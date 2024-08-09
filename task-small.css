@@ -1,9 +1,17 @@
 .task-small-main {
     box-shadow: 0px 0px 10px 3px rgba(0,0,0,0.08);
     min-height: 215px;
-    width: 252px;
-    border-radius: 24px;
-    padding: 16px 16px;    
+    width: 100%;
+    border-radius: 24px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+}
+
+.ts-content {
+    margin-left: 16px;
+    margin-right: 16px;
+    margin-top: 16px;
 }
 
 .ts-category{
@@ -26,41 +34,93 @@
     margin-top: 24px;
 }
 .ts-title{ 
-    height: 36px;
+    min-height: 36px;
     font-size: 16px;
     font-weight: bold;
     display: flex;
-    justify-content: center;
     align-items: center;
     overflow-wrap: break-word;
     hyphens: auto;
 }
 .ts-description{
-    height: 38px;
+    min-height: 38px;
     color: #A8A8A8;
     font-weight: 400;
     font-size: 16px;
 }
-.ts-subtasks{
-    background-color: rgb(181, 181, 181);
-    height: 16px;
-    margin-top: 24px;
-}
+
 .ts-footer{
-    background-color: rgb(181, 181, 181);
     height: 32px;
     margin-top: 24px;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
-.ts-initials{
-    background-color: red;
-    height: 32px;
-    width: 80px;
+
+.ts-avatars {
+    display: flex;
 }
+
+.ts-avatar {
+    background-color: orange;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid white;
+    border-radius: 100%;
+    width: 32px;
+    height: 32px;
+    font-size: 12px !important;
+    font-weight: 400;
+  }
+
+  .ts-avatar2 {
+    z-index: 2;
+    margin-left: -9px;
+    background-color: green;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid white;
+    border-radius: 100%;
+    width: 32px;
+    height: 32px;
+    font-size: 12px !important;
+    font-weight: 400;
+}
+
 .ts-priority{
-    background-color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 32px;
     width: 32px;
+}
+
+.ts-subtasks {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 16px;
+    margin-top: 24px;
+}
+
+.ts-bar {
+    width: 55%;
+    height: 8px;
+    background-color: #F4F4F4;
+    border-radius: 8px;
+}
+.ts-bar-percentage {
+    background-color: #4589FF;
+    width: 50%;
+    height: 8px;
+    border-radius: 8px;
+}
+
+.ts-progress {
+    font-weight: 400;
+    font-size: 12px;
 }
