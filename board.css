@@ -16,10 +16,9 @@
 .full-board {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: auto;
     height: 100%;
-    margin-left: 64px;
-    
+    margin-left: 64px;    
 }
 
 .board-container {
@@ -259,13 +258,19 @@ h1 {
     }
 
     .search-container {
-        width: 240px;
+        width: 200px;
         height: 40px;
     }
 
     .search {
         font-size: 18px;
         padding: 0;
+        text-indent: 16px;
+        background-size: 17px 17px;
+    }
+
+    .separator-search {
+        margin-left: 24px;
     }
 
     h1 {
@@ -275,21 +280,32 @@ h1 {
     .board-container {
         margin-bottom: 40px;
     }
+
+    .board-input {
+        gap: 16px;
+    }   
 }
 
 @media(max-width: 1000px) {
     .board-maincontainer {
         height: 100%;
-        width: 100%;
-        margin-left: 0;
-        overflow-y: hidden;
+        width: auto;
+        margin-left: 64px;
+        margin-right: 64px;
     }
 
     .full-board {
-        margin-left: 64px;
+        margin-left: 0px;
+        margin-right: 0px;
     }
 
     .board-container {
         height: 100vh;
+        width: 100%;
+        margin-bottom: 800px;
     }
+}
+
+@media(max-width: 800px) {
+    
 }
