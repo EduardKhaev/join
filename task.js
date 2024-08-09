@@ -73,13 +73,23 @@ function deleteSubtask(event) {
   }
 }
 
+let isEditing = false;
+
 function editSubtask(event) {
   event.preventDefault();
-}
+  let subtaskItem = event.target.closest('li');
+  if (subtaskItem) {
+    let subtaskInput = subtaskItem.querySelector('.subtask-input');
 
-function updateSubtask(event, subtaskIndex) {
-  event.preventDefault();
-}
+    if (isEditing) {
+      subtaskInput.disabled = true;
+      isEditing = false;
+    } else {
+      subtaskInput.disabled = false;
+      subtaskInput.focus();
+      isEditing = true;
+    }
+  }}
 
 function searchContacts(searchterm) {}
 
