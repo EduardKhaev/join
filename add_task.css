@@ -450,12 +450,18 @@ details ul li:hover {
   .unchecked {
   display: none;
 }
+
 .custom-checkbox:checked + .custom-checkbox-label .checkbox-icon svg .checked {
   display: block;
 }
 
 .custom-checkbox + .custom-checkbox-label .checkbox-icon svg .checked {
   display: none;
+}
+
+.selected-contacts {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 /* category item */
@@ -469,4 +475,36 @@ details ul li:hover {
 
 .dropdown-item:hover {
   background-color: #f0f0f0;
+}
+
+/* subtasks */
+.addedsubtasks {
+  padding-inline-start: 0px;
+  margin: 16px 0;
+}
+
+.addedsubtasks li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.addedsubtasks li:hover {
+  background-color: #f0f0f0;
+}
+
+.subtask-icons {
+  display: none;
+  align-items: center;
+  gap: 10px;
+}
+
+.addedsubtasks li:hover .subtask-icons {
+  display: flex;
+}
+
+.edit-svg,
+.delete-svg {
+  cursor: pointer;
 }

@@ -83,3 +83,14 @@ function hslToHex(h, s, l) {
   };
   return `#${f(0)}${f(8)}${f(4)}`;
 }
+
+function getTodaysDate() {
+  let date = new Date();
+  let year = date.getFullYear().toString();
+  let month = date.getMonth() + 1;
+  month < 10 ? (month = "0" + month.toString()) : (month = month.toString());
+  let day = date.getDate();
+  day < 10 ? (day = "0" + day.toString()) : (day = "0" + day.toString());
+  let yyyymmdd = `${year}-${month}-${day}`;
+  return yyyymmdd;
+}
