@@ -35,15 +35,17 @@ function clearTaskForm(event) {
   event.preventDefault();
 }
 
-function createSubtask(event) {
+function clearSubtask(event, subtaskIndex) {
   event.preventDefault();
+  console.log("clear");
+}
+
+function addSubtask(event, subtaskIndex) {
+  event.preventDefault();
+  console.log("create");
 }
 
 function deleteSubtask(event, subtaskIndex) {
-  event.preventDefault();
-}
-
-function clearSubtask(event, subtaskIndex) {
   event.preventDefault();
 }
 
@@ -120,5 +122,4 @@ function selectCategory(element) {
   let dropdown = document.getElementById("dropdown");
   dropdown.dataset.selectedValue = value;
   dropdown.removeAttribute("open");
-  console.log(getSelectedValue());
 }
