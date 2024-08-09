@@ -121,13 +121,12 @@
           <div class="at-body-leftinput">
             <div>
               <label for="title">Title<span class="required">*</span></label>
-              <input
+              <input required="" oninvalid="event.preventDefault(); showInvalid(this)" onfocus="removeInvalid(this)"
                 class="inputfield-basic-design"
                 type="text"
                 id="title"
                 name="title"
                 placeholder="Enter a title"
-                required
               />
             </div>
             <div>
@@ -158,7 +157,7 @@
             <label for="due-date"
               >Due date<span class="required">*</span></label
             >
-            <input
+            <input required="" oninvalid="event.preventDefault(); showInvalid(this)" onfocus="removeInvalid(this)"
               class="inputfield-basic-design"
               type="date"
               name="begin"
