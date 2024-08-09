@@ -13,8 +13,19 @@ let protoTask = {
   taskState: "to do",
 };
 
+const defaultTask = {
+  id: false,
+  title: false,
+  description: false,
+  assigned: false,
+  date: false,
+  priority: false,
+  category: false,
+  subtasks: false,
+  taskState: "to do",
+};
+
 let selectedUrgency = "medium";
-// set urgency medium at start?
 
 /**
  * function to runb at page loading
@@ -26,11 +37,19 @@ async function initTask() {
   updateDate();
 }
 
+/**
+ * creates a new task on submit
+ * @param {event} event - click event
+ * @param {string} taskState - state in which the task is created
+ * @returns on failed validation false
+ */
 function createTask(event, taskState = "to do") {
   event.preventDefault();
   let validity = validateCategory();
   if (validity === false) return validity;
-  let newTask = getAddTaskFormData(taskState);
+  let newTask = defaultTask;
+  newTask = getAddTaskFormData(taskState);
+  saveTask(newTask);
 }
 
 function clearTaskForm(event) {
@@ -38,8 +57,52 @@ function clearTaskForm(event) {
   console.log("clear form pressed");
 }
 
+function saveTask(task) {
+  console.log(task);
+  setTimeout(() => {
+    window.location.replace("./board.html");
+  }, 3000);
+}
+
+/**
+ * creates an task object from input values
+ * @param {string} taskState
+ * @returns the values from the input as an object
+ */
 function getAddTaskFormData(taskState) {
-  console.log("let's get the data");
+  let newTask = {
+    title: getAddTaskInput("entertitle"),
+    description: getAddTaskInput("task-description"),
+    assigned: updateSelectedContacts(),
+    date: getAddTaskInput("due-date"),
+    priority: selectedUrgency,
+    category: getCategoryFromDropdown(),
+    subtasks: false,
+    taskState: taskState,
+  };
+  return newTask;
+}
+
+/**
+ * Reads and returns the value of an input field
+ * @param {string} id
+ * @returns an input value or false
+ */
+function getAddTaskInput(id) {
+  let input = document.getElementById(id).value;
+  if (input) return input;
+  else return false;
+}
+
+/**
+ * gets the value of a dropdown menue
+ * @returns the selected category or false
+ */
+function getCategoryFromDropdown() {
+  let dropdown = document.getElementById("dropdown");
+  let category = dropdown.dataset.selectedValue;
+  if (category) return category;
+  else return false;
 }
 
 /**
@@ -79,32 +142,29 @@ function deleteSubtask(event) {
 
 function editSubtask(event) {
   event.preventDefault();
-  let subtaskItem = event.target.closest('li');
+  let subtaskItem = event.target.closest("li");
 
   if (subtaskItem) {
-    let subtaskInput = subtaskItem.querySelector('.subtask-input');
-    let editSvg = subtaskItem.querySelector('.edit-svg');
-    let addSvg = subtaskItem.querySelector('.add-svg');
-    let isEditing = subtaskItem.dataset.editing === 'true';
-    
+    let subtaskInput = subtaskItem.querySelector(".subtask-input");
+    let editSvg = subtaskItem.querySelector(".edit-svg");
+    let addSvg = subtaskItem.querySelector(".add-svg");
+    let isEditing = subtaskItem.dataset.editing === "true";
+
     if (!isEditing) {
       subtaskInput.disabled = false;
-      subtaskInput.focus(); 
-      editSvg.style.display = 'none';  
-      addSvg.style.display = 'block';  
-      subtaskItem.dataset.editing = 'true';
-    
+      subtaskInput.focus();
+      editSvg.style.display = "none";
+      addSvg.style.display = "block";
+      subtaskItem.dataset.editing = "true";
     } else {
-      updateEditedSubtask(subtaskInput.value, subtaskItem);  
+      updateEditedSubtask(subtaskInput.value, subtaskItem);
       subtaskInput.disabled = true;
-      editSvg.style.display = 'block';  
-      addSvg.style.display = 'none';    
-      subtaskItem.dataset.editing = 'false'; 
+      editSvg.style.display = "block";
+      addSvg.style.display = "none";
+      subtaskItem.dataset.editing = "false";
     }
   }
 }
-
-
 
 function searchContacts(searchterm) {}
 

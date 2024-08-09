@@ -120,23 +120,25 @@
         <div class="at-body-maincontainer">
           <div class="at-body-leftinput">
             <div>
-              <label for="title">Title<span class="required">*</span></label>
+              <label for="entertitle"
+                >Title<span class="required">*</span></label
+              >
               <input
                 required=""
                 oninvalid="event.preventDefault(); showInvalid(this); validateCategory()"
                 onfocus="removeInvalid(this)"
                 class="inputfield-basic-design"
                 type="text"
-                id="title"
+                id="entertitle"
                 name="title"
                 placeholder="Enter a title"
               />
             </div>
             <div>
-              <label for="description">Description</label>
+              <label for="task-description">Description</label>
               <textarea
                 class="inputfield-basic-design"
-                id="description"
+                id="task-description"
                 name="description"
                 placeholder="Enter a Description"
               ></textarea>
