@@ -1,4 +1,4 @@
-let newTask = {
+let protoTask = {
   id: "8549058390jk",
   title: "Meine Aufgabe",
   description: "Räum dein Zimmer auf",
@@ -30,12 +30,16 @@ function createTask(event, taskState = "to do") {
   event.preventDefault();
   let validity = validateCategory();
   if (validity === false) return validity;
-  console.log("create task button presses");
+  let newTask = getAddTaskFormData(taskState);
 }
 
 function clearTaskForm(event) {
   event.preventDefault();
   console.log("clear form pressed");
+}
+
+function getAddTaskFormData(taskState) {
+  console.log("let's get the data");
 }
 
 /**
@@ -77,9 +81,9 @@ let isEditing = false;
 
 function editSubtask(event) {
   event.preventDefault();
-  let subtaskItem = event.target.closest('li');
+  let subtaskItem = event.target.closest("li");
   if (subtaskItem) {
-    let subtaskInput = subtaskItem.querySelector('.subtask-input');
+    let subtaskInput = subtaskItem.querySelector(".subtask-input");
 
     if (isEditing) {
       subtaskInput.disabled = true;
@@ -89,7 +93,8 @@ function editSubtask(event) {
       subtaskInput.focus();
       isEditing = true;
     }
-  }}
+  }
+}
 
 function searchContacts(searchterm) {}
 

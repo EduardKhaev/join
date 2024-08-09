@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="header.css" />
@@ -13,152 +12,184 @@
     <link rel="stylesheet" href="navigation-responsive.css" />
 
     <title>Document</title>
-</head>
+  </head>
 
-<body onload="initBoard()">
+  <body onload="initBoard()">
     <header>
-        <div class="header-left">
-            <img class="join-logo-header" src="./img/join-logo-blue.png" alt="Join Logo" />
-            <span class="header-title">Kanban Project Management Tool</span>
+      <div class="header-left">
+        <img
+          class="join-logo-header"
+          src="./img/join-logo-blue.png"
+          alt="Join Logo"
+        />
+        <span class="header-title">Kanban Project Management Tool</span>
+      </div>
+      <div class="header-right">
+        <a href="help.html"
+          ><img class="help-icon" src="./img/question-icon.png" alt="help icon"
+        /></a>
+        <div
+          class="user-profile-initials"
+          id="user-profile-initials"
+          onclick="toggleDropdown(event)"
+        >
+          DA
         </div>
-        <div class="header-right">
-            <a href="help.html"><img class="help-icon" src="./img/question-icon.png" alt="help icon" /></a>
-            <div class="user-profile-initials" id="user-profile-initials" onclick="toggleDropdown(event)">
-                DA
-            </div>
-            <div class="dropdown" id="dropdownMenu">
-                <div class="dropdown-content">
-                    <a href="help.html">Help</a>
-                    <a href="impressum.html">Legal Notice</a>
-                    <a href="privacy_policy.html">Privacy Policy</a>
-                    <a href="contacts.html">Log Out</a>
-                </div>
-            </div>
+        <div class="dropdown" id="dropdownMenu">
+          <div class="dropdown-content">
+            <a href="help.html">Help</a>
+            <a href="impressum.html">Legal Notice</a>
+            <a href="privacy_policy.html">Privacy Policy</a>
+            <a href="contacts.html">Log Out</a>
+          </div>
         </div>
+      </div>
     </header>
     <div class="navigation">
-        <img class="join-logo" src="./img/join-logo.png" alt="Join Logo" />
-        <div class="navigation-main">
-            <div class="navigation-items-section" id="navigation-items">
-                <div class="navigation-item">
-                    <a href="summary.html">
-                        <svg xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M23.2273 0.48291H2.77273H2.5C1.39543 0.48291 0.5 1.37864 0.5 2.48321C0.5 2.663 0.5 2.79037 0.5 2.82288V23.2774V23.4829C0.5 24.5875 1.39572 25.4829 2.50029 25.4829C2.64377 25.4829 2.74401 25.4829 2.77272 25.4829H23.2273C23.256 25.4829 23.3562 25.4829 23.4997 25.4829C24.6043 25.4829 25.5 24.587 25.5 23.4824C25.5 23.3756 25.5 23.3017 25.5 23.2774V2.82285C25.5 2.79035 25.5 2.66299 25.5 2.48321C25.5 1.37864 24.6043 0.48291 23.4997 0.48291C23.3562 0.48291 23.256 0.48291 23.2273 0.48291ZM15.2727 23.2774H2.77273V14.1865H15.2727V23.2774ZM15.2727 11.9138H2.77273V2.82288L15.2727 2.82285V11.9138ZM23.2273 23.2774H17.5455V2.82288H23.2273V23.2774Z"
-                                fill="#CDCDCD" />
-                        </svg>
-                        <span>Summary</span>
-                    </a>
-                </div>
-                <div class="navigation-item active">
-                    <a href="add_task.html">
-                        <svg xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M2.62652 25.1853C1.95579 25.1853 1.38161 24.9465 0.903963 24.4688C0.426321 23.9912 0.1875 23.417 0.1875 22.7462V5.67308C0.1875 5.00235 0.426321 4.42816 0.903963 3.95052C1.38161 3.47287 1.95579 3.23405 2.62652 3.23405H13.5107L11.0716 5.67308H2.62652V22.7462H19.6997V14.2706L22.1387 11.8316V22.7462C22.1387 23.417 21.8999 23.9912 21.4223 24.4688C20.9446 24.9465 20.3704 25.1853 19.6997 25.1853H2.62652ZM16.2546 3.93527L17.9924 5.64259L9.9436 13.6914V15.4292H11.6509L19.7302 7.34991L21.468 9.05722L13.3887 17.1365C13.1651 17.3601 12.906 17.5379 12.6113 17.67C12.3166 17.8021 12.0066 17.8682 11.6814 17.8682H8.72409C8.37856 17.8682 8.08892 17.7513 7.85518 17.5176C7.62144 17.2839 7.50457 16.9942 7.50457 16.6487V13.6914C7.50457 13.3662 7.56555 13.0562 7.6875 12.7615C7.80945 12.4668 7.98222 12.2076 8.20579 11.9841L16.2546 3.93527ZM21.468 9.05722L16.2546 3.93527L19.3034 0.886492C19.7912 0.398688 20.3755 0.154785 21.0564 0.154785C21.7373 0.154785 22.3115 0.398688 22.779 0.886492L24.4863 2.6243C24.9538 3.09178 25.1875 3.66088 25.1875 4.33161C25.1875 5.00235 24.9538 5.57145 24.4863 6.03893L21.468 9.05722Z"
-                                fill="#CDCDCD" />
-                        </svg>
-                        <span>Add Task</span>
-                    </a>
-                </div>
-                <div class="navigation-item">
-                    <a href="board.html">
-                        <svg xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M22.9546 2.75564L22.9546 23.21C22.954 23.8125 22.7143 24.3903 22.2882 24.8163C21.8622 25.2424 21.2844 25.4821 20.6819 25.4827L16.1365 25.4827C15.5339 25.4821 14.9562 25.2424 14.5301 24.8163C14.104 24.3903 13.8644 23.8125 13.8638 23.21L13.8638 2.75564C13.8644 2.15306 14.104 1.57534 14.5301 1.14926C14.9562 0.723172 15.5339 0.483533 16.1365 0.48293L20.6819 0.48293C21.2844 0.483533 21.8622 0.723172 22.2882 1.14926C22.7143 1.57534 22.954 2.15306 22.9546 2.75564ZM16.1365 23.21L20.6819 23.21L20.6819 2.75564L16.1365 2.75564L16.1365 23.21ZM16.1365 2.75564L16.1365 23.21C16.1359 23.8125 15.8962 24.3902 15.4701 24.8163C15.0441 25.2424 14.4663 25.482 13.8638 25.4826L9.31835 25.4826C8.71578 25.482 8.13806 25.2424 7.71197 24.8163C7.28589 24.3902 7.04625 23.8125 7.04565 23.2099L7.04565 2.75561C7.04625 2.15304 7.28589 1.57532 7.71197 1.14923C8.13806 0.723148 8.71578 0.483513 9.31835 0.48291L13.8638 0.48291C14.4663 0.483512 15.0441 0.723148 15.4701 1.14923C15.8962 1.57532 16.1359 2.15306 16.1365 2.75564ZM9.31835 23.2099L13.8638 23.21L13.8638 2.75564L9.31835 2.75561L9.31835 23.2099ZM9.31835 2.75561L9.31835 23.2099C9.31775 23.8125 9.07811 24.3902 8.65203 24.8163C8.22594 25.2424 7.64822 25.482 7.04565 25.4826L2.50024 25.4826C1.89767 25.482 1.31995 25.2424 0.893863 24.8163C0.467779 24.3902 0.228141 23.8125 0.227539 23.2099L0.227538 2.75561C0.22814 2.15304 0.467778 1.57532 0.893862 1.14923C1.31995 0.723148 1.89767 0.483513 2.50024 0.48291L7.04565 0.48291C7.64822 0.483513 8.22594 0.723148 8.65203 1.14923C9.07811 1.57532 9.31775 2.15304 9.31835 2.75561ZM2.50024 23.2099L7.04565 23.2099L7.04565 2.75561L2.50024 2.75561L2.50024 23.2099Z"
-                                fill="#CDCDCD" />
-                            <path
-                                d="M29.7727 2.75589L29.7727 23.2102C29.7721 23.8128 29.5324 24.3905 29.1064 24.8166C28.6803 25.2427 28.1026 25.4823 27.5 25.4829L22.9546 25.4829C22.352 25.4823 21.7743 25.2427 21.3482 24.8166C20.9221 24.3905 20.6825 23.8125 20.6819 23.21L20.6819 2.75564C20.6825 2.15306 20.9221 1.57559 21.3482 1.14951C21.7743 0.723424 22.352 0.483787 22.9546 0.483184L27.5 0.483184C28.1026 0.483786 28.6803 0.723424 29.1064 1.14951C29.5324 1.57559 29.7721 2.15331 29.7727 2.75589ZM22.9546 23.21L27.5 23.2102L27.5 2.75589L22.9546 2.75564L22.9546 23.21Z"
-                                fill="#CDCDCD" />
-                        </svg>
-                        <span>Board</span>
-                    </a>
-                </div>
-                <div class="navigation-item">
-                    <a href="contacts.html">
-                        <svg xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M12 20.4829C10.8333 20.4829 9.71875 20.6652 8.65625 21.0298C7.59375 21.3944 6.625 21.9412 5.75 22.6704V22.9829H18.25V22.6704C17.375 21.9412 16.4062 21.3944 15.3438 21.0298C14.2812 20.6652 13.1667 20.4829 12 20.4829ZM3.25 21.5454C4.375 20.4412 5.68229 19.5715 7.17188 18.936C8.66146 18.3006 10.2708 17.9829 12 17.9829C13.7292 17.9829 15.3385 18.3006 16.8281 18.936C18.3177 19.5715 19.625 20.4412 20.75 21.5454V5.48291H3.25V21.5454ZM12 15.4829C10.7917 15.4829 9.76042 15.0558 8.90625 14.2017C8.05208 13.3475 7.625 12.3162 7.625 11.1079C7.625 9.89958 8.05208 8.86833 8.90625 8.01416C9.76042 7.15999 10.7917 6.73291 12 6.73291C13.2083 6.73291 14.2396 7.15999 15.0938 8.01416C15.9479 8.86833 16.375 9.89958 16.375 11.1079C16.375 12.3162 15.9479 13.3475 15.0938 14.2017C14.2396 15.0558 13.2083 15.4829 12 15.4829ZM12 12.9829C12.5208 12.9829 12.9635 12.8006 13.3281 12.436C13.6927 12.0715 13.875 11.6287 13.875 11.1079C13.875 10.5871 13.6927 10.1444 13.3281 9.77979C12.9635 9.4152 12.5208 9.23291 12 9.23291C11.4792 9.23291 11.0365 9.4152 10.6719 9.77979C10.3073 10.1444 10.125 10.5871 10.125 11.1079C10.125 11.6287 10.3073 12.0715 10.6719 12.436C11.0365 12.8006 11.4792 12.9829 12 12.9829ZM3.25 25.4829C2.5625 25.4829 1.97396 25.2381 1.48438 24.7485C0.994792 24.259 0.75 23.6704 0.75 22.9829V5.48291C0.75 4.79541 0.994792 4.20687 1.48438 3.71729C1.97396 3.2277 2.5625 2.98291 3.25 2.98291H4.5V0.48291H7V2.98291H17V0.48291H19.5V2.98291H20.75C21.4375 2.98291 22.026 3.2277 22.5156 3.71729C23.0052 4.20687 23.25 4.79541 23.25 5.48291V22.9829C23.25 23.6704 23.0052 24.259 22.5156 24.7485C22.026 25.2381 21.4375 25.4829 20.75 25.4829H3.25Z"
-                                fill="#CDCDCD" />
-                        </svg>
-                        <span>Contacts</span>
-                    </a>
-                </div>
-            </div>
-            <div class="footer-notes">
-                <a href="privacy_policy.html" target="_blank"><span>Privacy Policy</span></a>
-                <a href="impressum.html" target="_blank"><span>Legal notice</span></a>
-            </div>
+      <img class="join-logo" src="./img/join-logo.png" alt="Join Logo" />
+      <div class="navigation-main">
+        <div class="navigation-items-section" id="navigation-items">
+          <div class="navigation-item">
+            <a href="summary.html">
+              <svg xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M23.2273 0.48291H2.77273H2.5C1.39543 0.48291 0.5 1.37864 0.5 2.48321C0.5 2.663 0.5 2.79037 0.5 2.82288V23.2774V23.4829C0.5 24.5875 1.39572 25.4829 2.50029 25.4829C2.64377 25.4829 2.74401 25.4829 2.77272 25.4829H23.2273C23.256 25.4829 23.3562 25.4829 23.4997 25.4829C24.6043 25.4829 25.5 24.587 25.5 23.4824C25.5 23.3756 25.5 23.3017 25.5 23.2774V2.82285C25.5 2.79035 25.5 2.66299 25.5 2.48321C25.5 1.37864 24.6043 0.48291 23.4997 0.48291C23.3562 0.48291 23.256 0.48291 23.2273 0.48291ZM15.2727 23.2774H2.77273V14.1865H15.2727V23.2774ZM15.2727 11.9138H2.77273V2.82288L15.2727 2.82285V11.9138ZM23.2273 23.2774H17.5455V2.82288H23.2273V23.2774Z"
+                  fill="#CDCDCD"
+                />
+              </svg>
+              <span>Summary</span>
+            </a>
+          </div>
+          <div class="navigation-item">
+            <a href="add_task.html">
+              <svg xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M2.62652 25.1853C1.95579 25.1853 1.38161 24.9465 0.903963 24.4688C0.426321 23.9912 0.1875 23.417 0.1875 22.7462V5.67308C0.1875 5.00235 0.426321 4.42816 0.903963 3.95052C1.38161 3.47287 1.95579 3.23405 2.62652 3.23405H13.5107L11.0716 5.67308H2.62652V22.7462H19.6997V14.2706L22.1387 11.8316V22.7462C22.1387 23.417 21.8999 23.9912 21.4223 24.4688C20.9446 24.9465 20.3704 25.1853 19.6997 25.1853H2.62652ZM16.2546 3.93527L17.9924 5.64259L9.9436 13.6914V15.4292H11.6509L19.7302 7.34991L21.468 9.05722L13.3887 17.1365C13.1651 17.3601 12.906 17.5379 12.6113 17.67C12.3166 17.8021 12.0066 17.8682 11.6814 17.8682H8.72409C8.37856 17.8682 8.08892 17.7513 7.85518 17.5176C7.62144 17.2839 7.50457 16.9942 7.50457 16.6487V13.6914C7.50457 13.3662 7.56555 13.0562 7.6875 12.7615C7.80945 12.4668 7.98222 12.2076 8.20579 11.9841L16.2546 3.93527ZM21.468 9.05722L16.2546 3.93527L19.3034 0.886492C19.7912 0.398688 20.3755 0.154785 21.0564 0.154785C21.7373 0.154785 22.3115 0.398688 22.779 0.886492L24.4863 2.6243C24.9538 3.09178 25.1875 3.66088 25.1875 4.33161C25.1875 5.00235 24.9538 5.57145 24.4863 6.03893L21.468 9.05722Z"
+                  fill="#CDCDCD"
+                />
+              </svg>
+              <span>Add Task</span>
+            </a>
+          </div>
+          <div class="navigation-item active">
+            <a href="board.html">
+              <svg xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M22.9546 2.75564L22.9546 23.21C22.954 23.8125 22.7143 24.3903 22.2882 24.8163C21.8622 25.2424 21.2844 25.4821 20.6819 25.4827L16.1365 25.4827C15.5339 25.4821 14.9562 25.2424 14.5301 24.8163C14.104 24.3903 13.8644 23.8125 13.8638 23.21L13.8638 2.75564C13.8644 2.15306 14.104 1.57534 14.5301 1.14926C14.9562 0.723172 15.5339 0.483533 16.1365 0.48293L20.6819 0.48293C21.2844 0.483533 21.8622 0.723172 22.2882 1.14926C22.7143 1.57534 22.954 2.15306 22.9546 2.75564ZM16.1365 23.21L20.6819 23.21L20.6819 2.75564L16.1365 2.75564L16.1365 23.21ZM16.1365 2.75564L16.1365 23.21C16.1359 23.8125 15.8962 24.3902 15.4701 24.8163C15.0441 25.2424 14.4663 25.482 13.8638 25.4826L9.31835 25.4826C8.71578 25.482 8.13806 25.2424 7.71197 24.8163C7.28589 24.3902 7.04625 23.8125 7.04565 23.2099L7.04565 2.75561C7.04625 2.15304 7.28589 1.57532 7.71197 1.14923C8.13806 0.723148 8.71578 0.483513 9.31835 0.48291L13.8638 0.48291C14.4663 0.483512 15.0441 0.723148 15.4701 1.14923C15.8962 1.57532 16.1359 2.15306 16.1365 2.75564ZM9.31835 23.2099L13.8638 23.21L13.8638 2.75564L9.31835 2.75561L9.31835 23.2099ZM9.31835 2.75561L9.31835 23.2099C9.31775 23.8125 9.07811 24.3902 8.65203 24.8163C8.22594 25.2424 7.64822 25.482 7.04565 25.4826L2.50024 25.4826C1.89767 25.482 1.31995 25.2424 0.893863 24.8163C0.467779 24.3902 0.228141 23.8125 0.227539 23.2099L0.227538 2.75561C0.22814 2.15304 0.467778 1.57532 0.893862 1.14923C1.31995 0.723148 1.89767 0.483513 2.50024 0.48291L7.04565 0.48291C7.64822 0.483513 8.22594 0.723148 8.65203 1.14923C9.07811 1.57532 9.31775 2.15304 9.31835 2.75561ZM2.50024 23.2099L7.04565 23.2099L7.04565 2.75561L2.50024 2.75561L2.50024 23.2099Z"
+                  fill="#CDCDCD"
+                />
+                <path
+                  d="M29.7727 2.75589L29.7727 23.2102C29.7721 23.8128 29.5324 24.3905 29.1064 24.8166C28.6803 25.2427 28.1026 25.4823 27.5 25.4829L22.9546 25.4829C22.352 25.4823 21.7743 25.2427 21.3482 24.8166C20.9221 24.3905 20.6825 23.8125 20.6819 23.21L20.6819 2.75564C20.6825 2.15306 20.9221 1.57559 21.3482 1.14951C21.7743 0.723424 22.352 0.483787 22.9546 0.483184L27.5 0.483184C28.1026 0.483786 28.6803 0.723424 29.1064 1.14951C29.5324 1.57559 29.7721 2.15331 29.7727 2.75589ZM22.9546 23.21L27.5 23.2102L27.5 2.75589L22.9546 2.75564L22.9546 23.21Z"
+                  fill="#CDCDCD"
+                />
+              </svg>
+              <span>Board</span>
+            </a>
+          </div>
+          <div class="navigation-item">
+            <a href="contacts.html">
+              <svg xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M12 20.4829C10.8333 20.4829 9.71875 20.6652 8.65625 21.0298C7.59375 21.3944 6.625 21.9412 5.75 22.6704V22.9829H18.25V22.6704C17.375 21.9412 16.4062 21.3944 15.3438 21.0298C14.2812 20.6652 13.1667 20.4829 12 20.4829ZM3.25 21.5454C4.375 20.4412 5.68229 19.5715 7.17188 18.936C8.66146 18.3006 10.2708 17.9829 12 17.9829C13.7292 17.9829 15.3385 18.3006 16.8281 18.936C18.3177 19.5715 19.625 20.4412 20.75 21.5454V5.48291H3.25V21.5454ZM12 15.4829C10.7917 15.4829 9.76042 15.0558 8.90625 14.2017C8.05208 13.3475 7.625 12.3162 7.625 11.1079C7.625 9.89958 8.05208 8.86833 8.90625 8.01416C9.76042 7.15999 10.7917 6.73291 12 6.73291C13.2083 6.73291 14.2396 7.15999 15.0938 8.01416C15.9479 8.86833 16.375 9.89958 16.375 11.1079C16.375 12.3162 15.9479 13.3475 15.0938 14.2017C14.2396 15.0558 13.2083 15.4829 12 15.4829ZM12 12.9829C12.5208 12.9829 12.9635 12.8006 13.3281 12.436C13.6927 12.0715 13.875 11.6287 13.875 11.1079C13.875 10.5871 13.6927 10.1444 13.3281 9.77979C12.9635 9.4152 12.5208 9.23291 12 9.23291C11.4792 9.23291 11.0365 9.4152 10.6719 9.77979C10.3073 10.1444 10.125 10.5871 10.125 11.1079C10.125 11.6287 10.3073 12.0715 10.6719 12.436C11.0365 12.8006 11.4792 12.9829 12 12.9829ZM3.25 25.4829C2.5625 25.4829 1.97396 25.2381 1.48438 24.7485C0.994792 24.259 0.75 23.6704 0.75 22.9829V5.48291C0.75 4.79541 0.994792 4.20687 1.48438 3.71729C1.97396 3.2277 2.5625 2.98291 3.25 2.98291H4.5V0.48291H7V2.98291H17V0.48291H19.5V2.98291H20.75C21.4375 2.98291 22.026 3.2277 22.5156 3.71729C23.0052 4.20687 23.25 4.79541 23.25 5.48291V22.9829C23.25 23.6704 23.0052 24.259 22.5156 24.7485C22.026 25.2381 21.4375 25.4829 20.75 25.4829H3.25Z"
+                  fill="#CDCDCD"
+                />
+              </svg>
+              <span>Contacts</span>
+            </a>
+          </div>
         </div>
+        <div class="footer-notes">
+          <a href="privacy_policy.html" target="_blank"
+            ><span>Privacy Policy</span></a
+          >
+          <a href="impressum.html" target="_blank"><span>Legal notice</span></a>
+        </div>
+      </div>
     </div>
 
     <div class="board-maincontainer" id="board-main">
-        <div class="board-container">
-            <div class="full-board">
-                <div class="board-top">
-                    <h1>Board</h1>
-                    <div class="board-input">
-                        <div class="search-container">
-                            <input placeholder="Find Task" class="search" type="text" />
-                            <div class="separator-search"></div>
-                        </div>
-                        <button class="button-primary">
-                            <span>Add task</span>
-                            <img src="./img/button-plus.png" alt="" />
-                        </button>
-                    </div>
-                </div>
-                <div class="board-columns">
-                    <div class="single-column">
-                        <div class="column-description">
-                            <span>To Do</span>
-                            <img src="./img/mini-add.png" alt="" />
-                        </div>
-                        <div class="tasks">
-                            <div class="task-scroll" id="task-scroll" onWheel="event.preventDefault(); this.scrollLeft += event.deltaY > 0 ? 100 : -100">
-                                <div class="empty-column"><span>No tasks to do</span></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="single-column">
-                        <div class="column-description">
-                            <span>In Progress</span>
-                            <img src="./img/mini-add.png" alt="" />
-                        </div>
-                        <div class="tasks">
-                            <div class="task-scroll" id="task-scroll" onWheel="event.preventDefault(); this.scrollLeft += event.deltaY > 0 ? 100 : -100">
-                                <div class="example">example</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="single-column">
-                        <div class="column-description">
-                            <span>Await Feedback</span>
-                            <img src="./img/mini-add.png" alt="" />
-                        </div>
-                        <div class="tasks">
-                            <div class="task-scroll" id="task-scroll" onWheel="event.preventDefault(); this.scrollLeft += event.deltaY > 0 ? 100 : -100">
-                                <div class="example">example</div>
-                                <div class="example">example</div>
-                                <div class="example">example</div>
-                                <div class="example">example</div>
-                                <div class="example">example</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="single-column">
-                        <div class="column-description">
-                            <span>Done</span>
-                        </div>
-                        <div class="tasks">
-                            <div class="task-scroll" id="task-scroll" onWheel="event.preventDefault(); this.scrollLeft += event.deltaY > 0 ? 100 : -100">
-                                <div class="example">example</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+      <div class="board-container">
+        <div class="full-board">
+          <div class="board-top">
+            <h1>Board</h1>
+            <div class="board-input">
+              <div class="search-container">
+                <input placeholder="Find Task" class="search" type="text" />
+                <div class="separator-search"></div>
+              </div>
+              <button class="button-primary">
+                <span>Add task</span>
+                <img src="./img/button-plus.png" alt="" />
+              </button>
             </div>
+          </div>
+          <div class="board-columns">
+            <div class="single-column">
+              <div class="column-description">
+                <span>To Do</span>
+                <img src="./img/mini-add.png" alt="" />
+              </div>
+              <div class="tasks">
+                <div
+                  class="task-scroll"
+                  id="task-scroll"
+                  onWheel="event.preventDefault(); this.scrollLeft += event.deltaY > 0 ? 100 : -100"
+                >
+                  <div class="empty-column"><span>No tasks to do</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="single-column">
+              <div class="column-description">
+                <span>In Progress</span>
+                <img src="./img/mini-add.png" alt="" />
+              </div>
+              <div class="tasks">
+                <div
+                  class="task-scroll"
+                  id="task-scroll"
+                  onWheel="event.preventDefault(); this.scrollLeft += event.deltaY > 0 ? 100 : -100"
+                >
+                  <div class="example">example</div>
+                </div>
+              </div>
+            </div>
+            <div class="single-column">
+              <div class="column-description">
+                <span>Await Feedback</span>
+                <img src="./img/mini-add.png" alt="" />
+              </div>
+              <div class="tasks">
+                <div
+                  class="task-scroll"
+                  id="task-scroll"
+                  onWheel="event.preventDefault(); this.scrollLeft += event.deltaY > 0 ? 100 : -100"
+                >
+                  <div class="example">example</div>
+                  <div class="example">example</div>
+                  <div class="example">example</div>
+                  <div class="example">example</div>
+                  <div class="example">example</div>
+                </div>
+              </div>
+            </div>
+            <div class="single-column">
+              <div class="column-description">
+                <span>Done</span>
+              </div>
+              <div class="tasks">
+                <div
+                  class="task-scroll"
+                  id="task-scroll"
+                  onWheel="event.preventDefault(); this.scrollLeft += event.deltaY > 0 ? 100 : -100"
+                >
+                  <div class="example">example</div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
-</body>
-
+  </body>
 </html>
