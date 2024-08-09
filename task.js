@@ -1,4 +1,4 @@
-let newTask = {
+let protoTask = {
   id: "8549058390jk",
   title: "Meine Aufgabe",
   description: "Räum dein Zimmer auf",
@@ -13,7 +13,7 @@ let newTask = {
   taskState: "to do",
 };
 
-let selectedUrgency = "";
+let selectedUrgency = "medium";
 // set urgency medium at start?
 
 /**
@@ -21,18 +21,25 @@ let selectedUrgency = "";
  */
 async function initTask() {
   await loadUsers();
-  await sortAllUsers();
+  sortAllUsers();
   await insertContactsToInput();
-  await updateDate();
+  updateDate();
 }
 
 function createTask(event, taskState = "to do") {
   event.preventDefault();
-  console.log("create task button presses");
+  let validity = validateCategory();
+  if (validity === false) return validity;
+  let newTask = getAddTaskFormData(taskState);
 }
 
 function clearTaskForm(event) {
   event.preventDefault();
+  console.log("clear form pressed");
+}
+
+function getAddTaskFormData(taskState) {
+  console.log("let's get the data");
 }
 
 /**
@@ -64,7 +71,7 @@ function addSubtask(event) {
  */
 function deleteSubtask(event) {
   event.preventDefault();
-  let subtaskItem = event.target.closest('li');
+  let subtaskItem = event.target.closest("li");
   if (subtaskItem) {
     subtaskItem.remove();
   }
@@ -99,7 +106,7 @@ function editSubtask(event) {
 
 
 
-function searchContacts(searchterm) { }
+function searchContacts(searchterm) {}
 
 /**
  * adding contacts to select element in input form
@@ -162,6 +169,10 @@ function markContactAssigned(id) {
   updateSelectedContacts();
 }
 
+/**
+ * extracts the selected items from "Assigned to"-Dropdown
+ * @returns an array of userIds {string}
+ */
 function updateSelectedContacts() {
   let nodeList = document.getElementsByClassName("assigned-user");
   let checkboxList = Array.from(nodeList);
@@ -173,6 +184,10 @@ function updateSelectedContacts() {
   return selectedContacts;
 }
 
+/**
+ * Displays the user avatars of users assigned to a task
+ * @param {Array} contacts - array of userIds
+ */
 function displaySelectedContacts(contacts) {
   let container = document.getElementById("selected-contacts");
   container.innerHTML = "";
@@ -195,5 +210,20 @@ function selectCategory(element) {
   document.getElementById("dropdown-title").textContent = text;
   let dropdown = document.getElementById("dropdown");
   dropdown.dataset.selectedValue = value;
+  removeInvalid(dropdown);
   dropdown.removeAttribute("open");
+}
+
+/**
+ * Checks if a category has been selected
+ * @returns validation success
+ */
+function validateCategory() {
+  let dropdown = document.getElementById("dropdown");
+  let selectedValue = dropdown.dataset.selectedValue;
+  if (!selectedValue) {
+    showInvalid(dropdown);
+    return false;
+  }
+  return true;
 }

@@ -113,7 +113,7 @@
       </div>
     </div>
     <div class="addtask-maincontainer">
-      <form>
+      <form onsubmit="createTask(event)">
         <div class="at-headline-maincontainer">
           <h1>Add Task</h1>
         </div>
@@ -121,7 +121,10 @@
           <div class="at-body-leftinput">
             <div>
               <label for="title">Title<span class="required">*</span></label>
-              <input required="" oninvalid="event.preventDefault(); showInvalid(this)" onfocus="removeInvalid(this)"
+              <input
+                required=""
+                oninvalid="event.preventDefault(); showInvalid(this); validateCategory()"
+                onfocus="removeInvalid(this)"
                 class="inputfield-basic-design"
                 type="text"
                 id="title"
@@ -157,7 +160,10 @@
             <label for="due-date"
               >Due date<span class="required">*</span></label
             >
-            <input required="" oninvalid="event.preventDefault(); showInvalid(this)" onfocus="removeInvalid(this)"
+            <input
+              required=""
+              oninvalid="event.preventDefault(); showInvalid(this); validateCategory()"
+              onfocus="removeInvalid(this)"
               class="inputfield-basic-design"
               type="date"
               name="begin"
@@ -193,7 +199,7 @@
                 </svg>
               </button>
               <button
-                class="urgency-button medium-button"
+                class="urgency-button medium-button medium-active"
                 id="medium-button"
                 onclick="setUrgency(event, 'medium')"
               >
@@ -301,8 +307,7 @@
                 </svg>
               </div>
             </div>
-            <ul class="addedsubtasks" id="addedsubtasks">
-            </ul>
+            <ul class="addedsubtasks" id="addedsubtasks"></ul>
           </div>
         </div>
         <div class="at-footer-maincontainer">
@@ -310,11 +315,11 @@
             <span>*This field is required</span>
           </div>
           <div class="at-footer-buttoncontainer">
-            <button class="button-secondary">
+            <button onclick="clearTaskForm(event)" class="button-secondary">
               Clear <img src="img/close.png" alt="" />
             </button>
 
-            <button class="button-primary action-button-text">
+            <button type="submit" class="button-primary action-button-text">
               Create Task <img src="img/check.png" alt="" />
             </button>
           </div>
