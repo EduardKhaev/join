@@ -98,7 +98,10 @@ async function insertContactsToInput() {
 /**
  * set date of today to date selector
  */
-function updateDate() {}
+function updateDate() {
+  let today = getTodaysDate();
+  document.getElementById("due-date").min = today;
+}
 
 /**
  * Determines which priority button was pressed and changes styles
