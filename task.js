@@ -162,7 +162,7 @@ function displaySelectedContacts(contacts) {
     let index = getUserIndex(contacts[i]);
     let user = users[index];
     container.innerHTML += `
-      <div class="task-avatar cl-avatar-space" style = "background-color: ${user.color};">${user.initials}</div>
+      <div class="task-avatar" style = "background-color: ${user.color};">${user.initials}</div>
       `;
   }
 }
