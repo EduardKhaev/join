@@ -43,6 +43,10 @@ function deleteSubtask(event, subtaskIndex) {
   event.preventDefault();
 }
 
+function clearSubtask(event, subtaskIndex) {
+  event.preventDefault();
+}
+
 function editSubtask(event) {
   event.preventDefault();
 }

@@ -221,7 +221,6 @@ details:focus {
   display: flex;
   align-items: center;
   padding-right: 8px;
-  margin-bottom: 64px;
   display: flex;
   align-items: center;
 }
@@ -243,6 +242,13 @@ details:focus {
   border-radius: 100px;
   border: none;
   background-color: #f0f0f0;
+}
+
+.subtask-field hr {
+  height: 24px;
+  width: 1px;
+  background-color: #d1d1d1;
+  border: none;
 }
 
 .subtask-field:focus-within {
@@ -269,8 +275,17 @@ details:focus {
   display: none;
 }
 
+.subtasks-input:is(:placeholder-shown) ~ hr {
+  display: none;
+}
+
 .subtasks-input:not(:placeholder-shown) {
   background-image: none;
+}
+
+.addedsubtasks {
+  margin-left: 8px;
+  margin-right: 8px;
 }
 
 fieldset {
