@@ -21,9 +21,9 @@ let selectedUrgency = "";
  */
 async function initTask() {
   await loadUsers();
-  sortAllUsers();
-  insertContactsToInput();
-  updateDate();
+  await sortAllUsers();
+  await insertContactsToInput();
+  await updateDate();
 }
 
 function createTask(event, taskState = "to do") {
@@ -62,8 +62,13 @@ function searchContacts(searchterm) {}
 /**
  * adding contacts to select element in input form
  */
-function insertContactsToInput() {
-  console.log(users.length);
+async function insertContactsToInput() {
+  let list = document.getElementById("contactDropDown");
+  list.innerHTML = "";
+  for (let i = 0; i < users.length; i++) {
+    let user = users[i];
+    list.innerHTML += renderContactDropdown(user);
+  }
 }
 
 /**
@@ -109,7 +114,10 @@ function setActiveUrgencyButton(selectedUrgency) {
 function markContactAssigned(id) {
   let checkbox = document.getElementById(id);
   checkbox.checked = !checkbox.checked;
+  updateSelectedContacts();
 }
+
+function updateSelectedContacts() {}
 
 /**
  * Selecting and storing an item from a dropdown
