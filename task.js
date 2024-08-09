@@ -149,12 +149,18 @@ function updateSelectedContacts() {
     if (element.checked) selectedContacts.push(element.id);
   });
   displaySelectedContacts(selectedContacts);
+  return selectedContacts;
 }
 
 function displaySelectedContacts(contacts) {
+  let container = document.getElementById("selected-contacts");
+  container.innerHTML = "";
   for (let i = 0; i < contacts.length; i++) {
     let index = getUserIndex(contacts[i]);
-    console.log(users[index].initials, users[index].color);
+    let user = users[index];
+    container.innerHTML += `
+      <div class="task-avatar cl-avatar-space" style = "background-color: ${user.color};">${user.initials}</div>
+      `;
   }
 }
 
