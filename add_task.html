@@ -413,7 +413,7 @@
                 id="subtasks"
                 placeholder="Add new subtask"
               />
-              <div>
+              <div onclick="clearSubtask(event)">
                 <svg
                   width="17"
                   height="18"
@@ -427,7 +427,8 @@
                   />
                 </svg>
               </div>
-              <div>
+              <hr />
+              <div onclick="addSubtask(event)">
                 <svg
                   width="16"
                   height="12"
@@ -442,6 +443,9 @@
                 </svg>
               </div>
             </div>
+            <ul class="addedsubtasks" id="addedsubtasks">
+              <li>test</li>
+            </ul>
           </div>
         </div>
         <div class="at-footer-maincontainer">
