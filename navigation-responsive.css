@@ -1,3 +1,9 @@
+@media (max-width: 1250px) {
+  .header-title {
+    margin-left: 272px;
+  }
+}
+
 @media (max-width: 1000px) {
   .navigation {
     position: fixed;
@@ -49,7 +55,7 @@
   .join-logo-header {
     display: block;
     height: 39px;
-    padding-left: 20px;
+    padding-left: 40px;
   }
 
   .help-span {
@@ -102,5 +108,15 @@
 @media (max-width: 420px) {
   .navigation-item span {
     display: none;
+  }
+
+  .join-logo-header {
+    display: block;
+    height: 39px;
+    padding-left: 16px;
+  }
+
+  .header-right {
+    padding-right: 16px;
   }
 }
