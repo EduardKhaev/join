@@ -348,6 +348,12 @@ function addTaskBoard() {
 
 function addTaskStatus() { } //Eduard
 
+/**
+ * Formats a date string from "YYYY-MM-DD" format to "MM/DD/YYYY" format.
+ * 
+ * @param {string} dateString - The date string in "YYYY-MM-DD" format.
+ * @returns {string} - The formatted date string in "MM/DD/YYYY" format.
+ */
 function formatDate(dateString) {
   const [year, month, day] = dateString.split("-");
   const formattedDay = day.padStart(2, "0");
@@ -355,6 +361,13 @@ function formatDate(dateString) {
   return `${formattedMonth}/${formattedDay}/${year}`;
 }
 
+/**
+ * Retrieves a color based on the category of a to-do item.
+ * 
+ * @param {Object} toDo - The to-do item object.
+ * @param {string} toDo.category - The category of the to-do item.
+ * @returns {string} - The color associated with the category.
+ */
 function getCategoryColor(toDo) {
   if (toDo.category == "Technical Task") {
     color = "#1FD7C1";
@@ -364,6 +377,12 @@ function getCategoryColor(toDo) {
   return color;
 }
 
+/**
+ * Shortens a description to a maximum of 6 words and adds "..." if more words are present.
+ * 
+ * @param {string} description - The description text to be shortened.
+ * @returns {string} - The shortened description if more than 6 words are present; otherwise, the original description.
+ */
 function shortenDescription(description) {
   if (typeof description !== "string") {
     description = "";
@@ -375,6 +394,12 @@ function shortenDescription(description) {
   return description;
 }
 
+/**
+ * Counts the number of subtasks in toDo based on the key 'name'.
+ * 
+ * @param {Object[]} subtasks - An array of subtask objects.
+ * @returns {number} - The number of subtasks.
+ */
 function countSubtaskNumber(subtasks) {
   if (!Array.isArray(subtasks)) {
     return 0;
@@ -384,6 +409,12 @@ function countSubtaskNumber(subtasks) {
   }
 }
 
+/**
+ * Counts the number of subtasks where the key 'done' has a value of true.
+ * 
+ * @param {Object[]} subtasks - An array of subtask objects.
+ * @returns {number} - The number of subtasks where 'done' is set to true.
+ */
 function countCompletedSubtasks(subtasks) {
   if (!Array.isArray(subtasks)) {
     return 0;
@@ -392,6 +423,13 @@ function countCompletedSubtasks(subtasks) {
   }
 }
 
+/**
+ * Calculates the percentage of completed subtasks relative to the total number of subtasks.
+ * 
+ * @param {number} completedSubtasks - The number of completed subtasks.
+ * @param {number} subtasksNumber - The total number of subtasks.
+ * @returns {number} - The percentage of completed subtasks.
+ */
 function calculateCompletionPercentage(completedSubtasks, subtasksNumber) {
   if (subtasksNumber === 0) {
     return 0;
