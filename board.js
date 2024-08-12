@@ -6,6 +6,7 @@ async function initBoard() {
   sortAllUsers();
   await loadTasks();
   await groupTasks();
+  await tasksByDate();
   renderTasks();
 }
 
@@ -30,7 +31,16 @@ async function loadTasks(path = "/tasks") {
 }
 
 async function groupTasks() {
-  groupedTasks = Object.groupBy(tasks, ({ taskState }) => taskState);
+  if (tasks) groupedTasks = Object.groupBy(tasks, ({ taskState }) => taskState);
+}
+
+async function tasksByDate() {
+  if (groupedTasks) {
+    Object.keys(groupedTasks).forEach((key) => {
+      let sortedTaskList = groupedTasks[key].sort(sortByDate);
+      groupedTasks[key] = sortedTaskList;
+    });
+  }
 }
 
 function renderTasks() {

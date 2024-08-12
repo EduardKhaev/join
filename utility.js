@@ -94,3 +94,13 @@ function getTodaysDate() {
   let yyyymmdd = `${year}-${month}-${day}`;
   return yyyymmdd;
 }
+
+function sortByDate(a, b) {
+  if (a.date < b.date) {
+    return -1;
+  }
+  if (a.date > b.date) {
+    return 1;
+  }
+  return 0;
+}
