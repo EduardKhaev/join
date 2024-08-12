@@ -423,10 +423,10 @@ function getTaskLargeContentHtml(task, date, priorityMarker) {
       `;
 }
 
-function getSubtaskContentHtml(subtask, i) {
+function getSubtaskContentHtml(subtask, i, taskId) {
   return `
     <div class="tl-sub-check">
-      <input type="checkbox" id="checkbox${i}" class="custom-checkbox" />
+      <input type="checkbox" id="checkbox${i}" class="custom-checkbox" onchange="updateSubtaskFromDetails(${i}, '${taskId}')"/>
       <label for="checkbox${i}" class="custom-checkbox-label">
         <div class="checkbox-icon">
           <svg

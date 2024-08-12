@@ -58,7 +58,7 @@ function showTaskDetails() {
   let taskContent = document.getElementById("task-large");
   taskContent.innerHTML = getTaskLargeContentHtml(task, date, priorityMarker);
   showDetailsAssigned(task.assigned);
-  showDetailsSubtask(task.subtasks);
+  showDetailsSubtask(task.subtasks, task.id);
 }
 
 function showDetailsAssigned(assigned) {
@@ -71,13 +71,18 @@ function showDetailsAssigned(assigned) {
   }
 }
 
-function showDetailsSubtask(subtasks) {
+function showDetailsSubtask(subtasks, taskId) {
   for (let i = 0; i < subtasks.length; i++) {
     let subtask = subtasks[i];
     let subtaskContent = document.getElementById("tl-sub-checks");
-    subtaskContent.innerHTML += getSubtaskContentHtml(subtask, i);
+    subtaskContent.innerHTML += getSubtaskContentHtml(subtask, i, taskId);
     document.getElementById(`checkbox${i}`).checked = subtask.done;
   }
+}
+
+function updateSubtaskFromDetails(index, taskId) {
+  let checked = document.getElementById(`checkbox${index}`).checked;
+  console.log(index, taskId, checked);
 }
 
 function editTask(Index) {}
