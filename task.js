@@ -8,11 +8,11 @@ let protoTask = {
     "-O3bQUc0gyKIG-DV-U4h",
   ],
   date: "2024-08-22",
-  priority: "urgent",
+  priority: "low",
   category: "Userstory",
   subtasks: [
     { name: "Subtask1", done: false },
-    { name: "Subtask2", done: false },
+    { name: "Subtask2", done: true },
   ],
   taskState: "to do",
 };
@@ -36,7 +36,6 @@ let selectedUrgency = "medium";
  */
 async function initTask() {
   await loadUsers();
-  renderTaskLarge();
   sortAllUsers();
   await insertContactsToInput();
   updateDate();
@@ -67,8 +66,19 @@ function clearTaskForm(event) {
   document.getElementById("task-description").value = "";
   document.getElementById("due-date").value = "";
   document.getElementById("dropdown-title").innerText = "Select task category";
+  document.getElementById("dropdown").dataset.selectedValue = "";
   document.getElementById("selected-contacts").innerHTML = "";
+  clearSelectedContacts();
   document.getElementById("addedsubtasks").innerHTML = "";
+  setUrgency(event, "medium");
+}
+
+function clearSelectedContacts() {
+  let nodeList = document.getElementsByClassName("assigned-user");
+  let checkboxList = Array.from(nodeList);
+  checkboxList.forEach((element) => {
+    element.checked = false;
+  });
 }
 
 /**
@@ -325,36 +335,4 @@ function validateCategory() {
     return false;
   }
   return true;
-}
-
-function renderTaskLarge() {
-  let task = protoTask;
-  let date = formatDate(task.date);
-  let priorityMarker = getPriorityMarker(task.priority);
-  let taskContent = document.getElementById("task-large");
-  taskContent.innerHTML = getTaskLargeContentHtml(task, date, priorityMarker);
-
-  let assigned = task.assigned;
-  for (let j = 0; j < assigned.length; j++) {
-    let userId  = assigned[j];
-    let index = getUserIndex(userId);
-    let user = users[index];
-    
-    let assignments = document.getElementById("tl-persons");
-    assignments.innerHTML += getAssignmentsHtml(user);  
-  };  
-
-  let subtasks = task.subtasks;
-  for (let i = 0; i < subtasks.length; i++) {
-    let subtask = subtasks[i];
-    let subtaskContent = document.getElementById("tl-sub-checks");
-    subtaskContent.innerHTML += getSubtaskContentHtml(subtask);
-  }
-}
-
-function formatDate(dateString) {
-  const [year, month, day] = dateString.split('-');
-  const formattedDay = day.padStart(2, '0');
-  const formattedMonth = month.padStart(2, '0');
-  return `${formattedMonth}/${formattedDay}/${year}`;
 }

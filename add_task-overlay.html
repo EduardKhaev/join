@@ -1,100 +1,17 @@
-let tasks = [];
-let groupedTasks = {};
-
-async function initBoard() {
-  await loadUsers();
-  showTaskDetails();
-  sortAllUsers();
-  await loadTasks();
-  await groupTasks();
-  await tasksByDate();
-  renderTasks();
-}
-
-async function loadTasks(path = "/tasks") {
-  let taskResponse = await fetch(FIREBASE_URL + path + ".json");
-  let responseToJson = await taskResponse.json();
-  if (responseToJson) {
-    Object.keys(responseToJson).forEach((key) => {
-      tasks.push({
-        id: key,
-        title: responseToJson[key]["title"],
-        description: responseToJson[key]["description"],
-        assigned: responseToJson[key]["assigned"],
-        date: responseToJson[key]["date"],
-        priority: responseToJson[key]["priority"],
-        category: responseToJson[key]["category"],
-        subtasks: responseToJson[key]["subtasks"],
-        taskState: responseToJson[key]["taskState"],
-      });
-    });
-  }
-}
-
-async function groupTasks() {
-  if (tasks) groupedTasks = Object.groupBy(tasks, ({ taskState }) => taskState);
-}
-
-async function tasksByDate() {
-  if (groupedTasks) {
-    Object.keys(groupedTasks).forEach((key) => {
-      let sortedTaskList = groupedTasks[key].sort(sortByDate);
-      groupedTasks[key] = sortedTaskList;
-    });
-  }
-}
-
-function renderTasks() {
-  console.log(tasks);
-  console.log(groupedTasks);
-}
-
-function searchTasks(searchterm) {}
-
-function showTaskDetails() {
-  let task = protoTask;
-  let date = formatDate(task.date);
-  let priorityMarker = getPriorityMarker(task.priority);
-  let taskContent = document.getElementById("task-large");
-  taskContent.innerHTML = getTaskLargeContentHtml(task, date, priorityMarker);
-  showDetailsAssigned(task.assigned);
-  showDetailsSubtask(task.subtasks, task.id);
-}
-
-function showDetailsAssigned(assigned) {
-  for (let i = 0; i < assigned.length; i++) {
-    let userId = assigned[i];
-    let index = getUserIndex(userId);
-    let user = users[index];
-    let assignments = document.getElementById("tl-persons");
-    assignments.innerHTML += getAssignmentsHtml(user);
-  }
-}
-
-function showDetailsSubtask(subtasks, taskId) {
-  for (let i = 0; i < subtasks.length; i++) {
-    let subtask = subtasks[i];
-    let subtaskContent = document.getElementById("tl-sub-checks");
-    subtaskContent.innerHTML += getSubtaskContentHtml(subtask, i, taskId);
-    document.getElementById(`checkbox${i}`).checked = subtask.done;
-  }
-}
-
-function updateSubtaskFromDetails(index, taskId) {
-  let checked = document.getElementById(`checkbox${index}`).checked;
-  console.log(index, taskId, checked);
-}
-
-function editTask(Index) {}
-
-function deleteTask(Index) {}
-
-function updateProgress(subtask, task) {}
-
-function addTaskBoard() {
-  let overlay = createOverlay("add-task-board");
-  overlay.innerHTML = `
-      <div class="addtask-overlaycontainer">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="add_task.css" />
+    <link rel="stylesheet" href="urgent.css" />
+    <link rel="stylesheet" href="navigation-responsive.css" />
+    <link rel="stylesheet" href="add_task_responsive.css" />
+<body>
+    <div class="addtask-overlaycontainer">
         <form onsubmit="createTask(event)">
           <div class="at-headline-maincontainer">
             <h1>Add Task</h1>
@@ -287,14 +204,5 @@ function addTaskBoard() {
           </div>
         </form>
       </div>
-      `;
-} //Eduard
-
-function addTaskStatus() {} //Eduard
-
-function formatDate(dateString) {
-  const [year, month, day] = dateString.split("-");
-  const formattedDay = day.padStart(2, "0");
-  const formattedMonth = month.padStart(2, "0");
-  return `${formattedMonth}/${formattedDay}/${year}`;
-}
+</body>
+</html>
