@@ -76,6 +76,7 @@ function showDetailsSubtask(subtasks) {
     let subtask = subtasks[i];
     let subtaskContent = document.getElementById("tl-sub-checks");
     subtaskContent.innerHTML += getSubtaskContentHtml(subtask, i);
+    document.getElementById(`checkbox${i}`).checked = subtask.done;
   }
 }
 

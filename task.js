@@ -12,7 +12,7 @@ let protoTask = {
   category: "Userstory",
   subtasks: [
     { name: "Subtask1", done: false },
-    { name: "Subtask2", done: false },
+    { name: "Subtask2", done: true },
   ],
   taskState: "to do",
 };
