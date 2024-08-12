@@ -1,14 +1,18 @@
 let protoTask = {
-  id: "8549058390jk",
-  title: "Meine Aufgabe",
-  description: "Räum dein Zimmer auf",
-  assigned: ["id of user - you", "id1fghzusdu4342", "589834359023"],
+  id: "1",
+  title: "Hallo Welt",
+  description: "Beschreibung",
+  assigned: [
+    "-O3E83dKATdm4nFQqADV",
+    "-O3E83dNbeJLjIcCZwS8",
+    "-O3bQUc0gyKIG-DV-U4h",
+  ],
   date: "2024-08-22",
-  priority: "urgent",
-  category: "string",
+  priority: "medium",
+  category: "Userstory",
   subtasks: [
-    { name: "string", done: false },
-    { name: "string", done: false },
+    { name: "Subtask1", done: false },
+    { name: "Subtask2", done: false },
   ],
   taskState: "to do",
 };
@@ -69,9 +73,9 @@ function clearSubtask(event) {
 
 function saveTask(task) {
   console.log(task);
-  setTimeout(() => {
+  /*  setTimeout(() => {
     window.location.replace("./board.html");
-  }, 3000);
+  }, 3000); */
 }
 
 /**
