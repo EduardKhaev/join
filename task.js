@@ -61,13 +61,13 @@ function createTask(event, taskState = "to do") {
  * @param {event} event - triggered event with the click
  */
 function clearTaskForm(event) {
-  event.preventDefault();  
-  document.getElementById('entertitle').value = '';
-  document.getElementById('task-description').value = ''; 
-  document.getElementById('due-date').value = ''; 
-  document.getElementById('dropdown-title').innerText = 'Select task category'; 
-  document.getElementById('selected-contacts').innerHTML = ''; 
-  document.getElementById('addedsubtasks').innerHTML = ''; 
+  event.preventDefault();
+  document.getElementById("entertitle").value = "";
+  document.getElementById("task-description").value = "";
+  document.getElementById("due-date").value = "";
+  document.getElementById("dropdown-title").innerText = "Select task category";
+  document.getElementById("selected-contacts").innerHTML = "";
+  document.getElementById("addedsubtasks").innerHTML = "";
 }
 
 /**
@@ -80,11 +80,12 @@ function clearSubtask(event) {
   subtaskField.value = "";
 }
 
-function saveTask(task) {
-  console.log(task);
-  /*  setTimeout(() => {
+async function saveTask(task) {
+  await postData("/tasks", task);
+  showChangeSuccess("Task saved");
+  setTimeout(() => {
     window.location.replace("./board.html");
-  }, 3000); */
+  }, 2300);
 }
 
 /**
@@ -213,7 +214,6 @@ async function insertContactsToInput() {
 function updateDate() {
   let today = getTodaysDate();
   document.getElementById("due-date").min = today;
-  console.log(today);
 }
 
 /**
@@ -269,7 +269,7 @@ function updateSelectedContacts() {
     if (element.checked) selectedContacts.push(element.id);
   });
   displaySelectedContacts(selectedContacts);
-  return selectedContacts;
+  return selectedContacts.length > 0 ? selectedContacts : false;
 }
 
 /**
