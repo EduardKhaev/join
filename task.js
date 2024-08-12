@@ -57,10 +57,6 @@ function clearTaskForm(event) {
   console.log("clear form pressed");
 }
 
-function getAddTaskFormData(taskState) {
-  console.log("let's get the data");
-}
-
 /**
  * clear the subtask input field
  * @param {event} event - triggered event from a button click
@@ -69,6 +65,54 @@ function clearSubtask(event) {
   event.preventDefault();
   let subtaskField = document.getElementById("subtasks");
   subtaskField.value = "";
+}
+
+function saveTask(task) {
+  console.log(task);
+  setTimeout(() => {
+    window.location.replace("./board.html");
+  }, 3000);
+}
+
+/**
+ * creates an task object from input values
+ * @param {string} taskState
+ * @returns the values from the input as an object
+ */
+function getAddTaskFormData(taskState) {
+  let newTask = {
+    title: getAddTaskInput("entertitle"),
+    description: getAddTaskInput("task-description"),
+    assigned: updateSelectedContacts(),
+    date: getAddTaskInput("due-date"),
+    priority: selectedUrgency,
+    category: getCategoryFromDropdown(),
+    subtasks: false,
+    taskState: taskState,
+  };
+  return newTask;
+}
+
+/**
+ * Reads and returns the value of an input field
+ * @param {string} id
+ * @returns an input value or false
+ */
+function getAddTaskInput(id) {
+  let input = document.getElementById(id).value;
+  if (input) return input;
+  else return false;
+}
+
+/**
+ * gets the value of a dropdown menue
+ * @returns the selected category or false
+ */
+function getCategoryFromDropdown() {
+  let dropdown = document.getElementById("dropdown");
+  let category = dropdown.dataset.selectedValue;
+  if (category) return category;
+  else return false;
 }
 
 /**
