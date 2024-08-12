@@ -53,6 +53,9 @@ function renderTasks() {
     let toDo = toDos[i];
     categoryColor = getCategoryColor(toDo);
     let description = shortenDescription(toDo.description);
+    let subtasksNumber = countSubtaskNumber(toDo.subtasks);
+    let completedSubtasks = countCompletedSubtasks(toDo.subtasks);
+    let percentage = calculateCompletionPercentage(completedSubtasks, subtasksNumber);
     let toDoColumn = document.getElementById("to-do");
     toDoColumn.innerHTML += `
     <div class="task-small-main" onclick="showTaskDetails(${toDo.id})">
@@ -64,32 +67,41 @@ function renderTasks() {
             </div>
             <div class="ts-subtasks">
                 <div class="ts-bar">
-                    <div class="ts-bar-percentage" style="width: %;">
+                    <div class="ts-bar-percentage" style="width: ${percentage}%;">
                     </div>
                 </div>
                 <div class="ts-progress">
-                    1/2 Subtasks
+                    ${completedSubtasks}/${subtasksNumber} Subtasks
                 </div>
             </div>
             <div class="ts-footer">
-                <div class="ts-avatars">
-                    <div class="ts-avatar">MS</div>
-                    <div class="ts-avatar2">MT</div>
+                <div class="ts-avatars" id="ts-avatars${i}">
                 </div>
-                <div class="ts-priority" id="ts-priority">
-                    <svg width="17" height="12" viewBox="0 0 21 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M19.7596 7.91693H1.95136C1.66071 7.91693 1.38197 7.80063 1.17645 7.59362C0.970928 7.3866 0.855469 7.10584 0.855469 6.81308C0.855469 6.52032 0.970928 6.23955 1.17645 6.03254C1.38197 5.82553 1.66071 5.70923 1.95136 5.70923H19.7596C20.0502 5.70923 20.329 5.82553 20.5345 6.03254C20.74 6.23955 20.8555 6.52032 20.8555 6.81308C20.8555 7.10584 20.74 7.3866 20.5345 7.59362C20.329 7.80063 20.0502 7.91693 19.7596 7.91693Z"
-                            fill="#FFA800" />
-                        <path
-                            d="M19.7596 2.67376H1.95136C1.66071 2.67376 1.38197 2.55746 1.17645 2.35045C0.970928 2.14344 0.855469 1.86267 0.855469 1.56991C0.855469 1.27715 0.970928 0.996386 1.17645 0.789374C1.38197 0.582363 1.66071 0.466064 1.95136 0.466064L19.7596 0.466064C20.0502 0.466064 20.329 0.582363 20.5345 0.789374C20.74 0.996386 20.8555 1.27715 20.8555 1.56991C20.8555 1.86267 20.74 2.14344 20.5345 2.35045C20.329 2.55746 20.0502 2.67376 19.7596 2.67376Z"
-                            fill="#FFA800" />
-                    </svg>
+                <div class="ts-priority" id="ts-priority${i}">
                 </div>
             </div>
         </div>
     </div>
-  `;
+    `;
+
+    let urgency = document.getElementById(`ts-priority${i}`);
+    let priorityMarker = getPriorityMarker(toDo.priority);
+    urgency.innerHTML = `${priorityMarker}`;
+
+    let avatars = document.getElementById(`ts-avatars${i}`);
+    let assigned = toDo.assigned;
+    if (Array.isArray(assigned) && assigned.length > 0) {
+      for (let j = 0; j < assigned.length; j++) {
+        let userId = assigned[j];
+        let index = getUserIndex(userId);
+        let user = users[index];
+        let marginLeft = (j > 0) ? '-9px' : '0px';
+
+        avatars.innerHTML += `
+        <div class="ts-avatar" style="background-color: ${user.color}; z-index: ${j+2}; margin-left: ${marginLeft};">${user.initials}</div>
+      `;
+      }
+    }
   }
 }
 
@@ -129,7 +141,7 @@ function updateSubtaskFromDetails(index, taskId) {
   console.log(index, taskId, checked);
 }
 
-function editTask(Index) {}
+function editTask(Index) { }
 
 function deleteTask(Index) { }
 
@@ -334,7 +346,7 @@ function addTaskBoard() {
       `;
 } //Eduard
 
-function addTaskStatus() {} //Eduard
+function addTaskStatus() { } //Eduard
 
 function formatDate(dateString) {
   const [year, month, day] = dateString.split("-");
@@ -361,4 +373,29 @@ function shortenDescription(description) {
     return words.slice(0, 6).join(" ") + "...";
   }
   return description;
+}
+
+function countSubtaskNumber(subtasks) {
+  if (!Array.isArray(subtasks)) {
+    return 0;
+  } else {
+    let count = subtasks.filter(subtask => subtask.hasOwnProperty('name')).length;
+    return count;
+  }
+}
+
+function countCompletedSubtasks(subtasks) {
+  if (!Array.isArray(subtasks)) {
+    return 0;
+  } else {
+    return subtasks.filter(subtask => subtask.done === true).length;
+  }
+}
+
+function calculateCompletionPercentage(completedSubtasks, subtasksNumber) {
+  if (subtasksNumber === 0) {
+    return 0;
+  }
+  let percentage = (completedSubtasks / subtasksNumber) * 100;
+  return percentage;
 }
