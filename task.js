@@ -1,14 +1,18 @@
 let protoTask = {
-  id: "8549058390jk",
-  title: "Meine Aufgabe",
-  description: "Räum dein Zimmer auf",
-  assigned: ["id of user - you", "id1fghzusdu4342", "589834359023"],
+  id: "1",
+  title: "Hallo Welt",
+  description: "Beschreibung",
+  assigned: [
+    "-O3E83dKATdm4nFQqADV",
+    "-O3E83dNbeJLjIcCZwS8",
+    "-O3bQUc0gyKIG-DV-U4h",
+  ],
   date: "2024-08-22",
-  priority: "urgent",
-  category: "string",
+  priority: "medium",
+  category: "Userstory",
   subtasks: [
-    { name: "string", done: false },
-    { name: "string", done: false },
+    { name: "Subtask1", done: false },
+    { name: "Subtask2", done: false },
   ],
   taskState: "to do",
 };
@@ -57,13 +61,13 @@ function createTask(event, taskState = "to do") {
  * @param {event} event - triggered event with the click
  */
 function clearTaskForm(event) {
-  event.preventDefault();  
-  document.getElementById('entertitle').value = '';
-  document.getElementById('task-description').value = ''; 
-  document.getElementById('due-date').value = ''; 
-  document.getElementById('dropdown-title').innerText = 'Select task category'; 
-  document.getElementById('selected-contacts').innerHTML = ''; 
-  document.getElementById('addedsubtasks').innerHTML = ''; 
+  event.preventDefault();
+  document.getElementById("entertitle").value = "";
+  document.getElementById("task-description").value = "";
+  document.getElementById("due-date").value = "";
+  document.getElementById("dropdown-title").innerText = "Select task category";
+  document.getElementById("selected-contacts").innerHTML = "";
+  document.getElementById("addedsubtasks").innerHTML = "";
 }
 
 /**
@@ -76,11 +80,12 @@ function clearSubtask(event) {
   subtaskField.value = "";
 }
 
-function saveTask(task) {
-  console.log(task);
+async function saveTask(task) {
+  await postData("/tasks", task);
+  showChangeSuccess("Task saved");
   setTimeout(() => {
     window.location.replace("./board.html");
-  }, 3000);
+  }, 2300);
 }
 
 /**
@@ -219,7 +224,6 @@ async function insertContactsToInput() {
 function updateDate() {
   let today = getTodaysDate();
   document.getElementById("due-date").min = today;
-  console.log(today);
 }
 
 /**
@@ -275,7 +279,7 @@ function updateSelectedContacts() {
     if (element.checked) selectedContacts.push(element.id);
   });
   displaySelectedContacts(selectedContacts);
-  return selectedContacts;
+  return selectedContacts.length > 0 ? selectedContacts : false;
 }
 
 /**

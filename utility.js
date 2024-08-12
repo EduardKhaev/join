@@ -90,7 +90,6 @@ function getTodaysDate() {
   let month = date.getMonth() + 1;
   month < 10 ? (month = "0" + month.toString()) : (month = month.toString());
   let day = date.getDate();
-  console.log(day);
   day < 10 ? (day = "0" + day.toString()) : (day = day.toString());
   let yyyymmdd = `${year}-${month}-${day}`;
   return yyyymmdd;
