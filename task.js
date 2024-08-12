@@ -66,8 +66,18 @@ function clearTaskForm(event) {
   document.getElementById("task-description").value = "";
   document.getElementById("due-date").value = "";
   document.getElementById("dropdown-title").innerText = "Select task category";
+  document.getElementById("dropdown").dataset.selectedValue = "";
   document.getElementById("selected-contacts").innerHTML = "";
+  clearSelectedContacts();
   document.getElementById("addedsubtasks").innerHTML = "";
+}
+
+function clearSelectedContacts() {
+  let nodeList = document.getElementsByClassName("assigned-user");
+  let checkboxList = Array.from(nodeList);
+  checkboxList.forEach((element) => {
+    element.checked = false;
+  });
 }
 
 /**
