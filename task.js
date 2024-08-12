@@ -56,9 +56,18 @@ function createTask(event, taskState = "to do") {
   saveTask(newTask);
 }
 
+/**
+ * clears the input fields and resets the form elements
+ * @param {event} event - triggered event with the click
+ */
 function clearTaskForm(event) {
-  event.preventDefault();
-  console.log("clear form pressed");
+  event.preventDefault();  
+  document.getElementById('entertitle').value = '';
+  document.getElementById('task-description').value = ''; 
+  document.getElementById('due-date').value = ''; 
+  document.getElementById('dropdown-title').innerText = 'Select task category'; 
+  document.getElementById('selected-contacts').innerHTML = ''; 
+  document.getElementById('addedsubtasks').innerHTML = ''; 
 }
 
 /**
