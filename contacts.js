@@ -269,7 +269,8 @@ function removeInvalid(element) {
  */
 function renderAddUserInputField() {
   let overlayContent = createOverlay("adduser-overlay", "overlay");
-  document.getElementById("add-btn-responsive").style.backgroundColor = "var(--brand-blue)";
+  document.getElementById("add-btn-responsive").style.backgroundColor =
+    "var(--brand-blue)";
   setTimeout(() => {
     overlayContent.innerHTML = getAddUserInputHtml();
     overlayContent = document.getElementById("adduser-maincontainer");
@@ -281,7 +282,8 @@ function renderAddUserInputField() {
  * closes the create/edit user modal without applying input data
  */
 function cancelAddUser() {
-  document.getElementById("add-btn-responsive").style.backgroundColor = "var(--brand-dark)";
+  document.getElementById("add-btn-responsive").style.backgroundColor =
+    "var(--brand-dark)";
   let overlayContent = document.getElementById("adduser-maincontainer");
   overlayContent.classList.add("adduser-maincontainer-out");
   overlayContent.classList.remove("adduser-maincontainer");
@@ -421,6 +423,7 @@ window.onclick = function (event) {
   const editChoice = document.getElementById("choice-container");
   let button = document.getElementById("edit-btn-responsive");
   if (
+    dropdownMenu &&
     event.target !== dropdownMenu &&
     event.target !== document.getElementById("user-profile-initials")
   ) {

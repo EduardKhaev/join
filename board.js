@@ -101,33 +101,43 @@ function showTaskDetails(id) {
   let priorityMarker = getPriorityMarker(task.priority);
   let taskContent = document.getElementById("task-large");
   taskContent.innerHTML = getTaskLargeContentHtml(task, date, priorityMarker);
+  showDetailsAssigned(task.assigned);
+  showDetailsSubtask(task.subtasks, task.id);
+}
 
-  let assigned = task.assigned;
-  for (let j = 0; j < assigned.length; j++) {
-    let userId = assigned[j];
+function showDetailsAssigned(assigned) {
+  for (let i = 0; i < assigned.length; i++) {
+    let userId = assigned[i];
     let index = getUserIndex(userId);
     let user = users[index];
-
     let assignments = document.getElementById("tl-persons");
     assignments.innerHTML += getAssignmentsHtml(user);
-  };
-
-  let subtasks = task.subtasks;
-  for (let i = 0; i < subtasks.length; i++) {
-    let subtask = subtasks[i];
-    let subtaskContent = document.getElementById("tl-sub-checks");
-    subtaskContent.innerHTML += getSubtaskContentHtml(subtask);
   }
 }
 
-function editTask(Index) { }
+function showDetailsSubtask(subtasks, taskId) {
+  for (let i = 0; i < subtasks.length; i++) {
+    let subtask = subtasks[i];
+    let subtaskContent = document.getElementById("tl-sub-checks");
+    subtaskContent.innerHTML += getSubtaskContentHtml(subtask, i, taskId);
+    document.getElementById(`checkbox${i}`).checked = subtask.done;
+  }
+}
+
+function updateSubtaskFromDetails(index, taskId) {
+  let checked = document.getElementById(`checkbox${index}`).checked;
+  console.log(index, taskId, checked);
+}
+
+function editTask(Index) {}
 
 function deleteTask(Index) { }
 
 function updateProgress(subtask, task) { }
 
 function addTaskBoard() {
-  return `
+  let overlay = createOverlay("add-task-board");
+  overlay.innerHTML = `
       <div class="addtask-overlaycontainer">
         <form onsubmit="createTask(event)">
           <div class="at-headline-maincontainer">
@@ -324,13 +334,12 @@ function addTaskBoard() {
       `;
 } //Eduard
 
-function addTaskStatus() { } //Eduard
-
+function addTaskStatus() {} //Eduard
 
 function formatDate(dateString) {
-  const [year, month, day] = dateString.split('-');
-  const formattedDay = day.padStart(2, '0');
-  const formattedMonth = month.padStart(2, '0');
+  const [year, month, day] = dateString.split("-");
+  const formattedDay = day.padStart(2, "0");
+  const formattedMonth = month.padStart(2, "0");
   return `${formattedMonth}/${formattedDay}/${year}`;
 }
 
