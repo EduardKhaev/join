@@ -8,7 +8,7 @@ let protoTask = {
     "-O3bQUc0gyKIG-DV-U4h",
   ],
   date: "2024-08-22",
-  priority: "urgent",
+  priority: "low",
   category: "Userstory",
   subtasks: [
     { name: "Subtask1", done: false },
