@@ -12,6 +12,10 @@
   overflow-y: scroll;
   scrollbar-color: rgba(168, 168, 168, 1) var(--background-main);
 }
+.addtask-overlaycontainer{
+  height: 1116px;
+  width: 870px;
+}
 
 .at-headline-maincontainer {
   height: auto;

@@ -1,66 +1,17 @@
-let tasks = [];
-let groupedTasks = {};
-
-async function initBoard() {
-  await loadUsers();
-  sortAllUsers();
-  await loadTasks();
-  await groupTasks();
-  await tasksByDate();
-  renderTasks();
-}
-
-async function loadTasks(path = "/tasks") {
-  let taskResponse = await fetch(FIREBASE_URL + path + ".json");
-  let responseToJson = await taskResponse.json();
-  if (responseToJson) {
-    Object.keys(responseToJson).forEach((key) => {
-      tasks.push({
-        id: key,
-        title: responseToJson[key]["title"],
-        description: responseToJson[key]["description"],
-        assigned: responseToJson[key]["assigned"],
-        date: responseToJson[key]["date"],
-        priority: responseToJson[key]["priority"],
-        category: responseToJson[key]["category"],
-        subtasks: responseToJson[key]["subtasks"],
-        taskState: responseToJson[key]["taskState"],
-      });
-    });
-  }
-}
-
-async function groupTasks() {
-  if (tasks) groupedTasks = Object.groupBy(tasks, ({ taskState }) => taskState);
-}
-
-async function tasksByDate() {
-  if (groupedTasks) {
-    Object.keys(groupedTasks).forEach((key) => {
-      let sortedTaskList = groupedTasks[key].sort(sortByDate);
-      groupedTasks[key] = sortedTaskList;
-    });
-  }
-}
-
-function renderTasks() {
-  console.log(tasks);
-  console.log(groupedTasks);
-}
-
-function searchTasks(searchterm) {}
-
-function showTaskDetails() {}
-
-function editTask(Index) {}
-
-function deleteTask(Index) {}
-
-function updateProgress(subtask, task) {}
-
-function addTaskBoard() {
-    return `
-      <div class="addtask-overlaycontainer">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="add_task.css" />
+    <link rel="stylesheet" href="urgent.css" />
+    <link rel="stylesheet" href="navigation-responsive.css" />
+    <link rel="stylesheet" href="add_task_responsive.css" />
+<body>
+    <div class="addtask-overlaycontainer">
         <form onsubmit="createTask(event)">
           <div class="at-headline-maincontainer">
             <h1>Add Task</h1>
@@ -253,7 +204,5 @@ function addTaskBoard() {
           </div>
         </form>
       </div>
-      `;
-  } //Eduard
-
-function addTaskStatus() {} //Eduard
+</body>
+</html>
