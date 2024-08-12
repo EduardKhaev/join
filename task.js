@@ -200,6 +200,7 @@ async function insertContactsToInput() {
 function updateDate() {
   let today = getTodaysDate();
   document.getElementById("due-date").min = today;
+  console.log(today);
 }
 
 /**
