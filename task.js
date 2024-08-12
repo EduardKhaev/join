@@ -1,14 +1,18 @@
 let protoTask = {
-  id: "8549058390jk",
-  title: "Meine Aufgabe",
-  description: "Räum dein Zimmer auf",
-  assigned: ["id of user - you", "id1fghzusdu4342", "589834359023"],
+  id: "1",
+  title: "Hallo Welt",
+  description: "Beschreibung",
+  assigned: [
+    "-O3E83dKATdm4nFQqADV",
+    "-O3E83dNbeJLjIcCZwS8",
+    "-O3bQUc0gyKIG-DV-U4h",
+  ],
   date: "2024-08-22",
   priority: "urgent",
-  category: "string",
+  category: "Userstory",
   subtasks: [
-    { name: "string", done: false },
-    { name: "string", done: false },
+    { name: "Subtask1", done: false },
+    { name: "Subtask2", done: false },
   ],
   taskState: "to do",
 };
@@ -32,6 +36,7 @@ let selectedUrgency = "medium";
  */
 async function initTask() {
   await loadUsers();
+  renderTaskLarge();
   sortAllUsers();
   await insertContactsToInput();
   updateDate();
@@ -52,13 +57,18 @@ function createTask(event, taskState = "to do") {
   saveTask(newTask);
 }
 
+/**
+ * clears the input fields and resets the form elements
+ * @param {event} event - triggered event with the click
+ */
 function clearTaskForm(event) {
   event.preventDefault();
-  console.log("clear form pressed");
-}
-
-function getAddTaskFormData(taskState) {
-  console.log("let's get the data");
+  document.getElementById("entertitle").value = "";
+  document.getElementById("task-description").value = "";
+  document.getElementById("due-date").value = "";
+  document.getElementById("dropdown-title").innerText = "Select task category";
+  document.getElementById("selected-contacts").innerHTML = "";
+  document.getElementById("addedsubtasks").innerHTML = "";
 }
 
 /**
@@ -69,6 +79,68 @@ function clearSubtask(event) {
   event.preventDefault();
   let subtaskField = document.getElementById("subtasks");
   subtaskField.value = "";
+}
+
+async function saveTask(task) {
+  await postData("/tasks", task);
+  showChangeSuccess("Task saved");
+  setTimeout(() => {
+    window.location.replace("./board.html");
+  }, 2300);
+}
+
+/**
+ * creates an task object from input values
+ * @param {string} taskState
+ * @returns the values from the input as an object
+ */
+function getAddTaskFormData(taskState) {
+  let newTask = {
+    title: getAddTaskInput("entertitle"),
+    description: getAddTaskInput("task-description"),
+    assigned: updateSelectedContacts(),
+    date: getAddTaskInput("due-date"),
+    priority: selectedUrgency,
+    category: getCategoryFromDropdown(),
+    subtasks: getSubtaskInputs(),
+    taskState: taskState,
+  };
+
+  return newTask;
+}
+
+/**
+ * Reads and returns the value of an input field
+ * @param {string} id
+ * @returns an input value or false
+ */
+function getAddTaskInput(id) {
+  let input = document.getElementById(id).value;
+  if (input) return input;
+  else return false;
+}
+
+/**
+ * gets the value of a dropdown menue
+ * @returns the selected category or false
+ */
+function getCategoryFromDropdown() {
+  let dropdown = document.getElementById("dropdown");
+  let category = dropdown.dataset.selectedValue;
+  if (category) return category;
+  else return false;
+}
+
+function getSubtaskInputs() {
+  let subtaskInputs = document.getElementsByClassName("subtask-value");
+  let subtasks = [];
+  for (let i = 0; i < subtaskInputs.length; i++) {
+    const input = subtaskInputs[i];
+    if (input.value.trim() !== "") {
+      subtasks.push({ name: input.value.trim(), done: false });
+    }
+  }
+  return subtasks;
 }
 
 /**
@@ -91,9 +163,8 @@ function addSubtask(event) {
  * delete the subtask
  * @param {event} event - triggered event from a button click
  */
-function deleteSubtask(event) {
-  event.preventDefault();
-  let subtaskItem = event.target.closest("li");
+function deleteSubtask(index) {
+  let subtaskItem = document.getElementById(`subtask-${index}`);
   if (subtaskItem) {
     subtaskItem.remove();
   }
@@ -104,14 +175,11 @@ function deleteSubtask(event) {
  * @param {number} index - the id of the subtask to be edited
  */
 function editSubtask(index) {
-  let initialIcons = document
-    .getElementById(`subtask-${index}`)
-    .querySelector(".initial-icons");
+  let subtaskElement = document.getElementById(`subtask-${index}`);
+  let initialIcons = subtaskElement.querySelector(".initial-icons");
   let addDeleteIcons = document.getElementById(`add-delete-icons-${index}`);
-  let input = document
-    .getElementById(`subtask-${index}`)
-    .querySelector(".subtask-input");
-
+  let input = subtaskElement.querySelector(".subtask-input");
+  subtaskElement.style.backgroundColor = "white";
   initialIcons.style.display = "none";
   addDeleteIcons.style.display = "flex";
   input.disabled = false;
@@ -123,14 +191,15 @@ function editSubtask(index) {
  * @param {number} index - the id of the subtask to be saved
  */
 function saveSubtask(index) {
-  let initialIcons = document
-    .getElementById(`subtask-${index}`)
-    .querySelector(".initial-icons");
-  let addDeleteIcons = document.getElementById(`add-delete-icons-${index}`);
-  let input = document
-    .getElementById(`subtask-${index}`)
-    .querySelector(".subtask-input");
-
+  let subtaskElement = document.getElementById(`subtask-${index}`);
+  let initialIcons = subtaskElement.querySelector(".initial-icons");
+  let addDeleteIcons = subtaskElement.querySelector(".add-delete-icons");
+  let input = subtaskElement.querySelector(".subtask-input");
+  if (input.value.trim() === "") {
+    deleteSubtask(index);
+    return;
+  }
+  subtaskElement.style.backgroundColor = "";
   initialIcons.style.display = "flex";
   addDeleteIcons.style.display = "none";
   input.disabled = true;
@@ -211,7 +280,7 @@ function updateSelectedContacts() {
     if (element.checked) selectedContacts.push(element.id);
   });
   displaySelectedContacts(selectedContacts);
-  return selectedContacts;
+  return selectedContacts.length > 0 ? selectedContacts : false;
 }
 
 /**
@@ -256,4 +325,36 @@ function validateCategory() {
     return false;
   }
   return true;
+}
+
+function renderTaskLarge() {
+  let task = protoTask;
+  let date = formatDate(task.date);
+  let priorityMarker = getPriorityMarker(task.priority);
+  let taskContent = document.getElementById("task-large");
+  taskContent.innerHTML = getTaskLargeContentHtml(task, date, priorityMarker);
+
+  let assigned = task.assigned;
+  for (let j = 0; j < assigned.length; j++) {
+    let userId  = assigned[j];
+    let index = getUserIndex(userId);
+    let user = users[index];
+    
+    let assignments = document.getElementById("tl-persons");
+    assignments.innerHTML += getAssignmentsHtml(user);  
+  };  
+
+  let subtasks = task.subtasks;
+  for (let i = 0; i < subtasks.length; i++) {
+    let subtask = subtasks[i];
+    let subtaskContent = document.getElementById("tl-sub-checks");
+    subtaskContent.innerHTML += getSubtaskContentHtml(subtask);
+  }
+}
+
+function formatDate(dateString) {
+  const [year, month, day] = dateString.split('-');
+  const formattedDay = day.padStart(2, '0');
+  const formattedMonth = month.padStart(2, '0');
+  return `${formattedMonth}/${formattedDay}/${year}`;
 }

@@ -90,7 +90,17 @@ function getTodaysDate() {
   let month = date.getMonth() + 1;
   month < 10 ? (month = "0" + month.toString()) : (month = month.toString());
   let day = date.getDate();
-  day < 10 ? (day = "0" + day.toString()) : (day = "0" + day.toString());
+  day < 10 ? (day = "0" + day.toString()) : (day = day.toString());
   let yyyymmdd = `${year}-${month}-${day}`;
   return yyyymmdd;
+}
+
+function sortByDate(a, b) {
+  if (a.date < b.date) {
+    return -1;
+  }
+  if (a.date > b.date) {
+    return 1;
+  }
+  return 0;
 }

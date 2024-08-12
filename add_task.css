@@ -275,11 +275,11 @@ details:focus {
   border-radius: 10px;
 }
 
-.subtasks-input:is(:placeholder-shown)~div {
+.subtasks-input:is(:placeholder-shown) ~ div {
   display: none;
 }
 
-.subtasks-input:is(:placeholder-shown)~hr {
+.subtasks-input:is(:placeholder-shown) ~ hr {
   display: none;
 }
 
@@ -447,15 +447,19 @@ details ul li:hover {
   transition: all 0.3s ease;
 }
 
-.custom-checkbox:checked+.custom-checkbox-label .checkbox-icon svg .unchecked {
+.custom-checkbox:checked
+  + .custom-checkbox-label
+  .checkbox-icon
+  svg
+  .unchecked {
   display: none;
 }
 
-.custom-checkbox:checked+.custom-checkbox-label .checkbox-icon svg .checked {
+.custom-checkbox:checked + .custom-checkbox-label .checkbox-icon svg .checked {
   display: block;
 }
 
-.custom-checkbox+.custom-checkbox-label .checkbox-icon svg .checked {
+.custom-checkbox + .custom-checkbox-label .checkbox-icon svg .checked {
   display: none;
 }
 
@@ -476,6 +480,8 @@ details ul li:hover {
 .dropdown-item:hover {
   background-color: #f0f0f0;
 }
+
+/* subtasks */
 
 .addedsubtasks {
   margin: 0;
@@ -591,15 +597,15 @@ li:hover .initial-icons .delete-svg {
 }
 
 .edit-svg {
-  background-image: url('./icons/edit.svg');
+  background-image: url("./icons/edit.svg");
 }
 
 .add-svg {
-  background-image: url('./icons/check.svg');
+  background-image: url("./icons/check.svg");
 }
 
 .delete-svg {
-  background-image: url('./icons/delete.svg');
+  background-image: url("./icons/delete.svg");
 }
 
 .subtask-input {
