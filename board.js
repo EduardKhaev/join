@@ -3,7 +3,7 @@ let groupedTasks = {};
 
 async function initBoard() {
   await loadUsers();
-  showTaskDetails();
+  // showTaskDetails();
   sortAllUsers();
   await loadTasks();
   await groupTasks();
@@ -47,11 +47,55 @@ async function tasksByDate() {
 function renderTasks() {
   console.log(tasks);
   console.log(groupedTasks);
+
+  let toDos = groupedTasks["to do"];
+  for (let i = 0; i < toDos.length; i++) {
+    let toDo = toDos[i];
+    categoryColor = getCategoryColor(toDo);
+    let description = shortenDescription(toDo.description);
+    let toDoColumn = document.getElementById("to-do");
+    toDoColumn.innerHTML += `
+    <div class="task-small-main" onclick="showTaskDetails(${toDo.id})">
+        <div class="ts-content">
+            <div class="ts-category" style = "background-color: ${categoryColor};">${toDo.category}</div>
+            <div class="ts-text-container">
+                <div class="ts-title">${toDo.title}</div>
+                <div class="ts-description">${description}</div>
+            </div>
+            <div class="ts-subtasks">
+                <div class="ts-bar">
+                    <div class="ts-bar-percentage" style="width: %;">
+                    </div>
+                </div>
+                <div class="ts-progress">
+                    1/2 Subtasks
+                </div>
+            </div>
+            <div class="ts-footer">
+                <div class="ts-avatars">
+                    <div class="ts-avatar">MS</div>
+                    <div class="ts-avatar2">MT</div>
+                </div>
+                <div class="ts-priority" id="ts-priority">
+                    <svg width="17" height="12" viewBox="0 0 21 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M19.7596 7.91693H1.95136C1.66071 7.91693 1.38197 7.80063 1.17645 7.59362C0.970928 7.3866 0.855469 7.10584 0.855469 6.81308C0.855469 6.52032 0.970928 6.23955 1.17645 6.03254C1.38197 5.82553 1.66071 5.70923 1.95136 5.70923H19.7596C20.0502 5.70923 20.329 5.82553 20.5345 6.03254C20.74 6.23955 20.8555 6.52032 20.8555 6.81308C20.8555 7.10584 20.74 7.3866 20.5345 7.59362C20.329 7.80063 20.0502 7.91693 19.7596 7.91693Z"
+                            fill="#FFA800" />
+                        <path
+                            d="M19.7596 2.67376H1.95136C1.66071 2.67376 1.38197 2.55746 1.17645 2.35045C0.970928 2.14344 0.855469 1.86267 0.855469 1.56991C0.855469 1.27715 0.970928 0.996386 1.17645 0.789374C1.38197 0.582363 1.66071 0.466064 1.95136 0.466064L19.7596 0.466064C20.0502 0.466064 20.329 0.582363 20.5345 0.789374C20.74 0.996386 20.8555 1.27715 20.8555 1.56991C20.8555 1.86267 20.74 2.14344 20.5345 2.35045C20.329 2.55746 20.0502 2.67376 19.7596 2.67376Z"
+                            fill="#FFA800" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+  `;
+  }
 }
 
-function searchTasks(searchterm) {}
+function searchTasks(searchterm) { }
 
-function showTaskDetails() {
+function showTaskDetails(id) {
   let task = protoTask;
   let date = formatDate(task.date);
   let priorityMarker = getPriorityMarker(task.priority);
@@ -60,13 +104,13 @@ function showTaskDetails() {
 
   let assigned = task.assigned;
   for (let j = 0; j < assigned.length; j++) {
-    let userId  = assigned[j];
+    let userId = assigned[j];
     let index = getUserIndex(userId);
     let user = users[index];
-    
+
     let assignments = document.getElementById("tl-persons");
-    assignments.innerHTML += getAssignmentsHtml(user);  
-  };  
+    assignments.innerHTML += getAssignmentsHtml(user);
+  };
 
   let subtasks = task.subtasks;
   for (let i = 0; i < subtasks.length; i++) {
@@ -76,14 +120,14 @@ function showTaskDetails() {
   }
 }
 
-function editTask(Index) {}
+function editTask(Index) { }
 
-function deleteTask(Index) {}
+function deleteTask(Index) { }
 
-function updateProgress(subtask, task) {}
+function updateProgress(subtask, task) { }
 
 function addTaskBoard() {
-    return `
+  return `
       <div class="addtask-overlaycontainer">
         <form onsubmit="createTask(event)">
           <div class="at-headline-maincontainer">
@@ -278,9 +322,9 @@ function addTaskBoard() {
         </form>
       </div>
       `;
-  } //Eduard
+} //Eduard
 
-function addTaskStatus() {} //Eduard
+function addTaskStatus() { } //Eduard
 
 
 function formatDate(dateString) {
@@ -288,4 +332,24 @@ function formatDate(dateString) {
   const formattedDay = day.padStart(2, '0');
   const formattedMonth = month.padStart(2, '0');
   return `${formattedMonth}/${formattedDay}/${year}`;
+}
+
+function getCategoryColor(toDo) {
+  if (toDo.category == "Technical Task") {
+    color = "#1FD7C1";
+  } else {
+    color = "#0038FF";
+  }
+  return color;
+}
+
+function shortenDescription(description) {
+  if (typeof description !== "string") {
+    description = "";
+  }
+  let words = description.split(" ");
+  if (words.length > 6) {
+    return words.slice(0, 6).join(" ") + "...";
+  }
+  return description;
 }
