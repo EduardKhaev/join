@@ -103,7 +103,7 @@ function getAddTaskFormData(taskState) {
     category: getCategoryFromDropdown(),
     subtasks: getSubtaskInputs() ,
     taskState: taskState,
-  }; console.log(newTask);
+  }; 
   
   return newTask;
 }
@@ -138,7 +138,7 @@ function getSubtaskInputs() {
     if (input.value.trim() !== '') { 
       subtasks.push(input.value.trim()); 
     }
-  }  console.log(subtasks);
+  }  
   return subtasks; 
 }
 
