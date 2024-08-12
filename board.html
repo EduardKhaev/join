@@ -137,13 +137,7 @@
                 <img src="./img/mini-add.png" alt="" />
               </div>
               <div class="tasks">
-                <div
-                  class="task-scroll"
-                  id="to-do"
-                  onWheel="event.preventDefault(); this.scrollLeft += event.deltaY > 0 ? 100 : -100"
-                >
-                  <div class="empty-column"><span>No tasks to do</span></div>
-                </div>
+                <div class="task-scroll" id="to-do"></div>
               </div>
             </div>
             <div class="single-column">
@@ -152,12 +146,8 @@
                 <img src="./img/mini-add.png" alt="" />
               </div>
               <div class="tasks">
-                <div
-                  class="task-scroll"
-                  id="in-progress"
-                  onWheel="event.preventDefault(); this.scrollLeft += event.deltaY > 0 ? 100 : -100"
-                >
-                  <div class="example">example</div>
+                <div class="task-scroll" id="in-progress">
+                  <div class="empty-column"><span>No tasks to do</span></div>
                 </div>
               </div>
             </div>
@@ -167,16 +157,8 @@
                 <img src="./img/mini-add.png" alt="" />
               </div>
               <div class="tasks">
-                <div
-                  class="task-scroll"
-                  id="await-feedback"
-                  onWheel="event.preventDefault(); this.scrollLeft += event.deltaY > 0 ? 100 : -100"
-                >
-                  <div class="example">example</div>
-                  <div class="example">example</div>
-                  <div class="example">example</div>
-                  <div class="example">example</div>
-                  <div class="example">example</div>
+                <div class="task-scroll" id="await-feedback">
+                  <div class="empty-column"><span>No tasks to do</span></div>
                 </div>
               </div>
             </div>
@@ -185,11 +167,7 @@
                 <span>Done</span>
               </div>
               <div class="tasks">
-                <div
-                  class="task-scroll"
-                  id="done"
-                  onWheel="event.preventDefault(); this.scrollLeft += event.deltaY > 0 ? 100 : -100"
-                >
+                <div class="task-scroll" id="done">
                   <div class="task-small-main">
                     <div class="ts-content">
                       <div class="ts-category">Category</div>

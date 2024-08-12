@@ -3,7 +3,6 @@ let groupedTasks = {};
 
 async function initBoard() {
   await loadUsers();
-  // showTaskDetails();
   sortAllUsers();
   await loadTasks();
   await groupTasks();
@@ -133,37 +132,57 @@ function updateAvatars(assigned, index) {
 function searchTasks(searchterm) {}
 
 function showTaskDetails(id) {
-  let task = protoTask;
+  let task = getTaskById(id);
+
   let date = formatDate(task.date);
   let priorityMarker = getPriorityMarker(task.priority);
-  let taskContent = document.getElementById("task-large");
-  taskContent.innerHTML = getTaskLargeContentHtml(task, date, priorityMarker);
+  let overlay = createOverlay("task-details-overlay");
+  overlay.innerHTML = getTaskLargeContentHtml(task, date, priorityMarker);
   showDetailsAssigned(task.assigned);
   showDetailsSubtask(task.subtasks, task.id);
 }
 
+function closeTaskDetails() {
+  document.getElementById("task-details-overlay").remove();
+}
+
 function showDetailsAssigned(assigned) {
-  for (let i = 0; i < assigned.length; i++) {
-    let userId = assigned[i];
-    let index = getUserIndex(userId);
-    let user = users[index];
-    let assignments = document.getElementById("tl-persons");
-    assignments.innerHTML += getAssignmentsHtml(user);
+  let assignments = document.getElementById("tl-persons");
+  if (assigned === undefined || assigned === false) {
+    document.getElementById("tl-assignment").remove();
+  } else {
+    for (let i = 0; i < assigned.length; i++) {
+      let userId = assigned[i];
+      let index = getUserIndex(userId);
+      let user = users[index];
+      assignments.innerHTML += getAssignmentsHtml(user);
+    }
   }
 }
 
 function showDetailsSubtask(subtasks, taskId) {
-  for (let i = 0; i < subtasks.length; i++) {
-    let subtask = subtasks[i];
-    let subtaskContent = document.getElementById("tl-sub-checks");
-    subtaskContent.innerHTML += getSubtaskContentHtml(subtask, i, taskId);
-    document.getElementById(`checkbox${i}`).checked = subtask.done;
+  console.log(subtasks);
+  let subtaskContent = document.getElementById("tl-sub-checks");
+  if (subtasks === false || subtasks.length === 0) {
+    document.getElementById("tl-subtasks").remove();
+  } else {
+    for (let i = 0; i < subtasks.length; i++) {
+      let subtask = subtasks[i];
+      subtaskContent.innerHTML += getSubtaskContentHtml(subtask, i, taskId);
+      document.getElementById(`checkbox${i}`).checked = subtask.done;
+    }
   }
 }
 
 function updateSubtaskFromDetails(index, taskId) {
   let checked = document.getElementById(`checkbox${index}`).checked;
   console.log(index, taskId, checked);
+}
+
+function getTaskById(id) {
+  let index = tasks.findIndex((task) => task["id"] == id);
+  let task = tasks[index];
+  return task;
 }
 
 function editTask(Index) {}

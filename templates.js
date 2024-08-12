@@ -350,12 +350,13 @@ function addSubtaskHTML(subtaskValue, index) {
 
 function getTaskLargeContentHtml(task, date, priorityMarker) {
   return `
+    <div class="task-large" id="task-large">
       <div class="task-large-content">
         <div class="tl-category">
           <div class="tl-category-text">
             <span>${task.category}</span>
           </div>
-          <div class="tl-close-btn" onclick="">
+          <div class="tl-close-btn" onclick="closeTaskDetails()">
             <img src="./img/close.png" alt="" />
           </div>
         </div>
@@ -375,12 +376,12 @@ function getTaskLargeContentHtml(task, date, priorityMarker) {
               ${priorityMarker}
             </div>
           </div>
-          <div class="tl-assignment">
+          <div class="tl-assignment" id="tl-assignment">
             <span>Assigned to:</span>
             <div class="tl-persons" id="tl-persons">
             </div>
           </div>
-          <div class="tl-subtasks">
+          <div class="tl-subtasks" id="tl-subtasks">
             <span>Subtasks:</span>
             <div class="tl-sub-checks" id="tl-sub-checks">
             </div>
@@ -420,6 +421,7 @@ function getTaskLargeContentHtml(task, date, priorityMarker) {
           </button>
         </div>
       </div>
+    </div>
       `;
 }
 
@@ -427,7 +429,7 @@ function getSubtaskContentHtml(subtask, i, taskId) {
   return `
     <div class="tl-sub-check">
       <input type="checkbox" id="checkbox${i}" class="custom-checkbox" onchange="updateSubtaskFromDetails(${i}, '${taskId}')"/>
-      <label for="checkbox${i}" class="custom-checkbox-label">
+      <label for="checkbox${i}" class="custom-checkbox-label" style="justify-content: flex-start">
         <div class="checkbox-icon">
           <svg
             width="19"
@@ -523,7 +525,7 @@ function createTaskHTML(
   subtasksNumber
 ) {
   return `
-    <div class="task-small-main" onclick="showTaskDetails(${toDo.id})">
+    <div class="task-small-main" onclick="showTaskDetails('${toDo.id}')">
         <div class="ts-content">
             <div class="ts-category" style="background-color: ${categoryColor};">${toDo.category}</div>
             <div class="ts-text-container">
