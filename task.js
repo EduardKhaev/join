@@ -101,10 +101,10 @@ function getAddTaskFormData(taskState) {
     date: getAddTaskInput("due-date"),
     priority: selectedUrgency,
     category: getCategoryFromDropdown(),
-    subtasks: getSubtaskInputs() ,
+    subtasks: getSubtaskInputs(),
     taskState: taskState,
-  }; 
-  
+  };
+
   return newTask;
 }
 
@@ -131,15 +131,15 @@ function getCategoryFromDropdown() {
 }
 
 function getSubtaskInputs() {
-  let subtaskInputs = document.getElementsByClassName('subtask-value'); 
-  let subtasks = []; 
+  let subtaskInputs = document.getElementsByClassName("subtask-value");
+  let subtasks = [];
   for (let i = 0; i < subtaskInputs.length; i++) {
-    const input = subtaskInputs[i]; 
-    if (input.value.trim() !== '') { 
-      subtasks.push(input.value.trim()); 
+    const input = subtaskInputs[i];
+    if (input.value.trim() !== "") {
+      subtasks.push({ name: input.value.trim(), done: false });
     }
-  }  
-  return subtasks; 
+  }
+  return subtasks;
 }
 
 /**
@@ -178,7 +178,7 @@ function editSubtask(index) {
   let initialIcons = subtaskElement.querySelector(".initial-icons");
   let addDeleteIcons = document.getElementById(`add-delete-icons-${index}`);
   let input = subtaskElement.querySelector(".subtask-input");
-  subtaskElement.style.backgroundColor = 'white'; 
+  subtaskElement.style.backgroundColor = "white";
   initialIcons.style.display = "none";
   addDeleteIcons.style.display = "flex";
   input.disabled = false;
@@ -194,11 +194,11 @@ function saveSubtask(index) {
   let initialIcons = subtaskElement.querySelector(".initial-icons");
   let addDeleteIcons = subtaskElement.querySelector(".add-delete-icons");
   let input = subtaskElement.querySelector(".subtask-input");
-  if (input.value.trim() === '') {
+  if (input.value.trim() === "") {
     deleteSubtask(index);
-    return; 
+    return;
   }
-  subtaskElement.style.backgroundColor = ''; 
+  subtaskElement.style.backgroundColor = "";
   initialIcons.style.display = "flex";
   addDeleteIcons.style.display = "none";
   input.disabled = true;
