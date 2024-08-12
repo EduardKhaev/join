@@ -10,6 +10,7 @@
 
 .task-large-content {
   padding: 48px 40px 48px 40px;
+  width: 100%;
 }
 
 .tl-category {
@@ -46,7 +47,6 @@
 }
 
 .tl-title {
-  height: 219px;
   margin-top: 24px;
   font-size: 61px;
   font-weight: 700;
