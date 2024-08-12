@@ -45,7 +45,7 @@ async function tasksByDate() {
 
 function renderTasks() {
   console.log(tasks);
-  console.log(groupedTasks["to do"]);
+  console.log(groupedTasks);
 }
 
 function searchTasks(searchterm) {}
