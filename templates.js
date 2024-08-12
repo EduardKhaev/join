@@ -333,17 +333,17 @@ function renderContactDropdown(user) {
 
 function addSubtaskHTML(subtaskValue, index) {
   return `
-    <li id="subtask-${index}">
-      <input type="text" class="subtask-input" value="${subtaskValue}" disabled />
-      <div class="subtask-icons initial-icons">
-        <div class="edit-svg" onclick="editSubtask(${index})"></div>
-        <hr>
-        <div class="delete-svg" onclick="deleteSubtask(event)"></div>
-      </div>
-      <div class="subtask-icons add-delete-icons" id="add-delete-icons-${index}" style="display:none;">
-        <div class="add-svg" onclick="saveSubtask(${index})"></div>
-        <hr>
-        <div class="delete-svg" onclick="deleteSubtask(event)"></div>
-      </div>
-    </li>`;
+                <li id="subtask-${index}">
+                  <input type="text" class="subtask-input" value="${subtaskValue}" disabled />
+                  <div class="subtask-icons initial-icons">
+                    <div class="edit-svg" onclick="editSubtask(${index})"></div>
+                      <hr>
+                        <div class="delete-svg" onclick="deleteSubtask(event)"></div>
+                   </div>
+                   <div class="subtask-icons add-delete-icons" id="add-delete-icons-${index}" style="display:none;">
+                     <div class="add-svg" onclick="saveSubtask(${index})"></div>
+                       <hr>
+                        <div class="delete-svg" onclick="deleteSubtask(event)"></div>
+                     </div>
+                 </li>`;
 }
