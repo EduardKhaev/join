@@ -3,6 +3,7 @@ let groupedTasks = {};
 
 async function initBoard() {
   await loadUsers();
+  showTaskDetails();
   sortAllUsers();
   await loadTasks();
   await groupTasks();
@@ -50,7 +51,30 @@ function renderTasks() {
 
 function searchTasks(searchterm) {}
 
-function showTaskDetails() {}
+function showTaskDetails() {
+  let task = protoTask;
+  let date = formatDate(task.date);
+  let priorityMarker = getPriorityMarker(task.priority);
+  let taskContent = document.getElementById("task-large");
+  taskContent.innerHTML = getTaskLargeContentHtml(task, date, priorityMarker);
+
+  let assigned = task.assigned;
+  for (let j = 0; j < assigned.length; j++) {
+    let userId  = assigned[j];
+    let index = getUserIndex(userId);
+    let user = users[index];
+    
+    let assignments = document.getElementById("tl-persons");
+    assignments.innerHTML += getAssignmentsHtml(user);  
+  };  
+
+  let subtasks = task.subtasks;
+  for (let i = 0; i < subtasks.length; i++) {
+    let subtask = subtasks[i];
+    let subtaskContent = document.getElementById("tl-sub-checks");
+    subtaskContent.innerHTML += getSubtaskContentHtml(subtask);
+  }
+}
 
 function editTask(Index) {}
 
@@ -61,3 +85,11 @@ function updateProgress(subtask, task) {}
 function addTaskBoard() {} //Eduard
 
 function addTaskStatus() {} //Eduard
+
+
+function formatDate(dateString) {
+  const [year, month, day] = dateString.split('-');
+  const formattedDay = day.padStart(2, '0');
+  const formattedMonth = month.padStart(2, '0');
+  return `${formattedMonth}/${formattedDay}/${year}`;
+}
