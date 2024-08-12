@@ -70,6 +70,7 @@ function clearTaskForm(event) {
   document.getElementById("selected-contacts").innerHTML = "";
   clearSelectedContacts();
   document.getElementById("addedsubtasks").innerHTML = "";
+  setUrgency(event, "medium");
 }
 
 function clearSelectedContacts() {
