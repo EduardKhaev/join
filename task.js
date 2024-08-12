@@ -96,9 +96,10 @@ function getAddTaskFormData(taskState) {
     date: getAddTaskInput("due-date"),
     priority: selectedUrgency,
     category: getCategoryFromDropdown(),
-    subtasks: false,
+    subtasks: getSubtaskInputs() ,
     taskState: taskState,
-  };
+  }; console.log(newTask);
+  
   return newTask;
 }
 
@@ -124,6 +125,18 @@ function getCategoryFromDropdown() {
   else return false;
 }
 
+function getSubtaskInputs() {
+  let subtaskInputs = document.getElementsByClassName('subtask-value'); 
+  let subtasks = []; 
+  for (let i = 0; i < subtaskInputs.length; i++) {
+    const input = subtaskInputs[i]; 
+    if (input.value.trim() !== '') { 
+      subtasks.push(input.value.trim()); 
+    }
+  }  console.log(subtasks);
+  return subtasks; 
+}
+
 /**
  * add a new subtask to a list
  * @param {event} event - triggered event from a button click
@@ -144,9 +157,8 @@ function addSubtask(event) {
  * delete the subtask
  * @param {event} event - triggered event from a button click
  */
-function deleteSubtask(event) {
-  event.preventDefault();
-  let subtaskItem = event.target.closest("li");
+function deleteSubtask(index) {
+  let subtaskItem = document.getElementById(`subtask-${index}`);
   if (subtaskItem) {
     subtaskItem.remove();
   }
@@ -157,14 +169,11 @@ function deleteSubtask(event) {
  * @param {number} index - the id of the subtask to be edited
  */
 function editSubtask(index) {
-  let initialIcons = document
-    .getElementById(`subtask-${index}`)
-    .querySelector(".initial-icons");
+  let subtaskElement = document.getElementById(`subtask-${index}`);
+  let initialIcons = subtaskElement.querySelector(".initial-icons");
   let addDeleteIcons = document.getElementById(`add-delete-icons-${index}`);
-  let input = document
-    .getElementById(`subtask-${index}`)
-    .querySelector(".subtask-input");
-
+  let input = subtaskElement.querySelector(".subtask-input");
+  subtaskElement.style.backgroundColor = 'white'; 
   initialIcons.style.display = "none";
   addDeleteIcons.style.display = "flex";
   input.disabled = false;
@@ -176,14 +185,15 @@ function editSubtask(index) {
  * @param {number} index - the id of the subtask to be saved
  */
 function saveSubtask(index) {
-  let initialIcons = document
-    .getElementById(`subtask-${index}`)
-    .querySelector(".initial-icons");
-  let addDeleteIcons = document.getElementById(`add-delete-icons-${index}`);
-  let input = document
-    .getElementById(`subtask-${index}`)
-    .querySelector(".subtask-input");
-
+  let subtaskElement = document.getElementById(`subtask-${index}`);
+  let initialIcons = subtaskElement.querySelector(".initial-icons");
+  let addDeleteIcons = subtaskElement.querySelector(".add-delete-icons");
+  let input = subtaskElement.querySelector(".subtask-input");
+  if (input.value.trim() === '') {
+    deleteSubtask(index);
+    return; 
+  }
+  subtaskElement.style.backgroundColor = ''; 
   initialIcons.style.display = "flex";
   addDeleteIcons.style.display = "none";
   input.disabled = true;
