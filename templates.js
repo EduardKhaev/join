@@ -500,3 +500,41 @@ function getPriorityMarker(marker) {
   }
   return marker;
 }
+
+/**
+ * Creates the HTML for a single task.
+ * 
+ * @param {Object} toDo - The to-do item object.
+ * @param {number} index - The index of the task.
+ * @param {string} categoryColor - The background color for the category.
+ * @param {string} description - The shortened description of the task.
+ * @param {number} percentage - The completion percentage of subtasks.
+ * @param {number} completedSubtasks - The number of completed subtasks.
+ * @param {number} subtasksNumber - The total number of subtasks.
+ * @returns {string} - The HTML string for the task.
+ */
+function createTaskHTML(toDo, index, categoryColor, description, percentage, completedSubtasks, subtasksNumber) {
+  return `
+    <div class="task-small-main" onclick="showTaskDetails(${toDo.id})">
+        <div class="ts-content">
+            <div class="ts-category" style="background-color: ${categoryColor};">${toDo.category}</div>
+            <div class="ts-text-container">
+                <div class="ts-title">${toDo.title}</div>
+                <div class="ts-description">${description}</div>
+            </div>
+            <div class="ts-subtasks">
+                <div class="ts-bar">
+                    <div class="ts-bar-percentage" style="width: ${percentage}%;"></div>
+                </div>
+                <div class="ts-progress">
+                    ${completedSubtasks}/${subtasksNumber} Subtasks
+                </div>
+            </div>
+            <div class="ts-footer">
+                <div class="ts-avatars" id="ts-avatars${index}"></div>
+                <div class="ts-priority" id="ts-priority${index}"></div>
+            </div>
+        </div>
+    </div>
+  `;
+}

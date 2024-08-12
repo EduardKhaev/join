@@ -44,63 +44,73 @@ async function tasksByDate() {
   }
 }
 
+/**
+ * Main function to render tasks and other categories.
+ */
 function renderTasks() {
   console.log(tasks);
   console.log(groupedTasks);
 
   let toDos = groupedTasks["to do"];
+  renderToDos(toDos);
+
+  // Call other functions to render additional categories here, e.g.:
+  // renderInProgressTasks(groupedTasks["in progress"]);
+  // renderAwaitFeedbackTasks(groupedTasks["await feedback"]);
+  // renderCompletedTasks(groupedTasks["done"]);
+} 
+
+/**
+ * Renders the 'to do' tasks.
+ * 
+ * @param {Array} toDos - The array of 'to do' tasks.
+ */
+function renderToDos(toDos) {
+  const toDoColumn = document.getElementById("to-do");
+
   for (let i = 0; i < toDos.length; i++) {
     let toDo = toDos[i];
-    categoryColor = getCategoryColor(toDo);
+    let categoryColor = getCategoryColor(toDo);
     let description = shortenDescription(toDo.description);
     let subtasksNumber = countSubtaskNumber(toDo.subtasks);
     let completedSubtasks = countCompletedSubtasks(toDo.subtasks);
     let percentage = calculateCompletionPercentage(completedSubtasks, subtasksNumber);
-    let toDoColumn = document.getElementById("to-do");
-    toDoColumn.innerHTML += `
-    <div class="task-small-main" onclick="showTaskDetails(${toDo.id})">
-        <div class="ts-content">
-            <div class="ts-category" style = "background-color: ${categoryColor};">${toDo.category}</div>
-            <div class="ts-text-container">
-                <div class="ts-title">${toDo.title}</div>
-                <div class="ts-description">${description}</div>
-            </div>
-            <div class="ts-subtasks">
-                <div class="ts-bar">
-                    <div class="ts-bar-percentage" style="width: ${percentage}%;">
-                    </div>
-                </div>
-                <div class="ts-progress">
-                    ${completedSubtasks}/${subtasksNumber} Subtasks
-                </div>
-            </div>
-            <div class="ts-footer">
-                <div class="ts-avatars" id="ts-avatars${i}">
-                </div>
-                <div class="ts-priority" id="ts-priority${i}">
-                </div>
-            </div>
-        </div>
-    </div>
-    `;
 
-    let urgency = document.getElementById(`ts-priority${i}`);
-    let priorityMarker = getPriorityMarker(toDo.priority);
-    urgency.innerHTML = `${priorityMarker}`;
+    toDoColumn.innerHTML += createTaskHTML(toDo, i, categoryColor, description, percentage, completedSubtasks, subtasksNumber);
+    updatePriority(toDo.priority, i);
+    updateAvatars(toDo.assigned, i);
+  }
+}
 
-    let avatars = document.getElementById(`ts-avatars${i}`);
-    let assigned = toDo.assigned;
-    if (Array.isArray(assigned) && assigned.length > 0) {
-      for (let j = 0; j < assigned.length; j++) {
-        let userId = assigned[j];
-        let index = getUserIndex(userId);
-        let user = users[index];
-        let marginLeft = (j > 0) ? '-9px' : '0px';
+/**
+ * Updates the priority marker for a task.
+ * 
+ * @param {string} priority - The priority of the task.
+ * @param {number} index - The index of the task.
+ */
+function updatePriority(priority, index) {
+  let urgency = document.getElementById(`ts-priority${index}`);
+  let priorityMarker = getPriorityMarker(priority);
+  urgency.innerHTML = `${priorityMarker}`;
+}
 
-        avatars.innerHTML += `
-        <div class="ts-avatar" style="background-color: ${user.color}; z-index: ${j+2}; margin-left: ${marginLeft};">${user.initials}</div>
+/**
+ * Updates the avatars for a task.
+ * 
+ * @param {Array} assigned - The list of assigned user IDs.
+ * @param {number} index - The index of the task.
+ */
+function updateAvatars(assigned, index) {
+  let avatars = document.getElementById(`ts-avatars${index}`);
+  if (Array.isArray(assigned) && assigned.length > 0) {
+    for (let j = 0; j < assigned.length; j++) {
+      let userId = assigned[j];
+      let user = users[getUserIndex(userId)];
+      let marginLeft = (j > 0) ? '-9px' : '0px';
+
+      avatars.innerHTML += `
+        <div class="ts-avatar" style="background-color: ${user.color}; z-index: ${j + 2}; margin-left: ${marginLeft};">${user.initials}</div>
       `;
-      }
     }
   }
 }
