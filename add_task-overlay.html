@@ -1,29 +1,17 @@
-let tasks = [];
-
-async function initBoard() {
-  await loadUsers();
-  sortAllUsers();
-  await loadTasks();
-  renderTasks();
-}
-
-async function loadTasks() {}
-
-function renderTasks() {}
-
-function searchTasks(searchterm) {}
-
-function showTaskDetails() {}
-
-function editTask(Index) {}
-
-function deleteTask(Index) {}
-
-function updateProgress(subtask, task) {}
-
-function addTaskBoard() {
-    return `
-      <div class="addtask-overlaycontainer">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="add_task.css" />
+    <link rel="stylesheet" href="urgent.css" />
+    <link rel="stylesheet" href="navigation-responsive.css" />
+    <link rel="stylesheet" href="add_task_responsive.css" />
+<body>
+    <div class="addtask-overlaycontainer">
         <form onsubmit="createTask(event)">
           <div class="at-headline-maincontainer">
             <h1>Add Task</h1>
@@ -216,8 +204,5 @@ function addTaskBoard() {
           </div>
         </form>
       </div>
-      `;
-  } //Eduard
-
-function addTaskStatus() {} //Eduard
-
+</body>
+</html>
