@@ -14,13 +14,15 @@
 
 <body onload="initTask()">
     <div class="task-large-edit" id="task-large-edit">
-        <div class="form-container">
+        <div class="header">
             <div class="tl-close-btn" onclick="">
                 <img src="./img/close.png" alt="Close" />
             </div>
+        </div>
+        <div class="form-container">
             <form onsubmit="createTask(event)">
                 <div>
-                    <label for="entertitle">Title<span class="required">*</span></label>
+                    <label for="entertitle">Title</label>
                     <input required oninvalid="event.preventDefault(); showInvalid(this); validateCategory()"
                         onfocus="removeInvalid(this)" class="inputfield-basic-design" type="text" id="entertitle"
                         name="title" placeholder="Enter a title" />
@@ -30,26 +32,14 @@
                     <textarea class="inputfield-basic-design" id="task-description" name="description"
                         placeholder="Enter a Description"></textarea>
                 </div>
+               
                 <div>
-                    <label for="assignedTo">Assigned to</label>
-                    <details class="inputfield-basic-design">
-                        <summary>
-                            <span class="summary-text">Select contacts to assign</span>
-                        </summary>
-                        <fieldset>
-                            <legend>Contacts</legend>
-                            <ul id="contactDropDown"></ul>
-                        </fieldset>
-                    </details>
-                </div>
-                <div class="selected-contacts" id="selected-contacts"></div>
-                <div>
-                    <label for="due-date">Due date<span class="required">*</span></label>
+                    <label for="due-date">Due date</label>
                     <input required oninvalid="event.preventDefault(); showInvalid(this); validateCategory()"
                         onfocus="removeInvalid(this)" class="inputfield-basic-design" type="date" name="begin"
                         id="due-date" placeholder="dd/mm/yyyy" value="" min="2024-08-08" required />
                 </div>
-                <label class="label-spacing" for="priority">Prio</label>
+                <label class="label-spacing" for="priority"><b>Priority</b></label>
                 <div class="outer">
                     <button type="button" class="urgency-button urgent-button" id="urgent-button"
                         onclick="setUrgency(event, 'urgent')">Urgent<svg width="21" height="16" viewBox="0 0 21 16"
@@ -82,20 +72,19 @@
                                 fill="#7AE229"></path>
                         </svg></button>
                 </div>
-                <label for="categoryLabel">Category<span class="required">*</span></label>
-                <details id="dropdown" class="inputfield-basic-design">
-                    <summary>
-                        <span id="dropdown-title" class="summary-text">Select task category</span>
-                    </summary>
-                    <ul>
-                        <li class="dropdown-item" data-value="Technical Task" onclick="selectCategory(this)">
-                            <span class="assigned-person">Technical Task</span>
-                        </li>
-                        <li class="dropdown-item" data-value="User Story" onclick="selectCategory(this)">
-                            <span class="assigned-person">User Story</span>
-                        </li>
-                    </ul>
-                </details>
+                <div>
+                    <label for="assignedTo">Assigned to</label>
+                    <details class="inputfield-basic-design">
+                        <summary>
+                            <span class="summary-text">Select contacts to assign</span>
+                        </summary>
+                        <fieldset>
+                            <legend>Contacts</legend>
+                            <ul id="contactDropDown"></ul>
+                        </fieldset>
+                    </details>
+                </div>
+                <div class="selected-contacts" id="selected-contacts"></div>
                 <label for="subtasks">Subtasks</label>
                 <div class="subtask-field">
                     <input class="subtasks-input" type="text" id="subtasks" placeholder="Add new subtask" />
@@ -118,14 +107,13 @@
                 <ul class="addedsubtasks" id="addedsubtasks"></ul>
 
             </form>
-            <div class="button-primary-section">
-                <button class="sticky-button button-primary">
-                    Ok
-                    <img src="img/check.png" alt="check button">
-                </button>
-            </div>
         </div>
-
+        <div class="footer">
+            <button class="sticky-button button-primary">
+                Ok
+                <img src="img/check.png" alt="check button">
+            </button>
+        </div>
     </div>
 </body>
 
