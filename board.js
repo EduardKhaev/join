@@ -59,7 +59,8 @@ function deleteTask(Index) {}
 function updateProgress(subtask, task) {}
 
 function addTaskBoard() {
-    return `
+  let overlay = createOverlay("add-task-board");
+  overlay.innerHTML = `
       <div class="addtask-overlaycontainer">
         <form onsubmit="createTask(event)">
           <div class="at-headline-maincontainer">
@@ -254,6 +255,6 @@ function addTaskBoard() {
         </form>
       </div>
       `;
-  } //Eduard
+} //Eduard
 
 function addTaskStatus() {} //Eduard
