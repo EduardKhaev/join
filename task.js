@@ -13,8 +13,19 @@ let protoTask = {
   taskState: "to do",
 };
 
+const defaultTask = {
+  id: false,
+  title: false,
+  description: false,
+  assigned: false,
+  date: false,
+  priority: false,
+  category: false,
+  subtasks: false,
+  taskState: "to do",
+};
+
 let selectedUrgency = "medium";
-// set urgency medium at start?
 
 /**
  * function to runb at page loading
@@ -26,11 +37,19 @@ async function initTask() {
   updateDate();
 }
 
+/**
+ * creates a new task on submit
+ * @param {event} event - click event
+ * @param {string} taskState - state in which the task is created
+ * @returns on failed validation false
+ */
 function createTask(event, taskState = "to do") {
   event.preventDefault();
   let validity = validateCategory();
   if (validity === false) return validity;
-  let newTask = getAddTaskFormData(taskState);
+  let newTask = defaultTask;
+  newTask = getAddTaskFormData(taskState);
+  saveTask(newTask);
 }
 
 function clearTaskForm(event) {
@@ -85,14 +104,18 @@ function deleteSubtask(event) {
  * @param {number} index - the id of the subtask to be edited
  */
 function editSubtask(index) {
-  let initialIcons = document.getElementById(`subtask-${index}`).querySelector('.initial-icons');
+  let initialIcons = document
+    .getElementById(`subtask-${index}`)
+    .querySelector(".initial-icons");
   let addDeleteIcons = document.getElementById(`add-delete-icons-${index}`);
-  let input = document.getElementById(`subtask-${index}`).querySelector('.subtask-input');
+  let input = document
+    .getElementById(`subtask-${index}`)
+    .querySelector(".subtask-input");
 
-  initialIcons.style.display = "none"; 
+  initialIcons.style.display = "none";
   addDeleteIcons.style.display = "flex";
-  input.disabled = false; 
-  input.focus(); 
+  input.disabled = false;
+  input.focus();
 }
 
 /**
@@ -100,15 +123,18 @@ function editSubtask(index) {
  * @param {number} index - the id of the subtask to be saved
  */
 function saveSubtask(index) {
-  let initialIcons = document.getElementById(`subtask-${index}`).querySelector('.initial-icons');
+  let initialIcons = document
+    .getElementById(`subtask-${index}`)
+    .querySelector(".initial-icons");
   let addDeleteIcons = document.getElementById(`add-delete-icons-${index}`);
-  let input = document.getElementById(`subtask-${index}`).querySelector('.subtask-input');
-  
-  initialIcons.style.display = "flex"; 
-  addDeleteIcons.style.display = "none"; 
-  input.disabled = true; 
-}
+  let input = document
+    .getElementById(`subtask-${index}`)
+    .querySelector(".subtask-input");
 
+  initialIcons.style.display = "flex";
+  addDeleteIcons.style.display = "none";
+  input.disabled = true;
+}
 
 function searchContacts(searchterm) {}
 
