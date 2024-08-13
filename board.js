@@ -55,7 +55,11 @@ function renderTasks() {
 
   renderTasksInCategory(toDos, "to-do", "No tasks to do");
   renderTasksInCategory(inProgressTasks, "in-progress", "No tasks in progress");
-  renderTasksInCategory(awaitFeedbackTasks, "await-feedback", "No tasks awaiting feedback");
+  renderTasksInCategory(
+    awaitFeedbackTasks,
+    "await-feedback",
+    "No tasks awaiting feedback"
+  );
   renderTasksInCategory(doneTasks, "done", "No tasks done");
 }
 
@@ -136,8 +140,6 @@ function updateAvatars(assigned, index) {
   }
 }
 
-function searchTasks(searchterm) {  }
-
 function showTaskDetails(id) {
   let task = getTaskById(id);
 
@@ -201,9 +203,9 @@ function closeEditTask(overlay = "edit-task-overlay") {
   document.getElementById(overlay).remove();
 }
 
-function deleteTask(Index) { }
+function deleteTask(Index) {}
 
-function updateProgress(subtask, task) { }
+function updateProgress(subtask, task) {}
 
 function addTaskBoard(status) {
   let overlay = createOverlay("add-task-board");

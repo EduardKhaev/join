@@ -1,4 +1,5 @@
 function searchTasks() {
+  console.log("search");
   let searchString = document.getElementById("find-task").value;
   if (searchString.trim().length > 0) {
     document.getElementById("engage-search").style = "display: none;";
@@ -9,6 +10,7 @@ function searchTasks() {
 }
 
 function clearSearch() {
+  console.log("clear");
   document.getElementById("find-task").value = "";
   document.getElementById("engage-search").style = "";
   document.getElementById("clear-search").style = "display: none;";

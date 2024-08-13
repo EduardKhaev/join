@@ -527,14 +527,16 @@ function createTaskHTML(
   return `
     <div class="task-small-main" onclick="showTaskDetails('${task.id}')" id="${task.id}">
         <div class="ts-content">
-            <div class="ts-category" style="background-color: ${categoryColor};">${task.category}</div>
+            <div class="ts-category" style="background-color: ${categoryColor};">${
+    task.category
+  }</div>
             <div class="ts-text-container">
                 <div class="ts-title">${task.title}</div>
                 <div class="ts-description">${description}</div>
             </div>
             ${
-              subtasksNumber > 0 
-              ? `<div class="ts-subtasks">
+              subtasksNumber > 0
+                ? `<div class="ts-subtasks">
                   <div class="ts-bar">
                       <div class="ts-bar-percentage" style="width: ${percentage}%;"></div>
                   </div>
@@ -542,7 +544,7 @@ function createTaskHTML(
                       ${completedSubtasks}/${subtasksNumber} Subtasks
                   </div>
               </div>`
-              : ''
+                : ""
             }
             <div class="ts-footer">
                 <div class="ts-avatars" id="ts-avatars${index}"></div>
@@ -754,7 +756,7 @@ function addTaskBoardHTML(status) {
       `;
 }
 
-function getEditTaskContentHtml(task){
+function getEditTaskContentHtml(task) {
   return `  <div class="task-large-edit" id="task-large-edit">
             <div class="header">
             <div class="tl-close-btn" onclick="closeEditTask()">
@@ -851,7 +853,7 @@ function getEditTaskContentHtml(task){
             </form>
         </div>
         <div class="footer">
-            <button class="sticky-button button-primary">
+            <button class="sticky-button tl-button-primary">
                 Ok
                 <img src="img/check.png" alt="check button">
             </button>
