@@ -133,9 +133,11 @@ function updateAvatars(assigned, index) {
       let marginLeft = j > 0 ? "-9px" : "0px";
 
       avatars.innerHTML += `
-        <div class="ts-avatar" style="background-color: ${user.color
-        }; z-index: ${j + 2}; margin-left: ${marginLeft};">${user.initials
-        }</div>
+        <div class="ts-avatar" style="background-color: ${
+          user.color
+        }; z-index: ${j + 2}; margin-left: ${marginLeft};">${
+        user.initials
+      }</div>
       `;
     }
   }
@@ -172,7 +174,7 @@ function showDetailsAssigned(assigned) {
 
 function showDetailsSubtask(subtasks, taskId) {
   let subtaskContent = document.getElementById("tl-sub-checks");
-  if (subtasks === false || subtasks.length === 0) {
+  if (subtasks === false || subtasks === undefined) {
     document.getElementById("tl-subtasks").remove();
   } else {
     for (let i = 0; i < subtasks.length; i++) {
@@ -198,7 +200,7 @@ async function updateSubtaskFromDetails(index, taskId) {
       });
     // tasks = "";
     // await loadTasks();
-    // await groupTasks(); 
+    // await groupTasks();
     // await tasksByDate();
     // renderTasks();
   } else {
@@ -219,39 +221,39 @@ function editTask(id) {
 }
 
 async function saveEditedTask(event, taskId, taskState) {
-  event.preventDefault(); 
-    let newTask = {
-      title: getAddTaskInput("entertitle"),
-      description: getAddTaskInput("task-description"),
-      assigned: updateSelectedContacts(),
-      date: getAddTaskInput("due-date"),
-      priority: selectedUrgency,
-      subtasks: getSubtaskInputs(),
-      taskState: taskState,
-    };
-  
-    await putData("/tasks/", taskId, newTask);
-  }
+  event.preventDefault();
+  let newTask = {
+    title: getAddTaskInput("entertitle"),
+    description: getAddTaskInput("task-description"),
+    assigned: updateSelectedContacts(),
+    date: getAddTaskInput("due-date"),
+    priority: selectedUrgency,
+    subtasks: getSubtaskInputs(),
+    taskState: taskState,
+  };
 
-  async function putData(path = "/tasks/", id, data) {
-    await fetch(FIREBASE_URL + path + id + ".json", {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    }); 
-    closeEditTask("edit-task-overlay");
-  }
+  await putData("/tasks/", taskId, newTask);
+}
+
+async function putData(path = "/tasks/", id, data) {
+  await fetch(FIREBASE_URL + path + id + ".json", {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  });
+  closeEditTask("edit-task-overlay");
+}
 
 function closeEditTask(overlay = "edit-task-overlay") {
   document.getElementById(overlay).remove();
-  document.getElementById('task-details-overlay').remove();
+  document.getElementById("task-details-overlay").remove();
 }
 
-function deleteTask(Index) { }
+function deleteTask(Index) {}
 
-function updateProgress(subtask, task) { }
+function updateProgress(subtask, task) {}
 
 function addTaskBoard(status) {
   let overlay = createOverlay("add-task-board");
