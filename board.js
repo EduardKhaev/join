@@ -142,8 +142,8 @@ function showTaskDetails(id) {
   showDetailsSubtask(task.subtasks, task.id);
 }
 
-function closeTaskDetails() {
-  document.getElementById("task-details-overlay").remove();
+function closeTaskDetails(overlay = "task-details-overlay") {
+  document.getElementById(overlay).remove();
 }
 
 function showDetailsAssigned(assigned) {
