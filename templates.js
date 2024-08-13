@@ -553,7 +553,7 @@ function addTaskBoardHTML(status) {
   return `
       <div class="addtask-overlaycontainer">
         <div class="addtask-overlay-close">
-          <img class="addtaskoverlay-close-button" src="img/close.png" alt="" onclick="closeTaskDetails()">
+          <img class="addtaskoverlay-close-button" src="img/close.png" alt="" onclick="closeTaskDetails('add-task-board')">
         </div>
         <form onsubmit="createTask(event, '${status}')">
           <div class="at-headline-maincontainer">
