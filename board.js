@@ -179,15 +179,45 @@ function getTaskById(id) {
   return task;
 }
 
-function editTask(index) {
-  let task = tasks[index];
+function editTask(id) {
+  let task = getTaskById(id);
   let overlay = createOverlay("edit-task-overlay");
   overlay.innerHTML = getEditTaskContentHtml(task);
 }
 
+async function saveEditedTask(event, taskId) {
+  event.preventDefault(); 
+  let title = document.getElementById('entertitle').value;
+  let description = document.getElementById('task-description').value;
+  let dueDate = document.getElementById('due-date').value;
+
+  let updatedTask = {
+    title: title,
+    description: description,
+    date: dueDate,
+  };
+
+  await fetch(`${FIREBASE_URL}/tasks/${taskId}.json`, {
+    method: "PUT",
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(updatedTask)
+  });
+
+  closeEditTask(); 
+  await loadTasks(); 
+  renderTasks(); 
+  console.log('erfolgreich gespeichert:', updatedTask);
+}
+
+
 function closeEditTask(overlay = "edit-task-overlay") {
   document.getElementById(overlay).remove();
+  document.getElementById('task-details-overlay').remove();
 }
+
+
 
 function deleteTask(Index) { }
 
