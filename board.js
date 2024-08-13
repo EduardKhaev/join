@@ -48,6 +48,7 @@ async function tasksByDate() {
  * Calls the `renderTasksInCategory` function for each category of tasks with appropriate empty messages.
  */
 function renderTasks() {
+  console.log(tasks);
   let toDos = groupedTasks["to do"];
   let inProgressTasks = groupedTasks["in progress"];
   let awaitFeedbackTasks = groupedTasks["await feedback"];
@@ -182,9 +183,27 @@ function showDetailsSubtask(subtasks, taskId) {
   }
 }
 
-function updateSubtaskFromDetails(index, taskId) {
+async function updateSubtaskFromDetails(index, taskId) {
   let checked = document.getElementById(`checkbox${index}`).checked;
-  // TBD
+  let task = getTaskById(taskId);
+
+  if (task) {
+    task.subtasks[index].done = checked;
+    await putData("/tasks/", taskId, task)
+      .then(() => {
+        console.log("Subtask updated successfully!");
+      })
+      .catch((error) => {
+        console.error("Error updating subtask:", error);
+      });
+    // tasks = "";
+    // await loadTasks();
+    // await groupTasks(); 
+    // await tasksByDate();
+    // renderTasks();
+  } else {
+    console.error("Task not found with ID:", taskId);
+  }
 }
 
 function getTaskById(id) {
@@ -203,9 +222,9 @@ function closeEditTask(overlay = "edit-task-overlay") {
   document.getElementById(overlay).remove();
 }
 
-function deleteTask(Index) {}
+function deleteTask(Index) { }
 
-function updateProgress(subtask, task) {}
+function updateProgress(subtask, task) { }
 
 function addTaskBoard(status) {
   let overlay = createOverlay("add-task-board");
