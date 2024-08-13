@@ -20,12 +20,12 @@ let protoTask = {
 const defaultTask = {
   id: false,
   title: false,
-  description: false,
+  description: "",
   assigned: false,
   date: false,
-  priority: false,
+  priority: "medium",
   category: false,
-  subtasks: false,
+  subtasks: [],
   taskState: "to do",
 };
 

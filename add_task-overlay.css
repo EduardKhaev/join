@@ -79,6 +79,7 @@
   justify-content: space-between;
   margin-left: var(--outer-margin);
   margin-right: var(--outer-margin);
+  margin-bottom: 44px;
   gap: 48px;
 }
 
@@ -97,14 +98,14 @@
   height: 100%;
   flex: 1;
   margin-top: 20px;
+  margin-bottom: 44px;
 }
 
 .at-footer-maincontainer {
-  height: 200px;
+  height: auto;
   margin-bottom: 80px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
 }
 
 .at-footer-requiredtext {
@@ -432,6 +433,9 @@ details ul {
   padding: 0;
   display: flex;
   flex-direction: column;
+  max-height: 100px;
+  overflow-y: scroll;
+  scrollbar-color: rgba(168, 168, 168, 1) white;
 }
 
 details li {
