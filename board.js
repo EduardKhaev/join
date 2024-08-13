@@ -126,8 +126,6 @@ function updateAvatars(assigned, index) {
   }
 }
 
-function searchTasks(searchterm) {}
-
 function showTaskDetails(id) {
   let task = getTaskById(id);
 
