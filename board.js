@@ -48,10 +48,13 @@ async function tasksByDate() {
  * Calls the `renderTasksInCategory` function for each category of tasks with appropriate empty messages.
  */
 function renderTasks() {
-  let toDos = groupedTasks["to do"];
-  let inProgressTasks = groupedTasks["in progress"];
-  let awaitFeedbackTasks = groupedTasks["await feedback"];
-  let doneTasks = groupedTasks["done"];
+  console.log(groupedTasks);
+  let tasksToRender = Object.values(groupedTasks).flat();
+
+  let toDos = tasksToRender.filter(task => task.taskState === "to do");
+  let inProgressTasks = tasksToRender.filter(task => task.taskState === "in progress");
+  let awaitFeedbackTasks = tasksToRender.filter(task => task.taskState === "await feedback");
+  let doneTasks = tasksToRender.filter(task => task.taskState === "done");
 
   renderTasksInCategory(toDos, "to-do", "No tasks to do");
   renderTasksInCategory(inProgressTasks, "in-progress", "No tasks in progress");
@@ -117,24 +120,23 @@ function updatePriority(priority, index) {
   urgency.innerHTML = `${priorityMarker}`;
 }
 
-/**
- * Updates the avatars for a task.
- *
- * @param {Array} assigned - The list of assigned user IDs.
- * @param {number} index - The index of the task.
- */
 function updateAvatars(assigned, index) {
   let avatars = document.getElementById(`ts-avatars${index}`);
   if (Array.isArray(assigned) && assigned.length > 0) {
     for (let j = 0; j < assigned.length; j++) {
       let userId = assigned[j];
-      let user = users[getUserIndex(userId)];
+      let userIndex = getUserIndex(userId);
+      let user = users[userIndex];
+
+      if (!user) {
+        console.warn(`User with ID ${userId} not found. Index: ${userIndex}`);
+        continue; // Skip if user is not found
+      }
+
       let marginLeft = j > 0 ? "-9px" : "0px";
 
       avatars.innerHTML += `
-        <div class="ts-avatar" style="background-color: ${user.color
-        }; z-index: ${j + 2}; margin-left: ${marginLeft};">${user.initials
-        }</div>
+        <div class="ts-avatar" style="background-color: ${user.color}; z-index: ${j + 2}; margin-left: ${marginLeft};">${user.initials}</div>
       `;
     }
   }
@@ -203,9 +205,9 @@ function closeEditTask(overlay = "edit-task-overlay") {
   document.getElementById(overlay).remove();
 }
 
-function deleteTask(Index) {}
+function deleteTask(Index) { }
 
-function updateProgress(subtask, task) {}
+function updateProgress(subtask, task) { }
 
 function addTaskBoard(status) {
   let overlay = createOverlay("add-task-board");

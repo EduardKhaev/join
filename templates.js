@@ -527,9 +527,7 @@ function createTaskHTML(
   return `
     <div class="task-small-main" onclick="showTaskDetails('${task.id}')" id="${task.id}">
         <div class="ts-content">
-            <div class="ts-category" style="background-color: ${categoryColor};">${
-    task.category
-  }</div>
+            <div class="ts-category" style="background-color: ${categoryColor};">${task.category}</div>
             <div class="ts-text-container">
                 <div class="ts-title">${task.title}</div>
                 <div class="ts-description">${description}</div>
