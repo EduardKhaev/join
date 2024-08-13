@@ -104,3 +104,5 @@ function sortByDate(a, b) {
   }
   return 0;
 }
+
+function vScroll(element) {}

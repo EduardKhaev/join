@@ -3,7 +3,6 @@ let groupedTasks = {};
 
 async function initBoard() {
   await loadUsers();
-  showTaskDetails();
   sortAllUsers();
   await loadTasks();
   await groupTasks();
@@ -44,36 +43,146 @@ async function tasksByDate() {
   }
 }
 
+/**
+ * Main function to render tasks and other categories.
+ */
 function renderTasks() {
   console.log(tasks);
   console.log(groupedTasks);
+
+  let toDos = groupedTasks["to do"];
+  renderToDos(toDos);
+
+  // Call other functions to render additional categories here, e.g.:
+  // renderInProgressTasks(groupedTasks["in progress"]);
+  // renderAwaitFeedbackTasks(groupedTasks["await feedback"]);
+  // renderCompletedTasks(groupedTasks["done"]);
+}
+
+/**
+ * Renders the 'to do' tasks.
+ *
+ * @param {Array} toDos - The array of 'to do' tasks.
+ */
+function renderToDos(toDos) {
+  const toDoColumn = document.getElementById("to-do");
+
+  for (let i = 0; i < toDos.length; i++) {
+    let toDo = toDos[i];
+    let categoryColor = getCategoryColor(toDo);
+    let description = shortenDescription(toDo.description);
+    let subtasksNumber = countSubtaskNumber(toDo.subtasks);
+    let completedSubtasks = countCompletedSubtasks(toDo.subtasks);
+    let percentage = calculateCompletionPercentage(
+      completedSubtasks,
+      subtasksNumber
+    );
+
+    toDoColumn.innerHTML += createTaskHTML(
+      toDo,
+      i,
+      categoryColor,
+      description,
+      percentage,
+      completedSubtasks,
+      subtasksNumber
+    );
+    updatePriority(toDo.priority, i);
+    updateAvatars(toDo.assigned, i);
+  }
+}
+
+/**
+ * Updates the priority marker for a task.
+ *
+ * @param {string} priority - The priority of the task.
+ * @param {number} index - The index of the task.
+ */
+function updatePriority(priority, index) {
+  let urgency = document.getElementById(`ts-priority${index}`);
+  let priorityMarker = getPriorityMarker(priority);
+  urgency.innerHTML = `${priorityMarker}`;
+}
+
+/**
+ * Updates the avatars for a task.
+ *
+ * @param {Array} assigned - The list of assigned user IDs.
+ * @param {number} index - The index of the task.
+ */
+function updateAvatars(assigned, index) {
+  let avatars = document.getElementById(`ts-avatars${index}`);
+  if (Array.isArray(assigned) && assigned.length > 0) {
+    for (let j = 0; j < assigned.length; j++) {
+      let userId = assigned[j];
+      let user = users[getUserIndex(userId)];
+      let marginLeft = j > 0 ? "-9px" : "0px";
+
+      avatars.innerHTML += `
+        <div class="ts-avatar" style="background-color: ${
+          user.color
+        }; z-index: ${j + 2}; margin-left: ${marginLeft};">${
+        user.initials
+      }</div>
+      `;
+    }
+  }
 }
 
 function searchTasks(searchterm) {}
 
-function showTaskDetails() {
-  let task = protoTask;
+function showTaskDetails(id) {
+  let task = getTaskById(id);
+
   let date = formatDate(task.date);
   let priorityMarker = getPriorityMarker(task.priority);
-  let taskContent = document.getElementById("task-large");
-  taskContent.innerHTML = getTaskLargeContentHtml(task, date, priorityMarker);
+  let overlay = createOverlay("task-details-overlay");
+  overlay.innerHTML = getTaskLargeContentHtml(task, date, priorityMarker);
+  showDetailsAssigned(task.assigned);
+  showDetailsSubtask(task.subtasks, task.id);
+}
 
-  let assigned = task.assigned;
-  for (let j = 0; j < assigned.length; j++) {
-    let userId  = assigned[j];
-    let index = getUserIndex(userId);
-    let user = users[index];
-    
-    let assignments = document.getElementById("tl-persons");
-    assignments.innerHTML += getAssignmentsHtml(user);  
-  };  
+function closeTaskDetails() {
+  document.getElementById("task-details-overlay").remove();
+}
 
-  let subtasks = task.subtasks;
-  for (let i = 0; i < subtasks.length; i++) {
-    let subtask = subtasks[i];
-    let subtaskContent = document.getElementById("tl-sub-checks");
-    subtaskContent.innerHTML += getSubtaskContentHtml(subtask);
+function showDetailsAssigned(assigned) {
+  let assignments = document.getElementById("tl-persons");
+  if (assigned === undefined || assigned === false) {
+    document.getElementById("tl-assignment").remove();
+  } else {
+    for (let i = 0; i < assigned.length; i++) {
+      let userId = assigned[i];
+      let index = getUserIndex(userId);
+      let user = users[index];
+      assignments.innerHTML += getAssignmentsHtml(user);
+    }
   }
+}
+
+function showDetailsSubtask(subtasks, taskId) {
+  console.log(subtasks);
+  let subtaskContent = document.getElementById("tl-sub-checks");
+  if (subtasks === false || subtasks.length === 0) {
+    document.getElementById("tl-subtasks").remove();
+  } else {
+    for (let i = 0; i < subtasks.length; i++) {
+      let subtask = subtasks[i];
+      subtaskContent.innerHTML += getSubtaskContentHtml(subtask, i, taskId);
+      document.getElementById(`checkbox${i}`).checked = subtask.done;
+    }
+  }
+}
+
+function updateSubtaskFromDetails(index, taskId) {
+  let checked = document.getElementById(`checkbox${index}`).checked;
+  console.log(index, taskId, checked);
+}
+
+function getTaskById(id) {
+  let index = tasks.findIndex((task) => task["id"] == id);
+  let task = tasks[index];
+  return task;
 }
 
 function editTask(Index) {}
@@ -82,7 +191,7 @@ function deleteTask(Index) {}
 
 function updateProgress(subtask, task) {}
 
-function addTaskBoard() {
+function addTaskBoard(status) {
   let overlay = createOverlay("add-task-board");
   overlay.innerHTML = `
       <div class="addtask-overlaycontainer">
@@ -285,12 +394,94 @@ function addTaskBoard() {
       `;
 } //Eduard
 
-function addTaskStatus() {} //Eduard
-
-
+/**
+ * Formats a date string from "YYYY-MM-DD" format to "MM/DD/YYYY" format.
+ *
+ * @param {string} dateString - The date string in "YYYY-MM-DD" format.
+ * @returns {string} - The formatted date string in "MM/DD/YYYY" format.
+ */
 function formatDate(dateString) {
-  const [year, month, day] = dateString.split('-');
-  const formattedDay = day.padStart(2, '0');
-  const formattedMonth = month.padStart(2, '0');
+  const [year, month, day] = dateString.split("-");
+  const formattedDay = day.padStart(2, "0");
+  const formattedMonth = month.padStart(2, "0");
   return `${formattedMonth}/${formattedDay}/${year}`;
+}
+
+/**
+ * Retrieves a color based on the category of a to-do item.
+ *
+ * @param {Object} toDo - The to-do item object.
+ * @param {string} toDo.category - The category of the to-do item.
+ * @returns {string} - The color associated with the category.
+ */
+function getCategoryColor(toDo) {
+  if (toDo.category == "Technical Task") {
+    color = "#1FD7C1";
+  } else {
+    color = "#0038FF";
+  }
+  return color;
+}
+
+/**
+ * Shortens a description to a maximum of 6 words and adds "..." if more words are present.
+ *
+ * @param {string} description - The description text to be shortened.
+ * @returns {string} - The shortened description if more than 6 words are present; otherwise, the original description.
+ */
+function shortenDescription(description) {
+  if (typeof description !== "string") {
+    description = "";
+  }
+  let words = description.split(" ");
+  if (words.length > 6) {
+    return words.slice(0, 6).join(" ") + "...";
+  }
+  return description;
+}
+
+/**
+ * Counts the number of subtasks in toDo based on the key 'name'.
+ *
+ * @param {Object[]} subtasks - An array of subtask objects.
+ * @returns {number} - The number of subtasks.
+ */
+function countSubtaskNumber(subtasks) {
+  if (!Array.isArray(subtasks)) {
+    return 0;
+  } else {
+    let count = subtasks.filter((subtask) =>
+      subtask.hasOwnProperty("name")
+    ).length;
+    return count;
+  }
+}
+
+/**
+ * Counts the number of subtasks where the key 'done' has a value of true.
+ *
+ * @param {Object[]} subtasks - An array of subtask objects.
+ * @returns {number} - The number of subtasks where 'done' is set to true.
+ */
+function countCompletedSubtasks(subtasks) {
+  if (!Array.isArray(subtasks)) {
+    return 0;
+  } else {
+    return subtasks.filter((subtask) => subtask.done === true).length;
+  }
+}
+
+/**
+ * Calculates the percentage of completed subtasks relative to the total number of subtasks.
+ *
+ * @param {number} completedSubtasks - The number of completed subtasks.
+ * @param {number} subtasksNumber - The total number of subtasks.
+ * @returns {number} - The percentage of completed subtasks.
+ */
+function calculateCompletionPercentage(completedSubtasks, subtasksNumber) {
+  if (subtasksNumber === 0) {
+    return 0;
+  }
+  let percentage = (completedSubtasks / subtasksNumber) * 100;
+  return percentage;
 }

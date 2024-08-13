@@ -8,11 +8,11 @@ let protoTask = {
     "-O3bQUc0gyKIG-DV-U4h",
   ],
   date: "2024-08-22",
-  priority: "urgent",
+  priority: "low",
   category: "Userstory",
   subtasks: [
     { name: "Subtask1", done: false },
-    { name: "Subtask2", done: false },
+    { name: "Subtask2", done: true },
   ],
   taskState: "to do",
 };
@@ -66,8 +66,19 @@ function clearTaskForm(event) {
   document.getElementById("task-description").value = "";
   document.getElementById("due-date").value = "";
   document.getElementById("dropdown-title").innerText = "Select task category";
+  document.getElementById("dropdown").dataset.selectedValue = "";
   document.getElementById("selected-contacts").innerHTML = "";
+  clearSelectedContacts();
   document.getElementById("addedsubtasks").innerHTML = "";
+  setUrgency(event, "medium");
+}
+
+function clearSelectedContacts() {
+  let nodeList = document.getElementsByClassName("assigned-user");
+  let checkboxList = Array.from(nodeList);
+  checkboxList.forEach((element) => {
+    element.checked = false;
+  });
 }
 
 /**
