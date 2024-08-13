@@ -238,6 +238,7 @@ h1 {
     overflow-x: auto;
     overflow-y: hidden;
     scrollbar-width: thin;
+    width: 2000px;
   }
 
   .example {
