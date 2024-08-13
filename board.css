@@ -64,24 +64,25 @@ h1 {
   align-items: center;
   width: 312px;
   height: 48px;
+  background-color: white;
+  border: solid 1px #a8a8a8;
+  border-radius: 10px;
 }
 
 .search {
   width: 100%;
-  height: 100%;
-  border: solid 1px #a8a8a8;
-  border-radius: 10px;
+  border: none;
   text-indent: 10px;
-  padding-top: 3px;
-  padding-bottom: 3px;
   font-size: 20px;
-  background-image: url(img/search.png);
-  background-position: right 16px center;
-  background-repeat: no-repeat;
+  outline: none;
 }
 
 .search:focus {
-  outline-color: var(--brand-blue);
+  outline: none;
+}
+
+.search-container:focus-within {
+  border-color: var(--brand-blue);
 }
 
 .search::placeholder {
@@ -89,14 +90,33 @@ h1 {
 }
 
 .separator-search {
-  position: absolute;
-  top: 8px;
-  bottom: 0;
-  right: 56px;
   height: 70%;
   width: 1px;
   background-color: #d1d1d1;
   margin-left: 16px;
+}
+
+.search-icon {
+  aspect-ratio: 1 / 1;
+  padding: 12px;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.search-icon svg {
+  height: 20px;
+  width: 20px;
+}
+
+.search-icon:hover {
+  border-radius: 100%;
+  background-color: rgba(238, 238, 238, 1);
+}
+
+.search-icon:active svg path {
+  fill: var(--brand-blue);
 }
 
 .button-primary span {
@@ -154,6 +174,7 @@ h1 {
   width: 24px;
   height: 24px;
   transition: all 400ms;
+  margin-right: 8px;
 }
 
 .column-description img:hover {
@@ -165,6 +186,7 @@ h1 {
   font-size: 20px;
   font-weight: 700;
   color: var(--brand-dark);
+  margin-left: 8px;
 }
 
 .example {
@@ -176,7 +198,7 @@ h1 {
 }
 
 .empty-column {
-  width: 98%;
+  width: 92%;
   height: 48px;
   border-radius: 10px;
   border: dashed #a8a8a8;
@@ -184,6 +206,8 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-left: 16px;
+  margin-right: 16px;
 }
 
 .empty-column span {
@@ -192,7 +216,7 @@ h1 {
   font-weight: 400;
 }
 
-@media (max-width: 1250px) {
+@media (max-width: 1400px) {
   .board-container {
     height: auto;
   }
@@ -234,11 +258,12 @@ h1 {
   .task-scroll {
     display: flex;
     flex-direction: row;
+    align-items: flex-start;
     height: 100%;
     overflow-x: auto;
     overflow-y: hidden;
     scrollbar-width: thin;
-    width: 2000px;
+    width: 100%;
   }
 
   .example {
@@ -254,10 +279,21 @@ h1 {
     flex-direction: row-reverse;
     justify-content: flex-end;
     gap: 8px;
+    margin-left: 8px;
+  }
+
+  .column-description img {
+    margin-right: 0px;
+  }
+  
+  .column-description span {
+    margin-left: 0px;
   }
 
   .empty-column {
-    width: 224px;
+    width: 246px;
+    margin-left: 8px;
+    margin-right: 8px;
   }
 
   .button-primary {
@@ -368,29 +404,23 @@ h1 {
     width: 100%;
   }
 
-  .empty-column {
-    width: 100%;
-  }
-
-  /* .example {
-        width: 196px;
-        height: 188px;
-    } */
-
   .column-description {
     flex-direction: row;
     justify-content: space-between;
     width: 100%;
     margin-bottom: 16px;
+    margin-left: 0;
   }
 
   .column-description img {
     width: 30px;
     height: 30px;
+    margin-right: 8px;
   }
 
   .column-description span {
     font-size: 27px;
+    margin-left: 8px;
   }
 
   .search-container {
