@@ -750,7 +750,7 @@ function addTaskBoardHTML(status) {
       `;
 }
 
-function getEditTaskContentHtml(task){
+function getEditTaskContentHtml(task) {
   return `  <div class="task-large-edit" id="task-large-edit">
             <div class="header">
             <div class="tl-close-btn" onclick="closeEditTask()">
@@ -847,7 +847,7 @@ function getEditTaskContentHtml(task){
             </form>
         </div>
         <div class="footer">
-            <button class="sticky-button button-primary">
+            <button class="sticky-button tl-button-primary">
                 Ok
                 <img src="img/check.png" alt="check button">
             </button>
