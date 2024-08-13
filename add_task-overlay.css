@@ -4,9 +4,10 @@
 .addtaskoverlay-close-button {
   border: none;
   position: absolute;
-  top: 95px;
-  right: 245px;
+  top: 65px;
+  right: 55px;
   cursor: pointer;
+  
 }
 
 .addtask-overlaycontainer {
@@ -14,6 +15,38 @@
   height: 870px;
   background-color: white;
   border-radius: 30px;
+  animation: slideIn 0.2s ease-out forwards;
+  
+}
+
+.addtask-overlaycontainer-out {
+  width: 1116px;
+  height: 870px;
+  background-color: white;
+  border-radius: 30px;
+  animation: slideOut 0.2s ease-out forwards;
+  
+}
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
 }
 
 .addtask-maincontainer {
