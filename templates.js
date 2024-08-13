@@ -404,7 +404,7 @@ function getTaskLargeContentHtml(task, date, priorityMarker) {
             Delete
           </button>
           <div class="tl-buttons-separator"></div>
-          <button class="tl-choice" onclick="editTask(id)">
+          <button class="tl-choice" onclick="editTask('${task.id}')">
             <svg
               width="19"
               height="19"
@@ -762,24 +762,24 @@ function getEditTaskContentHtml(task) {
             </div>
         </div>
         <div class="form-container">
-            <form onsubmit="createTask(event)">
+            <form>
                 <div>
                     <label for="entertitle">Title</label>
                     <input required oninvalid="event.preventDefault(); showInvalid(this); validateCategory()"
                         onfocus="removeInvalid(this)" class="inputfield-basic-design" type="text" id="entertitle"
-                        name="title" placeholder="Enter a title" value = ""/>
+                        name="title" placeholder="Enter a title" value ="${task.title}"/>
                 </div>
                 <div>
                     <label for="task-description">Description</label>
                     <textarea class="inputfield-basic-design" id="task-description" name="description"
-                        placeholder="Enter a Description"></textarea>
+                        placeholder="Enter a Description">${task.description}</textarea>
                 </div>
                
                 <div>
                     <label for="due-date">Due date</label>
                     <input required oninvalid="event.preventDefault(); showInvalid(this); validateCategory()"
                         onfocus="removeInvalid(this)" class="inputfield-basic-design" type="date" name="begin"
-                        id="due-date" placeholder="dd/mm/yyyy" value="" min="2024-08-08" required />
+                        id="due-date" placeholder="dd/mm/yyyy" value="${task.date}" required />
                 </div>
                 <label class="label-spacing" for="priority"><b>Priority</b></label>
                 <div class="outer">
@@ -851,7 +851,7 @@ function getEditTaskContentHtml(task) {
             </form>
         </div>
         <div class="footer">
-            <button class="sticky-button tl-button-primary">
+            <button onclick="saveEditedTask(event, '${task.id}')" type="submit" class="sticky-button tl-button-primary">
                 Ok
                 <img src="img/check.png" alt="check button">
             </button>

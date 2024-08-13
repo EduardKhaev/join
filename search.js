@@ -1,5 +1,4 @@
 function searchTasks() {
-  console.log("search");
   let searchString = document.getElementById("find-task").value;
   if (searchString.trim().length > 0) {
     document.getElementById("engage-search").style = "display: none;";
@@ -10,15 +9,29 @@ function searchTasks() {
 }
 
 function clearSearch() {
-  console.log("clear");
   document.getElementById("find-task").value = "";
   document.getElementById("engage-search").style = "";
   document.getElementById("clear-search").style = "display: none;";
+  let nodelist = document.getElementsByClassName("task-small-main");
+  let allTasks = Array.from(nodelist);
+  for (let i = 0; i < allTasks.length; i++) {
+    allTasks[i].style = "";
+  }
 }
 
 function renderSearch(searchString) {
   let found = findIds(searchString);
-  console.log(found);
+  let matchingIds = found.map((task) => task.id);
+  let nodelist = document.getElementsByClassName("task-small-main");
+  let allTasks = Array.from(nodelist);
+  for (let i = 0; i < allTasks.length; i++) {
+    allTasks[i].style = "";
+    if (matchingIds.includes(allTasks[i].id)) {
+      continue;
+    } else {
+      allTasks[i].style = "display: none;";
+    }
+  }
 }
 
 function findIds(searchString) {
