@@ -131,12 +131,15 @@ function updateAvatars(assigned, index) {
         <div class="ts-avatar" style="background-color: ${user.color
         }; z-index: ${j + 2}; margin-left: ${marginLeft};">${user.initials
         }</div>
+        <div class="ts-avatar" style="background-color: ${user.color
+        }; z-index: ${j + 2}; margin-left: ${marginLeft};">${user.initials
+        }</div>
       `;
     }
   }
 }
 
-function searchTasks(searchterm) { }
+function searchTasks(searchterm) {  }
 
 function showTaskDetails(id) {
   let task = getTaskById(id);
@@ -191,7 +194,15 @@ function getTaskById(id) {
   return task;
 }
 
-function editTask(Index) { }
+function editTask(index) {
+  let task = tasks[index];
+  let overlay = createOverlay("edit-task-overlay");
+  overlay.innerHTML = getEditTaskContentHtml(task);
+}
+
+function closeEditTask(overlay = "edit-task-overlay") {
+  document.getElementById(overlay).remove();
+}
 
 function deleteTask(Index) { }
 
