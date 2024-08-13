@@ -86,10 +86,14 @@ function addTaskBoard() {
   let overlay = createOverlay("add-task-board");
   overlay.innerHTML = `
       <div class="addtask-overlaycontainer">
+      <div class="addtask-overlay-close">
+          <img class="addtaskoverlay-close-button" src="img/close.png" alt="" onclick="cancelAddUser()" return false;>
+        </div>
         <form onsubmit="createTask(event)">
           <div class="at-headline-maincontainer">
             <h1>Add Task</h1>
           </div>
+          
           <div class="at-body-maincontainer">
             <div class="at-body-leftinput">
               <div>
