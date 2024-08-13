@@ -121,7 +121,13 @@
             <h1>Board</h1>
             <div class="board-input">
               <div class="search-container">
-                <input placeholder="Find Task" class="search" type="text" />
+                <input
+                  placeholder="Find Task"
+                  class="search"
+                  type="text"
+                  id="find-task"
+                  onkeyup="searchTask()"
+                />
                 <div class="separator-search"></div>
               </div>
               <button onclick="addTaskBoard()" class="button-primary">

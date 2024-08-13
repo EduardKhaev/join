@@ -47,9 +47,6 @@ async function tasksByDate() {
  * Main function to render tasks and other categories.
  */
 function renderTasks() {
-  console.log(tasks);
-  console.log(groupedTasks);
-
   let toDos = groupedTasks["to do"];
   renderToDos(toDos);
 
@@ -161,7 +158,6 @@ function showDetailsAssigned(assigned) {
 }
 
 function showDetailsSubtask(subtasks, taskId) {
-  console.log(subtasks);
   let subtaskContent = document.getElementById("tl-sub-checks");
   if (subtasks === false || subtasks.length === 0) {
     document.getElementById("tl-subtasks").remove();
@@ -176,7 +172,7 @@ function showDetailsSubtask(subtasks, taskId) {
 
 function updateSubtaskFromDetails(index, taskId) {
   let checked = document.getElementById(`checkbox${index}`).checked;
-  console.log(index, taskId, checked);
+  // TBD
 }
 
 function getTaskById(id) {
