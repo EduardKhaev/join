@@ -230,8 +230,6 @@ function closeEditTask(overlay = "edit-task-overlay") {
   document.getElementById('task-details-overlay').remove();
 }
 
-
-
 function deleteTask(Index) { }
 
 function updateProgress(subtask, task) {}
