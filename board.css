@@ -208,6 +208,7 @@ h1 {
   align-items: center;
   margin-left: 16px;
   margin-right: 16px;
+  margin-top: 8px;
 }
 
 .empty-column span {
@@ -285,7 +286,7 @@ h1 {
   .column-description img {
     margin-right: 0px;
   }
-  
+
   .column-description span {
     margin-left: 0px;
   }

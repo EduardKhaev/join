@@ -44,48 +44,64 @@ async function tasksByDate() {
 }
 
 /**
- * Main function to render tasks and other categories.
+ * Renders all tasks across different categories.
+ * Calls the `renderTasksInCategory` function for each category of tasks with appropriate empty messages.
  */
 function renderTasks() {
   let toDos = groupedTasks["to do"];
-  renderToDos(toDos);
+  let inProgressTasks = groupedTasks["in progress"];
+  let awaitFeedbackTasks = groupedTasks["await feedback"];
+  let doneTasks = groupedTasks["done"];
 
-  // Call other functions to render additional categories here, e.g.:
-  // renderInProgressTasks(groupedTasks["in progress"]);
-  // renderAwaitFeedbackTasks(groupedTasks["await feedback"]);
-  // renderCompletedTasks(groupedTasks["done"]);
+  renderTasksInCategory(toDos, "to-do", "No tasks to do");
+  renderTasksInCategory(inProgressTasks, "in-progress", "No tasks in progress");
+  renderTasksInCategory(
+    awaitFeedbackTasks,
+    "await-feedback",
+    "No tasks awaiting feedback"
+  );
+  renderTasksInCategory(doneTasks, "done", "No tasks done");
 }
 
 /**
- * Renders the 'to do' tasks.
+ * Renders tasks in a specific category column.
  *
- * @param {Array} toDos - The array of 'to do' tasks.
+ * @param {Array} categoryTasks - The array of tasks to be rendered in the specific category.
+ * @param {string} categoryId - The ID of the target column where the tasks should be rendered.
+ * @param {string} emptyMessage - The message to display when there are no tasks in this category.
  */
-function renderToDos(toDos) {
-  const toDoColumn = document.getElementById("to-do");
+function renderTasksInCategory(categoryTasks, categoryId, emptyMessage) {
+  let taskColumn = document.getElementById(categoryId);
+  taskColumn.innerHTML = "";
 
-  for (let i = 0; i < toDos.length; i++) {
-    let toDo = toDos[i];
-    let categoryColor = getCategoryColor(toDo);
-    let description = shortenDescription(toDo.description);
-    let subtasksNumber = countSubtaskNumber(toDo.subtasks);
-    let completedSubtasks = countCompletedSubtasks(toDo.subtasks);
-    let percentage = calculateCompletionPercentage(
-      completedSubtasks,
-      subtasksNumber
-    );
+  if (!Array.isArray(categoryTasks) || categoryTasks.length === 0) {
+    taskColumn.innerHTML = `
+    <div class="empty-column"><span>${emptyMessage}</span></div>
+    `;
+  } else {
+    for (let i = 0; i < categoryTasks.length; i++) {
+      let task = categoryTasks[i];
+      let categoryColor = getCategoryColor(task);
+      let description = shortenDescription(task.description);
+      let subtasksNumber = countSubtaskNumber(task.subtasks);
+      let completedSubtasks = countCompletedSubtasks(task.subtasks);
+      let percentage = calculateCompletionPercentage(
+        completedSubtasks,
+        subtasksNumber
+      );
 
-    toDoColumn.innerHTML += createTaskHTML(
-      toDo,
-      i,
-      categoryColor,
-      description,
-      percentage,
-      completedSubtasks,
-      subtasksNumber
-    );
-    updatePriority(toDo.priority, i);
-    updateAvatars(toDo.assigned, i);
+      taskColumn.innerHTML += createTaskHTML(
+        task,
+        i,
+        categoryColor,
+        description,
+        percentage,
+        completedSubtasks,
+        subtasksNumber
+      );
+      updatePriority(task.priority, i);
+      updateAvatars(task.assigned, i);
+    }
   }
 }
 
@@ -123,8 +139,6 @@ function updateAvatars(assigned, index) {
     }
   }
 }
-
-function searchTasks(searchterm) { }
 
 function showTaskDetails(id) {
   let task = getTaskById(id);
@@ -221,7 +235,7 @@ function closeEditTask(overlay = "edit-task-overlay") {
 
 function deleteTask(Index) { }
 
-function updateProgress(subtask, task) { }
+function updateProgress(subtask, task) {}
 
 function addTaskBoard(status) {
   let overlay = createOverlay("add-task-board");
@@ -242,14 +256,14 @@ function formatDate(dateString) {
 }
 
 /**
- * Retrieves a color based on the category of a to-do item.
+ * Retrieves a color based on the category of a task item.
  *
- * @param {Object} toDo - The to-do item object.
- * @param {string} toDo.category - The category of the to-do item.
+ * @param {Object} task - The task item object.
+ * @param {string} task.category - The category of the task item.
  * @returns {string} - The color associated with the category.
  */
-function getCategoryColor(toDo) {
-  if (toDo.category == "Technical Task") {
+function getCategoryColor(task) {
+  if (task.category == "Technical Task") {
     color = "#1FD7C1";
   } else {
     color = "#0038FF";
@@ -275,7 +289,7 @@ function shortenDescription(description) {
 }
 
 /**
- * Counts the number of subtasks in toDo based on the key 'name'.
+ * Counts the number of subtasks in a task based on the key 'name'.
  *
  * @param {Object[]} subtasks - An array of subtask objects.
  * @returns {number} - The number of subtasks.
