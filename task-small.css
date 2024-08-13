@@ -12,7 +12,7 @@
 
 .ts-content {
     width: 100%;
-    min-height: 212px;
+    /* min-height: 212px; */
 }
 
 .ts-category {
@@ -140,7 +140,7 @@
     .ts-content {
         min-width: 220px;
         max-width: 220px;
-        min-height: 212px;
+        /* min-height: 212px; */
     }
 }
 
