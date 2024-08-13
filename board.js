@@ -74,7 +74,7 @@ function renderTasksInCategory(categoryTasks, categoryId, emptyMessage) {
   let taskColumn = document.getElementById(categoryId);
   taskColumn.innerHTML = "";
 
-  if (categoryTasks.length === 0) {
+  if (!Array.isArray(categoryTasks) || categoryTasks.length === 0) {
     taskColumn.innerHTML = `
     <div class="empty-column"><span>${emptyMessage}</span></div>
     `;
