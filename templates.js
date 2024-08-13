@@ -525,7 +525,7 @@ function createTaskHTML(
   subtasksNumber
 ) {
   return `
-    <div class="task-small-main" onclick="showTaskDetails('${toDo.id}')">
+    <div class="task-small-main" onclick="showTaskDetails('${toDo.id}')" id="${toDo.id}">
         <div class="ts-content">
             <div class="ts-category" style="background-color: ${categoryColor};">${toDo.category}</div>
             <div class="ts-text-container">
