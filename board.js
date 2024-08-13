@@ -188,7 +188,6 @@ function showDetailsSubtask(subtasks, taskId) {
 async function updateSubtaskFromDetails(index, taskId) {
   let checked = document.getElementById(`checkbox${index}`).checked;
   let task = getTaskById(taskId);
-
   if (task) {
     task.subtasks[index].done = checked;
     await putData("/tasks/", taskId, task)
@@ -218,23 +217,34 @@ function editTask(id) {
   let task = getTaskById(id);
   let overlay = createOverlay("edit-task-overlay");
   overlay.innerHTML = getEditTaskContentHtml(task);
+  insertContactsToInput();
 }
 
 async function saveEditedTask(event, taskId, taskState) {
   event.preventDefault();
+  let task = getTaskById(taskId);
   let newTask = {
     title: getAddTaskInput("entertitle"),
     description: getAddTaskInput("task-description"),
     assigned: updateSelectedContacts(),
     date: getAddTaskInput("due-date"),
+    category: task.category,
     priority: selectedUrgency,
     subtasks: getSubtaskInputs(),
     taskState: taskState,
   };
-
   await putData("/tasks/", taskId, newTask);
+  showChangeSuccess("Changes saved");
+  updateTasks();
+  closeEditTask("edit-task-overlay");
 }
 
+function updateTasks() {
+  tasks = [];
+  initBoard();
+}
+
+/*
 async function putData(path = "/tasks/", id, data) {
   await fetch(FIREBASE_URL + path + id + ".json", {
     method: "PUT",
@@ -244,7 +254,7 @@ async function putData(path = "/tasks/", id, data) {
     body: JSON.stringify(data),
   });
   closeEditTask("edit-task-overlay");
-}
+} */
 
 function closeEditTask(overlay = "edit-task-overlay") {
   document.getElementById(overlay).remove();
@@ -258,6 +268,7 @@ function updateProgress(subtask, task) {}
 function addTaskBoard(status) {
   let overlay = createOverlay("add-task-board");
   overlay.innerHTML = addTaskBoardHTML(status);
+  insertContactsToInput();
 } //Eduard
 
 /**
