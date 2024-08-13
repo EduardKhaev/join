@@ -131,9 +131,6 @@ function updateAvatars(assigned, index) {
         <div class="ts-avatar" style="background-color: ${user.color
         }; z-index: ${j + 2}; margin-left: ${marginLeft};">${user.initials
         }</div>
-        <div class="ts-avatar" style="background-color: ${user.color
-        }; z-index: ${j + 2}; margin-left: ${marginLeft};">${user.initials
-        }</div>
       `;
     }
   }
