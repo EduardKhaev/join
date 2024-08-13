@@ -851,10 +851,10 @@ function getEditTaskContentHtml(task) {
             </form>
         </div>
         <div class="footer">
-            <button onclick="saveEditedTask(event, '${task.id}')" type="submit" class="sticky-button tl-button-primary">
-                Ok
-                <img src="img/check.png" alt="check button">
-            </button>
+        <button onclick="saveEditedTask(event, '${task.id}', '${task.taskState}')" type="submit" class="sticky-button tl-button-primary">
+    Ok
+    <img src="img/check.png" alt="check button">
+</button>
         </div>
     </div>`;
 }

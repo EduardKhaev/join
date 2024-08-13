@@ -199,32 +199,31 @@ function editTask(id) {
   overlay.innerHTML = getEditTaskContentHtml(task);
 }
 
-async function saveEditedTask(event, taskId) {
+async function saveEditedTask(event, taskId, taskState) {
   event.preventDefault(); 
-  let title = document.getElementById('entertitle').value;
-  let description = document.getElementById('task-description').value;
-  let dueDate = document.getElementById('due-date').value;
+    let newTask = {
+      title: getAddTaskInput("entertitle"),
+      description: getAddTaskInput("task-description"),
+      assigned: updateSelectedContacts(),
+      date: getAddTaskInput("due-date"),
+      priority: selectedUrgency,
+      subtasks: getSubtaskInputs(),
+      taskState: taskState,
+    };
+  
+    await putData("/tasks/", taskId, newTask);
+  }
 
-  let updatedTask = {
-    title: title,
-    description: description,
-    date: dueDate,
-  };
-
-  await fetch(`${FIREBASE_URL}/tasks/${taskId}.json`, {
-    method: "PUT",
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(updatedTask)
-  });
-
-  closeEditTask(); 
-  await loadTasks(); 
-  renderTasks(); 
-  console.log('erfolgreich gespeichert:', updatedTask);
-}
-
+  async function putData(path = "/tasks/", id, data) {
+    await fetch(FIREBASE_URL + path + id + ".json", {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    }); 
+    closeEditTask("edit-task-overlay");
+  }
 
 function closeEditTask(overlay = "edit-task-overlay") {
   document.getElementById(overlay).remove();
