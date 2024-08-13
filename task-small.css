@@ -1,142 +1,159 @@
 .task-small-main {
-  box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.08);
-  min-height: 215px;
-  width: calc(92% - 32px);
-  border-radius: 24px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 8px;
-  padding: 16px;
-  cursor: pointer;
+    box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.08);
+    width: calc(92% - 32px);
+    border-radius: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 8px;
+    padding: 16px;
+    cursor: pointer;
 }
 
 .ts-content {
-  width: 100%;
+    width: 100%;
+    min-height: 212px;
 }
 
 .ts-category {
-  background-color: #0038ff;
-  height: 27px;
-  width: 100%;
-  border-radius: 8px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 16px;
-  color: white;
-  font-weight: 400;
+    background-color: #0038ff;
+    height: 27px;
+    width: 100%;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    color: white;
+    font-weight: 400;
 }
 
 .ts-text-container {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 24px;
 }
+
 .ts-title {
-  min-height: 36px;
-  font-size: 16px;
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-  overflow-wrap: break-word;
-  hyphens: auto;
+    min-height: 36px;
+    font-size: 16px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    overflow-wrap: break-word;
+    hyphens: auto;
 }
 
 .ts-description {
-  color: #a8a8a8;
-  font-weight: 400;
-  font-size: 16px;
-  overflow-wrap: break-word;
-  hyphens: auto;
+    color: #a8a8a8;
+    font-weight: 400;
+    font-size: 16px;
+    overflow-wrap: break-word;
+    hyphens: auto;
 }
 
 .ts-footer {
-  height: 32px;
-  margin-top: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+    height: 32px;
+    margin-top: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .ts-avatars {
-  display: flex;
+    display: flex;
 }
 
 .ts-avatar {
-  background-color: orange;
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 3px solid white;
-  border-radius: 100%;
-  width: 32px;
-  height: 32px;
-  font-size: 12px !important;
-  font-weight: 400;
+    background-color: orange;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid white;
+    border-radius: 100%;
+    width: 32px;
+    height: 32px;
+    font-size: 12px !important;
+    font-weight: 400;
 }
 
 .ts-avatar2 {
-  z-index: 2;
-  margin-left: -9px;
-  background-color: green;
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 3px solid white;
-  border-radius: 100%;
-  width: 32px;
-  height: 32px;
-  font-size: 12px !important;
-  font-weight: 400;
+    z-index: 2;
+    margin-left: -9px;
+    background-color: green;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid white;
+    border-radius: 100%;
+    width: 32px;
+    height: 32px;
+    font-size: 12px !important;
+    font-weight: 400;
 }
 
 .ts-priority {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 32px;
-  width: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 32px;
+    width: 32px;
 }
 
 .ts-subtasks {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 16px;
-  margin-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 16px;
+    margin-top: 24px;
 }
 
 .ts-bar {
-  width: 55%;
-  height: 8px;
-  background-color: #f4f4f4;
-  border-radius: 8px;
+    width: 55%;
+    height: 8px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
 }
 
 .ts-bar-percentage {
-  background-color: #4589ff;
-  width: 50%;
-  height: 8px;
-  border-radius: 8px;
+    background-color: #4589ff;
+    width: 50%;
+    height: 8px;
+    border-radius: 8px;
 }
 
 .ts-progress {
-  font-weight: 400;
-  font-size: 12px;
+    font-weight: 400;
+    font-size: 12px;
 }
 
-@media (max-width: 1250px) {
-  .task-small-main {
-    height: 92%;
-    width: 252px;
-    margin-right: 8px;
-    margin-left: 8px;
-    margin-top: 0;
-    margin-bottom: 0;
-    flex: 1;
-  }
+@media (max-width: 1400px) {
+    .task-small-main {
+        min-height: min-content;
+        min-width: min-content;
+        max-width: min-content;
+    }
+
+    .ts-content {
+        min-width: 220px;
+        max-width: 220px;
+        min-height: 212px;
+    }
+}
+
+@media (max-width: 376px) {
+    .task-small-main {
+        min-height: 159px;
+        min-width: 180px;
+        max-width: 180px;
+    }
+
+    .ts-content {
+        min-width: 143px;
+        max-width: 164px;
+        min-height: 164px;
+    }
 }
