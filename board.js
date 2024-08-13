@@ -116,15 +116,15 @@ function updateAvatars(assigned, index) {
       let marginLeft = j > 0 ? "-9px" : "0px";
 
       avatars.innerHTML += `
-        <div class="ts-avatar" style="background-color: ${
-          user.color
-        }; z-index: ${j + 2}; margin-left: ${marginLeft};">${
-        user.initials
-      }</div>
+        <div class="ts-avatar" style="background-color: ${user.color
+        }; z-index: ${j + 2}; margin-left: ${marginLeft};">${user.initials
+        }</div>
       `;
     }
   }
 }
+
+function searchTasks(searchterm) { }
 
 function showTaskDetails(id) {
   let task = getTaskById(id);
@@ -179,11 +179,19 @@ function getTaskById(id) {
   return task;
 }
 
-function editTask(Index) {}
+function editTask(index) {
+  let task = tasks[index];
+  let overlay = createOverlay("edit-task-overlay");
+  overlay.innerHTML = getEditTaskContentHtml(task);
+}
 
-function deleteTask(Index) {}
+function closeEditTask(overlay = "edit-task-overlay") {
+  document.getElementById(overlay).remove();
+}
 
-function updateProgress(subtask, task) {}
+function deleteTask(Index) { }
+
+function updateProgress(subtask, task) { }
 
 function addTaskBoard(status) {
   let overlay = createOverlay("add-task-board");
