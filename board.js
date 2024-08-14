@@ -192,13 +192,7 @@ async function updateSubtaskFromDetails(index, taskId) {
   let task = getTaskById(taskId);
   if (task) {
     task.subtasks[index].done = checked;
-    await putData("/tasks/", taskId, task)
-      .then(() => {
-        console.log("Subtask updated successfully!");
-      })
-      .catch((error) => {
-        console.error("Error updating subtask:", error);
-      });
+    await putData("/tasks/", taskId, task);
   } else {
     console.error("Task not found with ID:", taskId);
   }
