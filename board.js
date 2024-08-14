@@ -1,5 +1,6 @@
 let tasks = [];
 let groupedTasks = {};
+let currentDraggedTask;
 
 async function initBoard() {
   await loadUsers();
@@ -48,7 +49,7 @@ async function tasksByDate() {
  * Calls the `renderTasksInCategory` function for each category of tasks with appropriate empty messages.
  */
 function renderTasks() {
-  console.log(tasks);
+  console.log(groupedTasks);
   let toDos = groupedTasks["to do"];
   let inProgressTasks = groupedTasks["in progress"];
   let awaitFeedbackTasks = groupedTasks["await feedback"];
@@ -131,11 +132,9 @@ function updateAvatars(assigned, index) {
       let marginLeft = j > 0 ? "-9px" : "0px";
 
       avatars.innerHTML += `
-        <div class="ts-avatar" style="background-color: ${
-          user.color
-        }; z-index: ${j + 2}; margin-left: ${marginLeft};">${
-        user.initials
-      }</div>
+        <div class="ts-avatar" style="background-color: ${user.color
+        }; z-index: ${j + 2}; margin-left: ${marginLeft};">${user.initials
+        }</div>
       `;
     }
   }
@@ -215,6 +214,7 @@ function editTask(id) {
 }
 
 async function saveEditedTask(event, taskId, taskState) {
+  let urgencyForSave = selectedUrgency;
   event.preventDefault();
   let task = getTaskById(taskId);
   let newTask = {
@@ -223,7 +223,7 @@ async function saveEditedTask(event, taskId, taskState) {
     assigned: updateSelectedContacts(),
     date: getAddTaskInput("due-date"),
     category: task.category,
-    priority: selectedUrgency,
+    priority: urgencyForSave,
     subtasks: getSubtaskInputs(),
     taskState: taskState,
   };
@@ -244,9 +244,9 @@ function closeEditTask(overlay = "edit-task-overlay") {
   document.getElementById("task-details-overlay").remove();
 }
 
-function deleteTask(Index) {}
+function deleteTask(Index) { }
 
-function updateProgress(subtask, task) {}
+function updateProgress(subtask, task) { }
 
 function addTaskBoard(status) {
   let overlay = createOverlay("add-task-board");
@@ -344,4 +344,29 @@ function calculateCompletionPercentage(completedSubtasks, subtasksNumber) {
   }
   let percentage = (completedSubtasks / subtasksNumber) * 100;
   return percentage;
+}
+
+function startDragging(taskId) {
+  currentDraggedTask = taskId;
+}
+
+async function moveTo(newArea) {
+  let task = getTaskById(currentDraggedTask);
+  task.taskState = newArea;
+  await putData("/tasks/", currentDraggedTask, task)
+    .then(() => {
+      console.log("Subtask updated successfully!");
+    })
+    .catch((error) => {
+      console.error("Error updating subtask:", error);
+    });
+
+  tasks = [];
+  users = [];
+  initBoard();
+}
+
+
+function allowDrop(event) {
+  event.preventDefault();
 }

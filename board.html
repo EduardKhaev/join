@@ -160,7 +160,7 @@
                 <img src="./img/mini-add.png" alt="" onclick="addTaskBoard()" />
               </div>
               <div class="tasks">
-                <div class="task-scroll" id="to-do"></div>
+                <div class="task-scroll" id="to-do" ondrop="moveTo('to do')" ondragover="allowDrop(event)"></div>
               </div>
             </div>
             <div class="single-column">
@@ -173,7 +173,7 @@
                 />
               </div>
               <div class="tasks">
-                <div class="task-scroll" id="in-progress">
+                <div class="task-scroll" id="in-progress" ondrop="moveTo('in progress')" ondragover="allowDrop(event)">
                   <div class="empty-column"><span>No tasks to do</span></div>
                 </div>
               </div>
@@ -188,7 +188,7 @@
                 />
               </div>
               <div class="tasks">
-                <div class="task-scroll" id="await-feedback">
+                <div class="task-scroll" id="await-feedback" ondrop="moveTo('await feedback')" ondragover="allowDrop(event)">
                   <div class="empty-column"><span>No tasks to do</span></div>
                 </div>
               </div>
@@ -198,7 +198,7 @@
                 <span>Done</span>
               </div>
               <div class="tasks">
-                <div class="task-scroll" id="done"></div>
+                <div class="task-scroll" id="done" ondrop="moveTo('done')" ondragover="allowDrop(event)"></div>
               </div>
             </div>
           </div>

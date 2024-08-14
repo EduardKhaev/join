@@ -525,7 +525,7 @@ function createTaskHTML(
   subtasksNumber
 ) {
   return `
-    <div class="task-small-main" onclick="showTaskDetails('${task.id}')" id="${
+    <div class="task-small-main" onclick="showTaskDetails('${task.id}')" draggable="true" ondragstart="startDragging('${task.id}')"id="${
     task.id
   }">
         <div class="ts-content">
@@ -748,7 +748,7 @@ function addTaskBoardHTML(status = "to do") {
                 Clear <img src="img/close.png" alt="" />
               </button>
   
-              <button type="submit" class="button-primary action-button-text">
+              <button type="submit" class="button-primary action-button-text"  data-urgency="${selectedUrgency ? selectedUrgency : 'medium'}">
                 Create Task <img src="img/check.png" alt="" />
               </button>
             </div>
@@ -787,7 +787,7 @@ function getEditTaskContentHtml(task) {
                 </div>
                 <label class="label-spacing" for="priority"><b>Priority</b></label>
                 <div class="outer">
-                    <button type="button" class="urgency-button" id="urgent-button"
+                    <button type="button" class="urgency-button ${task.priority === 'urgent' ? 'urgent-active' : ''}" id="urgent-button"
                         onclick="setUrgency(event, 'urgent')">Urgent<svg width="21" height="16" viewBox="0 0 21 16"
                             fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -797,7 +797,7 @@ function getEditTaskContentHtml(task) {
                                 d="M19.2597 9.69733C19.0251 9.69774 18.7965 9.62289 18.6077 9.48379L10.3556 3.40063L2.10356 9.48379C1.86959 9.6566 1.57651 9.72945 1.28878 9.68633C1.00105 9.6432 0.742254 9.48762 0.569318 9.25383C0.396382 9.02003 0.323475 8.72716 0.366634 8.43964C0.409793 8.15213 0.565483 7.89352 0.799455 7.72072L9.70356 1.15024C9.89226 1.01065 10.1208 0.935303 10.3556 0.935303C10.5904 0.935303 10.819 1.01065 11.0077 1.15024L19.9118 7.72072C20.0977 7.85763 20.2356 8.04974 20.3057 8.26962C20.3759 8.4895 20.3747 8.72591 20.3024 8.94509C20.2301 9.16427 20.0904 9.35503 19.9031 9.49012C19.7159 9.62521 19.4907 9.69773 19.2597 9.69733Z"
                                 fill="#FF3D00"></path>
                         </svg></button>
-                    <button type="button" class="urgency-button" id="medium-button"
+                    <button type="button" class="urgency-button ${task.priority === 'medium' ? 'medium-active' : ''}" id="medium-button"
                         onclick="setUrgency(event, 'medium')">Medium<svg width="21" height="8" viewBox="0 0 21 8"
                             fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -807,7 +807,7 @@ function getEditTaskContentHtml(task) {
                                 d="M19.7596 2.67376H1.95136C1.66071 2.67376 1.38197 2.55746 1.17645 2.35045C0.970928 2.14344 0.855469 1.86267 0.855469 1.56991C0.855469 1.27715 0.970928 0.996386 1.17645 0.789374C1.38197 0.582363 1.66071 0.466064 1.95136 0.466064L19.7596 0.466064C20.0502 0.466064 20.329 0.582363 20.5345 0.789374C20.74 0.996386 20.8555 1.27715 20.8555 1.56991C20.8555 1.86267 20.74 2.14344 20.5345 2.35045C20.329 2.55746 20.0502 2.67376 19.7596 2.67376Z"
                                 fill="#FFA800"></path>
                         </svg></button>
-                    <button type="button" class="urgency-button " id="low-button"
+                    <button type="button" class="urgency-button ${task.priority === 'low' ? 'low-active' : ''}" id="low-button"
                         onclick="setUrgency(event, 'low')">Low<svg width="21" height="16" viewBox="0 0 21 16"
                             fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
