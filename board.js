@@ -247,7 +247,7 @@ async function deleteTask(taskId) {
   await deleteData("/tasks/", taskId);
   tasks = [];
   closeTaskDetails((overlay = "task-details-overlay"));
-  initBoard();
+  updateTasks();
 }
 
 function showEditSubtasks(subtasks, taskId) {
