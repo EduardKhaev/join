@@ -388,7 +388,7 @@ function getTaskLargeContentHtml(task, date, priorityMarker) {
           </div>
         </div>
         <div class="tl-choice-buttons">
-          <button class="tl-choice">
+          <button class="tl-choice" onclick = "deleteTask('${task.id}')">
             <svg
               width="16"
               height="18"
@@ -531,7 +531,7 @@ function createTaskHTML(
     task.id
   }">
         <div class="ts-content"><div class="move-icon-container">
-          <div class="move-icon" onclick="toggleDragMenue(event)">
+          <div class="move-icon" onclick="toggleDragMenue(event, '${task.id}')">
             <svg
               width="800px"
               height="800px"
@@ -567,33 +567,27 @@ function createTaskHTML(
               </g>
             </svg>
           </div>
-          <div class="dropdown" style="display: none" id="drag-menue">
+          <div class="dragmenue" style="display: none" id="drag-menue${
+            task.id
+          }">
             <div class="dropdown-content">
               <div
-                onclick="moveByButton(event, 'to do', '${
-                  task.id
-                }'); toggleDragMenue(event)"
+                onclick="moveByButton(event, 'to do', '${task.id}');"
               >
                 To Do
               </div>
               <div
-                onclick="moveByButton(event, 'in progress', '${
-                  task.id
-                }'); toggleDragMenue(event)"
+                onclick="moveByButton(event, 'in progress', '${task.id}');"
               >
                 In Progress
               </div>
               <div
-                onclick="moveByButton(event, 'await feedback', '${
-                  task.id
-                }'); toggleDragMenue(event)"
+                onclick="moveByButton(event, 'await feedback', '${task.id}');"
               >
                 Await Feedback
               </div>
               <div
-                onclick="moveByButton(event, 'done', '${
-                  task.id
-                }'); toggleDragMenue(event)"
+                onclick="moveByButton(event, 'done', '${task.id}');"
               >
                 Done
               </div>
@@ -935,7 +929,7 @@ function getEditTaskContentHtml(task) {
                         </svg>
                     </div>
                 </div>
-                <ul class="addedsubtasks" id="addedsubtasks"></ul>
+                <ul class="addedsubtasks" id="addedsubtasks">${task.subtasks}</ul>
 
             </form>
         </div>

@@ -38,6 +38,11 @@
       fill: rgba(41, 171, 226, 1) !important;
     }
 
+    .dragmenue {
+      position: relative;
+      display: none;
+    }
+
     .dropdown-content div {
       color: #cdcdcd;
       padding: 12px 20px;
@@ -109,7 +114,7 @@
               </g>
             </svg>
           </div>
-          <div class="dropdown" style="display: none" id="drag-menue">
+          <div class="dragmenue" style="display: none" id="drag-menue">
             <div class="dropdown-content">
               <div onclick="moveByButton(event, 'to do', '${task.id}');">
                 To Do

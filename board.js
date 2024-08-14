@@ -226,7 +226,7 @@ async function saveEditedTask(event, taskId, taskState) {
     date: getAddTaskInput("due-date"),
     category: task.category,
     priority: urgencyForSave,
-    subtasks: getSubtaskInputs(),
+    subtasks: task.subtasks['name'],
     taskState: taskState,
   };
   await putData("/tasks/", taskId, newTask);
@@ -246,7 +246,12 @@ function closeEditTask(overlay = "edit-task-overlay") {
   document.getElementById("task-details-overlay").remove();
 }
 
-function deleteTask(Index) {}
+async function deleteTask(taskId) {
+  await deleteData("/tasks/", taskId);
+  tasks = [];
+  closeTaskDetails(overlay = "task-details-overlay");
+  await initBoard();
+}
 
 function updateProgress(subtask, task) {}
 
@@ -348,9 +353,9 @@ function calculateCompletionPercentage(completedSubtasks, subtasksNumber) {
   return percentage;
 }
 
-function toggleDragMenue(event) {
+function toggleDragMenue(event, clickedTask) {
   event.stopPropagation();
-  const dropdownMenu = document.getElementById("drag-menue");
+  const dropdownMenu = document.getElementById(`drag-menue${clickedTask}`);
   if (dropdownMenu.style.display === "block") {
     dropdownMenu.style.display = "none";
   } else {
@@ -360,7 +365,7 @@ function toggleDragMenue(event) {
 
 function moveByButton(event, newArea, clickedTask) {
   event.stopPropagation();
-  toggleDragMenue(event);
+  toggleDragMenue(event, clickedTask);
   currentDraggedTask = clickedTask;
   moveTo(newArea);
 }
