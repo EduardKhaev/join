@@ -180,7 +180,10 @@ function showDetailsSubtask(subtasks, taskId) {
     for (let i = 0; i < subtasks.length; i++) {
       let subtask = subtasks[i];
       subtaskContent.innerHTML += getSubtaskContentHtml(subtask, i, taskId);
-      document.getElementById(`checkbox${i}`).checked = subtask.done;
+      setTimeout(() => {
+        document.getElementById(`checkbox${i}`).checked = subtask.done;
+      }, 100);
+      console.log(subtask.done);
     }
   }
 }
@@ -226,7 +229,7 @@ async function saveEditedTask(event, taskId, taskState) {
     date: getAddTaskInput("due-date"),
     category: task.category,
     priority: urgencyForSave,
-    subtasks: task.subtasks['name'],
+    subtasks: task.subtasks["name"],
     taskState: taskState,
   };
   await putData("/tasks/", taskId, newTask);
@@ -249,8 +252,8 @@ function closeEditTask(overlay = "edit-task-overlay") {
 async function deleteTask(taskId) {
   await deleteData("/tasks/", taskId);
   tasks = [];
-  closeTaskDetails(overlay = "task-details-overlay");
-  await initBoard();
+  closeTaskDetails((overlay = "task-details-overlay"));
+  updateTasks();
 }
 
 function updateProgress(subtask, task) {}
@@ -372,29 +375,35 @@ function moveByButton(event, newArea, clickedTask) {
 
 function startDragging(taskId) {
   currentDraggedTask = taskId;
-  document.getElementById('to-do').classList.add('drag-area-highlight');
-  document.getElementById('in-progress').classList.add('drag-area-highlight');
-  document.getElementById('await-feedback').classList.add('drag-area-highlight');
-  document.getElementById('done').classList.add('drag-area-highlight');
+  document.getElementById("to-do").classList.add("drag-area-highlight");
+  document.getElementById("in-progress").classList.add("drag-area-highlight");
+  document
+    .getElementById("await-feedback")
+    .classList.add("drag-area-highlight");
+  document.getElementById("done").classList.add("drag-area-highlight");
 }
 
 function stopDragging() {
-  document.getElementById('to-do').classList.remove('drag-area-highlight');
-  document.getElementById('in-progress').classList.remove('drag-area-highlight');
-  document.getElementById('await-feedback').classList.remove('drag-area-highlight');
-  document.getElementById('done').classList.remove('drag-area-highlight');
+  document.getElementById("to-do").classList.remove("drag-area-highlight");
+  document
+    .getElementById("in-progress")
+    .classList.remove("drag-area-highlight");
+  document
+    .getElementById("await-feedback")
+    .classList.remove("drag-area-highlight");
+  document.getElementById("done").classList.remove("drag-area-highlight");
 }
 
 function highlightDragArea(id) {
-  document.getElementById(id).classList.add('drag-over-highlight');
+  document.getElementById(id).classList.add("drag-over-highlight");
 }
 
 function deleteHighlightDragArea(id) {
-  document.getElementById(id).classList.remove('drag-over-highlight');
+  document.getElementById(id).classList.remove("drag-over-highlight");
 }
 
 async function moveTo(newArea, areaId) {
-  document.getElementById(areaId).classList.remove('drag-over-highlight');
+  document.getElementById(areaId).classList.remove("drag-over-highlight");
   let task = getTaskById(currentDraggedTask);
   task.taskState = newArea;
   await putData("/tasks/", currentDraggedTask, task)

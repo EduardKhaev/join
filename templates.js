@@ -428,7 +428,7 @@ function getTaskLargeContentHtml(task, date, priorityMarker) {
 function getSubtaskContentHtml(subtask, i, taskId) {
   return `
     <div class="tl-sub-check">
-      <input type="checkbox" id="checkbox${i}" class="custom-checkbox" onchange="updateSubtaskFromDetails(${i}, '${taskId}')"/>
+      <input type="checkbox" id="checkbox${i}" defaultChecked="${subtask.done}" class="custom-checkbox" onchange="updateSubtaskFromDetails(${i}, '${taskId}')"/>
       <label for="checkbox${i}" class="custom-checkbox-label" style="justify-content: flex-start">
         <div class="checkbox-icon">
           <svg
@@ -527,9 +527,9 @@ function createTaskHTML(
   return `
     <div class="task-small-main" onclick="showTaskDetails('${
       task.id
-    }')" draggable="true" ondragstart="startDragging('${task.id}')" ondragend="stopDragging()" id="${
+    }')" draggable="true" ondragstart="startDragging('${
     task.id
-  }">
+  }')" ondragend="stopDragging()" id="${task.id}">
         <div class="ts-content"><div class="move-icon-container">
           <div class="move-icon" onclick="toggleDragMenue(event, '${task.id}')">
             <svg
@@ -929,7 +929,9 @@ function getEditTaskContentHtml(task) {
                         </svg>
                     </div>
                 </div>
-                <ul class="addedsubtasks" id="addedsubtasks">${task.subtasks}</ul>
+                <ul class="addedsubtasks" id="addedsubtasks">${
+                  task.subtasks
+                }</ul>
 
             </form>
         </div>
