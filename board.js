@@ -223,6 +223,7 @@ async function saveEditedTask(event, taskId, taskState) {
     date: getAddTaskInput("due-date"),
     category: task.category,
     priority: urgencyForSave,
+    subtasks: getEditedSubtasks(),
     taskState: taskState,
   };
   await putData("/tasks/", taskId, newTask);
@@ -251,14 +252,26 @@ async function deleteTask(taskId) {
 
 function showEditSubtasks(subtasks, taskId) {
   let subtaskContent = document.getElementById("addedsubtasks");
-  if (subtasks === false || subtasks === undefined) {
-    document.getElementById("tl-subtasks").remove();
-  } else {
+  if (subtasks) {
     for (let i = 0; i < subtasks.length; i++) {
       let subtask = subtasks[i];
       subtaskContent.innerHTML += addSubtaskHTML(subtask.name, i);
+      document.getElementById(`subtask-${i}`).value = subtask.done;
+      console.log(Boolean(document.getElementById(`subtask-${i}`).value));
     }
   }
+}
+
+function getEditedSubtasks() {
+  let nodelist = document.getElementsByClassName("subtask-list-element");
+  let subtasks = [];
+  for (let i = 0; i < nodelist.length; i++) {
+    let subtaskName = document.getElementById(`subtask-${i}-input`).value;
+    let subtaskDone = document.getElementById(`subtask-${i}`).value;
+    let subtask = { name: subtaskName, done: Boolean(subtaskDone) };
+    subtasks.push(subtask);
+  }
+  return subtasks;
 }
 
 function updateProgress(subtask, task) {}
