@@ -249,8 +249,9 @@ function closeEditTask(overlay = "edit-task-overlay") {
 async function deleteTask(taskId) {
   await deleteData("/tasks/", taskId);
   tasks = [];
+  users = [];
   closeTaskDetails(overlay = "task-details-overlay");
-  await initBoard();
+  initBoard();
 }
 
 function updateProgress(subtask, task) {}
