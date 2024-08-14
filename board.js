@@ -379,7 +379,7 @@ function moveByButton(event, newArea, clickedTask) {
 }
 
 function startDragging(event, taskId) {
-  event.target.style = "background-color: red;";
+  event.target.classList.add("dragged");
   currentDraggedTask = taskId;
   document.getElementById("to-do").classList.add("drag-area-highlight");
   document.getElementById("in-progress").classList.add("drag-area-highlight");
