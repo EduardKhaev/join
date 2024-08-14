@@ -157,6 +157,7 @@ h1 {
   flex-direction: column;
   align-items: center;
   height: 100%;
+  border-radius: 16px;
 }
 
 .task-scroll::-webkit-scrollbar {
@@ -224,6 +225,14 @@ h1 {
 .dragmenue {
   position: relative;
   display: none;
+}
+
+.drag-area-highlight {
+    background-color: #a8a8a8; 
+}
+
+.drag-over-highlight {
+    background-color: var(--brand-blue);
 }
 
 @media (pointer: coarse) {

@@ -527,7 +527,7 @@ function createTaskHTML(
   return `
     <div class="task-small-main" onclick="showTaskDetails('${
       task.id
-    }')" draggable="true" ondragstart="startDragging('${task.id}')"id="${
+    }')" draggable="true" ondragstart="startDragging('${task.id}')" ondragend="stopDragging()" id="${
     task.id
   }">
         <div class="ts-content"><div class="move-icon-container">
