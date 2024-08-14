@@ -527,7 +527,7 @@ function createTaskHTML(
   return `
     <div class="task-small-main" id="task-small${task.id}" onclick="showTaskDetails('${
       task.id
-    }')" draggable="true" ondragstart="startDragging('${
+    }')" draggable="true" ondragstart="startDragging(event, '${
     task.id
   }')" ondragend="stopDragging()" id="${task.id}">
         <div class="ts-content"><div class="move-icon-container">
@@ -929,11 +929,7 @@ function getEditTaskContentHtml(task) {
                         </svg>
                     </div>
                 </div>
-                <ul class="addedsubtasks" id="addedsubtasks">${task.subtask}</ul>
-                <ul class="addedsubtasks" id="addedsubtasks">${
-                  task.subtasks
-                }</ul>
-
+                <ul class="addedsubtasks" id="addedsubtasks"></ul>
             </form>
         </div>
         <div class="footer">
