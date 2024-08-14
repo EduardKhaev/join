@@ -5,15 +5,15 @@
 .addtaskoverlay-close-button {
   border: none;
   position: absolute;
-  top: 65px;
-  right: 55px;
+  top: 35px;
+  right: 35px;
   cursor: pointer;
   
 }
 
 .addtask-overlaycontainer {
   width: 1116px;
-  height: 90%;
+  height: 870px;
   background-color: white;
   border-radius: 30px;
   animation: slideIn 0.2s ease-out forwards;

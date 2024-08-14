@@ -1,3 +1,13 @@
+@media (max-width: 1400px) {
+    .button-primary{
+        height: 49px;
+    }
+    .button-primary img{
+        height: 15px;
+        width: 16px;
+    }
+}
+
 @media (max-width: 1250px){
     .addtask-overlaycontainer{
         width: 90%;
@@ -35,11 +45,29 @@
     }
 }
 @media (max-width: 750px) {
-    .button-secondary button{
+    .button-primary{
+        height: 49px;
+        width: 180px;
+    }
+
+    .button-secondary{
         display: none;
     }
 }
 @media (max-width: 600px){
+    .at-footer-maincontainer{
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        gap: 15px;
+    }
+    .at-footer-buttoncontainer{
+        margin-right: 0px;
+    }
+    .at-footer-requiredtext{
+        position: relative;
+
+    }
     .outer{
         display: flex;
         flex-direction: column;
