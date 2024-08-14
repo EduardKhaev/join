@@ -74,7 +74,6 @@ function renderTasks() {
 function renderTasksInCategory(categoryTasks, categoryId, emptyMessage) {
   let taskColumn = document.getElementById(categoryId);
   taskColumn.innerHTML = "";
-
   if (!Array.isArray(categoryTasks) || categoryTasks.length === 0) {
     taskColumn.innerHTML = `
     <div class="empty-column"><span>${emptyMessage}</span></div>
@@ -90,7 +89,6 @@ function renderTasksInCategory(categoryTasks, categoryId, emptyMessage) {
         completedSubtasks,
         subtasksNumber
       );
-
       taskColumn.innerHTML += createTaskHTML(
         task,
         i,
@@ -156,6 +154,7 @@ function showTaskDetails(id) {
 
 function closeTaskDetails(overlay = "task-details-overlay") {
   document.getElementById(overlay).remove();
+  updateTasks();
 }
 
 function showDetailsAssigned(assigned) {
@@ -241,6 +240,7 @@ async function saveEditedTask(event, taskId, taskState) {
 
 function updateTasks() {
   tasks = [];
+  users = [];
   initBoard();
 }
 
