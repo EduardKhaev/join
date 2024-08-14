@@ -132,9 +132,11 @@ function updateAvatars(assigned, index) {
       let marginLeft = j > 0 ? "-9px" : "0px";
 
       avatars.innerHTML += `
-        <div class="ts-avatar" style="background-color: ${user.color
-        }; z-index: ${j + 2}; margin-left: ${marginLeft};">${user.initials
-        }</div>
+        <div class="ts-avatar" style="background-color: ${
+          user.color
+        }; z-index: ${j + 2}; margin-left: ${marginLeft};">${
+        user.initials
+      }</div>
       `;
     }
   }
@@ -244,9 +246,9 @@ function closeEditTask(overlay = "edit-task-overlay") {
   document.getElementById("task-details-overlay").remove();
 }
 
-function deleteTask(Index) { }
+function deleteTask(Index) {}
 
-function updateProgress(subtask, task) { }
+function updateProgress(subtask, task) {}
 
 function addTaskBoard(status) {
   let overlay = createOverlay("add-task-board");
@@ -360,12 +362,8 @@ async function moveTo(newArea) {
     .catch((error) => {
       console.error("Error updating subtask:", error);
     });
-
-  tasks = [];
-  users = [];
-  initBoard();
+  updateTasks();
 }
-
 
 function allowDrop(event) {
   event.preventDefault();
