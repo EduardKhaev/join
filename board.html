@@ -157,7 +157,7 @@
             <div class="single-column">
               <div class="column-description">
                 <span>To Do</span>
-                <img src="./img/mini-add.png" alt="" />
+                <img src="./img/mini-add.png" alt="" onclick="addTaskBoard()" />
               </div>
               <div class="tasks">
                 <div class="task-scroll" id="to-do"></div>
@@ -166,7 +166,11 @@
             <div class="single-column">
               <div class="column-description">
                 <span>In Progress</span>
-                <img src="./img/mini-add.png" alt="" />
+                <img
+                  src="./img/mini-add.png"
+                  alt=""
+                  onclick="addTaskBoard('in progress')"
+                />
               </div>
               <div class="tasks">
                 <div class="task-scroll" id="in-progress">
@@ -177,7 +181,11 @@
             <div class="single-column">
               <div class="column-description">
                 <span>Await Feedback</span>
-                <img src="./img/mini-add.png" alt="" />
+                <img
+                  src="./img/mini-add.png"
+                  alt=""
+                  onclick="addTaskBoard('await feedback')"
+                />
               </div>
               <div class="tasks">
                 <div class="task-scroll" id="await-feedback">
