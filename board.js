@@ -363,7 +363,7 @@ function moveByButton(event, newArea, clickedTask) {
   event.stopPropagation();
   toggleDragMenue(event, clickedTask);
   currentDraggedTask = clickedTask;
-  moveTo(newArea);
+  moveTo(newArea, "", false);
 }
 
 function startDragging(taskId) {
@@ -395,8 +395,9 @@ function deleteHighlightDragArea(id) {
   document.getElementById(id).classList.remove("drag-over-highlight");
 }
 
-async function moveTo(newArea, areaId) {
-  document.getElementById(areaId).classList.remove("drag-over-highlight");
+async function moveTo(newArea, areaId, dragged = true) {
+  if (dragged)
+    document.getElementById(areaId).classList.remove("drag-over-highlight");
   let task = getTaskById(currentDraggedTask);
   task.taskState = newArea;
   await putData("/tasks/", currentDraggedTask, task)
