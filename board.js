@@ -49,7 +49,6 @@ async function tasksByDate() {
  * Calls the `renderTasksInCategory` function for each category of tasks with appropriate empty messages.
  */
 function renderTasks() {
-  console.log(groupedTasks);
   let toDos = groupedTasks["to do"];
   let inProgressTasks = groupedTasks["in progress"];
   let awaitFeedbackTasks = groupedTasks["await feedback"];
