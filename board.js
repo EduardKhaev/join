@@ -180,7 +180,9 @@ function showDetailsSubtask(subtasks, taskId) {
     for (let i = 0; i < subtasks.length; i++) {
       let subtask = subtasks[i];
       subtaskContent.innerHTML += getSubtaskContentHtml(subtask, i, taskId);
-      document.getElementById(`checkbox${i}`).checked = subtask.done;
+      setTimeout(() => {
+        document.getElementById(`checkbox${i}`).checked = subtask.done;
+      }, 100);
     }
   }
 }
@@ -190,13 +192,7 @@ async function updateSubtaskFromDetails(index, taskId) {
   let task = getTaskById(taskId);
   if (task) {
     task.subtasks[index].done = checked;
-    await putData("/tasks/", taskId, task)
-      .then(() => {
-        console.log("Subtask updated successfully!");
-      })
-      .catch((error) => {
-        console.error("Error updating subtask:", error);
-      });
+    await putData("/tasks/", taskId, task);
   } else {
     console.error("Task not found with ID:", taskId);
   }
@@ -383,9 +379,35 @@ function moveByButton(event, newArea, clickedTask) {
 
 function startDragging(taskId) {
   currentDraggedTask = taskId;
+  document.getElementById("to-do").classList.add("drag-area-highlight");
+  document.getElementById("in-progress").classList.add("drag-area-highlight");
+  document
+    .getElementById("await-feedback")
+    .classList.add("drag-area-highlight");
+  document.getElementById("done").classList.add("drag-area-highlight");
 }
 
-async function moveTo(newArea) {
+function stopDragging() {
+  document.getElementById("to-do").classList.remove("drag-area-highlight");
+  document
+    .getElementById("in-progress")
+    .classList.remove("drag-area-highlight");
+  document
+    .getElementById("await-feedback")
+    .classList.remove("drag-area-highlight");
+  document.getElementById("done").classList.remove("drag-area-highlight");
+}
+
+function highlightDragArea(id) {
+  document.getElementById(id).classList.add("drag-over-highlight");
+}
+
+function deleteHighlightDragArea(id) {
+  document.getElementById(id).classList.remove("drag-over-highlight");
+}
+
+async function moveTo(newArea, areaId) {
+  document.getElementById(areaId).classList.remove("drag-over-highlight");
   let task = getTaskById(currentDraggedTask);
   task.taskState = newArea;
   await putData("/tasks/", currentDraggedTask, task)

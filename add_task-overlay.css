@@ -8,7 +8,6 @@
   top: 35px;
   right: 35px;
   cursor: pointer;
-  
 }
 
 .addtask-overlaycontainer {
@@ -17,7 +16,6 @@
   background-color: white;
   border-radius: 30px;
   animation: slideIn 0.2s ease-out forwards;
-
 }
 
 .addtask-overlaycontainer-out {
@@ -26,7 +24,6 @@
   background-color: white;
   border-radius: 30px;
   animation: slideOut 0.2s ease-out forwards;
-  
 }
 @keyframes slideIn {
   from {
@@ -63,7 +60,7 @@
 
 .at-headline-maincontainer {
   height: auto;
-  margin-top: 110px;
+  margin-top: 64px;
   display: flex;
   align-items: center;
 }
@@ -75,6 +72,8 @@
 
 .at-body-maincontainer {
   height: auto;
+  max-height: 515px;
+  overflow-y: scroll;
   display: flex;
   align-items: stretch;
   justify-content: space-between;
