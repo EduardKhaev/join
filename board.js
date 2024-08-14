@@ -1,5 +1,6 @@
 let tasks = [];
 let groupedTasks = {};
+let currentDraggedTask;
 
 async function initBoard() {
   await loadUsers();
@@ -48,7 +49,6 @@ async function tasksByDate() {
  * Calls the `renderTasksInCategory` function for each category of tasks with appropriate empty messages.
  */
 function renderTasks() {
-  console.log(tasks);
   let toDos = groupedTasks["to do"];
   let inProgressTasks = groupedTasks["in progress"];
   let awaitFeedbackTasks = groupedTasks["await feedback"];
@@ -81,6 +81,7 @@ function renderTasksInCategory(categoryTasks, categoryId, emptyMessage) {
   } else {
     for (let i = 0; i < categoryTasks.length; i++) {
       let task = categoryTasks[i];
+      let taskId = task.id;
       let categoryColor = getCategoryColor(task);
       let description = shortenDescription(task.description);
       let subtasksNumber = countSubtaskNumber(task.subtasks);
@@ -91,15 +92,15 @@ function renderTasksInCategory(categoryTasks, categoryId, emptyMessage) {
       );
       taskColumn.innerHTML += createTaskHTML(
         task,
-        i,
+        taskId,
         categoryColor,
         description,
         percentage,
         completedSubtasks,
         subtasksNumber
       );
-      updatePriority(task.priority, i);
-      updateAvatars(task.assigned, i);
+      updatePriority(task.priority, taskId);
+      updateAvatars(task.assigned, taskId);
     }
   }
 }
@@ -110,8 +111,8 @@ function renderTasksInCategory(categoryTasks, categoryId, emptyMessage) {
  * @param {string} priority - The priority of the task.
  * @param {number} index - The index of the task.
  */
-function updatePriority(priority, index) {
-  let urgency = document.getElementById(`ts-priority${index}`);
+function updatePriority(priority, taskId) {
+  let urgency = document.getElementById(`ts-priority${taskId}`);
   let priorityMarker = getPriorityMarker(priority);
   urgency.innerHTML = `${priorityMarker}`;
 }
@@ -122,8 +123,8 @@ function updatePriority(priority, index) {
  * @param {Array} assigned - The list of assigned user IDs.
  * @param {number} index - The index of the task.
  */
-function updateAvatars(assigned, index) {
-  let avatars = document.getElementById(`ts-avatars${index}`);
+function updateAvatars(assigned, taskId) {
+  let avatars = document.getElementById(`ts-avatars${taskId}`);
   if (Array.isArray(assigned) && assigned.length > 0) {
     for (let j = 0; j < assigned.length; j++) {
       let userId = assigned[j];
@@ -131,11 +132,9 @@ function updateAvatars(assigned, index) {
       let marginLeft = j > 0 ? "-9px" : "0px";
 
       avatars.innerHTML += `
-        <div class="ts-avatar" style="background-color: ${
-          user.color
-        }; z-index: ${j + 2}; margin-left: ${marginLeft};">${
-        user.initials
-      }</div>
+        <div class="ts-avatar" style="background-color: ${user.color
+        }; z-index: ${j + 2}; margin-left: ${marginLeft};">${user.initials
+        }</div>
       `;
     }
   }
@@ -245,9 +244,9 @@ function closeEditTask(overlay = "edit-task-overlay") {
   document.getElementById("task-details-overlay").remove();
 }
 
-function deleteTask(Index) {}
+function deleteTask(Index) { }
 
-function updateProgress(subtask, task) {}
+function updateProgress(subtask, task) { }
 
 function addTaskBoard(status) {
   let overlay = createOverlay("add-task-board");
@@ -345,4 +344,29 @@ function calculateCompletionPercentage(completedSubtasks, subtasksNumber) {
   }
   let percentage = (completedSubtasks / subtasksNumber) * 100;
   return percentage;
+}
+
+function startDragging(taskId) {
+  currentDraggedTask = taskId;
+}
+
+async function moveTo(newArea) {
+  let task = getTaskById(currentDraggedTask);
+  task.taskState = newArea;
+  await putData("/tasks/", currentDraggedTask, task)
+    .then(() => {
+      console.log("Subtask updated successfully!");
+    })
+    .catch((error) => {
+      console.error("Error updating subtask:", error);
+    });
+
+  tasks = [];
+  users = [];
+  initBoard();
+}
+
+
+function allowDrop(event) {
+  event.preventDefault();
 }

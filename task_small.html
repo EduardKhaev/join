@@ -1,49 +1,182 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="task-small.css">
-    <link rel="stylesheet" href="style.css">
-</head>
+    <link rel="stylesheet" href="task-small.css" />
+    <link rel="stylesheet" href="header.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <style>
+    .move-icon-container {
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-start;
+      margin-bottom: 4px;
+    }
 
-<body>
+    .move-icon {
+      height: 34px;
+      width: 34px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .move-icon svg {
+      width: 24px;
+      height: 24px;
+      padding: 4px;
+    }
+
+    .move-icon svg path {
+      fill: none;
+    }
+
+    .task-small-main:hover .move-icon svg path {
+      fill: rgba(42, 54, 71, 1);
+    }
+
+    .move-icon:hover {
+      border-radius: 100%;
+      background-color: rgba(209, 209, 209, 1);
+    }
+
+    .move-icon:hover svg path {
+      fill: rgba(41, 171, 226, 1) !important;
+    }
+
+    .dropdown-content div {
+      color: #cdcdcd;
+      padding: 12px 20px;
+      text-decoration: none;
+      display: block;
+      font-size: 16px;
+    }
+
+    .dropdown-content div:hover {
+      background-color: var(--navigation-hover);
+      border-top-left-radius: 20px;
+      border-bottom-left-radius: 20px;
+      border-bottom-right-radius: 20px;
+      border-top-right-radius: 0;
+    }
+  </style>
+  <script>
+    function toggleDragMenue(event) {
+      event.stopPropagation();
+      const dropdownMenu = document.getElementById("drag-menue");
+      if (dropdownMenu.style.display === "block") {
+        dropdownMenu.style.display = "none";
+      } else {
+        dropdownMenu.style.display = "block";
+      }
+    }
+  </script>
+  <body>
     <div class="task-small-main">
-        <div class="ts-content">
-            <div class="ts-category">Category</div>
-            <div class="ts-text-container">
-                <div class="ts-title">This will be a possibly long task title</div>
-                <div class="ts-description">This will be a possibly long description of a task that...</div>
-            </div>
-            <div class="ts-subtasks">
-                <div class="ts-bar">
-                    <div class="ts-bar-percentage" style="width: ${}%;">
-                    </div>
-                </div>
-                <div class="ts-progress">
-                    1/2 Subtasks
-                </div>
-            </div>
-            <div class="ts-footer">
-                <div class="ts-avatars">
-                    <div class="ts-avatar">MS</div>
-                    <div class="ts-avatar2">MT</div>
-                </div>
-                <div class="ts-priority" id="ts-priority">
-                    <svg width="17" height="12" viewBox="0 0 21 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M19.7596 7.91693H1.95136C1.66071 7.91693 1.38197 7.80063 1.17645 7.59362C0.970928 7.3866 0.855469 7.10584 0.855469 6.81308C0.855469 6.52032 0.970928 6.23955 1.17645 6.03254C1.38197 5.82553 1.66071 5.70923 1.95136 5.70923H19.7596C20.0502 5.70923 20.329 5.82553 20.5345 6.03254C20.74 6.23955 20.8555 6.52032 20.8555 6.81308C20.8555 7.10584 20.74 7.3866 20.5345 7.59362C20.329 7.80063 20.0502 7.91693 19.7596 7.91693Z"
-                            fill="#FFA800" />
-                        <path
-                            d="M19.7596 2.67376H1.95136C1.66071 2.67376 1.38197 2.55746 1.17645 2.35045C0.970928 2.14344 0.855469 1.86267 0.855469 1.56991C0.855469 1.27715 0.970928 0.996386 1.17645 0.789374C1.38197 0.582363 1.66071 0.466064 1.95136 0.466064L19.7596 0.466064C20.0502 0.466064 20.329 0.582363 20.5345 0.789374C20.74 0.996386 20.8555 1.27715 20.8555 1.56991C20.8555 1.86267 20.74 2.14344 20.5345 2.35045C20.329 2.55746 20.0502 2.67376 19.7596 2.67376Z"
-                            fill="#FFA800" />
-                    </svg>
-                </div>
-            </div>
-        </div>
-    </div>
-</body>
+      <div class="ts-content">
+        <div class="move-icon-container">
+          <div class="move-icon" onclick="toggleDragMenue(event)">
+            <svg
+              width="800px"
+              height="800px"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g id="SVGRepo_bgCarrier" stroke-width="0" />
 
+              <g
+                id="SVGRepo_tracerCarrier"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+
+              <g id="SVGRepo_iconCarrier">
+                <path
+                  d="M12 3L12.3648 2.65803L12 2.26894L11.6352 2.65803L12 3ZM11.5 9C11.5 9.27614 11.7239 9.5 12 9.5C12.2761 9.5 12.5 9.27614 12.5 9H11.5ZM15.3648 5.85803L12.3648 2.65803L11.6352 3.34197L14.6352 6.54197L15.3648 5.85803ZM11.6352 2.65803L8.63523 5.85803L9.36477 6.54197L12.3648 3.34197L11.6352 2.65803ZM11.5 3V9H12.5V3H11.5Z"
+                  fill="#2A3647"
+                />
+                <path
+                  d="M21 12L21.342 12.3648L21.7311 12L21.342 11.6352L21 12ZM15 11.5C14.7239 11.5 14.5 11.7239 14.5 12C14.5 12.2761 14.7239 12.5 15 12.5L15 11.5ZM18.142 15.3648L21.342 12.3648L20.658 11.6352L17.458 14.6352L18.142 15.3648ZM21.342 11.6352L18.142 8.63523L17.458 9.36477L20.658 12.3648L21.342 11.6352ZM21 11.5L15 11.5L15 12.5L21 12.5L21 11.5Z"
+                  fill="#2A3647"
+                />
+                <path
+                  d="M12 21L12.3648 21.342L12 21.7311L11.6352 21.342L12 21ZM11.5 15C11.5 14.7239 11.7239 14.5 12 14.5C12.2761 14.5 12.5 14.7239 12.5 15H11.5ZM15.3648 18.142L12.3648 21.342L11.6352 20.658L14.6352 17.458L15.3648 18.142ZM11.6352 21.342L8.63523 18.142L9.36477 17.458L12.3648 20.658L11.6352 21.342ZM11.5 21V15H12.5V21H11.5Z"
+                  fill="#2A3647"
+                />
+                <path
+                  d="M3 12L2.65803 12.3648L2.26894 12L2.65803 11.6352L3 12ZM9 11.5C9.27614 11.5 9.5 11.7239 9.5 12C9.5 12.2761 9.27614 12.5 9 12.5L9 11.5ZM5.85803 15.3648L2.65803 12.3648L3.34197 11.6352L6.54197 14.6352L5.85803 15.3648ZM2.65803 11.6352L5.85803 8.63523L6.54197 9.36477L3.34197 12.3648L2.65803 11.6352ZM3 11.5L9 11.5L9 12.5L3 12.5L3 11.5Z"
+                  fill="#2A3647"
+                />
+              </g>
+            </svg>
+          </div>
+          <div class="dropdown" style="display: none" id="drag-menue">
+            <div class="dropdown-content">
+              <div
+                onclick="console.log('move Task with id: ${task.id} to todo'); toggleDragMenue(event)"
+              >
+                To Do
+              </div>
+              <div
+                onclick="console.log('move Task with id: ${task.id} to in progress'); toggleDragMenue(event)"
+              >
+                In Progress
+              </div>
+              <div
+                onclick="console.log('move Task with id: ${task.id} to await feedback'); toggleDragMenue(event)"
+              >
+                Await Feedback
+              </div>
+              <div
+                onclick="console.log('move Task with id: ${task.id} to done'); toggleDragMenue(event)"
+              >
+                Done
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ts-category">Category</div>
+        <div class="ts-text-container">
+          <div class="ts-title">This will be a possibly long task title</div>
+          <div class="ts-description">
+            This will be a possibly long description of a task that...
+          </div>
+        </div>
+        <div class="ts-subtasks">
+          <div class="ts-bar">
+            <div class="ts-bar-percentage" style="width: ${}%;"></div>
+          </div>
+          <div class="ts-progress">1/2 Subtasks</div>
+        </div>
+        <div class="ts-footer">
+          <div class="ts-avatars">
+            <div class="ts-avatar">MS</div>
+            <div class="ts-avatar2">MT</div>
+          </div>
+          <div class="ts-priority" id="ts-priority">
+            <svg
+              width="17"
+              height="12"
+              viewBox="0 0 21 8"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M19.7596 7.91693H1.95136C1.66071 7.91693 1.38197 7.80063 1.17645 7.59362C0.970928 7.3866 0.855469 7.10584 0.855469 6.81308C0.855469 6.52032 0.970928 6.23955 1.17645 6.03254C1.38197 5.82553 1.66071 5.70923 1.95136 5.70923H19.7596C20.0502 5.70923 20.329 5.82553 20.5345 6.03254C20.74 6.23955 20.8555 6.52032 20.8555 6.81308C20.8555 7.10584 20.74 7.3866 20.5345 7.59362C20.329 7.80063 20.0502 7.91693 19.7596 7.91693Z"
+                fill="#FFA800"
+              />
+              <path
+                d="M19.7596 2.67376H1.95136C1.66071 2.67376 1.38197 2.55746 1.17645 2.35045C0.970928 2.14344 0.855469 1.86267 0.855469 1.56991C0.855469 1.27715 0.970928 0.996386 1.17645 0.789374C1.38197 0.582363 1.66071 0.466064 1.95136 0.466064L19.7596 0.466064C20.0502 0.466064 20.329 0.582363 20.5345 0.789374C20.74 0.996386 20.8555 1.27715 20.8555 1.56991C20.8555 1.86267 20.74 2.14344 20.5345 2.35045C20.329 2.55746 20.0502 2.67376 19.7596 2.67376Z"
+                fill="#FFA800"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
