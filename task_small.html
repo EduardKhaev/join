@@ -31,19 +31,10 @@
     }
 
     .move-icon svg path {
-      fill: none;
-    }
-
-    .task-small-main:hover .move-icon svg path {
       fill: rgba(42, 54, 71, 1);
     }
 
-    .move-icon:hover {
-      border-radius: 100%;
-      background-color: rgba(209, 209, 209, 1);
-    }
-
-    .move-icon:hover svg path {
+    .move-icon:active svg path {
       fill: rgba(41, 171, 226, 1) !important;
     }
 
@@ -72,6 +63,10 @@
       } else {
         dropdownMenu.style.display = "block";
       }
+    }
+
+    function moveByButton(newArea, clickedTask) {
+      currentDraggedTask;
     }
   </script>
   <body>
@@ -116,23 +111,21 @@
           </div>
           <div class="dropdown" style="display: none" id="drag-menue">
             <div class="dropdown-content">
-              <div
-                onclick="moveByButton('to do', ${task.id}); toggleDragMenue(event)"
-              >
+              <div onclick="moveByButton(event, 'to do', '${task.id}');">
                 To Do
               </div>
               <div
-                onclick="console.log('move Task with id: ${task.id} to in progress'); toggleDragMenue(event)"
+                onclick="moveByButton('to do', '${task.id}'); toggleDragMenue(event)"
               >
                 In Progress
               </div>
               <div
-                onclick="console.log('move Task with id: ${task.id} to await feedback'); toggleDragMenue(event)"
+                onclick="moveByButton('to do', '${task.id}'); toggleDragMenue(event)"
               >
                 Await Feedback
               </div>
               <div
-                onclick="console.log('move Task with id: ${task.id} to done'); toggleDragMenue(event)"
+                onclick="moveByButton('to do', '${task.id}'); toggleDragMenue(event)"
               >
                 Done
               </div>

@@ -348,6 +348,23 @@ function calculateCompletionPercentage(completedSubtasks, subtasksNumber) {
   return percentage;
 }
 
+function toggleDragMenue(event) {
+  event.stopPropagation();
+  const dropdownMenu = document.getElementById("drag-menue");
+  if (dropdownMenu.style.display === "block") {
+    dropdownMenu.style.display = "none";
+  } else {
+    dropdownMenu.style.display = "block";
+  }
+}
+
+function moveByButton(event, newArea, clickedTask) {
+  event.stopPropagation();
+  toggleDragMenue(event);
+  currentDraggedTask = clickedTask;
+  moveTo(newArea);
+}
+
 function startDragging(taskId) {
   currentDraggedTask = taskId;
 }
@@ -357,10 +374,10 @@ async function moveTo(newArea) {
   task.taskState = newArea;
   await putData("/tasks/", currentDraggedTask, task)
     .then(() => {
-      console.log("Subtask updated successfully!");
+      console.log("Task moved successfully!");
     })
     .catch((error) => {
-      console.error("Error updating subtask:", error);
+      console.error("Error moving Task:", error);
     });
   updateTasks();
 }
