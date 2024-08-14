@@ -209,6 +209,7 @@ function editTask(id) {
   let overlay = createOverlay("edit-task-overlay");
   overlay.innerHTML = getEditTaskContentHtml(task);
   insertContactsToInput();
+  showEditSubtasks(task.subtasks, task.id);
 }
 
 async function saveEditedTask(event, taskId, taskState) {
@@ -244,7 +245,7 @@ function closeEditTask(overlay = "edit-task-overlay") {
 async function deleteTask(taskId) {
   await deleteData("/tasks/", taskId);
   tasks = [];
-  closeTaskDetails(overlay = "task-details-overlay");
+  closeTaskDetails((overlay = "task-details-overlay"));
   initBoard();
 }
 
@@ -255,9 +256,10 @@ function showEditSubtasks(subtasks, taskId) {
   } else {
     for (let i = 0; i < subtasks.length; i++) {
       let subtask = subtasks[i];
-      subtaskContent.innerHTML += getSubtaskContentHtml(subtask, i, taskId);
+      subtaskContent.innerHTML += addSubtaskHTML(subtask.name, i);
+    }
   }
-}}
+}
 
 function updateProgress(subtask, task) {}
 
@@ -265,7 +267,7 @@ function addTaskBoard(status) {
   let overlay = createOverlay("add-task-board");
   overlay.innerHTML = addTaskBoardHTML(status);
   insertContactsToInput();
-} //Eduard
+}
 
 /**
  * Formats a date string from "YYYY-MM-DD" format to "MM/DD/YYYY" format.
@@ -376,7 +378,8 @@ function moveByButton(event, newArea, clickedTask) {
   moveTo(newArea, "", false);
 }
 
-function startDragging(taskId) {
+function startDragging(event, taskId) {
+  event.target.style = "background-color: red;";
   currentDraggedTask = taskId;
   document.getElementById("to-do").classList.add("drag-area-highlight");
   document.getElementById("in-progress").classList.add("drag-area-highlight");
