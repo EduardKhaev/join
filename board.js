@@ -183,7 +183,6 @@ function showDetailsSubtask(subtasks, taskId) {
       setTimeout(() => {
         document.getElementById(`checkbox${i}`).checked = subtask.done;
       }, 100);
-      console.log(subtask.done);
     }
   }
 }
