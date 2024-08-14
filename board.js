@@ -222,7 +222,6 @@ async function saveEditedTask(event, taskId, taskState) {
     date: getAddTaskInput("due-date"),
     category: task.category,
     priority: urgencyForSave,
-    subtasks: showEditSubtask(taskId),
     taskState: taskState,
   };
   await putData("/tasks/", taskId, newTask);
