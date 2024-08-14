@@ -214,6 +214,7 @@ function editTask(id) {
 }
 
 async function saveEditedTask(event, taskId, taskState) {
+  let urgencyForSave = selectedUrgency;
   event.preventDefault();
   let task = getTaskById(taskId);
   let newTask = {
@@ -222,7 +223,7 @@ async function saveEditedTask(event, taskId, taskState) {
     assigned: updateSelectedContacts(),
     date: getAddTaskInput("due-date"),
     category: task.category,
-    priority: selectedUrgency,
+    priority: urgencyForSave,
     subtasks: getSubtaskInputs(),
     taskState: taskState,
   };
