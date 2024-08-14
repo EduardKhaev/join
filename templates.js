@@ -525,10 +525,81 @@ function createTaskHTML(
   subtasksNumber
 ) {
   return `
-    <div class="task-small-main" onclick="showTaskDetails('${task.id}')" draggable="true" ondragstart="startDragging('${task.id}')"id="${
+    <div class="task-small-main" onclick="showTaskDetails('${
+      task.id
+    }')" draggable="true" ondragstart="startDragging('${task.id}')"id="${
     task.id
   }">
-        <div class="ts-content">
+        <div class="ts-content"><div class="move-icon-container">
+          <div class="move-icon" onclick="toggleDragMenue(event)">
+            <svg
+              width="800px"
+              height="800px"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g id="SVGRepo_bgCarrier" stroke-width="0" />
+
+              <g
+                id="SVGRepo_tracerCarrier"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+
+              <g id="SVGRepo_iconCarrier">
+                <path
+                  d="M12 3L12.3648 2.65803L12 2.26894L11.6352 2.65803L12 3ZM11.5 9C11.5 9.27614 11.7239 9.5 12 9.5C12.2761 9.5 12.5 9.27614 12.5 9H11.5ZM15.3648 5.85803L12.3648 2.65803L11.6352 3.34197L14.6352 6.54197L15.3648 5.85803ZM11.6352 2.65803L8.63523 5.85803L9.36477 6.54197L12.3648 3.34197L11.6352 2.65803ZM11.5 3V9H12.5V3H11.5Z"
+                  fill="#2A3647"
+                />
+                <path
+                  d="M21 12L21.342 12.3648L21.7311 12L21.342 11.6352L21 12ZM15 11.5C14.7239 11.5 14.5 11.7239 14.5 12C14.5 12.2761 14.7239 12.5 15 12.5L15 11.5ZM18.142 15.3648L21.342 12.3648L20.658 11.6352L17.458 14.6352L18.142 15.3648ZM21.342 11.6352L18.142 8.63523L17.458 9.36477L20.658 12.3648L21.342 11.6352ZM21 11.5L15 11.5L15 12.5L21 12.5L21 11.5Z"
+                  fill="#2A3647"
+                />
+                <path
+                  d="M12 21L12.3648 21.342L12 21.7311L11.6352 21.342L12 21ZM11.5 15C11.5 14.7239 11.7239 14.5 12 14.5C12.2761 14.5 12.5 14.7239 12.5 15H11.5ZM15.3648 18.142L12.3648 21.342L11.6352 20.658L14.6352 17.458L15.3648 18.142ZM11.6352 21.342L8.63523 18.142L9.36477 17.458L12.3648 20.658L11.6352 21.342ZM11.5 21V15H12.5V21H11.5Z"
+                  fill="#2A3647"
+                />
+                <path
+                  d="M3 12L2.65803 12.3648L2.26894 12L2.65803 11.6352L3 12ZM9 11.5C9.27614 11.5 9.5 11.7239 9.5 12C9.5 12.2761 9.27614 12.5 9 12.5L9 11.5ZM5.85803 15.3648L2.65803 12.3648L3.34197 11.6352L6.54197 14.6352L5.85803 15.3648ZM2.65803 11.6352L5.85803 8.63523L6.54197 9.36477L3.34197 12.3648L2.65803 11.6352ZM3 11.5L9 11.5L9 12.5L3 12.5L3 11.5Z"
+                  fill="#2A3647"
+                />
+              </g>
+            </svg>
+          </div>
+          <div class="dropdown" style="display: none" id="drag-menue">
+            <div class="dropdown-content">
+              <div
+                onclick="moveByButton(event, 'to do', '${
+                  task.id
+                }'); toggleDragMenue(event)"
+              >
+                To Do
+              </div>
+              <div
+                onclick="moveByButton(event, 'in progress', '${
+                  task.id
+                }'); toggleDragMenue(event)"
+              >
+                In Progress
+              </div>
+              <div
+                onclick="moveByButton(event, 'await feedback', '${
+                  task.id
+                }'); toggleDragMenue(event)"
+              >
+                Await Feedback
+              </div>
+              <div
+                onclick="moveByButton(event, 'done', '${
+                  task.id
+                }'); toggleDragMenue(event)"
+              >
+                Done
+              </div>
+            </div>
+          </div>
+        </div>
             <div class="ts-category" style="background-color: ${categoryColor};">${
     task.category
   }</div>
@@ -748,7 +819,9 @@ function addTaskBoardHTML(status = "to do") {
                 Clear <img src="img/close.png" alt="" />
               </button>
   
-              <button type="submit" class="button-primary action-button-text"  data-urgency="${selectedUrgency ? selectedUrgency : 'medium'}">
+              <button type="submit" class="button-primary action-button-text"  data-urgency="${
+                selectedUrgency ? selectedUrgency : "medium"
+              }">
                 Create Task <img src="img/check.png" alt="" />
               </button>
             </div>
@@ -771,23 +844,31 @@ function getEditTaskContentHtml(task) {
                     <label for="entertitle">Title</label>
                     <input required oninvalid="event.preventDefault(); showInvalid(this); validateCategory()"
                         onfocus="removeInvalid(this)" class="inputfield-basic-design" type="text" id="entertitle"
-                        name="title" placeholder="Enter a title" value ="${task.title}"/>
+                        name="title" placeholder="Enter a title" value ="${
+                          task.title
+                        }"/>
                 </div>
                 <div>
                     <label for="task-description">Description</label>
                     <textarea class="inputfield-basic-design" id="task-description" name="description"
-                        placeholder="Enter a Description">${task.description}</textarea>
+                        placeholder="Enter a Description">${
+                          task.description
+                        }</textarea>
                 </div>
                
                 <div>
                     <label for="due-date">Due date</label>
                     <input required oninvalid="event.preventDefault(); showInvalid(this); validateCategory()"
                         onfocus="removeInvalid(this)" class="inputfield-basic-design" type="date" name="begin"
-                        id="due-date" placeholder="dd/mm/yyyy" value="${task.date}" required />
+                        id="due-date" placeholder="dd/mm/yyyy" value="${
+                          task.date
+                        }" required />
                 </div>
                 <label class="label-spacing" for="priority"><b>Priority</b></label>
                 <div class="outer">
-                    <button type="button" class="urgency-button ${task.priority === 'urgent' ? 'urgent-active' : ''}" id="urgent-button"
+                    <button type="button" class="urgency-button ${
+                      task.priority === "urgent" ? "urgent-active" : ""
+                    }" id="urgent-button"
                         onclick="setUrgency(event, 'urgent')">Urgent<svg width="21" height="16" viewBox="0 0 21 16"
                             fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -797,7 +878,9 @@ function getEditTaskContentHtml(task) {
                                 d="M19.2597 9.69733C19.0251 9.69774 18.7965 9.62289 18.6077 9.48379L10.3556 3.40063L2.10356 9.48379C1.86959 9.6566 1.57651 9.72945 1.28878 9.68633C1.00105 9.6432 0.742254 9.48762 0.569318 9.25383C0.396382 9.02003 0.323475 8.72716 0.366634 8.43964C0.409793 8.15213 0.565483 7.89352 0.799455 7.72072L9.70356 1.15024C9.89226 1.01065 10.1208 0.935303 10.3556 0.935303C10.5904 0.935303 10.819 1.01065 11.0077 1.15024L19.9118 7.72072C20.0977 7.85763 20.2356 8.04974 20.3057 8.26962C20.3759 8.4895 20.3747 8.72591 20.3024 8.94509C20.2301 9.16427 20.0904 9.35503 19.9031 9.49012C19.7159 9.62521 19.4907 9.69773 19.2597 9.69733Z"
                                 fill="#FF3D00"></path>
                         </svg></button>
-                    <button type="button" class="urgency-button ${task.priority === 'medium' ? 'medium-active' : ''}" id="medium-button"
+                    <button type="button" class="urgency-button ${
+                      task.priority === "medium" ? "medium-active" : ""
+                    }" id="medium-button"
                         onclick="setUrgency(event, 'medium')">Medium<svg width="21" height="8" viewBox="0 0 21 8"
                             fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -807,7 +890,9 @@ function getEditTaskContentHtml(task) {
                                 d="M19.7596 2.67376H1.95136C1.66071 2.67376 1.38197 2.55746 1.17645 2.35045C0.970928 2.14344 0.855469 1.86267 0.855469 1.56991C0.855469 1.27715 0.970928 0.996386 1.17645 0.789374C1.38197 0.582363 1.66071 0.466064 1.95136 0.466064L19.7596 0.466064C20.0502 0.466064 20.329 0.582363 20.5345 0.789374C20.74 0.996386 20.8555 1.27715 20.8555 1.56991C20.8555 1.86267 20.74 2.14344 20.5345 2.35045C20.329 2.55746 20.0502 2.67376 19.7596 2.67376Z"
                                 fill="#FFA800"></path>
                         </svg></button>
-                    <button type="button" class="urgency-button ${task.priority === 'low' ? 'low-active' : ''}" id="low-button"
+                    <button type="button" class="urgency-button ${
+                      task.priority === "low" ? "low-active" : ""
+                    }" id="low-button"
                         onclick="setUrgency(event, 'low')">Low<svg width="21" height="16" viewBox="0 0 21 16"
                             fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -855,7 +940,9 @@ function getEditTaskContentHtml(task) {
             </form>
         </div>
         <div class="footer">
-        <button onclick="saveEditedTask(event, '${task.id}', '${task.taskState}')" type="submit" class="sticky-button tl-button-primary">
+        <button onclick="saveEditedTask(event, '${task.id}', '${
+    task.taskState
+  }')" type="submit" class="sticky-button tl-button-primary">
     Ok
     <img src="img/check.png" alt="check button">
 </button>

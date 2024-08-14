@@ -132,9 +132,11 @@ function updateAvatars(assigned, taskId) {
       let marginLeft = j > 0 ? "-9px" : "0px";
 
       avatars.innerHTML += `
-        <div class="ts-avatar" style="background-color: ${user.color
-        }; z-index: ${j + 2}; margin-left: ${marginLeft};">${user.initials
-        }</div>
+        <div class="ts-avatar" style="background-color: ${
+          user.color
+        }; z-index: ${j + 2}; margin-left: ${marginLeft};">${
+        user.initials
+      }</div>
       `;
     }
   }
@@ -244,9 +246,9 @@ function closeEditTask(overlay = "edit-task-overlay") {
   document.getElementById("task-details-overlay").remove();
 }
 
-function deleteTask(Index) { }
+function deleteTask(Index) {}
 
-function updateProgress(subtask, task) { }
+function updateProgress(subtask, task) {}
 
 function addTaskBoard(status) {
   let overlay = createOverlay("add-task-board");
@@ -346,6 +348,23 @@ function calculateCompletionPercentage(completedSubtasks, subtasksNumber) {
   return percentage;
 }
 
+function toggleDragMenue(event) {
+  event.stopPropagation();
+  const dropdownMenu = document.getElementById("drag-menue");
+  if (dropdownMenu.style.display === "block") {
+    dropdownMenu.style.display = "none";
+  } else {
+    dropdownMenu.style.display = "block";
+  }
+}
+
+function moveByButton(event, newArea, clickedTask) {
+  event.stopPropagation();
+  toggleDragMenue(event);
+  currentDraggedTask = clickedTask;
+  moveTo(newArea);
+}
+
 function startDragging(taskId) {
   currentDraggedTask = taskId;
 }
@@ -355,17 +374,13 @@ async function moveTo(newArea) {
   task.taskState = newArea;
   await putData("/tasks/", currentDraggedTask, task)
     .then(() => {
-      console.log("Subtask updated successfully!");
+      console.log("Task moved successfully!");
     })
     .catch((error) => {
-      console.error("Error updating subtask:", error);
+      console.error("Error moving Task:", error);
     });
-
-  tasks = [];
-  users = [];
-  initBoard();
+  updateTasks();
 }
-
 
 function allowDrop(event) {
   event.preventDefault();
