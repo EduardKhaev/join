@@ -196,11 +196,6 @@ async function updateSubtaskFromDetails(index, taskId) {
       .catch((error) => {
         console.error("Error updating subtask:", error);
       });
-    // tasks = "";
-    // await loadTasks();
-    // await groupTasks();
-    // await tasksByDate();
-    // renderTasks();
   } else {
     console.error("Task not found with ID:", taskId);
   }
@@ -243,18 +238,6 @@ function updateTasks() {
   users = [];
   initBoard();
 }
-
-/*
-async function putData(path = "/tasks/", id, data) {
-  await fetch(FIREBASE_URL + path + id + ".json", {
-    method: "PUT",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(data),
-  });
-  closeEditTask("edit-task-overlay");
-} */
 
 function closeEditTask(overlay = "edit-task-overlay") {
   document.getElementById(overlay).remove();
