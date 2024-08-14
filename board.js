@@ -222,7 +222,6 @@ async function saveEditedTask(event, taskId, taskState) {
     date: getAddTaskInput("due-date"),
     category: task.category,
     priority: urgencyForSave,
-    subtasks: task.subtasks["name"],
     taskState: taskState,
   };
   await putData("/tasks/", taskId, newTask);
@@ -245,9 +244,20 @@ function closeEditTask(overlay = "edit-task-overlay") {
 async function deleteTask(taskId) {
   await deleteData("/tasks/", taskId);
   tasks = [];
-  closeTaskDetails((overlay = "task-details-overlay"));
-  updateTasks();
+  closeTaskDetails(overlay = "task-details-overlay");
+  initBoard();
 }
+
+function showEditSubtasks(subtasks, taskId) {
+  let subtaskContent = document.getElementById("addedsubtasks");
+  if (subtasks === false || subtasks === undefined) {
+    document.getElementById("tl-subtasks").remove();
+  } else {
+    for (let i = 0; i < subtasks.length; i++) {
+      let subtask = subtasks[i];
+      subtaskContent.innerHTML += getSubtaskContentHtml(subtask, i, taskId);
+  }
+}}
 
 function updateProgress(subtask, task) {}
 

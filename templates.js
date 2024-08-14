@@ -929,6 +929,7 @@ function getEditTaskContentHtml(task) {
                         </svg>
                     </div>
                 </div>
+                <ul class="addedsubtasks" id="addedsubtasks">${task.subtask}</ul>
                 <ul class="addedsubtasks" id="addedsubtasks">${
                   task.subtasks
                 }</ul>
