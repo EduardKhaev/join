@@ -388,7 +388,7 @@ function getTaskLargeContentHtml(task, date, priorityMarker) {
           </div>
         </div>
         <div class="tl-choice-buttons">
-          <button class="tl-choice">
+          <button class="tl-choice" onclick = "deleteTask('${task.id}')">
             <svg
               width="16"
               height="18"
@@ -850,7 +850,7 @@ function getEditTaskContentHtml(task) {
                         </svg>
                     </div>
                 </div>
-                <ul class="addedsubtasks" id="addedsubtasks"></ul>
+                <ul class="addedsubtasks" id="addedsubtasks">${task.subtasks}</ul>
 
             </form>
         </div>
