@@ -9,6 +9,14 @@
     padding: 16px;
     cursor: pointer;
     background-color: white;
+    transition: transform 0.2s ease; 
+}
+
+.task-small-main:active {
+    opacity: 1;
+    transform: rotate(10deg); 
+    z-index: 1000; 
+    cursor: grabbing;
 }
 
 .ts-content {
