@@ -570,30 +570,22 @@ function createTaskHTML(
           <div class="dropdown" style="display: none" id="drag-menue">
             <div class="dropdown-content">
               <div
-                onclick="moveByButton(event, 'to do', '${
-                  task.id
-                }'); toggleDragMenue(event)"
+                onclick="moveByButton(event, 'to do', '${task.id}');"
               >
                 To Do
               </div>
               <div
-                onclick="moveByButton(event, 'in progress', '${
-                  task.id
-                }'); toggleDragMenue(event)"
+                onclick="moveByButton(event, 'in progress', '${task.id}');"
               >
                 In Progress
               </div>
               <div
-                onclick="moveByButton(event, 'await feedback', '${
-                  task.id
-                }'); toggleDragMenue(event)"
+                onclick="moveByButton(event, 'await feedback', '${task.id}');"
               >
                 Await Feedback
               </div>
               <div
-                onclick="moveByButton(event, 'done', '${
-                  task.id
-                }'); toggleDragMenue(event)"
+                onclick="moveByButton(event, 'done', '${task.id}');"
               >
                 Done
               </div>
