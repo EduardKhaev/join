@@ -74,7 +74,6 @@ function renderTasks() {
 function renderTasksInCategory(categoryTasks, categoryId, emptyMessage) {
   let taskColumn = document.getElementById(categoryId);
   taskColumn.innerHTML = "";
-
   if (!Array.isArray(categoryTasks) || categoryTasks.length === 0) {
     taskColumn.innerHTML = `
     <div class="empty-column"><span>${emptyMessage}</span></div>
@@ -90,7 +89,6 @@ function renderTasksInCategory(categoryTasks, categoryId, emptyMessage) {
         completedSubtasks,
         subtasksNumber
       );
-
       taskColumn.innerHTML += createTaskHTML(
         task,
         i,
@@ -156,6 +154,7 @@ function showTaskDetails(id) {
 
 function closeTaskDetails(overlay = "task-details-overlay") {
   document.getElementById(overlay).remove();
+  updateTasks();
 }
 
 function showDetailsAssigned(assigned) {
@@ -197,11 +196,6 @@ async function updateSubtaskFromDetails(index, taskId) {
       .catch((error) => {
         console.error("Error updating subtask:", error);
       });
-    // tasks = "";
-    // await loadTasks();
-    // await groupTasks();
-    // await tasksByDate();
-    // renderTasks();
   } else {
     console.error("Task not found with ID:", taskId);
   }
@@ -242,20 +236,9 @@ async function saveEditedTask(event, taskId, taskState) {
 
 function updateTasks() {
   tasks = [];
+  users = [];
   initBoard();
 }
-
-/*
-async function putData(path = "/tasks/", id, data) {
-  await fetch(FIREBASE_URL + path + id + ".json", {
-    method: "PUT",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(data),
-  });
-  closeEditTask("edit-task-overlay");
-} */
 
 function closeEditTask(overlay = "edit-task-overlay") {
   document.getElementById(overlay).remove();
