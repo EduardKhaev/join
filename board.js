@@ -367,9 +367,29 @@ function moveByButton(event, newArea, clickedTask) {
 
 function startDragging(taskId) {
   currentDraggedTask = taskId;
+  document.getElementById('to-do').classList.add('drag-area-highlight');
+  document.getElementById('in-progress').classList.add('drag-area-highlight');
+  document.getElementById('await-feedback').classList.add('drag-area-highlight');
+  document.getElementById('done').classList.add('drag-area-highlight');
 }
 
-async function moveTo(newArea) {
+function stopDragging() {
+  document.getElementById('to-do').classList.remove('drag-area-highlight');
+  document.getElementById('in-progress').classList.remove('drag-area-highlight');
+  document.getElementById('await-feedback').classList.remove('drag-area-highlight');
+  document.getElementById('done').classList.remove('drag-area-highlight');
+}
+
+function highlightDragArea(id) {
+  document.getElementById(id).classList.add('drag-over-highlight');
+}
+
+function deleteHighlightDragArea(id) {
+  document.getElementById(id).classList.remove('drag-over-highlight');
+}
+
+async function moveTo(newArea, areaId) {
+  document.getElementById(areaId).classList.remove('drag-over-highlight');
   let task = getTaskById(currentDraggedTask);
   task.taskState = newArea;
   await putData("/tasks/", currentDraggedTask, task)
