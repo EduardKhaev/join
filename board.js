@@ -366,7 +366,6 @@ async function moveTo(newArea) {
   initBoard();
 }
 
-
 function allowDrop(event) {
   event.preventDefault();
 }
