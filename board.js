@@ -264,10 +264,12 @@ function showEditSubtasks(subtasks, taskId) {
 
 function getEditedSubtasks() {
   let nodelist = document.getElementsByClassName("subtask-list-element");
+  let tasknames = document.getElementsByClassName("subtask-value");
+  let taskstates = document.getElementsByClassName("subtask-list-element");
   let subtasks = [];
   for (let i = 0; i < nodelist.length; i++) {
-    let subtaskName = document.getElementById(`subtask-${i}-input`).value;
-    let subtaskDone = document.getElementById(`subtask-${i}`).value;
+    let subtaskName = tasknames[i].value;
+    let subtaskDone = taskstates[i].value;
     let subtask = { name: subtaskName, done: Boolean(subtaskDone) };
     subtasks.push(subtask);
   }
