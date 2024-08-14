@@ -531,7 +531,7 @@ function createTaskHTML(
     task.id
   }">
         <div class="ts-content"><div class="move-icon-container">
-          <div class="move-icon" onclick="toggleDragMenue(event)">
+          <div class="move-icon" onclick="toggleDragMenue(event, '${task.id}')">
             <svg
               width="800px"
               height="800px"
@@ -567,7 +567,9 @@ function createTaskHTML(
               </g>
             </svg>
           </div>
-          <div class="dropdown" style="display: none" id="drag-menue">
+          <div class="dragmenue" style="display: none" id="drag-menue${
+            task.id
+          }">
             <div class="dropdown-content">
               <div
                 onclick="moveByButton(event, 'to do', '${task.id}');"

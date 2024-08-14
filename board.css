@@ -221,6 +221,11 @@ h1 {
   display: none;
 }
 
+.dragmenue {
+  position: relative;
+  display: none;
+}
+
 @media (pointer: coarse) {
   .move-icon-container {
     display: flex;

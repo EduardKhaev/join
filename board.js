@@ -348,9 +348,9 @@ function calculateCompletionPercentage(completedSubtasks, subtasksNumber) {
   return percentage;
 }
 
-function toggleDragMenue(event) {
+function toggleDragMenue(event, clickedTask) {
   event.stopPropagation();
-  const dropdownMenu = document.getElementById("drag-menue");
+  const dropdownMenu = document.getElementById(`drag-menue${clickedTask}`);
   if (dropdownMenu.style.display === "block") {
     dropdownMenu.style.display = "none";
   } else {
@@ -360,7 +360,7 @@ function toggleDragMenue(event) {
 
 function moveByButton(event, newArea, clickedTask) {
   event.stopPropagation();
-  toggleDragMenue(event);
+  toggleDragMenue(event, clickedTask);
   currentDraggedTask = clickedTask;
   moveTo(newArea);
 }
