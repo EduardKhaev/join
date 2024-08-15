@@ -69,7 +69,11 @@ function renderTasks() {
 
   renderTasksInArea(toDos, "to-do", "No tasks to do");
   renderTasksInArea(inProgressTasks, "in-progress", "No tasks in progress");
-  renderTasksInArea(awaitFeedbackTasks, "await-feedback", "No tasks awaiting feedback");
+  renderTasksInArea(
+    awaitFeedbackTasks,
+    "await-feedback",
+    "No tasks awaiting feedback"
+  );
   renderTasksInArea(doneTasks, "done", "No tasks done");
 }
 
@@ -95,7 +99,10 @@ function renderTasksInArea(tasksInArea, areaId, emptyMessage) {
       let description = shortenDescription(task.description);
       let subtasksNumber = countSubtaskNumber(task.subtasks);
       let completedSubtasks = countCompletedSubtasks(task.subtasks);
-      let percentage = calculateCompletionPercentage(completedSubtasks, subtasksNumber);
+      let percentage = calculateCompletionPercentage(
+        completedSubtasks,
+        subtasksNumber
+      );
       taskColumn.innerHTML += createTaskHTML(
         task,
         taskId,
@@ -138,9 +145,11 @@ function updateAvatars(assigned, taskId) {
       let marginLeft = j > 0 ? "-9px" : "0px";
 
       avatars.innerHTML += `
-        <div class="ts-avatar" style="background-color: ${user.color
-        }; z-index: ${j + 2}; margin-left: ${marginLeft};">${user.initials
-        }</div>
+        <div class="ts-avatar" style="background-color: ${
+          user.color
+        }; z-index: ${j + 2}; margin-left: ${marginLeft};">${
+        user.initials
+      }</div>
       `;
     }
   }
@@ -163,7 +172,7 @@ function showTaskDetails(id) {
 }
 
 /**
- * closes the task details overlay 
+ * closes the task details overlay
  */
 function closeTaskDetails() {
   let taskDetails = document.getElementById("task-large");
@@ -235,7 +244,7 @@ async function updateSubtaskFromDetails(index, taskId) {
 /**
  *  return a task from the tasks array based on its unique identifier
  * @param {*} id - the unique identifier of the task to be returned
- * @returns 
+ * @returns
  */
 function getTaskById(id) {
   let index = tasks.findIndex((task) => task["id"] == id);
@@ -257,7 +266,6 @@ function editTask(id) {
   let oldOverlay = document.getElementById("task-details-overlay");
   oldOverlay.remove();
 }
-
 
 /**
  * saves the edited details of a task and updates the task data
@@ -296,7 +304,7 @@ function updateTasks() {
 
 /**
  * closes the edit task overlay and removes it from the DOM
- * @param {*} overlay - the ID of the overlay to be closed 
+ * @param {*} overlay - the ID of the overlay to be closed
  */
 function closeEditTask() {
   let editedTaskDetails = document.getElementById("task-large-edit");
@@ -356,9 +364,6 @@ function getEditedSubtasks() {
   }
   return subtasks;
 }
-
-function updateProgress(subtask, task) { }
-function updateProgress(subtask, task) { }
 
 /**
  * initializes and displays an overlay for adding a new task
@@ -465,7 +470,7 @@ function calculateCompletionPercentage(completedSubtasks, subtasksNumber) {
 /**
  *  Toggles the visibility of the drag menu for a specific task.
  * @param {*} event - the event object that triggered the menu toggle
- * @param {*} clickedTask - the unique identifier of the task for which the 
+ * @param {*} clickedTask - the unique identifier of the task for which the
  *                          drag menu is being displayed or hidden
  */
 function toggleDragMenue(event, clickedTask) {
@@ -517,7 +522,7 @@ function startDragging(event, taskId) {
  */
 function stopDragging() {
   let areas = ["to-do", "in-progress", "await-feedback", "done"];
-  areas.forEach(areaId => {
+  areas.forEach((areaId) => {
     let area = document.getElementById(areaId);
     area.classList.remove("drag-area-highlight");
   });
@@ -587,7 +592,7 @@ function allowDrop(event) {
  */
 function highlightDragAreas() {
   let areas = ["to-do", "in-progress", "await-feedback", "done"];
-  areas.forEach(areaId => {
+  areas.forEach((areaId) => {
     let area = document.getElementById(areaId);
     area.classList.add("drag-area-highlight");
   });
