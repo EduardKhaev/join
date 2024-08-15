@@ -45,8 +45,8 @@ async function tasksByDate() {
 }
 
 /**
- * Renders all tasks across different categories.
- * Calls the `renderTasksInCategory` function for each category of tasks with appropriate empty messages.
+ * Renders all tasks across different areas.
+ * Calls the `renderTasksInArea` function for each area of tasks with appropriate empty messages.
  */
 function renderTasks() {
   let toDos = groupedTasks["to do"];
@@ -54,42 +54,35 @@ function renderTasks() {
   let awaitFeedbackTasks = groupedTasks["await feedback"];
   let doneTasks = groupedTasks["done"];
 
-  renderTasksInCategory(toDos, "to-do", "No tasks to do");
-  renderTasksInCategory(inProgressTasks, "in-progress", "No tasks in progress");
-  renderTasksInCategory(
-    awaitFeedbackTasks,
-    "await-feedback",
-    "No tasks awaiting feedback"
-  );
-  renderTasksInCategory(doneTasks, "done", "No tasks done");
+  renderTasksInArea(toDos, "to-do", "No tasks to do");
+  renderTasksInArea(inProgressTasks, "in-progress", "No tasks in progress");
+  renderTasksInArea(awaitFeedbackTasks, "await-feedback", "No tasks awaiting feedback");
+  renderTasksInArea(doneTasks, "done", "No tasks done");
 }
 
 /**
- * Renders tasks in a specific category column.
+ * Renders tasks in a specific area column.
  *
- * @param {Array} categoryTasks - The array of tasks to be rendered in the specific category.
- * @param {string} categoryId - The ID of the target column where the tasks should be rendered.
- * @param {string} emptyMessage - The message to display when there are no tasks in this category.
+ * @param {Array} tasksInArea - The array of tasks to be rendered in the specific area.
+ * @param {string} areaId - The ID of the target column where the tasks should be rendered.
+ * @param {string} emptyMessage - The message to display when there are no tasks in this area.
  */
-function renderTasksInCategory(categoryTasks, categoryId, emptyMessage) {
-  let taskColumn = document.getElementById(categoryId);
+function renderTasksInArea(tasksInArea, areaId, emptyMessage) {
+  let taskColumn = document.getElementById(areaId);
   taskColumn.innerHTML = "";
-  if (!Array.isArray(categoryTasks) || categoryTasks.length === 0) {
+  if (!Array.isArray(tasksInArea) || tasksInArea.length === 0) {
     taskColumn.innerHTML = `
     <div class="empty-column"><span>${emptyMessage}</span></div>
     `;
   } else {
-    for (let i = 0; i < categoryTasks.length; i++) {
-      let task = categoryTasks[i];
+    for (let i = 0; i < tasksInArea.length; i++) {
+      let task = tasksInArea[i];
       let taskId = task.id;
       let categoryColor = getCategoryColor(task);
       let description = shortenDescription(task.description);
       let subtasksNumber = countSubtaskNumber(task.subtasks);
       let completedSubtasks = countCompletedSubtasks(task.subtasks);
-      let percentage = calculateCompletionPercentage(
-        completedSubtasks,
-        subtasksNumber
-      );
+      let percentage = calculateCompletionPercentage(completedSubtasks, subtasksNumber);
       taskColumn.innerHTML += createTaskHTML(
         task,
         taskId,
@@ -109,7 +102,7 @@ function renderTasksInCategory(categoryTasks, categoryId, emptyMessage) {
  * Updates the priority marker for a task.
  *
  * @param {string} priority - The priority of the task.
- * @param {number} index - The index of the task.
+ * @param {string} taskId - The ID of the task.
  */
 function updatePriority(priority, taskId) {
   let urgency = document.getElementById(`ts-priority${taskId}`);
@@ -121,7 +114,7 @@ function updatePriority(priority, taskId) {
  * Updates the avatars for a task.
  *
  * @param {Array} assigned - The list of assigned user IDs.
- * @param {number} index - The index of the task.
+ * @param {string} taskId - The ID of the task.
  */
 function updateAvatars(assigned, taskId) {
   let avatars = document.getElementById(`ts-avatars${taskId}`);
@@ -132,11 +125,9 @@ function updateAvatars(assigned, taskId) {
       let marginLeft = j > 0 ? "-9px" : "0px";
 
       avatars.innerHTML += `
-        <div class="ts-avatar" style="background-color: ${
-          user.color
-        }; z-index: ${j + 2}; margin-left: ${marginLeft};">${
-        user.initials
-      }</div>
+        <div class="ts-avatar" style="background-color: ${user.color
+        }; z-index: ${j + 2}; margin-left: ${marginLeft};">${user.initials
+        }</div>
       `;
     }
   }
@@ -276,7 +267,7 @@ function getEditedSubtasks() {
   return subtasks;
 }
 
-function updateProgress(subtask, task) {}
+function updateProgress(subtask, task) { }
 
 function addTaskBoard(status) {
   let overlay = createOverlay("add-task-board");
@@ -393,51 +384,99 @@ function moveByButton(event, newArea, clickedTask) {
   moveTo(newArea, "", false);
 }
 
+/**
+ * Starts dragging a task by highlighting drag areas.
+ *
+ * @param {Event} event - The drag event.
+ * @param {string} taskId - The ID of the task being dragged.
+ */
 function startDragging(event, taskId) {
-  event.target.classList.add("dragged");
   currentDraggedTask = taskId;
-  document.getElementById("to-do").classList.add("drag-area-highlight");
-  document.getElementById("in-progress").classList.add("drag-area-highlight");
-  document
-    .getElementById("await-feedback")
-    .classList.add("drag-area-highlight");
-  document.getElementById("done").classList.add("drag-area-highlight");
+  // let ghostElement = event.target.cloneNode(true);
+  // ghostElement.classList.add('drag-ghost');
+  // document.body.appendChild(ghostElement);
+  // event.dataTransfer.setDragImage(ghostElement, 0, 0);
+
+  highlightDragAreas();
 }
 
+/**
+ * Stops dragging by removing highlights from all drag areas.
+ */
 function stopDragging() {
-  document.getElementById("to-do").classList.remove("drag-area-highlight");
-  document
-    .getElementById("in-progress")
-    .classList.remove("drag-area-highlight");
-  document
-    .getElementById("await-feedback")
-    .classList.remove("drag-area-highlight");
-  document.getElementById("done").classList.remove("drag-area-highlight");
+  let areas = ["to-do", "in-progress", "await-feedback", "done"];
+  areas.forEach(areaId => {
+    let area = document.getElementById(areaId);
+    area.classList.remove("drag-area-highlight");
+  });
 }
 
-function highlightDragArea(id) {
-  document.getElementById(id).classList.add("drag-over-highlight");
+/**
+ * Highlights a drag area when an element is dragged over it.
+ *
+ * @param {string} areaId - The ID of the drag area to highlight.
+ */
+function highlightDragArea(areaId) {
+  let area = document.getElementById(areaId);
+  area.classList.add("drag-over-highlight");
 }
 
-function deleteHighlightDragArea(id) {
-  document.getElementById(id).classList.remove("drag-over-highlight");
+/**
+ * Removes the highlight from a drag area when an element is dragged out of it.
+ *
+ * @param {string} areaId - The ID of the drag area to remove the highlight from.
+ */
+function deleteHighlightDragArea(areaId) {
+  let area = document.getElementById(areaId);
+  area.classList.remove("drag-over-highlight");
 }
 
+/**
+ * Moves a task to a new area and updates the task's state in the database.
+ *
+ * @param {string} newArea - The new area to move the task to.
+ * @param {string} areaId - The ID of the area where the task is dropped.
+ * @param {boolean} [dragged=true] - Indicates if the drag was completed.
+ */
 async function moveTo(newArea, areaId, dragged = true) {
-  if (dragged)
-    document.getElementById(areaId).classList.remove("drag-over-highlight");
+  if (dragged) {
+    deleteHighlightDragArea(areaId);
+  }
+
   let task = getTaskById(currentDraggedTask);
-  task.taskState = newArea;
-  await putData("/tasks/", currentDraggedTask, task)
-    .then(() => {
-      console.log("Task moved successfully!");
-    })
-    .catch((error) => {
-      console.error("Error moving Task:", error);
-    });
-  updateTasks();
+  if (task) {
+    task.taskState = newArea;
+
+    await putData("/tasks/", currentDraggedTask, task)
+      .then(() => {
+        console.log("Task moved successfully!");
+      })
+      .catch((error) => {
+        console.error("Error moving task:", error);
+      });
+
+    updateTasks();
+  } else {
+    console.error("Task not found with ID:", currentDraggedTask);
+  }
 }
 
+/**
+ * Prevents the default handling of a dragover event to allow dropping.
+ *
+ * @param {Event} event - The dragover event.
+ */
 function allowDrop(event) {
   event.preventDefault();
+}
+
+/**
+ * Highlights all drag areas.
+ */
+function highlightDragAreas() {
+  let areas = ["to-do", "in-progress", "await-feedback", "done"];
+  areas.forEach(areaId => {
+    let area = document.getElementById(areaId);
+    area.classList.add("drag-area-highlight");
+  });
 }
