@@ -333,8 +333,8 @@ function renderContactDropdown(user) {
 
 function addSubtaskHTML(subtaskValue, index) {
   return `
-                <li id="subtask-${index}">
-                  <input type="text" class="subtask-input subtask-value" value="${subtaskValue}" disabled />
+                <li id="subtask-${index}" class="subtask-list-element">
+                  <input id="subtask-${index}-input" type="text" class="subtask-input subtask-value" value="${subtaskValue}" disabled />
                   <div class="subtask-icons initial-icons">
                     <div class="edit-svg" onclick="editSubtask(${index})"></div>
                     <hr>
