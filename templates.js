@@ -525,7 +525,7 @@ function createTaskHTML(
   subtasksNumber
 ) {
   return `
-    <div class="task-small-main" onclick="showTaskDetails('${
+    <div class="task-small-main" id="task-small${task.id}" onclick="showTaskDetails('${
       task.id
     }')" draggable="true" ondragstart="startDragging(event, '${
     task.id
