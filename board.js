@@ -209,6 +209,7 @@ function editTask(id) {
   let overlay = createOverlay("edit-task-overlay");
   overlay.innerHTML = getEditTaskContentHtml(task);
   insertContactsToInput();
+  // apply active contacts
   showEditSubtasks(task.subtasks, task.id);
 }
 
