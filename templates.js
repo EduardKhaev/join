@@ -333,8 +333,8 @@ function renderContactDropdown(user) {
 
 function addSubtaskHTML(subtaskValue, index) {
   return `
-                <li id="subtask-${index}">
-                  <input type="text" class="subtask-input subtask-value" value="${subtaskValue}" disabled />
+                <li id="subtask-${index}" class="subtask-list-element">
+                  <input id="subtask-${index}-input" type="text" class="subtask-input subtask-value" value="${subtaskValue}" disabled />
                   <div class="subtask-icons initial-icons">
                     <div class="edit-svg" onclick="editSubtask(${index})"></div>
                     <hr>
@@ -527,7 +527,7 @@ function createTaskHTML(
   return `
     <div class="task-small-main" onclick="showTaskDetails('${
       task.id
-    }')" draggable="true" ondragstart="startDragging('${
+    }')" draggable="true" ondragstart="startDragging(event, '${
     task.id
   }')" ondragend="stopDragging()" id="${task.id}">
         <div class="ts-content"><div class="move-icon-container">
@@ -929,11 +929,7 @@ function getEditTaskContentHtml(task) {
                         </svg>
                     </div>
                 </div>
-                <ul class="addedsubtasks" id="addedsubtasks">${task.subtask}</ul>
-                <ul class="addedsubtasks" id="addedsubtasks">${
-                  task.subtasks
-                }</ul>
-
+                <ul class="addedsubtasks" id="addedsubtasks"></ul>
             </form>
         </div>
         <div class="footer">

@@ -209,6 +209,7 @@ function editTask(id) {
   let overlay = createOverlay("edit-task-overlay");
   overlay.innerHTML = getEditTaskContentHtml(task);
   insertContactsToInput();
+  showEditSubtasks(task.subtasks, task.id);
 }
 
 async function saveEditedTask(event, taskId, taskState) {
@@ -222,6 +223,7 @@ async function saveEditedTask(event, taskId, taskState) {
     date: getAddTaskInput("due-date"),
     category: task.category,
     priority: urgencyForSave,
+    subtasks: getEditedSubtasks(),
     taskState: taskState,
   };
   await putData("/tasks/", taskId, newTask);
@@ -244,20 +246,35 @@ function closeEditTask(overlay = "edit-task-overlay") {
 async function deleteTask(taskId) {
   await deleteData("/tasks/", taskId);
   tasks = [];
-  closeTaskDetails(overlay = "task-details-overlay");
-  initBoard();
+  closeTaskDetails((overlay = "task-details-overlay"));
+  updateTasks();
 }
 
 function showEditSubtasks(subtasks, taskId) {
   let subtaskContent = document.getElementById("addedsubtasks");
-  if (subtasks === false || subtasks === undefined) {
-    document.getElementById("tl-subtasks").remove();
-  } else {
+  if (subtasks) {
     for (let i = 0; i < subtasks.length; i++) {
       let subtask = subtasks[i];
-      subtaskContent.innerHTML += getSubtaskContentHtml(subtask, i, taskId);
+      subtaskContent.innerHTML += addSubtaskHTML(subtask.name, i);
+      document.getElementById(`subtask-${i}`).value = subtask.done;
+      console.log(Boolean(document.getElementById(`subtask-${i}`).value));
+    }
   }
-}}
+}
+
+function getEditedSubtasks() {
+  let nodelist = document.getElementsByClassName("subtask-list-element");
+  let tasknames = document.getElementsByClassName("subtask-value");
+  let taskstates = document.getElementsByClassName("subtask-list-element");
+  let subtasks = [];
+  for (let i = 0; i < nodelist.length; i++) {
+    let subtaskName = tasknames[i].value;
+    let subtaskDone = taskstates[i].value;
+    let subtask = { name: subtaskName, done: Boolean(subtaskDone) };
+    subtasks.push(subtask);
+  }
+  return subtasks;
+}
 
 function updateProgress(subtask, task) {}
 
@@ -265,7 +282,7 @@ function addTaskBoard(status) {
   let overlay = createOverlay("add-task-board");
   overlay.innerHTML = addTaskBoardHTML(status);
   insertContactsToInput();
-} //Eduard
+}
 
 /**
  * Formats a date string from "YYYY-MM-DD" format to "MM/DD/YYYY" format.
@@ -376,7 +393,8 @@ function moveByButton(event, newArea, clickedTask) {
   moveTo(newArea);
 }
 
-function startDragging(taskId) {
+function startDragging(event, taskId) {
+  event.target.classList.add("dragged");
   currentDraggedTask = taskId;
   document.getElementById("to-do").classList.add("drag-area-highlight");
   document.getElementById("in-progress").classList.add("drag-area-highlight");
