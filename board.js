@@ -134,7 +134,7 @@ function updateAvatars(assigned, taskId) {
 
 /**
  * displays the details of a task
- * @param {*} id - the unique identifier of the task to be displayed
+ * @param {id} id - the unique identifier of the task to be displayed
  */
 function showTaskDetails(id) {
   let task = getTaskById(id);
@@ -169,7 +169,7 @@ function closeTaskDetails(
 
 /**
  * displays the details of the users assigned to a task
- * @param {*} assigned  - an array of user IDs assigned to the task
+ * @param {Array} assigned  - an array of user IDs assigned to the task
  */
 function showDetailsAssigned(assigned) {
   let assignments = document.getElementById("tl-persons");
@@ -187,8 +187,8 @@ function showDetailsAssigned(assigned) {
 
 /**
  * displays the details of the subtasks associated with a task
- * @param {*} subtasks - an array of subtasks related to the main task or false/undefined if there are none
- * @param {*} taskId - the unique identifier of the task to which the subtasks belong
+ * @param {array} subtasks - an array of subtasks related to the main task or false/undefined if there are none
+ * @param {string|number} taskId - the unique identifier of the task to which the subtasks belong
  */
 function showDetailsSubtask(subtasks, taskId) {
   let subtaskContent = document.getElementById("tl-sub-checks");
@@ -207,8 +207,8 @@ function showDetailsSubtask(subtasks, taskId) {
 
 /**
  * updates the completion status of a subtask based on user interaction
- * @param {*} index - the index of the subtask within the subtasks array
- * @param {*} taskId - the unique identifier of the task to which the subtask belongs
+ * @param {number} index - the index of the subtask within the subtasks array
+ * @param {string|number} taskId - the unique identifier of the task to which the subtask belongs
  */
 async function updateSubtaskFromDetails(index, taskId) {
   let checked = document.getElementById(`checkbox${index}`).checked;
@@ -216,14 +216,12 @@ async function updateSubtaskFromDetails(index, taskId) {
   if (task) {
     task.subtasks[index].done = checked;
     await putData("/tasks/", taskId, task);
-  } else {
-    console.error("Task not found with ID:", taskId);
   }
 }
 
 /**
  *  return a task from the tasks array based on its unique identifier
- * @param {*} id - the unique identifier of the task to be returned
+ * @param {string|number} id - the unique identifier of the task to be returned
  * @returns
  */
 function getTaskById(id) {
@@ -234,7 +232,7 @@ function getTaskById(id) {
 
 /**
  *  opens an overlay for editing the details of a task
- * @param {*} id - the unique identifier of the task to be edited
+ * @param {string|number} id - the unique identifier of the task to be edited
  */
 function editTask(id) {
   let task = getTaskById(id);
@@ -248,9 +246,9 @@ function editTask(id) {
 
 /**
  * saves the edited details of a task and updates the task data
- * @param {*} event - the event object associated with the form submission
- * @param {*} taskId - the unique identifier of the task being edited
- * @param {*} taskState - the current state of the task to be preserved during the update
+ * @param {event} event - the event object associated with the form submission
+ * @param {string|number} taskId - the unique identifier of the task being edited
+ * @param {object} taskState - the current state of the task to be preserved during the update
  */
 async function saveEditedTask(event, taskId, taskState) {
   let urgencyForSave = selectedUrgency;
@@ -283,7 +281,7 @@ function updateTasks() {
 
 /**
  * closes the edit task overlay and removes it from the DOM
- * @param {*} overlay - the ID of the overlay to be closed
+ * @param {string} overlay - the ID of the overlay to be closed
  */
 function closeEditTask() {
   let editedTaskDetails = document.getElementById("task-large-edit");
@@ -300,7 +298,7 @@ function closeEditTask() {
 
 /**
  * deletes a task from the database
- * @param {*} taskId - the unique identifier of the task to be deleted
+ * @param {string|number} taskId - the unique identifier of the task to be deleted
  */
 async function deleteTask(taskId) {
   await deleteData("/tasks/", taskId);
@@ -311,8 +309,8 @@ async function deleteTask(taskId) {
 
 /**
  * displays the subtasks associated with a specific task for editing
- * @param {*} subtasks - an array of subtasks
- * @param {*} taskId - the unique identifier of the task to which the subtasks belong
+ * @param {array} subtasks - an array of subtasks
+ * @param {string|number} taskId - the unique identifier of the task to which the subtasks belong
  */
 function showEditSubtasks(subtasks, taskId) {
   let subtaskContent = document.getElementById("addedsubtasks");
@@ -321,7 +319,6 @@ function showEditSubtasks(subtasks, taskId) {
       let subtask = subtasks[i];
       subtaskContent.innerHTML += addSubtaskHTML(subtask.name, i);
       document.getElementById(`subtask-${i}`).value = subtask.done;
-      console.log(Boolean(document.getElementById(`subtask-${i}`).value));
     }
   }
 }
@@ -346,7 +343,7 @@ function getEditedSubtasks() {
 
 /**
  * initializes and displays an overlay for adding a new task
- * @param {*} status - the status of the new task being added
+ * @param {string} status - the status of the new task being added
  */
 function addTaskBoard(status) {
   let overlay = createOverlay("add-task-board");

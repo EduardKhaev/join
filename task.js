@@ -58,6 +58,10 @@ function clearSubtask(event) {
   subtaskField.value = "";
 }
 
+/**
+ * saves a task by sending it to the server and then redirects to the task board
+ * @param {Object} task - the task object to be saved, containing details like title, description, etc.
+ */
 async function saveTask(task) {
   await postData("/tasks", task);
   showChangeSuccess("Task saved");
@@ -108,6 +112,10 @@ function getCategoryFromDropdown() {
   else return false;
 }
 
+/**
+ * retrieves inputs for subtasks from the DOM and returns them as an array of objects
+ * @returns 
+ */
 function getSubtaskInputs() {
   let subtaskInputs = document.getElementsByClassName("subtask-value");
   let subtasks = [];
@@ -125,7 +133,6 @@ function getSubtaskInputs() {
  * @param {event} event - triggered event from a button click
  */
 let subtaskIndex = 0;
-
 function addSubtask(event) {
   event.preventDefault();
   let subtaskField = document.getElementById("subtasks");
@@ -181,8 +188,6 @@ function saveSubtask(index) {
   addDeleteIcons.style.display = "none";
   input.disabled = true;
 }
-
-function searchContacts(searchterm) {}
 
 /**
  * adding contacts to select element in input form
