@@ -65,16 +65,18 @@
     font-weight: bold;
     display: flex;
     align-items: center;
-    overflow-wrap: break-word;
     hyphens: auto;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .ts-description {
     color: #a8a8a8;
     font-weight: 400;
     font-size: 16px;
-    overflow-wrap: break-word;
     hyphens: auto;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .ts-footer {

@@ -361,7 +361,7 @@ function getTaskLargeContentHtml(task, date, priorityMarker, categoryColor) {
           </div>
         </div>
         <div class="tl-scroll">
-          <div class="tl-title">${task.title}</div>
+          <div class="tl-title hyphens" lang="en">${task.title}</div>
           <div class="tl-description">
             ${task.description}
           </div>
