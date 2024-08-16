@@ -53,6 +53,9 @@
     margin-left: 0;
     font-size: 51px;
   }
+  .at-footer-maincontainer{
+    margin-bottom: 20px;
+  }
 }
 @media (max-width: 750px) {
   .displaynone {
@@ -64,6 +67,9 @@
   .addtask-overlaycontainer {
     width: 100%;
     border-radius: 0;
+  }
+  .at-footer-maincontainer{
+    margin-bottom: 0px;
   }
   .at-footer-maincontainer {
     display: flex;
