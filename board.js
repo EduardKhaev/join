@@ -264,10 +264,16 @@ function editTask(id) {
   let overlay = createOverlay("edit-task-overlay");
   overlay.innerHTML = getEditTaskContentHtml(task);
   insertContactsToInput();
-  // apply active contacts
+  applySelectedContacts(task);
   showEditSubtasks(task.subtasks, task.id);
   let oldOverlay = document.getElementById("task-details-overlay");
   oldOverlay.remove();
+}
+
+function applySelectedContacts(task) {
+  for (let i = 0; i < task.assigned.length; i++) {
+    markContactAssigned(task.assigned[i]);
+  }
 }
 
 /**
