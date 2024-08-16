@@ -23,25 +23,27 @@
 }
 
 .form-container {
-  padding: 18px 18px 0;
+  padding: 18px;
   flex-grow: 1;
   overflow-y: auto;
 }
 
-.header,
-.footer,
-.tl-close-btn {
+.header {
   background-color: white;
   z-index: 10;
   padding: 18px;
+  height: 36px;
 }
 
 .footer {
   position: sticky;
   bottom: 0;
   right: 0;
+  background-color: white;
+  padding: 10px;
   display: flex;
   justify-content: flex-end;
+  z-index: 10;
 }
 
 .outer {
@@ -59,7 +61,7 @@
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
   border: none;
   border-radius: 10px;
-  padding: 16px 10px;
+  padding: 16px 10px 16px 10px;
   flex: 1;
   font-family: "Inter";
   font-size: 20px;
@@ -79,45 +81,66 @@
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.5);
 }
 
-.urgent-button,
-.medium-button,
-.low-button {
+.urgent-button {
   background-color: white;
 }
 
-.urgent-active,
-.medium-active,
-.low-active {
+.urgent-active {
+  background-color: #ff3d00;
   color: white;
   font-size: 21px;
   font-weight: 700;
 }
 
-.urgent-active {
-  background-color: #ff3d00;
+.urgent-active svg path {
+  fill: white;
+}
+
+.urgent-active:hover {
+  box-shadow: none;
+}
+
+.medium-button {
+  background-color: white;
 }
 
 .medium-active {
   background-color: rgba(255, 168, 0, 1);
+  color: white;
+  font-size: 21px;
+  font-weight: 700;
+}
+
+.medium-active svg path {
+  fill: white;
+}
+
+.medium-active:hover {
+  box-shadow: none;
+}
+
+.low-button {
+  background-color: white;
 }
 
 .low-active {
   background-color: rgba(122, 226, 41, 1);
+  color: white;
+  font-size: 21px;
+  font-weight: 700;
 }
 
-.urgent-active svg path,
-.medium-active svg path,
 .low-active svg path {
   fill: white;
 }
 
-.urgent-active:hover,
-.medium-active:hover,
 .low-active:hover {
   box-shadow: none;
 }
 
-/* input fields */
+/* urgency selector buttons end */
+
+/* inputfields */
 
 label {
   margin-bottom: 8px;
@@ -128,8 +151,7 @@ label {
   margin-top: 16px;
 }
 
-.inputfield-basic-design,
-.subtask-field {
+.inputfield-basic-design {
   border-radius: 10px;
   border: 1px solid #d1d1d1;
   background-color: white;
@@ -137,15 +159,38 @@ label {
   width: 100%;
   box-sizing: border-box;
   margin-bottom: 16px;
-  display: flex;
-  align-items: center;
 }
 
-.inputfield-basic-design:focus,
-.subtask-field:focus-within {
+.inputfield-basic-design:focus {
   border: solid 1px;
   border-color: #29abe2;
   outline: none;
+}
+
+details:focus {
+  border: solid 1px;
+  border-color: #29abe2;
+  outline: none;
+}
+
+::placeholder {
+  font-family: "Inter", sans-serif;
+  color: #d1d1d1;
+}
+
+.subtask-field {
+  border-radius: 10px;
+  border: 1px solid #d1d1d1;
+  background-color: white;
+  padding: 0;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  padding-right: 8px;
+  display: flex;
+  align-items: center;
 }
 
 .subtask-field svg {
@@ -155,9 +200,29 @@ label {
   cursor: pointer;
 }
 
-::placeholder {
-  font-family: "Inter", sans-serif;
-  color: #d1d1d1;
+.subtask-field div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.subtask-field div:hover {
+  border-radius: 100px;
+  border: none;
+  background-color: #f0f0f0;
+}
+
+.subtask-field hr {
+  height: 24px;
+  width: 1px;
+  background-color: #d1d1d1;
+  border: none;
+}
+
+.subtask-field:focus-within {
+  border: solid 1px;
+  border-color: #29abe2;
+  outline: none;
 }
 
 .subtasks-input {
@@ -174,7 +239,10 @@ label {
   border-radius: 10px;
 }
 
-.subtasks-input:is(:placeholder-shown) ~ div,
+.subtasks-input:is(:placeholder-shown) ~ div {
+  display: none;
+}
+
 .subtasks-input:is(:placeholder-shown) ~ hr {
   display: none;
 }
@@ -210,12 +278,12 @@ summary::-webkit-details-marker {
   display: none;
 }
 
-.summary-text {
+summary .summary-text {
   display: inline;
   transition: opacity 0.2s ease;
 }
 
-details[open] .summary-text {
+details[open] summary .summary-text {
   opacity: 0;
 }
 
@@ -309,6 +377,19 @@ details ul li:hover {
   border-radius: 100%;
   width: 36px;
   height: 36px;
+  margin-left: 0px;
+}
+
+.cl-avatar-space {
+  margin-right: 10px;
+  margin-left: 0;
+}
+
+.assigned-person {
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-between;
+  margin-left: 10px;
 }
 
 .custom-checkbox {
@@ -330,7 +411,11 @@ details ul li:hover {
   transition: all 0.3s ease;
 }
 
-.custom-checkbox:checked + .custom-checkbox-label .checkbox-icon svg .unchecked {
+.custom-checkbox:checked
+  + .custom-checkbox-label
+  .checkbox-icon
+  svg
+  .unchecked {
   display: none;
 }
 
@@ -349,6 +434,7 @@ details ul li:hover {
 }
 
 /* category item */
+
 .dropdown-item {
   display: flex;
   align-items: center;
@@ -361,6 +447,7 @@ details ul li:hover {
 }
 
 /* subtasks */
+
 .addedsubtasks {
   margin: 0;
   list-style-type: disc;
@@ -397,7 +484,6 @@ details ul li:hover {
   gap: 10px;
   display: flex;
   margin-right: 15px;
-  position: relative;
 }
 
 .subtask-icons svg {
@@ -425,8 +511,14 @@ details ul li:hover {
   background: none;
   font: inherit;
   color: inherit;
-  padding: 10px;
-  box-sizing: border-box;
+}
+
+/*  */
+.subtask-icons {
+  display: none;
+  gap: 10px;
+  align-items: center;
+  position: relative;
 }
 
 li:focus-within {
@@ -481,6 +573,15 @@ li:hover .initial-icons .delete-svg {
   background-image: url("./icons/delete.svg");
 }
 
+.subtask-input {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: none;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
 .tl-close-btn {
   position: sticky;
   top: 0;
@@ -500,7 +601,7 @@ li:hover .initial-icons .delete-svg {
   right: 0;
   cursor: pointer;
   z-index: 10;
-  margin: 0px;
+  margin: 20px;
 }
 
 button {
@@ -519,7 +620,7 @@ button {
   align-items: center;
   justify-content: center;
   gap: 5px;
-  padding: 12px 16px;
+  padding: 12px 16px 12px 16px;
   border: 1px;
   border-radius: 10px;
   width: 60px;
@@ -541,6 +642,7 @@ button {
 }
 
 /* scrollbar */
+
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -556,16 +658,4 @@ button {
 
 ::-webkit-scrollbar-thumb:hover {
   background: #7e7e7e;
-}
-
-@media (max-width: 525px) {
-  .task-large-edit {
-    max-width: calc(100% - 20px) !important;
-  }
-}
-
-@media (max-width: 407px) {
-  .addedsubtasks {
-    padding-inline-start: 0px;
-  }
 }
