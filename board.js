@@ -364,6 +364,7 @@ function getEditedSubtasks() {
  * initializes and displays an overlay for adding a new task
  * @param {string} status - the status of the new task being added
  */
+
 function addTaskBoard(status) {
   let overlay = createOverlay("add-task-board");
   overlay.innerHTML = addTaskBoardHTML(status);
