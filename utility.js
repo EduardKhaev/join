@@ -84,6 +84,10 @@ function hslToHex(h, s, l) {
   return `#${f(0)}${f(8)}${f(4)}`;
 }
 
+/**
+ * returns today's date in the format YYY-MM-DD
+ * @returns 
+ */
 function getTodaysDate() {
   let date = new Date();
   let year = date.getFullYear().toString();
@@ -95,6 +99,12 @@ function getTodaysDate() {
   return yyyymmdd;
 }
 
+/**
+ * compares two objects by their date property for sorting purposes
+ * @param {Object} a 
+ * @param {Object} b 
+ * @returns 
+ */
 function sortByDate(a, b) {
   if (a.date < b.date) {
     return -1;

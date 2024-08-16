@@ -157,7 +157,7 @@ function updateAvatars(assigned, taskId) {
 
 /**
  * displays the details of a task
- * @param {*} id - the unique identifier of the task to be displayed
+ * @param {id} id - the unique identifier of the task to be displayed
  */
 function showTaskDetails(id) {
   let task = getTaskById(id);
@@ -192,7 +192,7 @@ function closeTaskDetails(
 
 /**
  * displays the details of the users assigned to a task
- * @param {*} assigned  - an array of user IDs assigned to the task
+ * @param {Array} assigned  - an array of user IDs assigned to the task
  */
 function showDetailsAssigned(assigned) {
   let assignments = document.getElementById("tl-persons");
@@ -210,8 +210,8 @@ function showDetailsAssigned(assigned) {
 
 /**
  * displays the details of the subtasks associated with a task
- * @param {*} subtasks - an array of subtasks related to the main task or false/undefined if there are none
- * @param {*} taskId - the unique identifier of the task to which the subtasks belong
+ * @param {array} subtasks - an array of subtasks related to the main task or false/undefined if there are none
+ * @param {string|number} taskId - the unique identifier of the task to which the subtasks belong
  */
 function showDetailsSubtask(subtasks, taskId) {
   let subtaskContent = document.getElementById("tl-sub-checks");
@@ -230,8 +230,8 @@ function showDetailsSubtask(subtasks, taskId) {
 
 /**
  * updates the completion status of a subtask based on user interaction
- * @param {*} index - the index of the subtask within the subtasks array
- * @param {*} taskId - the unique identifier of the task to which the subtask belongs
+ * @param {number} index - the index of the subtask within the subtasks array
+ * @param {string|number} taskId - the unique identifier of the task to which the subtask belongs
  */
 async function updateSubtaskFromDetails(index, taskId) {
   let checked = document.getElementById(`checkbox${index}`).checked;
@@ -246,7 +246,7 @@ async function updateSubtaskFromDetails(index, taskId) {
 
 /**
  *  return a task from the tasks array based on its unique identifier
- * @param {*} id - the unique identifier of the task to be returned
+ * @param {string|number} id - the unique identifier of the task to be returned
  * @returns
  */
 function getTaskById(id) {
@@ -257,7 +257,7 @@ function getTaskById(id) {
 
 /**
  *  opens an overlay for editing the details of a task
- * @param {*} id - the unique identifier of the task to be edited
+ * @param {string|number} id - the unique identifier of the task to be edited
  */
 function editTask(id) {
   let task = getTaskById(id);
@@ -271,9 +271,9 @@ function editTask(id) {
 
 /**
  * saves the edited details of a task and updates the task data
- * @param {*} event - the event object associated with the form submission
- * @param {*} taskId - the unique identifier of the task being edited
- * @param {*} taskState - the current state of the task to be preserved during the update
+ * @param {event} event - the event object associated with the form submission
+ * @param {string|number} taskId - the unique identifier of the task being edited
+ * @param {object} taskState - the current state of the task to be preserved during the update
  */
 async function saveEditedTask(event, taskId, taskState) {
   let urgencyForSave = selectedUrgency;
@@ -306,7 +306,7 @@ function updateTasks() {
 
 /**
  * closes the edit task overlay and removes it from the DOM
- * @param {*} overlay - the ID of the overlay to be closed
+ * @param {string} overlay - the ID of the overlay to be closed
  */
 function closeEditTask() {
   let editedTaskDetails = document.getElementById("task-large-edit");
@@ -323,7 +323,7 @@ function closeEditTask() {
 
 /**
  * deletes a task from the database
- * @param {*} taskId - the unique identifier of the task to be deleted
+ * @param {string|number} taskId - the unique identifier of the task to be deleted
  */
 async function deleteTask(taskId) {
   await deleteData("/tasks/", taskId);
@@ -334,8 +334,8 @@ async function deleteTask(taskId) {
 
 /**
  * displays the subtasks associated with a specific task for editing
- * @param {*} subtasks - an array of subtasks
- * @param {*} taskId - the unique identifier of the task to which the subtasks belong
+ * @param {array} subtasks - an array of subtasks
+ * @param {string|number} taskId - the unique identifier of the task to which the subtasks belong
  */
 function showEditSubtasks(subtasks, taskId) {
   let subtaskContent = document.getElementById("addedsubtasks");
@@ -369,7 +369,7 @@ function getEditedSubtasks() {
 
 /**
  * initializes and displays an overlay for adding a new task
- * @param {*} status - the status of the new task being added
+ * @param {string} status - the status of the new task being added
  */
 function addTaskBoard(status) {
   let overlay = createOverlay("add-task-board");
@@ -471,8 +471,8 @@ function calculateCompletionPercentage(completedSubtasks, subtasksNumber) {
 
 /**
  *  Toggles the visibility of the drag menu for a specific task.
- * @param {*} event - the event object that triggered the menu toggle
- * @param {*} clickedTask - the unique identifier of the task for which the
+ * @param {event} event - the event object that triggered the menu toggle
+ * @param {string|number} clickedTask - the unique identifier of the task for which the
  *                          drag menu is being displayed or hidden
  */
 function toggleDragMenue(event, clickedTask) {
@@ -487,9 +487,9 @@ function toggleDragMenue(event, clickedTask) {
 
 /**
  *  moves a task to a new area when triggered by a button click
- * @param {*} event - the event object that triggered the movement action
- * @param {*} newArea - the target area to which the task will be moved
- * @param {*} clickedTask - the unique identifier of the task being moved
+ * @param {event} event - the event object that triggered the movement action
+ * @param {string} newArea - the target area to which the task will be moved
+ * @param {string|number} clickedTask - the unique identifier of the task being moved
  */
 function moveByButton(event, newArea, clickedTask) {
   event.stopPropagation();
@@ -506,8 +506,8 @@ function moveByButton(event, newArea, clickedTask) {
  */
 /**
  * initiates the dragging process for a specified task
- * @param {*} event - the event object that represents the drag start action
- * @param {*} taskId - the unique identifier of the task being dragged
+ * @param {event} event - the event object that represents the drag start action
+ * @param {string} taskId - the unique identifier of the task being dragged
  */
 function startDragging(event, taskId) {
   currentDraggedTask = taskId;
