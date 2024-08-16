@@ -162,9 +162,10 @@ function updateAvatars(assigned, taskId) {
 function showTaskDetails(id) {
   let task = getTaskById(id);
   let date = formatDate(task.date);
+  let categoryColor = getCategoryColor(task);
   let priorityMarker = getPriorityMarker(task.priority);
   let overlay = createOverlay("task-details-overlay");
-  overlay.innerHTML = getTaskLargeContentHtml(task, date, priorityMarker);
+  overlay.innerHTML = getTaskLargeContentHtml(task, date, priorityMarker, categoryColor);
   showDetailsAssigned(task.assigned);
   showDetailsSubtask(task.subtasks, task.id);
   let taskDetails = document.getElementById("task-large");
@@ -570,21 +571,9 @@ async function moveTo(newArea, areaId, dragged = true) {
   }
 
   let task = getTaskById(currentDraggedTask);
-  if (task) {
     task.taskState = newArea;
-
-    await putData("/tasks/", currentDraggedTask, task)
-      .then(() => {
-        console.log("Task moved successfully!");
-      })
-      .catch((error) => {
-        console.error("Error moving task:", error);
-      });
-
+    await putData("/tasks/", currentDraggedTask, task);
     updateTasks();
-  } else {
-    console.error("Task not found with ID:", currentDraggedTask);
-  }
 }
 
 /**
