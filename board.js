@@ -69,11 +69,7 @@ function renderTasks() {
 
   renderTasksInArea(toDos, "to-do", "No tasks to do");
   renderTasksInArea(inProgressTasks, "in-progress", "No tasks in progress");
-  renderTasksInArea(
-    awaitFeedbackTasks,
-    "await-feedback",
-    "No tasks awaiting feedback"
-  );
+  renderTasksInArea(awaitFeedbackTasks, "await-feedback", "No tasks awaiting feedback");
   renderTasksInArea(doneTasks, "done", "No tasks done");
 }
 
@@ -99,10 +95,7 @@ function renderTasksInArea(tasksInArea, areaId, emptyMessage) {
       let description = shortenDescription(task.description);
       let subtasksNumber = countSubtaskNumber(task.subtasks);
       let completedSubtasks = countCompletedSubtasks(task.subtasks);
-      let percentage = calculateCompletionPercentage(
-        completedSubtasks,
-        subtasksNumber
-      );
+      let percentage = calculateCompletionPercentage(completedSubtasks, subtasksNumber);
       taskColumn.innerHTML += createTaskHTML(
         task,
         taskId,
@@ -145,11 +138,9 @@ function updateAvatars(assigned, taskId) {
       let marginLeft = j > 0 ? "-9px" : "0px";
 
       avatars.innerHTML += `
-        <div class="ts-avatar" style="background-color: ${
-          user.color
-        }; z-index: ${j + 2}; margin-left: ${marginLeft};">${
-        user.initials
-      }</div>
+        <div class="ts-avatar" style="background-color: ${user.color
+        }; z-index: ${j + 2}; margin-left: ${marginLeft};">${user.initials
+        }</div>
       `;
     }
   }
@@ -162,15 +153,9 @@ function updateAvatars(assigned, taskId) {
 function showTaskDetails(id) {
   let task = getTaskById(id);
   let date = formatDate(task.date);
-  let categoryColor = getCategoryColor(task);
   let priorityMarker = getPriorityMarker(task.priority);
   let overlay = createOverlay("task-details-overlay");
-  overlay.innerHTML = getTaskLargeContentHtml(
-    task,
-    date,
-    priorityMarker,
-    categoryColor
-  );
+  overlay.innerHTML = getTaskLargeContentHtml(task, date, priorityMarker);
   showDetailsAssigned(task.assigned);
   showDetailsSubtask(task.subtasks, task.id);
   let taskDetails = document.getElementById("task-large");
@@ -178,22 +163,19 @@ function showTaskDetails(id) {
 }
 
 /**
- * closes the task details overlay
+ * closes the task details overlay 
  */
-function closeTaskDetails(
-  overlayId = "task-details-overlay",
-  containerId = "task-large"
-) {
-  let taskDetails = document.getElementById(containerId);
-  taskDetails.classList.add("addtask-overlaycontainer-out");
+function closeTaskDetails() {
+  let taskDetails = document.getElementById("task-large");
+  taskDetails.classList.add("slide-out");
   setTimeout(() => {
-    let overlay = document.getElementById(overlayId);
+    let overlay = document.getElementById("task-details-overlay");
     if (overlay) {
       overlay.remove();
     }
     updateTasks();
     taskDetails.classList.remove("slide-out");
-  }, 280);
+  }, 180);
 }
 
 /**
@@ -253,7 +235,7 @@ async function updateSubtaskFromDetails(index, taskId) {
 /**
  *  return a task from the tasks array based on its unique identifier
  * @param {*} id - the unique identifier of the task to be returned
- * @returns
+ * @returns 
  */
 function getTaskById(id) {
   let index = tasks.findIndex((task) => task["id"] == id);
@@ -269,19 +251,12 @@ function editTask(id) {
   let task = getTaskById(id);
   let overlay = createOverlay("edit-task-overlay");
   overlay.innerHTML = getEditTaskContentHtml(task);
-  updateDate();
   insertContactsToInput();
-  applySelectedContacts(task);
   showEditSubtasks(task.subtasks, task.id);
   let oldOverlay = document.getElementById("task-details-overlay");
   oldOverlay.remove();
 }
 
-function applySelectedContacts(task) {
-  for (let i = 0; i < task.assigned.length; i++) {
-    markContactAssigned(task.assigned[i]);
-  }
-}
 
 /**
  * saves the edited details of a task and updates the task data
@@ -320,7 +295,7 @@ function updateTasks() {
 
 /**
  * closes the edit task overlay and removes it from the DOM
- * @param {*} overlay - the ID of the overlay to be closed
+ * @param {*} overlay - the ID of the overlay to be closed 
  */
 function closeEditTask() {
   let editedTaskDetails = document.getElementById("task-large-edit");
@@ -381,6 +356,9 @@ function getEditedSubtasks() {
   return subtasks;
 }
 
+function updateProgress(subtask, task) { }
+function updateProgress(subtask, task) { }
+
 /**
  * initializes and displays an overlay for adding a new task
  * @param {*} status - the status of the new task being added
@@ -389,7 +367,6 @@ function addTaskBoard(status) {
   let overlay = createOverlay("add-task-board");
   overlay.innerHTML = addTaskBoardHTML(status);
   insertContactsToInput();
-  updateDate();
 }
 
 /**
@@ -487,7 +464,7 @@ function calculateCompletionPercentage(completedSubtasks, subtasksNumber) {
 /**
  *  Toggles the visibility of the drag menu for a specific task.
  * @param {*} event - the event object that triggered the menu toggle
- * @param {*} clickedTask - the unique identifier of the task for which the
+ * @param {*} clickedTask - the unique identifier of the task for which the 
  *                          drag menu is being displayed or hidden
  */
 function toggleDragMenue(event, clickedTask) {
@@ -526,7 +503,10 @@ function moveByButton(event, newArea, clickedTask) {
  */
 function startDragging(event, taskId) {
   currentDraggedTask = taskId;
-  event.target.style = "backgound-color: red";
+  // let ghostElement = event.target.cloneNode(true);
+  // ghostElement.classList.add('drag-ghost');
+  // document.body.appendChild(ghostElement);
+  // event.dataTransfer.setDragImage(ghostElement, 0, 0);
 
   highlightDragAreas();
 }
@@ -536,7 +516,7 @@ function startDragging(event, taskId) {
  */
 function stopDragging() {
   let areas = ["to-do", "in-progress", "await-feedback", "done"];
-  areas.forEach((areaId) => {
+  areas.forEach(areaId => {
     let area = document.getElementById(areaId);
     area.classList.remove("drag-area-highlight");
   });
@@ -573,10 +553,23 @@ async function moveTo(newArea, areaId, dragged = true) {
   if (dragged) {
     deleteHighlightDragArea(areaId);
   }
+
   let task = getTaskById(currentDraggedTask);
-  task.taskState = newArea;
-  await putData("/tasks/", currentDraggedTask, task);
-  updateTasks();
+  if (task) {
+    task.taskState = newArea;
+
+    await putData("/tasks/", currentDraggedTask, task)
+      .then(() => {
+        console.log("Task moved successfully!");
+      })
+      .catch((error) => {
+        console.error("Error moving task:", error);
+      });
+
+    updateTasks();
+  } else {
+    console.error("Task not found with ID:", currentDraggedTask);
+  }
 }
 
 /**
@@ -593,7 +586,7 @@ function allowDrop(event) {
  */
 function highlightDragAreas() {
   let areas = ["to-do", "in-progress", "await-feedback", "done"];
-  areas.forEach((areaId) => {
+  areas.forEach(areaId => {
     let area = document.getElementById(areaId);
     area.classList.add("drag-area-highlight");
   });
