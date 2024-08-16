@@ -630,10 +630,10 @@ function addTaskBoardHTML(status = "to do") {
         <div class="addtask-overlay-close">
           <img class="addtaskoverlay-close-button" src="img/close.png" alt="" onclick="closeTaskDetails('add-task-board', 'addtask-overlaycontainer')">
         </div>
-        <form onsubmit="createTask(event, '${status}')">
-          <div class="at-headline-maincontainer">
-            <h1>Add Task</h1>
-          </div>
+        <div class="at-headline-maincontainer">
+          <h1>Add Task</h1>
+        </div>
+        <form onsubmit="createTask(event, '${status}')" class="form-height">
           <div class="at-body-maincontainer">
             <div class="at-body-leftinput">
               <div>
@@ -811,7 +811,7 @@ function addTaskBoardHTML(status = "to do") {
               <span>*This field is required</span>
             </div>
             <div class="at-footer-buttoncontainer">
-              <button onclick="clearTaskForm(event)" class="button-secondary btn-with-icon">
+              <button onclick="clearTaskForm(event)" class="button-secondary btn-with-icon displaynone">
                 Clear <img src="img/close.png" alt="" />
               </button>
   

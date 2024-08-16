@@ -526,10 +526,7 @@ function moveByButton(event, newArea, clickedTask) {
  */
 function startDragging(event, taskId) {
   currentDraggedTask = taskId;
-  // let ghostElement = event.target.cloneNode(true);
-  // ghostElement.classList.add('drag-ghost');
-  // document.body.appendChild(ghostElement);
-  // event.dataTransfer.setDragImage(ghostElement, 0, 0);
+  event.target.style = "backgound-color: red";
 
   highlightDragAreas();
 }
@@ -576,7 +573,6 @@ async function moveTo(newArea, areaId, dragged = true) {
   if (dragged) {
     deleteHighlightDragArea(areaId);
   }
-
   let task = getTaskById(currentDraggedTask);
   task.taskState = newArea;
   await putData("/tasks/", currentDraggedTask, task);
