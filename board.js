@@ -165,7 +165,12 @@ function showTaskDetails(id) {
   let categoryColor = getCategoryColor(task);
   let priorityMarker = getPriorityMarker(task.priority);
   let overlay = createOverlay("task-details-overlay");
-  overlay.innerHTML = getTaskLargeContentHtml(task, date, priorityMarker, categoryColor);
+  overlay.innerHTML = getTaskLargeContentHtml(
+    task,
+    date,
+    priorityMarker,
+    categoryColor
+  );
   showDetailsAssigned(task.assigned);
   showDetailsSubtask(task.subtasks, task.id);
   let taskDetails = document.getElementById("task-large");
@@ -264,11 +269,18 @@ function editTask(id) {
   let task = getTaskById(id);
   let overlay = createOverlay("edit-task-overlay");
   overlay.innerHTML = getEditTaskContentHtml(task);
+  updateDate();
   insertContactsToInput();
-  // apply active contacts
+  applySelectedContacts(task);
   showEditSubtasks(task.subtasks, task.id);
   let oldOverlay = document.getElementById("task-details-overlay");
   oldOverlay.remove();
+}
+
+function applySelectedContacts(task) {
+  for (let i = 0; i < task.assigned.length; i++) {
+    markContactAssigned(task.assigned[i]);
+  }
 }
 
 /**
@@ -377,6 +389,7 @@ function addTaskBoard(status) {
   let overlay = createOverlay("add-task-board");
   overlay.innerHTML = addTaskBoardHTML(status);
   insertContactsToInput();
+  updateDate();
 }
 
 /**
@@ -565,9 +578,9 @@ async function moveTo(newArea, areaId, dragged = true) {
   }
 
   let task = getTaskById(currentDraggedTask);
-    task.taskState = newArea;
-    await putData("/tasks/", currentDraggedTask, task);
-    updateTasks();
+  task.taskState = newArea;
+  await putData("/tasks/", currentDraggedTask, task);
+  updateTasks();
 }
 
 /**
