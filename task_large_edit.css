@@ -24,6 +24,7 @@
 
 .form-container {
   padding: 18px;
+  padding-bottom: 0;
   flex-grow: 1;
   overflow-y: auto;
 }
@@ -658,4 +659,10 @@ button {
 
 ::-webkit-scrollbar-thumb:hover {
   background: #7e7e7e;
+}
+
+@media (max-width: 540px) {
+  .task-large-edit {
+    width: calc(100% - 8px);
+  }
 }
