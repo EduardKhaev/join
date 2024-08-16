@@ -23,7 +23,7 @@
 }
 
 .form-container {
-  padding: 18px;
+  padding: 18px 18px 0;
   flex-grow: 1;
   overflow-y: auto;
 }
@@ -601,7 +601,7 @@ li:hover .initial-icons .delete-svg {
   right: 0;
   cursor: pointer;
   z-index: 10;
-  margin: 20px;
+  margin: 0px;
 }
 
 button {
