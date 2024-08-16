@@ -142,7 +142,12 @@ function showTaskDetails(id) {
   let priorityMarker = getPriorityMarker(task.priority);
   let overlay = createOverlay("task-details-overlay");
   let categoryColor = getCategoryColor(task);
-  overlay.innerHTML = getTaskLargeContentHtml(task, date, priorityMarker, categoryColor);
+  overlay.innerHTML = getTaskLargeContentHtml(
+    task,
+    date,
+    priorityMarker,
+    categoryColor
+  );
   showDetailsAssigned(task.assigned);
   showDetailsSubtask(task.subtasks, task.id);
   let taskDetails = document.getElementById("task-large");
@@ -358,6 +363,8 @@ function getEditedSubtasks() {
 function addTaskBoard(status) {
   let overlay = createOverlay("add-task-board");
   overlay.innerHTML = addTaskBoardHTML(status);
+  let addTask = document.getElementById("addtask-overlaycontainer");
+  addTask.classList.add("slide-in");
   insertContactsToInput();
   updateDate();
 }

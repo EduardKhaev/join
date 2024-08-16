@@ -83,13 +83,14 @@
 }
 
 .addtask-overlaycontainer {
+  position: relative;
   width: 100%;
   max-width: 1116px;
   height: auto;
   max-height: 870px;
   background-color: white;
   border-radius: 30px;
-  animation: slideIn 0.2s ease-out forwards;
+  /*  animation: slideIn 0.2s ease-out forwards; */
   display: flex;
   flex-direction: column;
 }
