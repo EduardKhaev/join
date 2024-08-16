@@ -74,7 +74,7 @@
 .at-body-maincontainer {
   height: auto;
   max-height: 515px;
-  overflow: hidden;
+  overflow-y: auto;
   display: flex;
   align-items: stretch;
   justify-content: space-between;
