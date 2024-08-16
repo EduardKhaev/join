@@ -348,12 +348,12 @@ function addSubtaskHTML(subtaskValue, index) {
                 </li>`;
 }
 
-function getTaskLargeContentHtml(task, date, priorityMarker) {
+function getTaskLargeContentHtml(task, date, priorityMarker, categoryColor) {
   return `
     <div class="task-large" id="task-large">
       <div class="task-large-content">
         <div class="tl-category">
-          <div class="tl-category-text">
+          <div class="tl-category-text" style="background-color: ${categoryColor};">
             <span>${task.category}</span>
           </div>
           <div class="tl-close-btn" onclick="closeTaskDetails()">
