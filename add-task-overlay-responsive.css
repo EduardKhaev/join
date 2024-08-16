@@ -17,6 +17,7 @@
         display: none;
     }
     .at-body-maincontainer{
+        margin-bottom: 0 !important;
         display: flex;
         flex-direction: column;
     }
