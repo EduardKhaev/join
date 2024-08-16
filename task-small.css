@@ -71,7 +71,6 @@
   display: flex;
   align-items: center;
   hyphens: auto;
-  word-break: break-all;
   word-wrap: break-word;
   overflow-wrap: break-word;
 }
