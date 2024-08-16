@@ -60,21 +60,23 @@
 }
 
 .ts-title {
-  min-height: 36px;
-  font-size: 16px;
-  font-weight: bold;
-  display: flex;
-  align-items: center;
+    min-height: 36px;
+    font-size: 16px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    hyphens: auto;
+  word-wrap: break-word;
   overflow-wrap: break-word;
-  hyphens: auto;
 }
 
 .ts-description {
-  color: #a8a8a8;
-  font-weight: 400;
-  font-size: 16px;
+    color: #a8a8a8;
+    font-weight: 400;
+    font-size: 16px;
+    hyphens: auto;
+  word-wrap: break-word;
   overflow-wrap: break-word;
-  hyphens: auto;
 }
 
 .ts-footer {

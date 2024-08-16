@@ -124,6 +124,10 @@ h1 {
   font-weight: 700;
 }
 
+.button-primary-board {
+  height: 48px;
+}
+
 .board-columns {
   display: flex;
   justify-content: space-between;
