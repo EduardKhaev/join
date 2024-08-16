@@ -178,7 +178,7 @@ h1 {
 .column-description img {
   width: 24px;
   height: 24px;
-  transition: all 400ms;
+  transition: all 200ms;
   margin-right: 8px;
 }
 
@@ -436,6 +436,11 @@ h1 {
 
   .board-input {
     gap: 16px;
+  }
+
+  .search-icon svg {
+    height: 16px;
+    width: 16px;
   }
 }
 
