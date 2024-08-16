@@ -633,7 +633,7 @@ function addTaskBoardHTML(status = "to do") {
         <div class="at-headline-maincontainer">
           <h1>Add Task</h1>
         </div>
-        <form onsubmit="createTask(event, '${status}')">
+        <form onsubmit="createTask(event, '${status}')" class="form-height">
           <div class="at-body-maincontainer">
             <div class="at-body-leftinput">
               <div>

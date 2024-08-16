@@ -13,6 +13,12 @@
     border-radius: 30px;
     animation: slideOut 0.2s ease-out forwards;
   }
+
+  .form-height {
+    display: flex;
+    flex-direction: column;
+    height: calc(100% - 200px);
+  }
 }
 
 @media (max-width: 1250px) {
