@@ -193,7 +193,7 @@ function closeTaskDetails(
     }
     updateTasks();
     taskDetails.classList.remove("slide-out");
-  }, 180);
+  }, 280);
 }
 
 /**
