@@ -238,6 +238,7 @@ function editTask(id) {
   let task = getTaskById(id);
   let overlay = createOverlay("edit-task-overlay");
   overlay.innerHTML = getEditTaskContentHtml(task);
+  updateDate();
   insertContactsToInput();
   applySelectedContacts(task);
   showEditSubtasks(task.subtasks, task.id);
@@ -356,6 +357,7 @@ function addTaskBoard(status) {
   let overlay = createOverlay("add-task-board");
   overlay.innerHTML = addTaskBoardHTML(status);
   insertContactsToInput();
+  updateDate();
 }
 
 /**
