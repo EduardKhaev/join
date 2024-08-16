@@ -659,3 +659,9 @@ button {
 ::-webkit-scrollbar-thumb:hover {
   background: #7e7e7e;
 }
+
+@media (max-width: 525px) {
+  .task-large-edit {
+    max-width: calc(100% - 20px) !important;
+  }
+}

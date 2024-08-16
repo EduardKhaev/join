@@ -279,3 +279,9 @@
 .custom-checkbox + .custom-checkbox-label .checkbox-icon svg .checked {
   display: none;
 }
+
+@media (max-width: 525px) {
+  .task-large {
+    max-width: calc(100% - 20px) !important;
+  }
+}
