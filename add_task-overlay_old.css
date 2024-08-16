@@ -10,6 +10,46 @@
   cursor: pointer;
 }
 
+.addtask-overlaycontainer {
+  width: 1116px;
+  height: 870px;
+  background-color: white;
+  border-radius: 30px;
+  animation: slideIn 0.2s ease-out forwards;
+  display: flex;
+  flex-direction: column;
+}
+
+.addtask-overlaycontainer-out {
+  width: 1116px;
+  height: 870px;
+  background-color: white;
+  border-radius: 30px;
+  animation: slideOut 0.2s ease-out forwards;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
 .addtask-maincontainer {
   width: calc(100% - 232px);
   margin-left: 232px;
@@ -82,54 +122,7 @@
   gap: 16px;
 }
 
-.addtask-overlaycontainer {
-  position: relative;
-  width: 100%;
-  max-width: 1116px;
-  height: auto;
-  max-height: 870px;
-  background-color: white;
-  border-radius: 30px;
-  /*  animation: slideIn 0.2s ease-out forwards; */
-  display: flex;
-  flex-direction: column;
-}
-
-.addtask-maincontainer {
-  width: calc(100% - 232px);
-  margin-left: 232px;
-  display: flex;
-  flex-direction: column;
-  background-color: var(--background-main);
-  overflow-y: auto;
-}
-
-.at-headline-maincontainer {
-  height: auto;
-  margin-top: 64px;
-  display: flex;
-  align-items: center;
-}
-
-.at-headline-maincontainer h1 {
-  margin-left: var(--outer-margin);
-  font-size: 61px;
-}
-
-.at-body-maincontainer {
-  height: auto;
-  max-height: 515px;
-  overflow-y: auto;
-  display: flex;
-  align-items: stretch;
-  justify-content: space-between;
-  margin-left: var(--outer-margin);
-  margin-right: var(--outer-margin);
-  margin-bottom: 44px;
-  gap: 48px;
-}
-
-/* urgency selector buttons */
+/* urgency selector buttons 
 
 .outer {
   margin: auto;
@@ -225,7 +218,7 @@
 
 /* urgency selector buttons end */
 
-/* inputfields */
+/* inputfields 
 
 label {
   margin-bottom: 8px;
@@ -520,7 +513,7 @@ details ul li:hover {
   flex-wrap: wrap;
 }
 
-/* category item */
+/* category item 
 
 .dropdown-item {
   display: flex;
@@ -533,7 +526,7 @@ details ul li:hover {
   background-color: #f0f0f0;
 }
 
-/* subtasks */
+/* subtasks 
 
 .addedsubtasks {
   margin: 0;
@@ -598,4 +591,142 @@ details ul li:hover {
   background: none;
   font: inherit;
   color: inherit;
+}
+
+/*  */
+.subtask-icons {
+  display: none;
+  gap: 10px;
+  align-items: center;
+  position: relative;
+}
+
+li:focus-within {
+  border-bottom: 2px solid var(--brand-blue);
+}
+
+.subtask-input:focus {
+  background-color: white;
+}
+
+li:hover .initial-icons {
+  display: flex;
+}
+
+.add-delete-icons {
+  display: flex;
+  gap: 8px;
+}
+
+.add-delete-icons,
+.initial-icons {
+  display: none;
+}
+
+li .add-delete-icons {
+  display: none;
+}
+
+li:hover .initial-icons .delete-svg {
+  display: block;
+}
+
+.edit-svg,
+.add-svg,
+.delete-svg {
+  width: 19px;
+  height: 19px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+.edit-svg {
+  background-image: url("./icons/edit.svg");
+}
+
+.add-svg {
+  background-image: url("./icons/check.svg");
+}
+
+.delete-svg {
+  background-image: url("./icons/delete.svg");
+}
+
+.subtask-input {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: none;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.addtask-overlaycontainer,
+.addtask-overlaycontainer-out {
+  width: 100%;
+  max-width: 1116px;
+  height: auto;
+  max-height: 870px;
+  background-color: white;
+  border-radius: 30px;
+  animation: slideIn 0.2s ease-out forwards;
+  display: flex;
+  flex-direction: column;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+.addtask-maincontainer {
+  width: calc(100% - 232px);
+  margin-left: 232px;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background-main);
+  overflow-y: auto;
+}
+
+.at-headline-maincontainer {
+  height: auto;
+  margin-top: 64px;
+  display: flex;
+  align-items: center;
+}
+
+.at-headline-maincontainer h1 {
+  margin-left: var(--outer-margin);
+  font-size: 61px;
+}
+
+.at-body-maincontainer {
+  height: auto;
+  max-height: 515px;
+  overflow-y: auto;
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  margin-left: var(--outer-margin);
+  margin-right: var(--outer-margin);
+  margin-bottom: 44px;
+  gap: 48px;
 }
