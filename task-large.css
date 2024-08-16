@@ -43,7 +43,7 @@
   margin-bottom: 16px;
   overflow-y: scroll;
   overflow-x: hidden;
-  
+  scrollbar-color: transparent transparent;
 }
 
 .tl-title {
@@ -270,19 +270,15 @@
   border-radius: 100%;
 }
 
-.custom-checkbox:checked
-  + .custom-checkbox-label
-  .checkbox-icon
-  svg
-  .unchecked {
+.custom-checkbox:checked+.custom-checkbox-label .checkbox-icon svg .unchecked {
   display: none;
 }
 
-.custom-checkbox:checked + .custom-checkbox-label .checkbox-icon svg .checked {
+.custom-checkbox:checked+.custom-checkbox-label .checkbox-icon svg .checked {
   display: block;
 }
 
-.custom-checkbox + .custom-checkbox-label .checkbox-icon svg .checked {
+.custom-checkbox+.custom-checkbox-label .checkbox-icon svg .checked {
   display: none;
 }
 
@@ -294,6 +290,7 @@
   .tl-title {
     font-size: 45px;
   }
+
 }
 
 @media (max-width: 451px) {
@@ -304,4 +301,5 @@
   .tl-category-text {
     font-size: 16px;
   }
+
 }
