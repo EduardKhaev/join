@@ -525,9 +525,11 @@ function createTaskHTML(
   subtasksNumber
 ) {
   return `
-    <div class="task-small-main" id="task-small${task.id}" onclick="showTaskDetails('${
+    <div class="task-small-main" id="task-small${
       task.id
-    }')" draggable="true" ondragstart="startDragging(event, '${
+    }" onclick="showTaskDetails('${
+    task.id
+  }')" draggable="true" ondragstart="startDragging(event, '${
     task.id
   }')" ondragend="stopDragging()" id="${task.id}">
         <div class="ts-content"><div class="move-icon-container">
@@ -624,9 +626,9 @@ function createTaskHTML(
 
 function addTaskBoardHTML(status = "to do") {
   return `
-      <div class="addtask-overlaycontainer">
+      <div class="addtask-overlaycontainer" id="addtask-overlaycontainer">
         <div class="addtask-overlay-close">
-          <img class="addtaskoverlay-close-button" src="img/close.png" alt="" onclick="closeTaskDetails('add-task-board')">
+          <img class="addtaskoverlay-close-button" src="img/close.png" alt="" onclick="closeTaskDetails('add-task-board', 'addtask-overlaycontainer')">
         </div>
         <form onsubmit="createTask(event, '${status}')">
           <div class="at-headline-maincontainer">
