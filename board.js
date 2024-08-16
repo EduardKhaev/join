@@ -367,9 +367,6 @@ function getEditedSubtasks() {
   return subtasks;
 }
 
-function updateProgress(subtask, task) {}
-function updateProgress(subtask, task) {}
-
 /**
  * initializes and displays an overlay for adding a new task
  * @param {*} status - the status of the new task being added
