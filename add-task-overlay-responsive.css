@@ -32,6 +32,11 @@
         
     }
 }
+@media (max-width: 750px){
+    .displaynone{
+        display: none;
+    }
+}
 
 @media (max-width: 600px){
     .at-footer-maincontainer{

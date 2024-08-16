@@ -811,7 +811,7 @@ function addTaskBoardHTML(status = "to do") {
               <span>*This field is required</span>
             </div>
             <div class="at-footer-buttoncontainer">
-              <button onclick="clearTaskForm(event)" class="button-secondary btn-with-icon">
+              <button onclick="clearTaskForm(event)" class="button-secondary btn-with-icon displaynone">
                 Clear <img src="img/close.png" alt="" />
               </button>
   
