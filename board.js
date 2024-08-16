@@ -174,7 +174,10 @@ function showTaskDetails(id) {
 /**
  * closes the task details overlay
  */
-function closeTaskDetails(overlayId, containerId) {
+function closeTaskDetails(
+  overlayId = "task-details-overlay",
+  containerId = "task-large"
+) {
   let taskDetails = document.getElementById(containerId);
   taskDetails.classList.add("slide-out");
   setTimeout(() => {
