@@ -114,3 +114,91 @@ function sortByDate(a, b) {
   }
   return 0;
 }
+
+/**
+ * gets user index in users array that matches firebase ID
+ * @param {string} userId - firebase ID
+ * @returns the index
+ */
+function getUserIndex(userId) {
+  let index = users.findIndex((user) => user["id"] == userId);
+  return index;
+}
+
+/**
+ * Counts the number of subtasks in a task based on the key 'name'.
+ *
+ * @param {Object[]} subtasks - An array of subtask objects.
+ * @returns {number} - The number of subtasks.
+ */
+function countSubtaskNumber(subtasks) {
+  if (!Array.isArray(subtasks)) {
+    return 0;
+  } else {
+    let count = subtasks.filter((subtask) =>
+      subtask.hasOwnProperty("name")
+    ).length;
+    return count;
+  }
+}
+
+/**
+ * Counts the number of subtasks where the key 'done' has a value of true.
+ *
+ * @param {Object[]} subtasks - An array of subtask objects.
+ * @returns {number} - The number of subtasks where 'done' is set to true.
+ */
+function countCompletedSubtasks(subtasks) {
+  if (!Array.isArray(subtasks)) {
+    return 0;
+  } else {
+    return subtasks.filter((subtask) => subtask.done === true).length;
+  }
+}
+
+/**
+ * Calculates the percentage of completed subtasks relative to the total number of subtasks.
+ *
+ * @param {number} completedSubtasks - The number of completed subtasks.
+ * @param {number} subtasksNumber - The total number of subtasks.
+ * @returns {number} - The percentage of completed subtasks.
+ */
+function calculateCompletionPercentage(completedSubtasks, subtasksNumber) {
+  if (subtasksNumber === 0) {
+    return 0;
+  }
+  let percentage = (completedSubtasks / subtasksNumber) * 100;
+  return percentage;
+}
+
+/**
+ * Formats a date string from "YYYY-MM-DD" format to "MM/DD/YYYY" format.
+ *
+ * @param {string} dateString - The date string in "YYYY-MM-DD" format.
+ * @returns {string} - The formatted date string in "MM/DD/YYYY" format.
+ */
+function formatDate(dateString) {
+  const [year, month, day] = dateString.split("-");
+  const formattedDay = day.padStart(2, "0");
+  const formattedMonth = month.padStart(2, "0");
+  return `${formattedMonth}/${formattedDay}/${year}`;
+}
+
+/**
+ * groups the tasks by their task state and stores the result in the `groupedTasks` variable
+ */
+async function groupTasks() {
+  if (tasks) groupedTasks = Object.groupBy(tasks, ({ taskState }) => taskState);
+}
+
+/**
+ * sorts the tasks within each group by their date property
+ */
+async function tasksByDate() {
+  if (groupedTasks) {
+    Object.keys(groupedTasks).forEach((key) => {
+      let sortedTaskList = groupedTasks[key].sort(sortByDate);
+      groupedTasks[key] = sortedTaskList;
+    });
+  }
+}
