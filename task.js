@@ -1,36 +1,3 @@
-let protoTask = {
-  id: "1",
-  title: "Hallo Welt",
-  description: "Beschreibung",
-  assigned: [
-    "-O3E83dKATdm4nFQqADV",
-    "-O3E83dNbeJLjIcCZwS8",
-    "-O3bQUc0gyKIG-DV-U4h",
-  ],
-  date: "2024-08-22",
-  priority: "low",
-  category: "Userstory",
-  subtasks: [
-    { name: "Subtask1", done: false },
-    { name: "Subtask2", done: true },
-  ],
-  taskState: "to do",
-};
-
-const defaultTask = {
-  id: false,
-  title: false,
-  description: "",
-  assigned: false,
-  date: false,
-  priority: "medium",
-  category: false,
-  subtasks: [],
-  taskState: "to do",
-};
-
-let selectedUrgency = "medium";
-
 /**
  * function to runb at page loading
  */
