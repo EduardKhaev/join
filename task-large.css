@@ -51,6 +51,7 @@
   font-size: 61px;
   font-weight: 700;
   hyphens: auto;
+  word-break: break-all;
   word-wrap: break-word;
   overflow-wrap: break-word;
 }
@@ -270,15 +271,19 @@
   border-radius: 100%;
 }
 
-.custom-checkbox:checked+.custom-checkbox-label .checkbox-icon svg .unchecked {
+.custom-checkbox:checked
+  + .custom-checkbox-label
+  .checkbox-icon
+  svg
+  .unchecked {
   display: none;
 }
 
-.custom-checkbox:checked+.custom-checkbox-label .checkbox-icon svg .checked {
+.custom-checkbox:checked + .custom-checkbox-label .checkbox-icon svg .checked {
   display: block;
 }
 
-.custom-checkbox+.custom-checkbox-label .checkbox-icon svg .checked {
+.custom-checkbox + .custom-checkbox-label .checkbox-icon svg .checked {
   display: none;
 }
 
@@ -290,7 +295,6 @@
   .tl-title {
     font-size: 45px;
   }
-
 }
 
 @media (max-width: 451px) {
@@ -301,5 +305,4 @@
   .tl-category-text {
     font-size: 16px;
   }
-
 }
