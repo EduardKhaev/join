@@ -185,7 +185,7 @@ function closeTaskDetails(
   containerId = "task-large"
 ) {
   let taskDetails = document.getElementById(containerId);
-  taskDetails.classList.add("addtask-overlaycontainer-out");
+  taskDetails.classList.add("slide-out");
   setTimeout(() => {
     let overlay = document.getElementById(overlayId);
     if (overlay) {
