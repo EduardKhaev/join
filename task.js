@@ -127,7 +127,7 @@ function getAddTaskFormData(taskState) {
 function getAddTaskInput(id) {
   let input = document.getElementById(id).value;
   if (input) return input;
-  else return false;
+  else return "";
 }
 
 /**
