@@ -85,7 +85,6 @@
 }
 
 .ts-footer {
-  height: 32px;
   margin-top: 24px;
   display: flex;
   align-items: center;
@@ -94,6 +93,7 @@
 
 .ts-avatars {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .ts-avatar {
