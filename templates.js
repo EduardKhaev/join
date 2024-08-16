@@ -835,7 +835,9 @@ function getEditTaskContentHtml(task) {
             </div>
         </div>
         <div class="form-container">
-            <form>
+            <form onsubmit="saveEditedTask(event, '${task.id}', '${
+    task.taskState
+  }')">
                 <div>
                     <label for="entertitle">Title</label>
                     <input required oninvalid="event.preventDefault(); showInvalid(this); validateCategory()"
@@ -859,6 +861,7 @@ function getEditTaskContentHtml(task) {
                         id="due-date" placeholder="dd/mm/yyyy" value="${
                           task.date
                         }" required />
+
                 </div>
                 <label class="label-spacing" for="priority"><b>Priority</b></label>
                 <div class="outer">
@@ -932,15 +935,14 @@ function getEditTaskContentHtml(task) {
                     </div>
                 </div>
                 <ul class="addedsubtasks" id="addedsubtasks"></ul>
-            </form>
-        </div>
-        <div class="footer">
-        <button onclick="saveEditedTask(event, '${task.id}', '${
-    task.taskState
-  }')" type="submit" class="sticky-button tl-button-primary">
+                <div class="footer">
+        <button type="submit"class="sticky-button tl-button-primary">
     Ok
     <img src="img/check.png" alt="check button">
 </button>
         </div>
-    </div>`;
+    </div>
+            </form>
+        </div>
+        `;
 }
