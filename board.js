@@ -172,7 +172,7 @@ function closeTaskDetails(
   let taskDetails = document.getElementById(containerId);
   taskDetails.classList.add("slide-out");
   setTimeout(() => {
-    let overlay = document.getElementById("task-details-overlay");
+    let overlay = document.getElementById(overlayId);
     if (overlay) {
       overlay.remove();
     }
