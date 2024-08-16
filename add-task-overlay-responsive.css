@@ -17,11 +17,9 @@
 @media (max-width: 1000px) {
     .addtask-overlaycontainer {
         width: 90%;
-        height: 80%;
         background-color: white;
         border-radius: 30px;
         animation: slideIn 0.2s ease-out forwards;
-        overflow-y: scroll;
         scrollbar-color: rgba(168, 168, 168, 1) var(--background-main);
         
     } 
