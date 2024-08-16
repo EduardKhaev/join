@@ -25,6 +25,7 @@
   border-radius: 30px;
   animation: slideOut 0.2s ease-out forwards;
 }
+
 @keyframes slideIn {
   from {
     transform: translateX(100%);

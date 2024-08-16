@@ -272,10 +272,33 @@
   .unchecked {
   display: none;
 }
+
 .custom-checkbox:checked + .custom-checkbox-label .checkbox-icon svg .checked {
   display: block;
 }
 
 .custom-checkbox + .custom-checkbox-label .checkbox-icon svg .checked {
   display: none;
+}
+
+@media (max-width: 550px) {
+  .task-large {
+    max-width: calc(100% - 20px) !important;
+  }
+
+  .tl-title {
+    font-size: 45px;
+}
+
+}
+
+@media (max-width: 451px) {
+  .tl-title {
+    font-size: 40px;
+}
+
+.tl-category-text {
+  font-size: 16px;
+}
+
 }
