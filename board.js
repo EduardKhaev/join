@@ -1,7 +1,3 @@
-let tasks = [];
-let groupedTasks = {};
-let currentDraggedTask;
-
 /**
  * initializes the task board by loading necessary data and rendering tasks
  */

@@ -1,12 +1,3 @@
-const FIREBASE_URL =
-  "https://join-e8e95-default-rtdb.europe-west1.firebasedatabase.app/";
-
-let users = [];
-
-let activeUser = undefined;
-
-let activeNavItem = undefined;
-
 /**
  * initializes basic functions on contacts page
  */
