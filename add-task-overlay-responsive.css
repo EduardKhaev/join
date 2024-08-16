@@ -39,6 +39,11 @@
 }
 
 @media (max-width: 600px){
+
+    .addtask-overlaycontainer {
+        width: 100%;
+        border-radius: 0;
+    }
     .at-footer-maincontainer{
         display: flex;
         flex-direction: column-reverse;
