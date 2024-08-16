@@ -1,7 +1,3 @@
-let tasks = [];
-let groupedTasks = {};
-let currentDraggedTask;
-
 /**
  * initializes the task board by loading necessary data and rendering tasks
  */
@@ -239,8 +235,6 @@ async function updateSubtaskFromDetails(index, taskId) {
   if (task) {
     task.subtasks[index].done = checked;
     await putData("/tasks/", taskId, task);
-  } else {
-    console.error("Task not found with ID:", taskId);
   }
 }
 
@@ -344,7 +338,6 @@ function showEditSubtasks(subtasks, taskId) {
       let subtask = subtasks[i];
       subtaskContent.innerHTML += addSubtaskHTML(subtask.name, i);
       document.getElementById(`subtask-${i}`).value = subtask.done;
-      console.log(Boolean(document.getElementById(`subtask-${i}`).value));
     }
   }
 }
@@ -561,23 +554,10 @@ async function moveTo(newArea, areaId, dragged = true) {
   if (dragged) {
     deleteHighlightDragArea(areaId);
   }
-
   let task = getTaskById(currentDraggedTask);
-  if (task) {
     task.taskState = newArea;
-
     await putData("/tasks/", currentDraggedTask, task)
-      .then(() => {
-        console.log("Task moved successfully!");
-      })
-      .catch((error) => {
-        console.error("Error moving task:", error);
-      });
-
     updateTasks();
-  } else {
-    console.error("Task not found with ID:", currentDraggedTask);
-  }
 }
 
 /**

@@ -10,11 +10,12 @@
     <link rel="stylesheet" href="task-small.css" />
     <link rel="stylesheet" href="task-large.css" />
     <link rel="stylesheet" href="add_task-overlay.css" />
-    <link rel="stylesheet" href="add-task-overlay-responsive.css">
+    <link rel="stylesheet" href="add-task-overlay-responsive.css" />
     <link rel="stylesheet" href="task_large_edit.css" />
     <link rel="stylesheet" href="header.css" />
     <link rel="stylesheet" href="navigation-responsive.css" />
     <link rel="icon" type="image/png" href="./img/join-logo-blue.png" />
+    <script src="data.js"></script>
     <script src="utility.js"></script>
     <script src="templates.js"></script>
     <script src="contacts.js"></script>
@@ -148,7 +149,10 @@
                   </svg>
                 </div>
               </div>
-              <button onclick="addTaskBoard()" class="button-primary button-primary-board">
+              <button
+                onclick="addTaskBoard()"
+                class="button-primary button-primary-board"
+              >
                 <span>Add task</span>
                 <img src="./img/button-plus.png" alt="" />
               </button>
@@ -161,7 +165,13 @@
                 <img src="./img/mini-add.png" alt="" onclick="addTaskBoard()" />
               </div>
               <div class="tasks">
-                <div class="task-scroll" id="to-do" ondrop="moveTo('to do', 'to-do')" ondragleave="deleteHighlightDragArea('to-do')" ondragover="allowDrop(event); highlightDragArea('to-do')"></div>
+                <div
+                  class="task-scroll"
+                  id="to-do"
+                  ondrop="moveTo('to do', 'to-do')"
+                  ondragleave="deleteHighlightDragArea('to-do')"
+                  ondragover="allowDrop(event); highlightDragArea('to-do')"
+                ></div>
               </div>
             </div>
             <div class="single-column">
@@ -174,7 +184,13 @@
                 />
               </div>
               <div class="tasks">
-                <div class="task-scroll" id="in-progress" ondrop="moveTo('in progress', 'in-progress')" ondragleave="deleteHighlightDragArea('in-progress')" ondragover="allowDrop(event); highlightDragArea('in-progress')">
+                <div
+                  class="task-scroll"
+                  id="in-progress"
+                  ondrop="moveTo('in progress', 'in-progress')"
+                  ondragleave="deleteHighlightDragArea('in-progress')"
+                  ondragover="allowDrop(event); highlightDragArea('in-progress')"
+                >
                   <div class="empty-column"><span>No tasks to do</span></div>
                 </div>
               </div>
@@ -189,7 +205,13 @@
                 />
               </div>
               <div class="tasks">
-                <div class="task-scroll" id="await-feedback" ondrop="moveTo('await feedback', 'await-feedback')" ondragleave="deleteHighlightDragArea('await-feedback')" ondragover="allowDrop(event); highlightDragArea('await-feedback')">
+                <div
+                  class="task-scroll"
+                  id="await-feedback"
+                  ondrop="moveTo('await feedback', 'await-feedback')"
+                  ondragleave="deleteHighlightDragArea('await-feedback')"
+                  ondragover="allowDrop(event); highlightDragArea('await-feedback')"
+                >
                   <div class="empty-column"><span>No tasks to do</span></div>
                 </div>
               </div>
@@ -199,7 +221,13 @@
                 <span>Done</span>
               </div>
               <div class="tasks">
-                <div class="task-scroll" id="done" ondrop="moveTo('done', 'done')" ondragleave="deleteHighlightDragArea('done')" ondragover="allowDrop(event); highlightDragArea('done')"></div>
+                <div
+                  class="task-scroll"
+                  id="done"
+                  ondrop="moveTo('done', 'done')"
+                  ondragleave="deleteHighlightDragArea('done')"
+                  ondragover="allowDrop(event); highlightDragArea('done')"
+                ></div>
               </div>
             </div>
           </div>

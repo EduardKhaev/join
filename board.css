@@ -453,9 +453,8 @@ h1 {
   }
 
   .board-container {
-    height: 100vh;
     width: 100%;
-    margin-bottom: 800px;
+    margin-bottom: 100px;
   }
 }
 
