@@ -3,7 +3,6 @@
     height: 100%;
     max-width: 1560px;
     width: calc(100% - 232px);
-    margin-left: auto;
     margin-right: auto;
   }
 }
@@ -62,12 +61,16 @@
   .subtasks-field {
     margin-bottom: 80px;
   }
+
+  .responsive-clear-button {
+    display: none;
+  }
 }
 
 @media (max-width: 600px) {
   .at-footer-maincontainer {
-    flex-direction: column;
     justify-content: flex-start;
+    align-items: center;
   }
 
   .at-footer-requiredtext {
@@ -82,13 +85,15 @@
     margin-right: var(--outer-margin);
     width: calc(100% - var(--outer-margin));
     display: flex;
-    align-items: center;
     justify-content: flex-end;
     gap: 16px;
   }
 }
 
 @media (max-width: 420px) {
+  .at-footer-requiredtext {
+    font-size: 14px;
+  }
   :root {
     --outer-margin: 8px;
   }
@@ -98,4 +103,10 @@
   .outer {
     gap: 4px;
   }
+}
+
+@media (max-width: 385px) {
+.responsive-submit-button {
+  font-size: 18px;
+}
 }
