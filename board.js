@@ -254,6 +254,9 @@ function editTask(id) {
   let task = getTaskById(id);
   selectedUrgency = task.priority;
   let overlay = createOverlay("edit-task-overlay");
+  overlay.onclick = function () {
+    closeEditTask("task-large-edit");
+  };
   overlay.innerHTML = getEditTaskContentHtml(task);
   updateDate();
   insertContactsToInput();
