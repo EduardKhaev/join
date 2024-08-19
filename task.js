@@ -319,6 +319,7 @@ function closeDetails(event) {
       let contactDetails = document.getElementById('assignedToContacts');
       let categoryDetails = document.getElementById('dropdown');
       let contactDetailsOverlay = document.getElementById('assignedToContactsOverlay');
+      let contactDetailsEdit = document.getElementById('assignedToContactsEdit');
 
       if (contactDetails && contactDetails.hasAttribute('open')) {
           contactDetails.removeAttribute('open');
@@ -327,6 +328,10 @@ function closeDetails(event) {
       if (contactDetailsOverlay && contactDetailsOverlay.hasAttribute('open')) {
         contactDetailsOverlay.removeAttribute('open');
     }
+
+    if (contactDetailsEdit && contactDetailsEdit.hasAttribute('open')) {
+      contactDetailsEdit.removeAttribute('open');
+  }
 
       if (categoryDetails && categoryDetails.hasAttribute('open')) {
           categoryDetails.removeAttribute('open');
