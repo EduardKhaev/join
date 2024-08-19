@@ -248,6 +248,9 @@ function cancelAddUser() {
  */
 function renderEditUserInputField(index) {
   let overlayContent = createOverlay("adduser-overlay", "overlay");
+  overlayContent.onclick = function () {
+    cancelAddUser("adduser-maincontainer", "adduser-overlay");
+  };
   let user = users[index];
   setTimeout(() => {
     overlayContent.innerHTML = getUserEditHtml(user);
