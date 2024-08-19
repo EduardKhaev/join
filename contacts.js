@@ -216,6 +216,9 @@ function getUserDataFromInput(newInput, index) {
  */
 function renderAddUserInputField() {
   let overlayContent = createOverlay("adduser-overlay", "overlay");
+  overlayContent.onclick = function () {
+    cancelAddUser("adduser-maincontainer", "adduser-overlay");
+  };
   document.getElementById("add-btn-responsive").style.backgroundColor =
     "var(--brand-blue)";
   setTimeout(() => {
