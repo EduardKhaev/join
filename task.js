@@ -318,10 +318,15 @@ function closeDetails(event) {
   if (event.target.tagName !== "SUMMARY") {
       let contactDetails = document.getElementById('assignedToContacts');
       let categoryDetails = document.getElementById('dropdown');
+      let contactDetailsOverlay = document.getElementById('assignedToContactsOverlay');
 
       if (contactDetails && contactDetails.hasAttribute('open')) {
           contactDetails.removeAttribute('open');
       }
+       
+      if (contactDetailsOverlay && contactDetailsOverlay.hasAttribute('open')) {
+        contactDetailsOverlay.removeAttribute('open');
+    }
 
       if (categoryDetails && categoryDetails.hasAttribute('open')) {
           categoryDetails.removeAttribute('open');
