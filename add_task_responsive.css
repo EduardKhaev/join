@@ -17,9 +17,11 @@
   :root {
     --outer-margin: 28px;
   }
+
   .urgency-button {
     font-size: 18px;
   }
+
   .outer {
     gap: 8px;
   }
@@ -94,19 +96,44 @@
   .at-footer-requiredtext {
     font-size: 14px;
   }
+
   :root {
     --outer-margin: 8px;
   }
+
   .urgency-button {
     font-size: 16px;
   }
+
   .outer {
     gap: 4px;
   }
 }
 
 @media (max-width: 385px) {
-.responsive-submit-button {
-  font-size: 18px;
+  .responsive-submit-button {
+    font-size: 18px;
+  }
 }
+
+@media (max-width: 354px) {
+
+  .at-footer-maincontainer {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+  }
+
+  .at-footer-requiredtext {
+    display: flex;
+    justify-content: center;
+  }
+
+  .at-footer-buttoncontainer {
+    margin-right: var(--outer-margin);
+    width: calc(100% - var(--outer-margin));
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+  }
 }
