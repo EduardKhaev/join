@@ -370,6 +370,9 @@ function getEditedSubtasks() {
 
 function addTaskBoard(status) {
   let overlay = createOverlay("add-task-board");
+  overlay.onclick = function () {
+    closeTaskDetails("add-task-board", "addtask-overlaycontainer");
+  };
   overlay.innerHTML = addTaskBoardHTML(status);
   let addTask = document.getElementById("addtask-overlaycontainer");
   addTask.classList.add("slide-in");
