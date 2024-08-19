@@ -85,22 +85,12 @@ async function moveTo(newArea, areaId, dragged = true) {
   if (dragged) {
     deleteHighlightDragArea(areaId);
   }
-
   let task = getTaskById(currentDraggedTask);
   if (task) {
     task.taskState = newArea;
 
-    await putData("/tasks/", currentDraggedTask, task)
-      .then(() => {
-        console.log("Task moved successfully!");
-      })
-      .catch((error) => {
-        console.error("Error moving task:", error);
-      });
-
+    await putData("/tasks/", currentDraggedTask, task);
     updateTasks();
-  } else {
-    console.error("Task not found with ID:", currentDraggedTask);
   }
 }
 
