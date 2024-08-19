@@ -310,6 +310,10 @@ function validateCategory() {
   return true;
 }
 
+/**
+ *  Closes the details dropdowns for contacts and categories if clicked outside of the elements. 
+ * @param {event} event - The click event triggered by mouse click. 
+ */
 function closeDetails(event) {
   if (event.target.tagName !== "SUMMARY") {
       let contactDetails = document.getElementById('assignedToContacts');
