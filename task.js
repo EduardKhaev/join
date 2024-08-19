@@ -114,7 +114,7 @@ function getCategoryFromDropdown() {
 
 /**
  * retrieves inputs for subtasks from the DOM and returns them as an array of objects
- * @returns 
+ * @returns
  */
 function getSubtaskInputs() {
   let subtaskInputs = document.getElementsByClassName("subtask-value");
@@ -311,30 +311,33 @@ function validateCategory() {
 }
 
 /**
- *  Closes the details dropdowns for contacts and categories if clicked outside of the elements. 
- * @param {event} event - The click event triggered by mouse click. 
+ *  Closes the details dropdowns for contacts and categories if clicked outside of the elements.
+ * @param {event} event - The click event triggered by mouse click.
  */
 function closeDetails(event) {
+  event.stopPropagation();
   if (event.target.tagName !== "SUMMARY") {
-      let contactDetails = document.getElementById('assignedToContacts');
-      let categoryDetails = document.getElementById('dropdown');
-      let contactDetailsOverlay = document.getElementById('assignedToContactsOverlay');
-      let contactDetailsEdit = document.getElementById('assignedToContactsEdit');
+    let contactDetails = document.getElementById("assignedToContacts");
+    let categoryDetails = document.getElementById("dropdown");
+    let contactDetailsOverlay = document.getElementById(
+      "assignedToContactsOverlay"
+    );
+    let contactDetailsEdit = document.getElementById("assignedToContactsEdit");
 
-      if (contactDetails && contactDetails.hasAttribute('open')) {
-          contactDetails.removeAttribute('open');
-      }
-       
-      if (contactDetailsOverlay && contactDetailsOverlay.hasAttribute('open')) {
-        contactDetailsOverlay.removeAttribute('open');
+    if (contactDetails && contactDetails.hasAttribute("open")) {
+      contactDetails.removeAttribute("open");
     }
 
-    if (contactDetailsEdit && contactDetailsEdit.hasAttribute('open')) {
-      contactDetailsEdit.removeAttribute('open');
-  }
+    if (contactDetailsOverlay && contactDetailsOverlay.hasAttribute("open")) {
+      contactDetailsOverlay.removeAttribute("open");
+    }
 
-      if (categoryDetails && categoryDetails.hasAttribute('open')) {
-          categoryDetails.removeAttribute('open');
-      }
+    if (contactDetailsEdit && contactDetailsEdit.hasAttribute("open")) {
+      contactDetailsEdit.removeAttribute("open");
+    }
+
+    if (categoryDetails && categoryDetails.hasAttribute("open")) {
+      categoryDetails.removeAttribute("open");
+    }
   }
 }
