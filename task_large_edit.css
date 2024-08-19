@@ -256,6 +256,8 @@ details:focus {
 .addedsubtasks {
   margin-left: 8px;
   margin-right: 8px;
+  display: flex;
+  flex-direction: column;
 }
 
 fieldset {
@@ -449,11 +451,6 @@ details ul li:hover {
 }
 
 /* subtasks */
-
-.addedsubtasks {
-  margin: 0;
-  list-style-type: disc;
-}
 
 .addedsubtasks svg {
   height: 20px;
@@ -665,5 +662,9 @@ button {
 @media (max-width: 540px) {
   .task-large-edit {
     width: calc(100% - 8px);
+  }
+
+  .addedsubtasks {
+    padding-inline-start: 0px;
   }
 }

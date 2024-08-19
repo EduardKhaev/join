@@ -116,7 +116,7 @@ function updatePriority(priority, taskId) {
 function updateAvatars(assigned, taskId) {
   let avatars = document.getElementById(`ts-avatars${taskId}`);
   if (Array.isArray(assigned) && assigned.length > 0) {
-    for (let j = 0; j < assigned.length; j++) {
+    for (let j = 0; j < Math.min(assigned.length, 5); j++) {
       let userId = assigned[j];
       let user = users[getUserIndex(userId)];
       let marginLeft = j > 0 ? "-9px" : "0px";
@@ -127,6 +127,13 @@ function updateAvatars(assigned, taskId) {
         }; z-index: ${j + 2}; margin-left: ${marginLeft};">${
         user.initials
       }</div>
+      `;
+    }
+    if (assigned.length > 5) {
+      avatars.innerHTML += `
+        <div class="ts-avatar" style="background-color: #ccc; z-index: 7; margin-left: -9px;">
+          +${assigned.length - 5}
+        </div>
       `;
     }
   }

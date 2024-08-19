@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="login.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <title>Join-Login</title>
+  </head>
+  <style>
+    .outer {
+      height: 100vh;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: rgba(246, 247, 248, 1);
+    }
+
+    .login-container {
+      width: 650px;
+      padding-top: 48px;
+      padding-bottom: 48px;
+      background-color: white;
+      box-shadow: 0 0 14px 3px rgba(0, 0, 0, 0.04);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      gap: 32px;
+      border-radius: 30px;
+    }
+
+    .login-container h1 {
+      font-size: 61px;
+      font-weight: 700;
+      line-height: 73.2px;
+      margin-bottom: 16px;
+    }
+
+    .login-headline-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+    }
+
+    .login-separator {
+      width: 150px;
+      border-bottom: solid 3px rgba(41, 171, 226, 1);
+    }
+
+    /* inputfields */
+
+    label {
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .label-spacing {
+      margin-top: 16px;
+    }
+
+    .inputfield-basic-design {
+      border-radius: 10px;
+      border: 1px solid #d1d1d1;
+      background-color: white;
+      padding: 10px;
+      width: 100%;
+      box-sizing: border-box;
+      margin-bottom: 8px;
+    }
+
+    .inputfield-basic-design:focus {
+      border: solid 1px;
+      border-color: #29abe2;
+      outline: none;
+    }
+
+    .required {
+      color: red;
+    }
+
+    .custom-checkbox {
+      display: none;
+    }
+
+    .custom-checkbox-login {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      flex-grow: 1;
+      justify-content: flex-start;
+      margin-bottom: 0;
+      margin-top: 28px;
+      margin-left: 40px;
+      gap: 8px;
+    }
+
+    .checkbox-icon {
+      width: 19px;
+      height: 18px;
+      transition: all 0.3s ease;
+    }
+
+    .custom-checkbox:checked
+      + .custom-checkbox-login
+      .checkbox-icon
+      svg
+      .unchecked {
+      display: none;
+    }
+
+    .custom-checkbox:checked
+      + .custom-checkbox-login
+      .checkbox-icon
+      svg
+      .checked {
+      display: block;
+    }
+
+    .custom-checkbox + .custom-checkbox-login .checkbox-icon svg .checked {
+      display: none;
+    }
+
+    .login-input-container {
+      width: 70%;
+    }
+
+    .login-input label {
+      color: red;
+    }
+
+    ::placeholder {
+      font-family: "Inter", sans-serif;
+      color: #d1d1d1;
+    }
+
+    .login-buttons-container {
+      margin-top: 32px;
+      display: flex;
+      justify-content: flex-end;
+      gap: 8px;
+    }
+  </style>
+  <body>
+    <div class="outer">
+      <div class="login-container">
+        <div class="login-headline-container">
+          <h1>Log in</h1>
+          <div class="login-separator"></div>
+        </div>
+        <div class="login-input-container">
+          <div class="login-input">
+            <label
+              for="entermail"
+              id="login-email"
+              class="login-required"
+              style="opacity: 0"
+              >Please enter email</label
+            >
+            <input
+              required=""
+              oninvalid="event.preventDefault(); showInvalid(this); validateCategory()"
+              onfocus="removeInvalid(this)"
+              class="inputfield-basic-design"
+              type="email"
+              id="entermail"
+              name="email"
+              placeholder="Email"
+            />
+          </div>
+          <div class="login-input">
+            <label
+              for="enterpassword"
+              id="login-pw"
+              class="login-required"
+              style="opacity: 0"
+              >Please enter password</label
+            >
+            <input
+              required=""
+              oninvalid="event.preventDefault(); showInvalid(this); validateCategory()"
+              onfocus="removeInvalid(this)"
+              class="inputfield-basic-design"
+              type="email"
+              id="enterpassword"
+              name="password"
+              placeholder="Password"
+            />
+          </div>
+          <div class="remember-container">
+            <input
+              type="checkbox"
+              id="remember"
+              name="agreetoterms"
+              class="custom-checkbox"
+            />
+            <label for="remember" class="custom-checkbox-login">
+              <div class="checkbox-icon">
+                <svg
+                  width="19"
+                  height="18"
+                  viewBox="0 0 19 18"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect
+                    class="unchecked"
+                    x="1.38818"
+                    y="1"
+                    width="16"
+                    height="16"
+                    rx="3"
+                    stroke="#2A3647"
+                    stroke-width="2"
+                  />
+                  <path
+                    class="checked"
+                    d="M17.3882 8V14C17.3882 15.6569 16.045 17 14.3882 17H4.38818C2.73133 17 1.38818 15.6569 1.38818 14V4C1.38818 2.34315 2.73133 1 4.38818 1H12.3882"
+                    stroke="#2A3647"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                  />
+                  <path
+                    class="checked"
+                    d="M5.38818 9L9.38818 13L17.3882 1.5"
+                    stroke="#2A3647"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </div>
+              Remember me
+            </label>
+          </div>
+          <div class="login-buttons-container">
+            <button class="button-primary">Log in</button
+            ><button class="button-secondary">Guest Log in</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

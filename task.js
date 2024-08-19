@@ -245,6 +245,7 @@ function setActiveUrgencyButton(selectedUrgency) {
  * @param {string} id - id of input checkbox
  */
 function markContactAssigned(id) {
+  event.stopPropagation();
   let checkbox = document.getElementById(id);
   checkbox.checked = !checkbox.checked;
   updateSelectedContacts();
@@ -307,4 +308,23 @@ function validateCategory() {
     return false;
   }
   return true;
+}
+
+/**
+ *  Closes the details dropdowns for contacts and categories if clicked outside of the elements. 
+ * @param {event} event - The click event triggered by mouse click. 
+ */
+function closeDetails(event) {
+  if (event.target.tagName !== "SUMMARY") {
+      let contactDetails = document.getElementById('assignedToContacts');
+      let categoryDetails = document.getElementById('dropdown');
+
+      if (contactDetails && contactDetails.hasAttribute('open')) {
+          contactDetails.removeAttribute('open');
+      }
+
+      if (categoryDetails && categoryDetails.hasAttribute('open')) {
+          categoryDetails.removeAttribute('open');
+      }
+  }
 }
