@@ -620,3 +620,11 @@ li:hover .initial-icons .delete-svg {
   padding: 10px;
   box-sizing: border-box;
 }
+
+#task-description {
+  font-family: "Inter";
+}
+
+#due-date {
+  font-family: "Inter";
+}
