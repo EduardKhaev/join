@@ -148,6 +148,9 @@ function showTaskDetails(id) {
   let date = formatDate(task.date);
   let priorityMarker = getPriorityMarker(task.priority);
   let overlay = createOverlay("task-details-overlay");
+  overlay.onclick = function () {
+    closeTaskDetails();
+  };
   let categoryColor = getCategoryColor(task);
   overlay.innerHTML = getTaskLargeContentHtml(
     task,
