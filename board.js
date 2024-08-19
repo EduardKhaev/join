@@ -242,6 +242,7 @@ function getTaskById(id) {
  */
 function editTask(id) {
   let task = getTaskById(id);
+  selectedUrgency = task.priority;
   let overlay = createOverlay("edit-task-overlay");
   overlay.innerHTML = getEditTaskContentHtml(task);
   updateDate();
