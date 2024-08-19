@@ -626,7 +626,7 @@ function createTaskHTML(
 
 function addTaskBoardHTML(status = "to do") {
   return `
-      <div class="addtask-overlaycontainer" id="addtask-overlaycontainer">
+      <div class="addtask-overlaycontainer" id="addtask-overlaycontainer" onclick="closeDetails(event)">
         <div class="addtask-overlay-close">
           <img class="addtaskoverlay-close-button" src="img/close.png" alt="" onclick="closeTaskDetails('add-task-board', 'addtask-overlaycontainer')">
         </div>
@@ -662,7 +662,7 @@ function addTaskBoardHTML(status = "to do") {
               </div>
               <div>
                 <label for="assignedTo">Assigned to</label>
-                <details class="inputfield-basic-design">
+                <details class="inputfield-basic-design" id="assignedToContactsOverlay">
                   <summary>
                     <span class="summary-text">Select contacts to assign</span>
                   </summary>
@@ -828,7 +828,7 @@ function addTaskBoardHTML(status = "to do") {
 }
 
 function getEditTaskContentHtml(task) {
-  return `  <div class="task-large-edit" id="task-large-edit">
+  return `  <div class="task-large-edit" id="task-large-edit" onclick="closeDetails(event)">
             <div class="header">
             <div class="tl-close-btn" onclick="closeEditTask()">
                 <img src="./img/close.png" alt="Close" />
@@ -904,7 +904,7 @@ function getEditTaskContentHtml(task) {
                 </div>
                 <div>
                     <label for="assignedTo">Assigned to</label>
-                    <details class="inputfield-basic-design">
+                    <details class="inputfield-basic-design" id="assignedToContactsEdit">
                         <summary>
                             <span class="summary-text">Select contacts to assign</span>
                         </summary>
