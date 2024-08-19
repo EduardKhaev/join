@@ -85,13 +85,16 @@
       display: none;
     }
 
-    .custom-checkbox-label {
+    .custom-checkbox-login {
       display: flex;
       align-items: center;
       cursor: pointer;
       flex-grow: 1;
-      justify-content: flex-end;
+      justify-content: flex-start;
       margin-bottom: 0;
+      margin-top: 28px;
+      margin-left: 40px;
+      gap: 8px;
     }
 
     .checkbox-icon {
@@ -101,7 +104,7 @@
     }
 
     .custom-checkbox:checked
-      + .custom-checkbox-label
+      + .custom-checkbox-login
       .checkbox-icon
       svg
       .unchecked {
@@ -109,19 +112,21 @@
     }
 
     .custom-checkbox:checked
-      + .custom-checkbox-label
+      + .custom-checkbox-login
       .checkbox-icon
       svg
       .checked {
       display: block;
     }
 
-    .custom-checkbox + .custom-checkbox-label .checkbox-icon svg .checked {
+    .custom-checkbox + .custom-checkbox-login .checkbox-icon svg .checked {
       display: none;
     }
 
     .login-input-container {
       width: 70%;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .login-input label {
@@ -132,6 +137,17 @@
       font-family: "Inter", sans-serif;
       color: #d1d1d1;
     }
+
+    .login-buttons-container {
+      margin-top: 32px;
+      display: flex;
+      justify-content: center;
+      gap: 36px;
+    }
+
+    .login-form {
+      width: 100%;
+    }
   </style>
   <body>
     <div class="outer">
@@ -140,46 +156,108 @@
           <h1>Log in</h1>
           <div class="login-separator"></div>
         </div>
-        <div class="login-input-container">
-          <div class="login-input">
-            <label
-              for="entermail"
-              id="login-email"
-              class="login-required"
-              style="opacity: 0"
-              >Please enter email</label
-            >
-            <input
-              required=""
-              oninvalid="event.preventDefault(); showInvalid(this); validateCategory()"
-              onfocus="removeInvalid(this)"
-              class="inputfield-basic-design"
-              type="email"
-              id="entermail"
-              name="email"
-              placeholder="Email"
-            />
+        <form
+          onsubmit="validateLogin(event)"
+          class="login-form"
+          id="login-form"
+        >
+          <div class="login-input-container">
+            <div class="login-input">
+              <label
+                for="entermail"
+                id="login-email"
+                class="login-required"
+                style="opacity: 0"
+                >Please enter email</label
+              >
+              <input
+                required
+                oninvalid="event.preventDefault(); showInvalidLogin('login-email', 'entermail')"
+                onfocus="removeInvalidLogin('login-email', 'entermail')"
+                class="inputfield-basic-design"
+                type="email"
+                id="entermail"
+                name="email"
+                placeholder="Email"
+              />
+            </div>
+            <div class="login-input">
+              <label
+                for="enterpassword"
+                id="login-pw"
+                class="login-required"
+                style="opacity: 0"
+                >Please enter password</label
+              >
+              <input
+                required
+                oninvalid="event.preventDefault(); showInvalidLogin('login-pw', 'enterpassword')"
+                onfocus="removeInvalidLogin('login-pw', 'enterpassword')"
+                class="inputfield-basic-design"
+                type="password"
+                id="enterpassword"
+                name="password"
+                placeholder="Password"
+              />
+            </div>
+            <div class="remember-container">
+              <input
+                type="checkbox"
+                id="remember"
+                name="agreetoterms"
+                class="custom-checkbox"
+              />
+              <label for="remember" class="custom-checkbox-login">
+                <div class="checkbox-icon">
+                  <svg
+                    width="19"
+                    height="18"
+                    viewBox="0 0 19 18"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <rect
+                      class="unchecked"
+                      x="1.38818"
+                      y="1"
+                      width="16"
+                      height="16"
+                      rx="3"
+                      stroke="#2A3647"
+                      stroke-width="2"
+                    />
+                    <path
+                      class="checked"
+                      d="M17.3882 8V14C17.3882 15.6569 16.045 17 14.3882 17H4.38818C2.73133 17 1.38818 15.6569 1.38818 14V4C1.38818 2.34315 2.73133 1 4.38818 1H12.3882"
+                      stroke="#2A3647"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                    />
+                    <path
+                      class="checked"
+                      d="M5.38818 9L9.38818 13L17.3882 1.5"
+                      stroke="#2A3647"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </div>
+                Remember me
+              </label>
+            </div>
+            <div class="login-buttons-container">
+              <button type="submit" class="button-primary action-button-text">
+                Log in</button
+              ><button
+                onclick="loginAsGuest()"
+                class="button-secondary action-button-text"
+              >
+                Guest Log in
+              </button>
+            </div>
           </div>
-          <div class="login-input">
-            <label
-              for="enterpassword"
-              id="login-pw"
-              class="login-required"
-              style="opacity: 0"
-              >Please enter password</label
-            >
-            <input
-              required=""
-              oninvalid="event.preventDefault(); showInvalid(this); validateCategory()"
-              onfocus="removeInvalid(this)"
-              class="inputfield-basic-design"
-              type="email"
-              id="enterpassword"
-              name="password"
-              placeholder="Password"
-            />
-          </div>
-        </div>
+        </form>
       </div>
     </div>
   </body>
