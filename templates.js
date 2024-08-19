@@ -808,7 +808,7 @@ function addTaskBoardHTML(status = "to do") {
           </div>
           <div class="at-footer-maincontainer">
             <div class="at-footer-requiredtext">
-              <span>*This field is required</span>
+              <span><span class="required">*</span>This field is required</span>
             </div>
             <div class="at-footer-buttoncontainer">
               <button onclick="clearTaskForm(event)" class="button-secondary btn-with-icon displaynone">

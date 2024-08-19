@@ -160,6 +160,7 @@ label {
   width: 100%;
   box-sizing: border-box;
   margin-bottom: 16px;
+  font-family: "Inter", sans-serif;
 }
 
 .inputfield-basic-design:focus {
@@ -449,11 +450,6 @@ details ul li:hover {
 
 /* subtasks */
 
-.addedsubtasks {
-  margin: 0;
-  list-style-type: disc;
-}
-
 .addedsubtasks svg {
   height: 20px;
   width: 20px;
@@ -664,5 +660,9 @@ button {
 @media (max-width: 540px) {
   .task-large-edit {
     width: calc(100% - 8px);
+  }
+
+  .addedsubtasks {
+    padding-inline-start: 0px;
   }
 }

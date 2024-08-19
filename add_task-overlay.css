@@ -336,11 +336,6 @@ details:focus {
   background-image: none;
 }
 
-.addedsubtasks {
-  margin-left: 8px;
-  margin-right: 8px;
-}
-
 fieldset {
   border: 0;
   padding: 0;
@@ -535,11 +530,6 @@ details ul li:hover {
 
 /* subtasks */
 
-.addedsubtasks {
-  margin: 0;
-  list-style-type: disc;
-}
-
 .addedsubtasks svg {
   height: 20px;
   width: 20px;
@@ -588,14 +578,4 @@ details ul li:hover {
 .edit-svg,
 .delete-svg {
   cursor: pointer;
-}
-
-.subtask-input {
-  width: 100%;
-  border: none;
-  outline: none;
-  resize: none;
-  background: none;
-  font: inherit;
-  color: inherit;
 }

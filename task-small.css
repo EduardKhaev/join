@@ -97,23 +97,6 @@
 }
 
 .ts-avatar {
-  background-color: orange;
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 3px solid white;
-  border-radius: 100%;
-  width: 32px;
-  height: 32px;
-  font-size: 12px !important;
-  font-weight: 400;
-}
-
-.ts-avatar2 {
-  z-index: 2;
-  margin-left: -9px;
-  background-color: green;
   color: white;
   display: flex;
   justify-content: center;
