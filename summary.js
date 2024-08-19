@@ -20,21 +20,28 @@ function displayTaskStatistics() {
     let awaitFeedbackTasks = groupedTasks["await feedback"];
     let totalTasks = tasks.length;
 
-    console.log(`To-Do: ${toDos.length}`);
-    console.log(`Done: ${doneTasks.length}`);
-    console.log(`Tasks in Progress: ${inProgressTasks.length}`);
-    console.log(`Awaiting Feedback: ${awaitFeedbackTasks.length}`);
-    console.log(`Tasks in Board: ${totalTasks}`);
+    document.getElementById('todoCount').innerText = toDos.length;
+    document.getElementById('doneCount').innerText = doneTasks.length;
+    document.getElementById('tasksInBoardCount').innerText = totalTasks;
+    document.getElementById('tasksInProgressCount').innerText = inProgressTasks.length;
+    document.getElementById('awaitingFeedbackCount').innerText = awaitFeedbackTasks.length;
 
+    document.getElementById('greetingMessage').innerText = getGreetingMessage();
+}
+
+/**
+ * Returns the appropriate greeting message based on the current hour.
+ * @returns {string} - The greeting message.
+ */
+function getGreetingMessage() {
     let today = new Date();
     let curHr = today.getHours();
 
     if (curHr < 12) {
-        console.log('Good morning');
+        return 'Good morning,';
     } else if (curHr >= 12 && curHr < 16) {
-        console.log('Good afternoon');
+        return 'Good afternoon,';
     } else {
-        console.log('Good evening');
+        return 'Good evening,';
     }
 }
-
