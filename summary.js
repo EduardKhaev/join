@@ -14,19 +14,29 @@ async function initSummary() {
  * Displays task counts and greeting
  */
 function displayTaskStatistics() {
-    let toDos = groupedTasks["to do"];
-    let doneTasks = groupedTasks["done"];
-    let inProgressTasks = groupedTasks["in progress"];
-    let awaitFeedbackTasks = groupedTasks["await feedback"];
-    let totalTasks = tasks.length;
+    if (tasks.length > 0) {
+        let toDos = groupedTasks["to do"] || [];
+        let doneTasks = groupedTasks["done"] || [];
+        let inProgressTasks = groupedTasks["in progress"] || [];
+        let awaitFeedbackTasks = groupedTasks["await feedback"] || [];
+        let totalTasks = tasks.length;
 
-    document.getElementById('todoCount').innerText = toDos.length;
-    document.getElementById('doneCount').innerText = doneTasks.length;
-    document.getElementById('tasksInBoardCount').innerText = totalTasks;
-    document.getElementById('tasksInProgressCount').innerText = inProgressTasks.length;
-    document.getElementById('awaitingFeedbackCount').innerText = awaitFeedbackTasks.length;
+        document.getElementById('todoCount').innerText = toDos.length;
+        document.getElementById('doneCount').innerText = doneTasks.length;
+        document.getElementById('tasksInBoardCount').innerText = totalTasks;
+        document.getElementById('tasksInProgressCount').innerText = inProgressTasks.length;
+        document.getElementById('awaitingFeedbackCount').innerText = awaitFeedbackTasks.length;
 
-    document.getElementById('greetingMessage').innerText = getGreetingMessage();
+        document.getElementById('greetingMessage').innerText = getGreetingMessage();
+    }
+
+    else {
+        document.getElementById('todoCount').innerText = 0;
+        document.getElementById('doneCount').innerText = 0;
+        document.getElementById('tasksInBoardCount').innerText = 0;
+        document.getElementById('tasksInProgressCount').innerText = 0;
+        document.getElementById('awaitingFeedbackCount').innerText = 0;
+    }
 }
 
 /**
