@@ -115,7 +115,7 @@
         </div>
       </div>
     </div>
-    <div class="addtask-maincontainer">
+    <div class="addtask-maincontainer" onclick="closeDetails(event)">
       <form onsubmit="createTask(event)">
         <div class="at-headline-maincontainer">
           <h1>Add Task</h1>
@@ -148,7 +148,7 @@
             </div>
             <div>
               <label for="assignedTo">Assigned to</label>
-              <details class="inputfield-basic-design">
+              <details class="inputfield-basic-design" id="assignedToContacts">
                 <summary>
                   <span class="summary-text">Select contacts to assign</span>
                 </summary>
