@@ -3,6 +3,10 @@ function loginAsGuest(event) {
   loginUser("Guest", "G");
 }
 
+function logoutUser() {
+  localStorage.removeItem("loginToken");
+}
+
 function validateLogin(event) {
   event.preventDefault();
   let [email, password] = getLoginFormData();
