@@ -27,7 +27,8 @@
     <link rel="stylesheet" href="header.css" />
     <link rel="stylesheet" href="navigation-responsive.css" />
     <link rel="stylesheet" href="summary.css">
-    <title>Document</title>
+    <link rel="icon" type="image/png" href="./img/join-logo-blue.png">
+    <title>Summary</title>
 </head>
 
 <body onload="initSummary() ">
@@ -125,7 +126,7 @@
                                 </svg>
                             </div>
                             <div class="s-to-do">
-                                <div id="todoCount"></div>
+                                <div id="todoCount">0</div>
                                 <span>To-do</span>
                             </div>
                         </div>
@@ -138,7 +139,7 @@
                                 </svg>
                             </div>
                             <div class="s-to-do">
-                                <div id="doneCount"></div>
+                                <div id="doneCount">0</div>
                                 <span>Done</span>
                             </div>
                         </div>
@@ -158,34 +159,34 @@
                                     </svg>
                                 </div>
                                 <div class="s-to-do">
-                                    <div>1</div>
+                                    <div id="urgentCount">0</div>
                                     <span>Urgent</span>
                                 </div>
                             </div>
                             <div class="separator-urgency"></div>
                             <div class="deadline">
-                                <div>October 16, 2024</div>
+                                <div id="nextDeadlineTask"><span>No Tasks</span></div>
                                 <span>Upcoming Deadline</span>
                             </div>
                         </div>
                     </div>
                     <div class="s-tasks">
                         <div class="s-task-area">
-                            <div id="tasksInBoardCount"></div>
+                            <div id="tasksInBoardCount">0</div>
                             <span>Tasks In Board</span>
                         </div>
                         <div class="s-task-area">
-                            <div id="tasksInProgressCount"></div>
+                            <div id="tasksInProgressCount">0</div>
                             <span>Tasks In Progress</span>
                         </div>
                         <div class="s-task-area">
-                            <div id="awaitingFeedbackCount"></div>
+                            <div id="awaitingFeedbackCount">0</div>
                             <span>Awaiting Feedback</span>
                         </div>
                     </div>
                 </div>
                 <div class="summary-greeting">
-                    <div id="greetingMessage">Good morning,</div>
+                    <div id="greetingMessage"></div>
                     <span>Galina Antipin</span>
                 </div>
             </div>
