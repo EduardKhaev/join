@@ -1,41 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="login.css">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Join - Log in</title>
+    <link rel="stylesheet" href="login.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <div class="log-head">
-        <div class="log-head-elements">
-            <a href="">Not a Join user?</a>
-            <button class="button-primary"> Sign Up</button>
-        </div>
+      <div class="log-head-elements">
+        <a href="">Not a Join user?</a>
+        <button class="button-primary">Sign Up</button>
+      </div>
     </div>
-    <div class="logincontainer">
-        <div class="logincontainer-head">
-            <h1>Log in</h1>
-            <div class="log-emptydiv"></div>
+    <div class="login-container">
+      <div class="login-headline-container">
+        <h1>Log in</h1>
+        <div class="login-separator"></div>
+      </div>
+      <form onsubmit="validateLogin(event)" class="login-form" id="login-form">
+        <div class="login-input-container">
+          <div class="login-input">
+            <label
+              for="entermail"
+              id="login-email"
+              class="login-required"
+              style="opacity: 0"
+              >Please enter email</label
+            >
+            <input
+              required
+              oninvalid="event.preventDefault(); showInvalidLogin('login-email', 'entermail')"
+              onfocus="removeInvalidLogin('login-email', 'entermail')"
+              class="inputfield-basic-design log-mailinput"
+              type="email"
+              autocomplete="username"
+              id="entermail"
+              name="email"
+              placeholder="Email"
+            />
+          </div>
+          <div class="login-input">
+            <label
+              for="enterpassword"
+              id="login-pw"
+              class="login-required"
+              style="opacity: 0"
+              >Please enter password</label
+            >
+            <input
+              required
+              oninvalid="event.preventDefault(); showInvalidLogin('login-pw', 'enterpassword')"
+              onfocus="removeInvalidLogin('login-pw', 'enterpassword')"
+              class="inputfield-basic-design log-pwinput"
+              type="password"
+              autocomplete="current-password"
+              id="enterpassword"
+              name="password"
+              placeholder="Password"
+            />
+          </div>
+          <div class="remember-container">
+            <input
+              type="checkbox"
+              id="remember"
+              name="agreetoterms"
+              class="custom-checkbox"
+            />
+            <label for="remember" class="custom-checkbox-login">
+              <div class="checkbox-icon">
+                <svg
+                  width="19"
+                  height="19"
+                  viewBox="0 0 19 19"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect
+                    class="unchecked"
+                    x="1.38818"
+                    y="1"
+                    width="16"
+                    height="16"
+                    rx="3"
+                    stroke="#2A3647"
+                    stroke-width="2"
+                  />
+                  <path
+                    class="checked"
+                    d="M17.3882 8V14C17.3882 15.6569 16.045 17 14.3882 17H4.38818C2.73133 17 1.38818 15.6569 1.38818 14V4C1.38818 2.34315 2.73133 1 4.38818 1H12.3882"
+                    stroke="#2A3647"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                  />
+                  <path
+                    class="checked"
+                    d="M5.38818 9L9.38818 13L17.3882 1.5"
+                    stroke="#2A3647"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </div>
+              Remember me
+            </label>
+          </div>
+          <div class="login-buttons-container">
+            <button type="submit" class="button-primary action-button-text">
+              Log in</button
+            ><button
+              onclick="loginAsGuest(event)"
+              class="button-secondary action-button-text"
+            >
+              Guest Log in
+            </button>
+          </div>
         </div>
-        <div class="log-inputcontainer">
-            <input class="log-mailinput" type="email" placeholder="Email">
-            <input class="log-pwinput" type="password" placeholder="Password">
-        </div>
-        <div class="login-action">
-            <input type="checkbox">
-            <label> Remember me</label><br>
-        </div>
-        <div class="login-buttons">
-            <button class="button-primary">Log in</button>
-            <button class="button-secondary">Guest Log in</button>
-        </div>
+      </form>
     </div>
     <div class="log-siteinfo">
-        <a href="">Privacy Policy</a>
-        <a href="">Legal notice</a>
+      <a href="">Privacy Policy</a>
+      <a href="">Legal notice</a>
     </div>
-    <img class="log-joinlogo" src="img/join-logo-blue.png" alt="">
-</body>
+    <img class="log-joinlogo" src="img/join-logo-blue.png" alt="" />
+  </body>
 </html>
