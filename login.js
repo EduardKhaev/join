@@ -4,11 +4,14 @@ function loginAsGuest() {
 
 function validateLogin(event) {
   event.preventDefault();
-  let email, password;
-  [email, password] = getLoginData();
+  let [email, password] = getLoginFormData();
 }
 
-function getLoginData() {}
+function getLoginFormData() {
+  let email = getLoginEmail();
+  let password = getLoginPassword();
+  return [email, password];
+}
 
 function showInvalidLogin(labelId, inputId) {
   document.getElementById(inputId).style.borderColor = "red";
