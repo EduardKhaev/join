@@ -1,12 +1,3 @@
-let loginData = [
-  {
-    name: "Peter Müller",
-    login: "peter.müller@test.de",
-    password: "1234",
-    initials: "PM",
-  },
-];
-
 function loginAsGuest(event) {
   event.preventDefault();
   console.log("Guest logged in");
@@ -18,8 +9,24 @@ function validateLogin(event) {
   checkLoginData(email, password);
 }
 
-function checkLoginData(username, password) {
-  console.log(username, password);
+async function checkLoginData(username, password) {
+  let loginData = await getLoginData();
+  let index = findLoginName(loginData, username);
+  if (index === -1 || index == undefined) unknownUser();
+  else {
+    let pwFromDb = loginData[index]["password"];
+    if (pwFromDb !== password) incorrectPassword();
+    else loginUser(loginData[index]["name"], loginData[index]["initials"]);
+  }
+}
+
+function loginUser(displayName, initials) {
+  console.log(displayName, initials);
+}
+
+function findLoginName(loginData, username) {
+  let index = loginData.findIndex((user) => user["login"] == username);
+  return index;
 }
 
 function getLoginFormData() {
@@ -55,20 +62,21 @@ async function saveLoginData(data = {}) {
 }
 
 async function getLoginData() {
-  let userResponse = await fetch(FIREBASE_URL + path + ".json");
+  let loginData = [];
+  let userResponse = await fetch(FIREBASE_URL + "/logindata" + ".json");
   let responseToJson = await userResponse.json();
   if (responseToJson) {
     Object.keys(responseToJson).forEach((key) => {
-      users.push({
+      loginData.push({
         id: key,
         name: responseToJson[key]["name"],
-        phone: responseToJson[key]["phone"],
-        email: responseToJson[key]["email"],
-        color: responseToJson[key]["color"],
+        login: responseToJson[key]["login"],
+        password: responseToJson[key]["password"],
         initials: responseToJson[key]["initials"],
       });
     });
   }
+  return loginData;
 }
 
 async function loadUsers(path = "/names") {
