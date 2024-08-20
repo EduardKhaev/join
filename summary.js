@@ -11,6 +11,7 @@ async function initSummary() {
     showGreetingAndUserName();
     displayTaskStatistics();
     showLoggedInInitials();
+    //showWelcomeOverlay();
 }
 
 /**
@@ -97,3 +98,17 @@ function getNextTaskDeadline(allTasks) {
     
     return formattedDate;
 }
+
+
+//function showWelcomeOverlay() {
+  // let overlay = document.getElementById("welcomeOverlay");
+  //  let welcomeUserNameElement = document.getElementById("welcomeUserName");
+  //  welcomeUserNameElement.innerHTML = loggedIn.name; 
+  //  overlay.style.display = "flex";
+//setTimeout(() => {
+      //  overlay.classList.add("hide"); 
+       // setTimeout(() => {
+      //      overlay.style.display = "none"; 
+      //  }, 1000); 
+   // }, 3000); 
+//}
