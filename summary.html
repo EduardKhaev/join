@@ -27,7 +27,8 @@
     <link rel="stylesheet" href="header.css" />
     <link rel="stylesheet" href="navigation-responsive.css" />
     <link rel="stylesheet" href="summary.css">
-    <title>Document</title>
+    <link rel="icon" type="image/png" href="./img/join-logo-blue.png">
+    <title>Summary</title>
 </head>
 
 <body onload="initSummary() ">
@@ -39,7 +40,7 @@
         <div class="header-right">
             <a href="help.html"><img class="help-icon" src="./img/question-icon.png" alt="help icon" /></a>
             <div class="user-profile-initials" id="user-profile-initials" onclick="toggleDropdown(event)">
-                DA
+                SM
             </div>
             <div class="dropdown" id="dropdownMenu">
                 <div class="dropdown-content">
@@ -55,7 +56,7 @@
         <img class="join-logo" src="./img/join-logo.png" alt="Join Logo" />
         <div class="navigation-main">
             <div class="navigation-items-section" id="navigation-items">
-                <div class="navigation-item">
+                <div class="navigation-item active">
                     <a href="summary.html">
                         <svg xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -75,7 +76,7 @@
                         <span>Add Task</span>
                     </a>
                 </div>
-                <div class="navigation-item active">
+                <div class="navigation-item">
                     <a href="board.html">
                         <svg xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -159,14 +160,14 @@
                                     </svg>
                                 </div>
                                 <div class="su-count">
-                                    <div>1</div>
+                                    <div id="urgentCount">0</div>
                                     <span>Urgent</span>
                                 </div>
                             </div>
                             <div class="separator-urgency"></div>
                             <div class="deadline">
-                                <div>October 16, 2024</div>
-                                <span>Upcomung Deadline</span>
+                                <div id="nextDeadlineTask"><span>0</span></div>
+                                <span>Upcoming Deadline</span>
                             </div>
                         </div>
                     </div>
@@ -186,8 +187,8 @@
                     </div>
                 </div>
                 <div class="summary-greeting">
-                    <div id="greetingMessage">Good morning,</div>
-                    <span>Galina Antipin</span>
+                    <div id="greetingMessage"></div>
+                    <span id="greetingUserName"></span>
                 </div>
             </div>
         </div>

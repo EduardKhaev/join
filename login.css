@@ -1,0 +1,254 @@
+body {
+  margin: 0px 120px !important;
+}
+.log-head {
+  height: 150px;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.log-head-elements {
+  display: flex;
+  align-items: center;
+  gap: 35px;
+}
+
+/*
+
+.logincontainer {
+  height: 493px;
+  width: 692px;
+  display: flex;
+  flex-direction: column;
+  
+  position: relative;
+  left: 25%;
+  background-color: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.08);
+}
+.logincontainer-head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.logincontainer-head h1 {
+  font-size: 61px;
+  margin-top: 48px;
+  margin-bottom: 16px;
+}
+.log-emptydiv {
+  height: 2px;
+  width: 120px;
+  margin-bottom: 32px;
+  background-color: blue;
+}
+.log-inputcontainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  margin: 20px 115px;
+}
+.log-inputcontainer input {
+  width: 100%;
+  height: 28px;
+  border-radius: 10px;
+  border: solid 1px;
+  border-color: #d1d1d1;
+  font-size: 20px;
+  padding-left: 8px;
+}
+::placeholder {
+  color: #d1d1d1;
+  padding-left: 15px;
+}
+.log-inputcontainer input:focus {
+  border: solid 1px;
+  border-color: #29abe2;
+  outline: none;
+}
+.log-inputcontainer input:not(:focus):not(:placeholder-shown):invalid {
+  border: solid 2px;
+  border-color: red;
+  outline: none;
+}
+
+.log-mailinput {
+  background-image: url(img/mail-icon.png);
+  background-position: right 10px center;
+  background-repeat: no-repeat;
+}
+.log-pwinput {
+  background-image: url(img/lock.png);
+  background-position: right 10px center;
+  background-repeat: no-repeat;
+}
+.login-action {
+  display: flex;
+  gap: 8px;
+  margin-left: 148px;
+  margin-bottom: 32px;
+}
+.login-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 35px;
+}
+
+*/
+
+.login-container {
+  width: 650px;
+  padding-top: 48px;
+  padding-bottom: 48px;
+  background-color: white;
+  box-shadow: 0 0 14px 3px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 32px;
+  border-radius: 30px;
+}
+
+.login-container h1 {
+  font-size: 61px;
+  font-weight: 700;
+  line-height: 73.2px;
+  margin-bottom: 16px;
+}
+
+.login-headline-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.login-separator {
+  width: 150px;
+  border-bottom: solid 3px rgba(41, 171, 226, 1);
+}
+
+/* inputfields */
+
+label {
+  margin-bottom: 8px;
+  display: block;
+}
+
+.label-spacing {
+  margin-top: 16px;
+}
+
+.inputfield-basic-design {
+  border-radius: 10px;
+  border: 1px solid #d1d1d1;
+  background-color: white;
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 8px;
+}
+
+.inputfield-basic-design:focus {
+  border: solid 1px;
+  border-color: #29abe2;
+  outline: none;
+}
+
+.log-mailinput {
+  background-image: url(img/mail-icon.png);
+  background-position: right 10px center;
+  background-repeat: no-repeat;
+}
+.log-pwinput {
+  background-image: url(img/lock.png);
+  background-position: right 10px center;
+  background-repeat: no-repeat;
+}
+
+.required {
+  color: red;
+}
+
+.custom-checkbox {
+  display: none;
+}
+
+.custom-checkbox-login {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  flex-grow: 1;
+  justify-content: flex-start;
+  margin-bottom: 0;
+  margin-top: 28px;
+  margin-left: 40px;
+  gap: 8px;
+}
+
+.checkbox-icon {
+  width: 19px;
+  height: 18px;
+  transition: all 0.3s ease;
+}
+
+.custom-checkbox:checked
+  + .custom-checkbox-login
+  .checkbox-icon
+  svg
+  .unchecked {
+  display: none;
+}
+
+.custom-checkbox:checked + .custom-checkbox-login .checkbox-icon svg .checked {
+  display: block;
+}
+
+.custom-checkbox + .custom-checkbox-login .checkbox-icon svg .checked {
+  display: none;
+}
+
+.login-input-container {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.login-input label {
+  color: red;
+}
+
+::placeholder {
+  font-family: "Inter", sans-serif;
+  color: #d1d1d1;
+}
+
+.login-buttons-container {
+  margin-top: 32px;
+  display: flex;
+  justify-content: center;
+  gap: 36px;
+}
+
+.login-form {
+  width: 100%;
+}
+
+.log-siteinfo {
+  display: flex;
+  justify-content: center;
+  margin-top: 150px;
+  gap: 16px;
+}
+.log-siteinfo a {
+  text-decoration: none;
+  color: #d1d1d1;
+}
+.log-joinlogo {
+  position: absolute;
+  top: 150px;
+}

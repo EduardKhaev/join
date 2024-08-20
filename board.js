@@ -148,6 +148,9 @@ function showTaskDetails(id) {
   let date = formatDate(task.date);
   let priorityMarker = getPriorityMarker(task.priority);
   let overlay = createOverlay("task-details-overlay");
+  overlay.onclick = function () {
+    closeTaskDetails();
+  };
   let categoryColor = getCategoryColor(task);
   overlay.innerHTML = getTaskLargeContentHtml(
     task,
@@ -251,6 +254,9 @@ function editTask(id) {
   let task = getTaskById(id);
   selectedUrgency = task.priority;
   let overlay = createOverlay("edit-task-overlay");
+  overlay.onclick = function () {
+    closeEditTask("task-large-edit");
+  };
   overlay.innerHTML = getEditTaskContentHtml(task);
   updateDate();
   insertContactsToInput();
