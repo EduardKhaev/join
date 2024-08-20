@@ -17,7 +17,7 @@ async function initSummary() {
  * shows the initials of the logged-in user
  */
 function showLoggedInInitials() {
-    if (loggedIn) {
+    if (loggedIn && loggedIn.name) {
         document.getElementById('user-profile-initials').innerHTML = loggedIn.initials;
     } else {
         document.getElementById('user-profile-initials').innerHTML = 'G'; 
