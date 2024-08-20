@@ -17,7 +17,7 @@ async function initSummary() {
  * shows the initials of the logged-in user
  */
 function showLoggedInInitials() {
-    if (loggedIn) {
+    if (loggedIn && loggedIn.name) {
         document.getElementById('user-profile-initials').innerHTML = loggedIn.initials;
     } else {
         document.getElementById('user-profile-initials').innerHTML = 'G'; 
@@ -87,6 +87,13 @@ function getNextTaskDeadline(allTasks) {
     let nextTask = allTasks[0];
     let date = new Date(nextTask.date);
     let options = { year: 'numeric', month: 'long', day: 'numeric' };
+
     let formattedDate = date.toLocaleDateString('en-US', options);
-    return ` ${formattedDate}`;
+    
+    let today = new Date();
+    if (date < today) {
+        formattedDate = `<span style="color: red;">${formattedDate}</span>`;
+    }
+    
+    return formattedDate;
 }

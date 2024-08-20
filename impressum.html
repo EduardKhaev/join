@@ -40,7 +40,7 @@
                     <a class="help-span" href="help.html">Help</a>
                     <a href="impressum.html">Legal Notice</a>
                     <a href="privacy_policy.html">Privacy Policy</a>
-                    <a href="contacts.html">Log Out</a>
+                    <a href="login.html">Log Out</a>
                 </div>
             </div>
         </div>
@@ -48,7 +48,7 @@
     <div class="navigation">
         <img class="join-logo" src="./img/join-logo.png" alt="Join Logo" />
         <div class="navigation-main">
-            <div class="navigation-items-section">
+            <div class="navigation-items-section" id="sidebar">
                 <div class="navigation-item" onclick="setSummaryActive(this)">
 
                     <svg xmlns="http://www.w3.org/2000/svg">
@@ -192,5 +192,16 @@
     </div>
     </div>
 </body>
+<script>
 
+    function toggleSidebar() {
+        let sidebar = document.getElementById('sidebar');
+        if (!loggedIn) {
+            sidebar.style.display = 'none'; 
+        } else {
+            sidebar.style.display = 'block';
+        }
+    }
+    
+</script>
 </html>
