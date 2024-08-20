@@ -20,3 +20,8 @@ let selectedUrgency = "medium";
 let tasks = [];
 let groupedTasks = {};
 let currentDraggedTask;
+
+let loggedIn = {
+  name: "Peter Müller",
+  initials: "PM",
+};

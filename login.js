@@ -1,4 +1,11 @@
-let loginData = [];
+let loginData = [
+  {
+    name: "Peter Müller",
+    login: "peter.müller@test.de",
+    password: "1234",
+    initials: "PM",
+  },
+];
 
 function loginAsGuest(event) {
   event.preventDefault();
@@ -41,4 +48,42 @@ function unknownUser() {
 
 function incorrectPassword() {
   console.log("Password not correct");
+}
+
+async function saveLoginData(data = {}) {
+  if (data) await postData("/logindata", data);
+}
+
+async function getLoginData() {
+  let userResponse = await fetch(FIREBASE_URL + path + ".json");
+  let responseToJson = await userResponse.json();
+  if (responseToJson) {
+    Object.keys(responseToJson).forEach((key) => {
+      users.push({
+        id: key,
+        name: responseToJson[key]["name"],
+        phone: responseToJson[key]["phone"],
+        email: responseToJson[key]["email"],
+        color: responseToJson[key]["color"],
+        initials: responseToJson[key]["initials"],
+      });
+    });
+  }
+}
+
+async function loadUsers(path = "/names") {
+  let userResponse = await fetch(FIREBASE_URL + path + ".json");
+  let responseToJson = await userResponse.json();
+  if (responseToJson) {
+    Object.keys(responseToJson).forEach((key) => {
+      users.push({
+        id: key,
+        name: responseToJson[key]["name"],
+        phone: responseToJson[key]["phone"],
+        email: responseToJson[key]["email"],
+        color: responseToJson[key]["color"],
+        initials: responseToJson[key]["initials"],
+      });
+    });
+  }
 }
