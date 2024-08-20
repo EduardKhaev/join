@@ -159,6 +159,17 @@ label {
   outline: none;
 }
 
+.log-mailinput {
+  background-image: url(img/mail-icon.png);
+  background-position: right 10px center;
+  background-repeat: no-repeat;
+}
+.log-pwinput {
+  background-image: url(img/lock.png);
+  background-position: right 10px center;
+  background-repeat: no-repeat;
+}
+
 .required {
   color: red;
 }
