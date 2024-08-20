@@ -168,7 +168,7 @@ h2 {
 }
 
 .su-done-to-do:hover .su-pen svg path {
-    stroke: var(--brand-dark);
+    fill: var(--brand-dark);
 }
 
 .su-done-to-do:hover .su-count svg path {
@@ -321,26 +321,6 @@ h2 {
 }
 
 .su-task-areas:hover span {
-    color: white;
-}
-
-.su-done-to-do:hover .su-checkmark svg path {
-    stroke: var(--brand-dark);
-}
-
-.su-done-to-do:hover .su-pen {
-    background-color: white;
-}
-
-.su-done-to-do:hover .su-pen svg path {
-    stroke: var(--brand-dark);
-}
-
-.su-done-to-do:hover .su-count svg path {
-    stroke: var(--brand-dark);
-}
-
-.su-done-to-do:hover .su-count span {
     color: white;
 }
 
