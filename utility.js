@@ -202,3 +202,7 @@ async function tasksByDate() {
     });
   }
 }
+
+function goBack() {
+  window.history.back();
+}

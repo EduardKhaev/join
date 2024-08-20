@@ -8,8 +8,20 @@ async function initSummary() {
     sortTasksByDate();
     await groupTasks();
     await tasksByDate();
-    displayTaskStatistics();    
+    showGreetingAndUserName();
+    displayTaskStatistics();
+    showLoggedInInitials();
+}
 
+/**
+ * shows the initials of the logged-in user
+ */
+function showLoggedInInitials() {
+    if (loggedIn) {
+        document.getElementById('user-profile-initials').innerHTML = loggedIn.initials;
+    } else {
+        document.getElementById('user-profile-initials').innerHTML = 'G'; 
+    }
 }
 
 /**
@@ -20,42 +32,49 @@ function sortTasksByDate() {
 }
 
 /**
- * Displays task counts and greeting
+ * Displays task counts 
  */
 function displayTaskStatistics() {
-        let toDos = groupedTasks["to do"] || [];
-        let doneTasks = groupedTasks["done"] || [];
-        let inProgressTasks = groupedTasks["in progress"] || [];
-        let awaitFeedbackTasks = groupedTasks["await feedback"] || [];
-        let urgentTasks = tasks.filter(task => task.priority === 'urgent');
-        let totalTasks = tasks.length;
+    let toDos = groupedTasks["to do"] || [];
+    let doneTasks = groupedTasks["done"] || [];
+    let inProgressTasks = groupedTasks["in progress"] || [];
+    let awaitFeedbackTasks = groupedTasks["await feedback"] || [];
+    let urgentTasks = tasks.filter(task => task.priority === 'urgent');
+    let totalTasks = tasks.length;
 
-        document.getElementById('todoCount').innerHTML = toDos.length;
-        document.getElementById('doneCount').innerHTML = doneTasks.length;
-        document.getElementById('tasksInBoardCount').innerHTML = totalTasks;
-        document.getElementById('tasksInProgressCount').innerHTML = inProgressTasks.length;
-        document.getElementById('awaitingFeedbackCount').innerHTML = awaitFeedbackTasks.length;
-        document.getElementById('urgentCount').innerHTML = urgentTasks.length; 
-        document.getElementById('greetingMessage').innerHTML = getGreetingMessage();
-        
-        let nextTaskDeadline = getNextTaskDeadline(tasks);
-        document.getElementById('nextDeadlineTask').innerHTML = nextTaskDeadline;
+    document.getElementById('todoCount').innerHTML = toDos.length;
+    document.getElementById('doneCount').innerHTML = doneTasks.length;
+    document.getElementById('tasksInBoardCount').innerHTML = totalTasks;
+    document.getElementById('tasksInProgressCount').innerHTML = inProgressTasks.length;
+    document.getElementById('awaitingFeedbackCount').innerHTML = awaitFeedbackTasks.length;
+    document.getElementById('urgentCount').innerHTML = urgentTasks.length;
+
+    let nextTaskDeadline = getNextTaskDeadline(tasks);
+    document.getElementById('nextDeadlineTask').innerHTML = nextTaskDeadline;
 }
 
 /**
- * Returns the appropriate greeting message based on the current hour.
- * @returns {string} - The greeting message.
+ * Displays the appropriate greeting message based on the current hour and shows the name of the logged-in user.
  */
-function getGreetingMessage() {
+function showGreetingAndUserName() {
     let today = new Date();
     let curHr = today.getHours();
+    let greeting;
 
-    if (curHr < 12) {
-        return 'Good morning,';
-    } else if (curHr >= 12 && curHr < 16) {
-        return 'Good afternoon,';
+    if (loggedIn) {
+        if (curHr < 12) {
+            greeting = 'Good morning,';
+        } else if (curHr >= 12 && curHr < 16) {
+            greeting = 'Good afternoon,';
+        } else {
+            greeting = 'Good evening,';
+        }
+
+    document.getElementById('greetingMessage').innerHTML = greeting;
+    document.getElementById('greetingUserName').innerHTML = loggedIn.name;
+
     } else {
-        return 'Good evening,';
+        document.getElementById('greetingUserName').innerHTML = 'Guest';
     }
 }
 
@@ -69,7 +88,5 @@ function getNextTaskDeadline(allTasks) {
     let date = new Date(nextTask.date);
     let options = { year: 'numeric', month: 'long', day: 'numeric' };
     let formattedDate = date.toLocaleDateString('en-US', options);
-
     return ` ${formattedDate}`;
-   
 }
