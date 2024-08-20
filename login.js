@@ -1,6 +1,10 @@
 function loginAsGuest(event) {
   event.preventDefault();
-  console.log("Guest logged in");
+  loginUser("Guest", "G");
+}
+
+function logoutUser() {
+  localStorage.removeItem("loginToken");
 }
 
 function validateLogin(event) {
@@ -37,7 +41,8 @@ function setToken(displayName, initials, remember) {
 }
 
 function saveToken(loginToken) {
-  console.log(loginToken);
+  let stringToken = JSON.stringify(loginToken);
+  localStorage.setItem("loginToken", stringToken);
 }
 
 function findLoginName(loginData, username) {
@@ -62,15 +67,17 @@ function showInvalidLogin(labelId, inputId) {
 
 function removeInvalidLogin(labelId, inputId) {
   document.getElementById(inputId).style = "";
-  document.getElementById(labelId).style = "opacity: 0;";
+  let label = document.getElementById(labelId);
+  label.firstChild.style = "display: none";
+  label.lastChild.style = "display: none";
 }
 
 function unknownUser() {
-  console.log("Username not registered");
+  showInvalidLogin("user-unknown", "entermail");
 }
 
 function incorrectPassword() {
-  console.log("Password not correct");
+  showInvalidLogin("incorrect-pw", "enterpassword");
 }
 
 async function saveLoginData(data = {}) {

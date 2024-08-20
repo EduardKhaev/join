@@ -22,18 +22,18 @@
       <form onsubmit="validateLogin(event)" class="login-form" id="login-form">
         <div class="login-input-container">
           <div class="login-input">
-            <label
-              for="entermail"
-              id="login-email"
-              class="login-required"
-              style="opacity: 0"
-              >Please enter email</label
+            <label for="entermail" class="login-required" id="username"
+              ><span id="login-email" style="display: none"
+                >Please enter email</span
+              ><span id="user-unknown" style="display: none"
+                >Unknown User</span
+              ></label
             >
             <input
               required
               oninvalid="event.preventDefault(); showInvalidLogin('login-email', 'entermail')"
-              onfocus="removeInvalidLogin('login-email', 'entermail')"
-              class="inputfield-basic-design log-mailinput"
+              onfocus="removeInvalidLogin('username', 'entermail')"
+              class="inputfield-basic-design"
               type="email"
               autocomplete="username"
               id="entermail"
@@ -42,18 +42,18 @@
             />
           </div>
           <div class="login-input">
-            <label
-              for="enterpassword"
-              id="login-pw"
-              class="login-required"
-              style="opacity: 0"
-              >Please enter password</label
+            <label for="enterpassword" id="login-pw" class="login-required"
+              ><span id="missing-pw" style="display: none"
+                >Please enter password</span
+              ><span id="incorrect-pw" style="display: none"
+                >Password incorrect</span
+              ></label
             >
             <input
               required
-              oninvalid="event.preventDefault(); showInvalidLogin('login-pw', 'enterpassword')"
+              oninvalid="event.preventDefault(); showInvalidLogin('missing-pw', 'enterpassword')"
               onfocus="removeInvalidLogin('login-pw', 'enterpassword')"
-              class="inputfield-basic-design log-pwinput"
+              class="inputfield-basic-design"
               type="password"
               autocomplete="current-password"
               id="enterpassword"
@@ -65,15 +65,15 @@
             <input
               type="checkbox"
               id="remember"
-              name="agreetoterms"
+              name="remember"
               class="custom-checkbox"
             />
             <label for="remember" class="custom-checkbox-login">
               <div class="checkbox-icon">
                 <svg
                   width="19"
-                  height="19"
-                  viewBox="0 0 19 19"
+                  height="18"
+                  viewBox="0 0 19 18"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
                 >
