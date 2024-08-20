@@ -7,11 +7,18 @@
     background-color: var(--background-main);
     max-width: 1688px;
     margin-right: auto;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.summary-maincontainer::-webkit-scrollbar {
+    display: none;
 }
 
 .summary-container {
     margin-top: 206px;
     margin-left: 96px;
+    margin-right: 87px;
     display: flex;
     flex-direction: column;
 }
@@ -19,18 +26,21 @@
 .summary-header {
     width: 625px;
     display: flex;
-    justify-content: space-between;
+    gap: 44px;
     align-items: center;
+    margin-bottom: 56px;
 }
 
 h1 {
     font-size: 61px;
     font-weight: 700;
+    margin: 0;
 }
 
 h2 {
     font-size: 27px;
     font-weight: 400;
+    margin: 0;
 }
 
 .separator-summary-header {
@@ -39,6 +49,13 @@ h2 {
     border: solid 2px var(--brand-blue);
     background-color: var(--brand-blue);
     border-radius: 8px;
+}
+
+.separator-summary-header2 {
+    display: none;
+    width: 90px;
+    height: 4px;
+    background-color: var(--brand-blue);
 }
 
 .summary-board {
@@ -51,25 +68,16 @@ h2 {
     width: 560px;
     display: flex;
     flex-direction: column;
-    gap: 28px;
 }
 
-.s-tasks {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 28px;
-}
-
-.two-elements {
+.su-board-top {
     display: flex;
     gap: 32px;
     width: 100%;
     height: 168px;
 }
 
-.s-done-to-do {
+.su-done-to-do {
     width: 100%;
     padding: 28px 48px 28px 48px;
     background-color: white;
@@ -81,7 +89,7 @@ h2 {
     gap: 18px;
 }
 
-.s-pen {
+.su-pen {
     background-color: var(--brand-dark);
     border-radius: 100%;
     width: 69px;
@@ -91,34 +99,34 @@ h2 {
     align-items: center;
 }
 
-.s-pen svg {
+.su-pen svg {
     width: 25px;
     height: 25px;
 }
 
-.s-pen svg path {
+.su-pen svg path {
     fill: white;
 }
 
-.s-to-do {
+.su-count {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.s-to-do div {
+.su-count div {
     font-size: 64px;
     font-weight: 600;
 }
 
-.s-to-do span {
+.su-count span {
     font-size: 20px;
     font-weight: 400;
     margin-left: 8px;
     color: var(--brand-dark);
 }
 
-.s-checkmark {
+.su-checkmark {
     background-color: var(--brand-dark);
     border-radius: 100%;
     width: 69px;
@@ -128,16 +136,16 @@ h2 {
     align-items: center;
 }
 
-.s-checkmark svg {
+.su-checkmark svg {
     width: 30px;
     height: 22px;
 }
 
-.s-checkmark svg path {
+.su-checkmark svg path {
     stroke: white;
 }
 
-.s-urgent {
+.su-urgent {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -149,9 +157,10 @@ h2 {
     align-items: center;
     width: 100%;
     height: 168px;
+    margin-top: 28px;
 }
 
-.s-urgent-content {
+.su-urgent-content {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -159,7 +168,7 @@ h2 {
     padding: 28px 48px 28px 48px;
 }
 
-.s-urgent-left {
+.su-urgent-left {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -209,15 +218,16 @@ h2 {
     color: var(--brand-dark);
 }
 
-.s-tasks {
+.su-tasks {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 28px;
+    margin-top: 29px;
 }
 
-.s-task-area {
+.su-task-areas {
     width: 100%;
     height: 168px;
     background-color: white;
@@ -230,12 +240,12 @@ h2 {
     padding: 0px 25px 0px 25px;
 }
 
-.s-task-area div {
+.su-task-areas div {
     font-size: 64px;
     font-weight: 600;
 }
 
-.s-task-area span {
+.su-task-areas span {
     font-size: 20px;
     text-align: center;
     font-weight: 400;
@@ -256,27 +266,359 @@ h2 {
     
 }
 
-.summary-greeting {
+.summary-greeting span {
     font-size: 64px;
     font-weight: 700;
     color: var(--brand-blue);
 }
 
+@media (max-width: 1471px) {
+    .summary-greeting {
+        width: 320px;
+    }
+}
+
 @media (max-width: 1440px) {
     .summary-container {
-        margin-top: 128px;
+        margin-top: 160px;
+        margin-bottom: 128px;
+        margin-left: 80px;
+    }
+
+    .summary-greeting {
+        display: none;
     }
 }
 
 @media (max-width: 1000px) {
+
     .summary-maincontainer {
         height: 100%;
         width: auto;
         margin-left: 64px;
         margin-right: 64px;
+        align-items: center;
     }
 
     .summary-container {
         margin-left: 0px;
+        margin-right: 0;
+    }
+
+    .summary-header {
+        width: 100%;
+    }
+
+    .summary-greeting {
+        display: none;
+    }
+
+    /* .summary-greeting {
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+    }
+    
+    .summary-greeting div {
+        font-size: 36px;
+    }
+    
+    .summary-greeting span {
+        font-size: 47px;
+    } */
+}
+
+@media (max-width: 750px) {
+
+    .summary-maincontainer {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    
+    .summary-container {
+        margin-top: 128px;
+        margin-left: 16px;
+        margin-right: 16px;
+        margin-top: 128px;
+        margin-bottom: 128px;
+    }
+
+    .summary-header {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 40px;
+        gap: 0;
+    }
+
+    h1 {
+        margin-top: 0;
+        margin-bottom: 8px;
+        font-size: 47px;
+    }
+
+    h2 {
+        margin-top: 0;
+        margin-bottom: 16px;
+        font-size: 20px;
+    }
+
+    .separator-summary-header {
+        display: none;
+    }
+
+    .separator-summary-header2 {
+        display: block;
+    }
+
+    .summary-elements {
+        width: 396px;
+    }
+
+    .su-board-top {
+        height: 110px;
+        gap: 24px;
+    }
+
+    .su-done-to-do {
+        padding: 38px 19px 38px 19px;
+        gap: 10px;
+    }
+
+    .su-pen {
+        width: 40px;
+        height: 40px;
+    }
+
+    .su-pen svg {
+        width: 17px;
+        height: 17px;
+    }
+
+    .su-count div {
+        font-size: 47px;
+    }
+
+    .su-count span {
+        font-size: 14px;
+    }
+
+    .su-checkmark {
+        width: 40px;
+        height: 40px;
+    }
+
+    .su-checkmark svg {
+        width: 17px;
+        height: 13px;
+    }
+
+    .su-urgent {
+        height: 110px;
+        margin-top: 30px;
+    }
+
+    .su-urgent-content {
+        gap: 20px;
+        padding: 28px 0px 28px 0px;
+    }
+
+    .urgency-marker {
+        width: 40px;
+        height: 40px;
+    }
+
+    .urgency-marker svg {
+        width: 23px;
+        height: 17px;
+    }
+
+    .separator-urgency {
+        height: 68px;
+        width: 3px;
+    }
+
+    .deadline {
+        gap: 8px;
+    }
+
+    .deadline div {
+        font-size: 16px;
+    }
+
+    .deadline span {
+        font-size: 14px;
+    }
+
+    .su-tasks {
+        gap: 24px;
+        margin-top: 30px;
+    }
+
+    .su-task-areas {
+        height: 116px;
+    }
+
+    .su-task-areas div {
+        font-size: 47px;
+    }
+
+    .su-task-areas span {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 550px) {
+    .su-tasks {
+        margin-top: 18px;
+    }
+}
+
+@media (max-width: 420px) {
+
+    h1 {
+        font-size: 40px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    .summary-elements {
+        width: 340px;
+    }
+
+    .summary-header {
+        margin-bottom: 32px;
+    }
+
+    .su-board-top {
+        height: 100px;
+        gap: 16px;
+    }
+
+    .su-pen {
+        width: 36px;
+        height: 36px;
+    }
+
+    .su-pen svg {
+        width: 14px;
+        height: 14px;
+    }
+
+    .su-count div {
+        font-size: 40px;
+    }
+
+    .su-count span {
+        font-size: 12px;
+        margin-left: 0;
+    }
+
+    .su-checkmark {
+        width: 36px;
+        height: 36px;
+    }
+
+    .su-checkmark svg {
+        width: 14px;
+        height: 10px;
+    }
+
+    .su-urgent {
+        height: 100px;
+        margin-top: 18px;
+    }
+
+    .su-urgent-content {
+        padding: 0;
+    }
+
+    .urgency-marker {
+        width: 36px;
+        height: 36px;
+    }
+
+    .urgency-marker svg {
+        width: 19px;
+        height: 13px;
+    }
+
+    .separator-urgency {
+        height: 60px;
+    }
+
+    .deadline {
+        gap: 4px;
+    }
+
+    .deadline div {
+        font-size: 14px;
+    }
+
+    .deadline span {
+        font-size: 12px;
+    }
+
+    .su-tasks {
+        gap: 16px;
+    }
+
+    .su-task-areas {
+        width: 100%;
+    }
+
+    .su-task-areas div {
+        font-size: 40px;
+    }
+
+    .su-task-areas span {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 380px) {
+    .su-board-top {
+        gap: 8px;
+    }
+    
+    .su-tasks {
+        gap: 8px;
+    }
+
+    .summary-container {
+        margin-top: 104px;
+    }
+
+    .summary-header {
+        margin-bottom: 24px;
+    }
+}
+
+@media (max-width: 370px) {
+    .summary-elements {
+        width: 300px;
+    }
+
+    .summary-container {
+        margin-left: 8px;
+        margin-right: 8px;
+    }
+
+    .su-count div {
+        font-size: 36px;
+    }
+
+    .su-task-areas {
+        width: 100%;
+        padding: 0px 16px 0px 16px;
+    }
+
+    .su-task-areas div {
+        font-size: 36px;
+    }
+
+    .su-task-areas span {
+        font-size: 12px;
     }
 }
