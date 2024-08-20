@@ -8,9 +8,9 @@ async function initSummary() {
     sortTasksByDate();
     await groupTasks();
     await tasksByDate();
+     showGreetingAndUserName();
     displayTaskStatistics();
     showLoggedInInitials();
-
 }
 
 /**
@@ -28,7 +28,7 @@ function sortTasksByDate() {
 }
 
 /**
- * Displays task counts and greeting
+ * Displays task counts 
  */
 function displayTaskStatistics() {
     let toDos = groupedTasks["to do"] || [];
@@ -44,31 +44,31 @@ function displayTaskStatistics() {
     document.getElementById('tasksInProgressCount').innerHTML = inProgressTasks.length;
     document.getElementById('awaitingFeedbackCount').innerHTML = awaitFeedbackTasks.length;
     document.getElementById('urgentCount').innerHTML = urgentTasks.length;
-    document.getElementById('greetingMessage').innerHTML = getGreetingMessage();
 
-    if (loggedIn && loggedIn.name) {
-        document.getElementById('greetingUserName').innerHTML = loggedIn.name;
-    }
 
     let nextTaskDeadline = getNextTaskDeadline(tasks);
     document.getElementById('nextDeadlineTask').innerHTML = nextTaskDeadline;
 }
 
 /**
- * Returns the appropriate greeting message based on the current hour.
- * @returns {string} - The greeting message.
+ * Displays the appropriate greeting message based on the current hour and shows the name of the logged-in user.
  */
-function getGreetingMessage() {
+function showGreetingAndUserName() {
     let today = new Date();
     let curHr = today.getHours();
+    let greeting;
 
     if (curHr < 12) {
-        return 'Good morning,';
+        greeting = 'Good morning,';
     } else if (curHr >= 12 && curHr < 16) {
-        return 'Good afternoon,';
+        greeting = 'Good afternoon,';
     } else {
-        return 'Good evening,';
+        greeting = 'Good evening,';
     }
+
+    document.getElementById('greetingMessage').innerHTML = greeting;
+    document.getElementById('greetingUserName').innerHTML = loggedIn.name;
+    return greeting;
 }
 
 /**
