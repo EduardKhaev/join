@@ -62,15 +62,17 @@ function showInvalidLogin(labelId, inputId) {
 
 function removeInvalidLogin(labelId, inputId) {
   document.getElementById(inputId).style = "";
-  document.getElementById(labelId).style = "opacity: 0;";
+  let label = document.getElementById(labelId);
+  label.firstChild.style = "display: none";
+  label.lastChild.style = "display: none";
 }
 
 function unknownUser() {
-  console.log("Username not registered");
+  showInvalidLogin("user-unknown", "entermail");
 }
 
 function incorrectPassword() {
-  console.log("Password not correct");
+  showInvalidLogin("incorrect-pw", "enterpassword");
 }
 
 async function saveLoginData(data = {}) {
