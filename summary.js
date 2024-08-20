@@ -23,11 +23,11 @@ function sortTasksByDate() {
  * Displays task counts and greeting
  */
 function displayTaskStatistics() {
-    if (tasks.length > 0) {
         let toDos = groupedTasks["to do"] || [];
         let doneTasks = groupedTasks["done"] || [];
         let inProgressTasks = groupedTasks["in progress"] || [];
         let awaitFeedbackTasks = groupedTasks["await feedback"] || [];
+        let urgentTasks = tasks.filter(task => task.priority === 'urgent');
         let totalTasks = tasks.length;
 
         document.getElementById('todoCount').innerHTML = toDos.length;
@@ -35,20 +35,11 @@ function displayTaskStatistics() {
         document.getElementById('tasksInBoardCount').innerHTML = totalTasks;
         document.getElementById('tasksInProgressCount').innerHTML = inProgressTasks.length;
         document.getElementById('awaitingFeedbackCount').innerHTML = awaitFeedbackTasks.length;
-
+        document.getElementById('urgentCount').innerHTML = urgentTasks.length; 
         document.getElementById('greetingMessage').innerHTML = getGreetingMessage();
-
+        
         let nextTaskDeadline = getNextTaskDeadline(tasks);
         document.getElementById('nextDeadlineTask').innerHTML = nextTaskDeadline;
-    }
-
-    else {
-        document.getElementById('todoCount').innerHTML = 0;
-        document.getElementById('doneCount').innerHTML = 0;
-        document.getElementById('tasksInBoardCount').innerHTML = 0;
-        document.getElementById('tasksInProgressCount').innerHTML = 0;
-        document.getElementById('awaitingFeedbackCount').innerHTML = 0;
-    }
 }
 
 /**
@@ -75,7 +66,6 @@ function getGreetingMessage() {
  */
 function getNextTaskDeadline(allTasks) {
     let nextTask = allTasks[0];
-    console.log(allTasks);
     let date = new Date(nextTask.date);
     let options = { year: 'numeric', month: 'long', day: 'numeric' };
     let formattedDate = date.toLocaleDateString('en-US', options);
