@@ -6,10 +6,6 @@
 
 @media (max-width: 1000px) {
 
-  header {
-    height: 80px;
-  }
-  
   .navigation {
     position: fixed;
     bottom: 0;
@@ -111,6 +107,11 @@
 }
 
 @media (max-width: 750px) {
+
+  header {
+    height: 80px;
+  }
+  
   .join-logo-header {
     display: block;
     height: 39px;

@@ -312,6 +312,12 @@ h1 {
   }
 }
 
+@media (max-width: 1600px) {
+  .board-top {
+    margin-top: 144px;
+  }
+}
+
 @media (max-width: 1400px) {
   .board-container {
     height: auto;
