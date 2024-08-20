@@ -1,6 +1,6 @@
 function loginAsGuest(event) {
   event.preventDefault();
-  console.log("Guest logged in");
+  loginUser("Guest", "G");
 }
 
 function validateLogin(event) {
@@ -37,7 +37,8 @@ function setToken(displayName, initials, remember) {
 }
 
 function saveToken(loginToken) {
-  console.log(loginToken);
+  let stringToken = JSON.stringify(loginToken);
+  localStorage.setItem("loginToken", stringToken);
 }
 
 function findLoginName(loginData, username) {
