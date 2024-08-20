@@ -8,16 +8,20 @@ async function initSummary() {
     sortTasksByDate();
     await groupTasks();
     await tasksByDate();
-     showGreetingAndUserName();
+    showGreetingAndUserName();
     displayTaskStatistics();
     showLoggedInInitials();
 }
 
 /**
- * shows the initials of the loggedin user
+ * shows the initials of the logged-in user
  */
 function showLoggedInInitials() {
-    document.getElementById('user-profile-initials').innerHTML = loggedIn.initials;
+    if (loggedIn) {
+        document.getElementById('user-profile-initials').innerHTML = loggedIn.initials;
+    } else {
+        document.getElementById('user-profile-initials').innerHTML = 'G'; 
+    }
 }
 
 /**
@@ -45,7 +49,6 @@ function displayTaskStatistics() {
     document.getElementById('awaitingFeedbackCount').innerHTML = awaitFeedbackTasks.length;
     document.getElementById('urgentCount').innerHTML = urgentTasks.length;
 
-
     let nextTaskDeadline = getNextTaskDeadline(tasks);
     document.getElementById('nextDeadlineTask').innerHTML = nextTaskDeadline;
 }
@@ -58,17 +61,21 @@ function showGreetingAndUserName() {
     let curHr = today.getHours();
     let greeting;
 
-    if (curHr < 12) {
-        greeting = 'Good morning,';
-    } else if (curHr >= 12 && curHr < 16) {
-        greeting = 'Good afternoon,';
-    } else {
-        greeting = 'Good evening,';
-    }
+    if (loggedIn) {
+        if (curHr < 12) {
+            greeting = 'Good morning,';
+        } else if (curHr >= 12 && curHr < 16) {
+            greeting = 'Good afternoon,';
+        } else {
+            greeting = 'Good evening,';
+        }
 
     document.getElementById('greetingMessage').innerHTML = greeting;
     document.getElementById('greetingUserName').innerHTML = loggedIn.name;
-    return greeting;
+
+    } else {
+        document.getElementById('greetingUserName').innerHTML = 'Guest';
+    }
 }
 
 /**
@@ -81,7 +88,5 @@ function getNextTaskDeadline(allTasks) {
     let date = new Date(nextTask.date);
     let options = { year: 'numeric', month: 'long', day: 'numeric' };
     let formattedDate = date.toLocaleDateString('en-US', options);
-
     return ` ${formattedDate}`;
-
 }
