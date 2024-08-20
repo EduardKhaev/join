@@ -21,7 +21,23 @@ async function checkLoginData(username, password) {
 }
 
 function loginUser(displayName, initials) {
-  console.log(displayName, initials);
+  let remember = document.getElementById("remember").checked;
+  setToken(displayName, initials, remember);
+}
+
+function setToken(displayName, initials, remember) {
+  let timestamp = Math.floor(Date.now() / 1000);
+  let loginToken = {
+    name: displayName,
+    initials: initials,
+    remember: remember,
+    timestamp: timestamp,
+  };
+  saveToken(loginToken);
+}
+
+function saveToken(loginToken) {
+  console.log(loginToken);
 }
 
 function findLoginName(loginData, username) {
@@ -77,21 +93,4 @@ async function getLoginData() {
     });
   }
   return loginData;
-}
-
-async function loadUsers(path = "/names") {
-  let userResponse = await fetch(FIREBASE_URL + path + ".json");
-  let responseToJson = await userResponse.json();
-  if (responseToJson) {
-    Object.keys(responseToJson).forEach((key) => {
-      users.push({
-        id: key,
-        name: responseToJson[key]["name"],
-        phone: responseToJson[key]["phone"],
-        email: responseToJson[key]["email"],
-        color: responseToJson[key]["color"],
-        initials: responseToJson[key]["initials"],
-      });
-    });
-  }
 }
