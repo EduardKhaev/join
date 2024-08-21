@@ -87,11 +87,13 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
+      
     }
     100% {
       top: 100px;
       left: 50px;
       transform: translate(-50%, -50%);
+      
     }
   }
   .login-headline-container h1 {
@@ -104,9 +106,10 @@
   .loginsitecontainers {
     display: flex;
     flex-direction: column-reverse;
+    height: auto;
   }
   .login-container {
-    margin-top: 130px;
+    margin-top: 150px !important;
   }
   .log-head {
     display: flex;
@@ -135,7 +138,7 @@
 }
 @media (max-width: 550px) {
   body {
-    margin: 0px 10px !important;
+    margin: 0px 0px !important;
   }
   .login-buttons-container {
     display: flex;
