@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overlay Animation</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+:root {
+    --navigation-hover: rgba(42, 61, 89, 1);
+    --background-main: rgba(246, 247, 248, 1);
+}
+
+body, html {
+    height: 100%;
+    margin: 0;
+    background-color: var(--background-main);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--navigation-hover);
+    opacity: 1;
+    animation: backgroundFade 3s forwards; /* Animation für den Hintergrund */
+}
+
+.logo {
+    position: absolute;
+    width: 100.03px;
+    height: 121.97px;
+    animation: logoMove 2s forwards; /* Animation für das Logo */
+}
+
+/* Keyframe für das Logo */
+@keyframes logoMove {
+    0% {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100.03px;
+        height: 121.97px;
+    }
+    50% {
+        opacity: 0.8; /* Logo wird transparent */
+    }
+    100% {
+        top: 10px; /* Neue Position für das Logo oben */
+        left: 10px; /* Neue Position für das Logo links */
+        transform: translate(0, 0); /* Geh zurück zur normalen Position */
+        width: 64px; /* Endbreite */
+        height: 78.03px; /* Endhöhe */
+        opacity: 1; /* Logo wird wieder sichtbar */
+    }
+}
+
+/* Keyframe für den Hintergrund */
+@keyframes backgroundFade {
+    0% {
+        background-color: var(--navigation-hover);
+    }
+    100% {
+        background-color: var(--background-main);
+    }
+}
+</style>
+<body>
+    <div class="overlay">
+        <img src="./icons/join-logo-white.svg" alt="" class="logo" id="logo">
+    </div>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const overlay = document.querySelector('.overlay');
+        const logo = document.getElementById('logo');
+    
+        setTimeout(() => {
+            overlay.classList.add('active');
+            
+            // Bildwechsel nach 1 Sekunde (1.000 ms)
+            setTimeout(() => {
+                logo.src = './img/join-logo-blue.png'; // Neue Bildquelle
+            }, 400); // 1500 ms nachdem die Animation gestartet hat
+        }, ); // wartet 1 Sekunde, bevor die Animation startet
+    });
+    </script>
+</body>
+</html>

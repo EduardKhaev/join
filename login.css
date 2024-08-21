@@ -181,6 +181,12 @@ label {
   text-decoration: none;
   color: #d1d1d1;
 }
+
+.log-siteinfo a:hover {
+  color: var(--brand-blue);
+  font-size: 700;
+}
+
 .background-animation {
   background-color: #f6f7f8;
   position: absolute;
@@ -188,6 +194,7 @@ label {
   height: 100%;
   animation: backgroundanim 2s ease 0s 1 normal forwards;
 }
+
 @keyframes backgroundanim {
   0% {
     opacity: 1;

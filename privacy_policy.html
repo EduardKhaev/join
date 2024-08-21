@@ -20,10 +20,11 @@
     <script src="apiscripts.js"></script>
     <script src="task.js"></script>
     <script src="board.js"></script>
+    <script src="auth.js"></script>
     <link rel="icon" type="image/png" href="./img/join-logo-blue.png">
 </head>
 
-<body>
+<body onload="accessPage()">
     <header>
         <div class="header-left">
             <img class="join-logo-header" src="./img/join-logo-blue.png" alt="Join Logo" />
@@ -86,7 +87,7 @@
                 </div>
             </div>
 
-            <div class="footer-notes">
+            <div class="footer-notes" id="footer-notes">
                 <a href="privacy_policy.html"><span>Privacy Policy</span></a>
                 <a href="impressum.html"><span>Legal notice</span></a>
             </div>
@@ -294,15 +295,25 @@
 
 <script>
 
-    function toggleSidebar() {
-        let sidebar = document.getElementById('sidebar');
-        if (!loggedIn) {
-            sidebar.style.display = 'none'; 
-        } else {
-            sidebar.style.display = 'block';
-        }
-    }
-    
+/**
+ * check if user is logged in
+ */
+ function accessPage() {
+  let hasAccess = checkAuthState();
+  let sidebar = document.getElementById('sidebar');
+  let footerNotes = document.getElementById('footer-notes');
+
+  if (hasAccess) {
+    document.getElementById("body").style = "";
+    sidebar.style.display = 'block'; 
+    footerNotes.style.display = 'block'; 
+
+    document.onload = initTask();
+  } else {
+    sidebar.style.display = 'none'; 
+    footerNotes.style.display = 'none'; 
+  }
+}
 </script>
 
 </html>
