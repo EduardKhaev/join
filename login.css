@@ -1,5 +1,7 @@
 body {
   margin: 0px 120px !important;
+  display: flex;
+  flex-direction: column;
 }
 .log-head {
   height: 150px;
@@ -13,96 +15,12 @@ body {
   align-items: center;
   gap: 35px;
 }
-.log-maincontainer{
+.log-maincontainer {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex: 1;
 }
-
-/*
-
-.logincontainer {
-  height: 493px;
-  width: 692px;
-  display: flex;
-  flex-direction: column;
-  
-  position: relative;
-  left: 25%;
-  background-color: #ffffff;
-  border-radius: 20px;
-  box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.08);
-}
-.logincontainer-head {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.logincontainer-head h1 {
-  font-size: 61px;
-  margin-top: 48px;
-  margin-bottom: 16px;
-}
-.log-emptydiv {
-  height: 2px;
-  width: 120px;
-  margin-bottom: 32px;
-  background-color: blue;
-}
-.log-inputcontainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 32px;
-  margin: 20px 115px;
-}
-.log-inputcontainer input {
-  width: 100%;
-  height: 28px;
-  border-radius: 10px;
-  border: solid 1px;
-  border-color: #d1d1d1;
-  font-size: 20px;
-  padding-left: 8px;
-}
-::placeholder {
-  color: #d1d1d1;
-  padding-left: 15px;
-}
-.log-inputcontainer input:focus {
-  border: solid 1px;
-  border-color: #29abe2;
-  outline: none;
-}
-.log-inputcontainer input:not(:focus):not(:placeholder-shown):invalid {
-  border: solid 2px;
-  border-color: red;
-  outline: none;
-}
-
-.log-mailinput {
-  background-image: url(img/mail-icon.png);
-  background-position: right 10px center;
-  background-repeat: no-repeat;
-}
-.log-pwinput {
-  background-image: url(img/lock.png);
-  background-position: right 10px center;
-  background-repeat: no-repeat;
-}
-.login-action {
-  display: flex;
-  gap: 8px;
-  margin-left: 148px;
-  margin-bottom: 32px;
-}
-.login-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 35px;
-}
-
-*/
 
 .login-container {
   width: 650px;
@@ -138,6 +56,10 @@ body {
 }
 
 /* inputfields */
+
+.login-input label {
+  height: 20px;
+}
 
 label {
   margin-bottom: 8px;
@@ -246,7 +168,8 @@ label {
 .log-siteinfo {
   display: flex;
   justify-content: center;
-  margin-top: 150px;
+  margin-top: 100px;
+  margin-bottom: 64px;
   gap: 16px;
 }
 .log-siteinfo a {
