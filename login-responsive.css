@@ -34,7 +34,7 @@
       left: 50%;
       transform: translate(-50%, -50%);
     }
-  40% {
+    40% {
       height: 300px;
       width: 284px;
       top: 50%;
@@ -64,7 +64,7 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    animation: backgroundanimresponsive 2s ease 0s 1 normal forwards;
+    animation: backgroundanimresponsive 1s ease 200ms 1 normal forwards;
   }
   @keyframes backgroundanimresponsive {
     0% {
@@ -85,7 +85,7 @@
     height: 78px;
     width: 64px;
     z-index: 10;
-    animation: moveLogoresponsive 1s linear forwards;
+    animation: moveLogoresponsive 1s linear 200ms 1 normal forwards;
   }
 
   @keyframes fillAnimation {
@@ -98,7 +98,7 @@
   }
 
   .log-joinlogo path {
-    animation: fillAnimation 2s forwards;
+    animation: fillAnimation 1s linear 200ms 1 normal forwards;
   }
 
   .log-joinlogo path[fill="#29ABE2"] {
@@ -113,13 +113,7 @@
       left: 50%;
       transform: translate(-50%, -50%);
     }
-    80% {
-      height: 300px;
-      width: 284px;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
+
     100% {
       top: 50px;
       left: 47px;
@@ -193,74 +187,63 @@
 }
 
 @media (max-height: 815px) and (max-width: 375px) {
-    .loginsitecontainers{
-        margin-top: 0px !important;
+  .loginsitecontainers {
+    margin-top: 0px !important;
+  }
+  .background-animation {
+    background-color: #2a3647;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    animation: backgroundanimresponsive 1s linear 0s 1 normal forwards;
+  }
+
+  @keyframes backgroundanimresponsive {
+    0% {
+      opacity: 1;
+      transform: scale(1);
+      z-index: 10;
     }
-    .background-animation {
-        background-color: #2a3647;
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        z-index: 10;
-        animation: backgroundanimresponsive 2s ease 0s 1 normal forwards;
+    100% {
+      opacity: 0;
+      transform: scale(1);
+      z-index: -1;
     }
-    
-    @keyframes backgroundanimresponsive {
-        0% {
-            opacity: 1;
-            transform: scale(1);
-            z-index: 10;
-        }
-        100% {
-            opacity: 0;
-            transform: scale(1);
-            z-index: -1;
-        }
+  }
+
+  .log-joinlogo {
+    position: absolute;
+    top: 80px;
+    height: 78px;
+    width: 64px;
+    z-index: 10;
+    animation: moveLogoresponsive 1s linear 0s 1 normal forwards;
+  }
+
+  @keyframes moveLogoresponsive {
+    0% {
+      height: 160px;
+      width: 146px;
+      top: 50%;
+      left: 50%;
+      z-index: 1;
+      transform: translate(-50%, -50%);
+      opacity: 1;
     }
-    
-    .log-joinlogo {
-        position: absolute;
-        top: 80px;
-        height: 78px;
-        width: 64px;
-        z-index: 10;
-        animation: moveLogoresponsive 2s linear forwards;
+
+    100% {
+      top: 37px;
+      left: 38px;
+      opacity: 0; /* Am Ende der Animation unsichtbar */
+      display: none; /* Am Ende der Animation komplett aus dem Layout entfernen */
     }
-    
-    @keyframes moveLogoresponsive {
-        0% {
-            height: 160px;
-            width: 146px;
-            top: 50%;
-            left: 50%;
-            z-index: 1;
-            transform: translate(-50%, -50%);
-            opacity: 1;
-        }
-        50% {
-          height: 160px;
-          width: 146px;
-          top: 50%;
-          left: 50%;
-          opacity: 1;
-          transform: translate(-50%, -50%);
-        }
-        80% {
-            opacity: 1; /* Auf halbem Weg teilweise durchsichtig */
-        }
-        100% {
-            top: 37px;
-            left: 38px;
-            opacity: 0; /* Am Ende der Animation unsichtbar */
-            display: none; /* Am Ende der Animation komplett aus dem Layout entfernen */
-        }
-    }
-    
-    .login-container {
-        margin-top: 0px !important;
-    }
-    
-}    
+  }
+
+  .login-container {
+    margin-top: 0px !important;
+  }
+}
 
 @media (max-width: 400px) {
   .log-head {
