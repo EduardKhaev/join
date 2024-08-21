@@ -13,6 +13,11 @@ body {
   align-items: center;
   gap: 35px;
 }
+.log-maincontainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 /*
 
