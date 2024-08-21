@@ -27,17 +27,18 @@ async function checkLoginData(username, password) {
 
 function loginUser(displayName, initials) {
   let remember = document.getElementById("remember").checked;
-  setToken(displayName, initials, remember);
+  setToken(displayName, initials, remember, true);
   window.location.replace("./summary.html");
 }
 
-function setToken(displayName, initials, remember) {
+function setToken(displayName, initials, remember, greeting) {
   let timestamp = Math.floor(Date.now() / 1000);
   let loginToken = {
     name: displayName,
     initials: initials,
     remember: remember,
     timestamp: timestamp,
+    greeting: greeting,
   };
   saveToken(loginToken);
   return;

@@ -28,9 +28,10 @@ function passTokenData(token) {
   loggedIn = {
     name: token.name,
     initials: token.initials,
+    greeting: token.greeting,
   };
 }
 
 function renewToken(token) {
-  setToken(token.name, token.initials, token.remember);
+  setToken(token.name, token.initials, token.remember, false);
 }

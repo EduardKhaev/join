@@ -24,10 +24,13 @@
     <script src="apiscripts.js"></script>
     <script src="task.js"></script>
     <script src="board.js"></script>
+    <script src="login.js"></script>
+    <script src="auth.js"></script>
+    <script src="auth_board.js"></script>
     <title>Board</title>
   </head>
 
-  <body id="body" onload="initBoard()">
+  <body id="body" onload="accessPage()" style="display: none">
     <header>
       <div class="header-left">
         <img
@@ -53,7 +56,7 @@
             <a href="help.html">Help</a>
             <a href="impressum.html">Legal Notice</a>
             <a href="privacy_policy.html">Privacy Policy</a>
-            <a href="login.html">Log Out</a>
+            <a onclick="logoutUser()">Log Out</a>
           </div>
         </div>
       </div>
@@ -112,10 +115,8 @@
           </div>
         </div>
         <div class="footer-notes">
-          <a href="privacy_policy.html" target="_blank"
-            ><span>Privacy Policy</span></a
-          >
-          <a href="impressum.html" target="_blank"><span>Legal notice</span></a>
+          <a href="privacy_policy.html"><span>Privacy Policy</span></a>
+          <a href="impressum.html"><span>Legal notice</span></a>
         </div>
       </div>
     </div>
