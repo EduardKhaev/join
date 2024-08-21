@@ -17,13 +17,14 @@
     <script src="data.js"></script>
     <script src="apiscripts.js"></script>
     <script src="utility.js"></script>
-    <!--   <script src="contacts.js"></script> -->
+    <script src="login.js"></script>
     <script src="task.js"></script>
-
+    <script src="auth.js"></script>
+    <script src="auth_task.js"></script>
     <title>Add Task</title>
   </head>
 
-  <body id="body" onload="initTask()">
+  <body id="body" onload="accessPage()" style="display: none">
     <header>
       <div class="header-left">
         <img
@@ -49,7 +50,7 @@
             <a href="help.html">Help</a>
             <a href="impressum.html">Legal Notice</a>
             <a href="privacy_policy.html">Privacy Policy</a>
-            <a href="login.html">Log Out</a>
+            <a onclick="logoutUser()">Log Out</a>
           </div>
         </div>
       </div>
@@ -327,7 +328,10 @@
               Clear <img src="img/close.png" alt="" />
             </button>
 
-            <button type="submit" class="button-primary action-button-text responsive-submit-button">
+            <button
+              type="submit"
+              class="button-primary action-button-text responsive-submit-button"
+            >
               Create Task <img src="img/check.png" alt="" />
             </button>
           </div>
