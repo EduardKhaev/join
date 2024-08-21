@@ -105,4 +105,9 @@ header {
 
 .help-icon {
   cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.help-icon:hover {
+  transform: scale(1.15);
 }
