@@ -3,10 +3,6 @@ body {
     flex-direction: column;
 }
 
-.empty-head {
-    height: 150px;
-}
-
 .log-head-elements {
     display: flex;
     align-items: center;
@@ -21,6 +17,7 @@ body {
 }
 
 .login-container {
+    margin-top: 150px;
     width: 598px;
     padding-top: 48px;
     padding-bottom: 48px;
@@ -88,7 +85,7 @@ label {
     border-radius: 10px;
     border: 1px solid #d1d1d1;
     background-color: white;
-    padding: 10px;
+    padding: 12px 21px 12px 21px;
     width: 100%;
     box-sizing: border-box;
     margin-bottom: 8px;
@@ -129,12 +126,11 @@ label {
 .custom-checkbox-login {
     display: flex;
     align-items: center;
+    justify-content: center;
     cursor: pointer;
     flex-grow: 1;
-    justify-content: flex-start;
     margin-bottom: 0;
     margin-top: 28px;
-    margin-left: 40px;
     gap: 8px;
 }
 
@@ -215,6 +211,10 @@ label {
     text-decoration: none;
 }
 
+.custom-checkbox-login span {
+    color: #A8A8A8;
+}
+
 @media(max-width: 1600px) {
     .login-container {
         padding-top: 32px;
@@ -234,24 +234,79 @@ label {
         font-size: 47px;
     }
 
-    .login-input label {
-        height: 12px;
-        font-size: 12px;
-    }
-
-    label {
-        margin-bottom: 2px;
-    }
-
     .log-joinlogo {
         height: 78px;
         width: 64px;
         top: 50px;
         left: 47px;
     }
+}
 
-    .custom-checkbox-login span {
-        color: #A8A8A8;
+@media(max-width: 767px) {
+    .login-container {
+        width: 93%;
+        margin-top: 165px;
     }
 
+    .login-input-container {
+        width: 90%;
+    }
+
+    .su-button {
+        font-size: 16px !important;
+        width: 55%;
+    }
+
+    .log-joinlogo {
+        top: 37px;
+        left: 38px;
+    }
+
+    body {
+        overflow-y: scroll;
+        overflow-x: hidden;
+        height: auto !important;
+    }
+    
+    .body::-webkit-scrollbar {
+        display: none;
+      }
+    
+}
+
+@media(max-width: 427px) {
+    .si-back-arrow {
+        top: 24px;
+        left: 24px;
+    }
+
+    .login-container h1 {
+        font-size: 40px;
+    }
+
+    .login-container {
+        padding-top: 48px;
+    }
+
+    .inputfield-basic-design {
+        padding: 10px;
+    }
+}
+
+@media(max-width: 391px) {
+    .login-container {
+        margin-top: 16px;
+    }
+
+    .log-joinlogo {
+        display: none;
+    }
+
+    .custom-checkbox-login {
+        font-size: 14px;
+    }
+
+    .log-siteinfo {
+        margin-top: 24px;
+    }
 }
