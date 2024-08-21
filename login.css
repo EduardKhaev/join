@@ -1,5 +1,6 @@
 body {
   margin: 0px 120px !important;
+  
 }
 .log-head {
   height: 150px;
@@ -13,10 +14,18 @@ body {
   align-items: center;
   gap: 35px;
 }
-.log-maincontainer{
+.log-maincontainer {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 100px;
+}
+.log-footer {
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 25px;
 }
 
 /*
@@ -246,7 +255,7 @@ label {
 .log-siteinfo {
   display: flex;
   justify-content: center;
-  margin-top: 150px;
+  
   gap: 16px;
 }
 .log-siteinfo a {
@@ -255,5 +264,22 @@ label {
 }
 .log-joinlogo {
   position: absolute;
-  top: 150px;
+  top: 80px;
+  height: 120px;
+  width: 100px;
+  z-index: 10;
+  animation: moveLogo 3s ease forwards;
+}
+
+@keyframes moveLogo {
+  0% {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+  }
+  100% {
+      top: 100px;
+      left: 50px; 
+      transform: translate(-50%, -50%);
+  }
 }
