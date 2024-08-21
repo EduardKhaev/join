@@ -87,13 +87,10 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      
     }
     100% {
-      top: 100px;
+      top: 50px;
       left: 50px;
-      transform: translate(-50%, -50%);
-      
     }
   }
   .login-headline-container h1 {
@@ -159,3 +156,64 @@
     margin-top: 20px;
   }
 }
+@media (max-height: 815px) {
+    .loginsitecontainers{
+        margin-top: 120px !important;
+    }
+    .background-animation {
+        background-color: #2a3647;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        animation: backgroundanimresponsive 2s ease 0s 1 normal forwards;
+    }
+    
+    @keyframes backgroundanimresponsive {
+        0% {
+            opacity: 1;
+            transform: scale(1);
+            z-index: 10;
+        }
+        100% {
+            opacity: 0;
+            transform: scale(1);
+            z-index: -1;
+        }
+    }
+    
+    .log-joinlogo {
+        position: absolute;
+        top: 80px;
+        height: 80px;
+        width: 60px;
+        z-index: 10;
+        animation: moveLogoresponsive 2s ease forwards;
+    }
+    
+    @keyframes moveLogoresponsive {
+        0% {
+            height: 150px;
+            width: 120px;
+            top: 50%;
+            left: 50%;
+            
+            opacity: 1;
+        }
+        50% {
+            top: 30px;
+            left: 50px;
+            opacity: 0.5; /* Auf halbem Weg teilweise durchsichtig */
+        }
+        100% {
+            top: 30px;
+            left: 50px;
+            opacity: 0; /* Am Ende der Animation unsichtbar */
+            display: none; /* Am Ende der Animation komplett aus dem Layout entfernen */
+        }
+    }
+    
+    .login-container {
+        margin-top: 0px !important;
+    }
+    
+}    
