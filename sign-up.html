@@ -37,7 +37,7 @@
                 required
                 oninvalid="event.preventDefault(); showInvalidLogin('sign-in-email', 'entermail')"
                 onfocus="removeInvalidLogin('username', 'entermail')"
-                class="inputfield-basic-design"
+                class="inputfield-basic-design log-nameinput"
                 type="text"
                 autocomplete="username"
                 id="entername"
@@ -55,7 +55,7 @@
                   required
                   oninvalid="event.preventDefault(); showInvalidLogin('sign-in-email', 'entermail')"
                   onfocus="removeInvalidLogin('usermail', 'entermail')"
-                  class="inputfield-basic-design"
+                  class="inputfield-basic-design log-mailinput"
                   type="email"
                   autocomplete="usermail"
                   id="entermail"
@@ -73,7 +73,7 @@
                 required
                 oninvalid="event.preventDefault(); showInvalidLogin('missing-pw', 'enterpassword')"
                 onfocus="removeInvalidLogin('sign-in-pw', 'enterpassword')"
-                class="inputfield-basic-design"
+                class="inputfield-basic-design log-pwinput"
                 type="password"
                 id="enterpassword"
                 name="password"
@@ -92,7 +92,7 @@
                   required
                   oninvalid="event.preventDefault(); showInvalidLogin('missing-repeat-pw', 'enter-repeat-password')"
                   onfocus="removeInvalidLogin('sign-in-repeat-pw', 'enter-repeat-password')"
-                  class="inputfield-basic-design"
+                  class="inputfield-basic-design log-pwinput"
                   type="password"
                   id="enter-repeat-password"
                   name="repeat-password"
