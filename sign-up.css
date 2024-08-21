@@ -3,12 +3,8 @@ body {
     display: flex;
     flex-direction: column;
   }
-  .log-head {
+  .empty-head {
     height: 150px;
-  
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
   }
   .log-head-elements {
     display: flex;
@@ -30,10 +26,25 @@ body {
     box-shadow: 0 0 14px 3px rgba(0, 0, 0, 0.04);
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    gap: 32px;
+    gap: 8px;
     border-radius: 30px;
+    position: relative;
+  }
+
+  .si-back-arrow {
+    position: absolute;
+    top: 64px;
+    left: 48px;
+    height: 32px;
+    width: 32px;
+    cursor: pointer;
+  }
+
+  .si-back-arrow:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 50px;
   }
   
   .login-container h1 {
@@ -41,7 +52,7 @@ body {
     font-weight: 700;
     line-height: 73.2px;
     margin-top: 0;
-    margin-bottom: 16px;
+    margin-bottom: 8px;
   }
   
   .login-headline-container {
@@ -204,3 +215,36 @@ body {
     text-decoration: none;
   }
   
+  @media(max-width: 1600px) {
+    .login-container {
+        padding-top: 32px;
+        padding-bottom: 32px;
+    }
+
+    .si-back-arrow {
+        top: 40px;
+        left: 40px;
+  }
+
+  .login-headline-container {
+    margin-bottom: 8px;
+  }
+
+  .login-container h1 {
+    font-size: 47px;
+  }
+
+  .login-input label {
+    height: 12px;
+    font-size: 12px;
+  }
+
+  label {
+    margin-bottom: 2px;
+  }
+
+  .log-joinlogo {
+    height: 78px;
+    width: 64px;
+  }
+}
