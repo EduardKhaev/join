@@ -1,5 +1,5 @@
-body {
-  margin: 0px 120px !important;
+body{
+  height: 100vh;
 }
 .log-head {
   height: 150px;
@@ -12,12 +12,14 @@ body {
   display: flex;
   align-items: center;
   gap: 35px;
+  margin-right: 120px;
 }
 .log-maincontainer {
   display: flex;
   justify-content: center;
   align-items: center;
   flex: 1;
+  
 }
 
 .loginsitecontainers {
@@ -219,6 +221,6 @@ label {
   100% {
     top: 100px;
     left: 50px;
-    transform: translate(-50%, -50%);
+    
   }
 }
