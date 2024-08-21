@@ -80,23 +80,6 @@
     animation: moveLogoresponsive 1s ease forwards;
   }
 
-  @keyframes fillAnimation {
-    0% {
-      fill: white;
-    }
-    100% {
-      fill: #2a3647;
-    }
-  }
-
-  .log-joinlogo path {
-    animation: fillAnimation 2s forwards;
-  }
-
-  .log-joinlogo path[fill="#29ABE2"] {
-    animation: none;
-  }
-
   @keyframes moveLogoresponsive {
     0% {
       height: 150px;
