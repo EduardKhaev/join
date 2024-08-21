@@ -12,6 +12,8 @@
     <script src="auth.js"></script>
   </head>
   <body>
+    <div class="background-animation"></div>
+    <img class="log-joinlogo" src="img/join-animation-logo.png" alt="" />
     <div class="log-head">
       <div class="log-head-elements">
         <a href="">Not a Join user?</a>
@@ -43,7 +45,7 @@
                 required
                 oninvalid="event.preventDefault(); showInvalidLogin('login-email', 'entermail')"
                 onfocus="removeInvalidLogin('username', 'entermail')"
-                class="inputfield-basic-design"
+                class="inputfield-basic-design log-mailinput"
                 type="email"
                 autocomplete="username"
                 id="entermail"
@@ -63,7 +65,7 @@
                 required
                 oninvalid="event.preventDefault(); showInvalidLogin('missing-pw', 'enterpassword')"
                 onfocus="removeInvalidLogin('login-pw', 'enterpassword')"
-                class="inputfield-basic-design"
+                class="inputfield-basic-design log-pwinput"
                 type="password"
                 autocomplete="current-password"
                 id="enterpassword"
@@ -137,8 +139,6 @@
         <a href="">Legal notice</a>
       </div>
     </div>
-    <div class="background-animation"></div>
-    <div class="logo"></div>
-    <img class="log-joinlogo" src="img/join-logo-blue.png" alt="" />
+    
   </body>
 </html>

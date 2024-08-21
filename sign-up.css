@@ -40,6 +40,7 @@ body {
     font-size: 61px;
     font-weight: 700;
     line-height: 73.2px;
+    margin-top: 0;
     margin-bottom: 16px;
   }
   
@@ -84,6 +85,12 @@ body {
     border: solid 1px;
     border-color: #29abe2;
     outline: none;
+  }
+
+  .log-nameinput {
+    background-image: url(img/person-icon.png);
+    background-position: right 10px center;
+    background-repeat: no-repeat;
   }
   
   .log-mailinput {
@@ -172,14 +179,25 @@ body {
     margin-bottom: 64px;
     gap: 16px;
   }
+ 
   .log-siteinfo a {
     text-decoration: none;
     color: #d1d1d1;
+    transition: transform 0.2s ease;
   }
+  
+  .log-siteinfo a:hover {
+    transform: scale(1.08);
+    color: var(--brand-blue);
+  }
+
   .log-joinlogo {
-    position: absolute;
-    top: 150px;
-  }
+  position: absolute;
+  top: 80px;
+  height: 120px;
+  width: 100px;
+  z-index: 10;
+}
 
   .privacy-link {
     color: var(--brand-blue);
