@@ -86,7 +86,7 @@ function hslToHex(h, s, l) {
 
 /**
  * returns today's date in the format YYY-MM-DD
- * @returns 
+ * @returns
  */
 function getTodaysDate() {
   let date = new Date();
@@ -101,9 +101,9 @@ function getTodaysDate() {
 
 /**
  * compares two objects by their date property for sorting purposes
- * @param {Object} a 
- * @param {Object} b 
- * @returns 
+ * @param {Object} a
+ * @param {Object} b
+ * @returns
  */
 function sortByDate(a, b) {
   if (a.date < b.date) {
@@ -203,6 +203,9 @@ async function tasksByDate() {
   }
 }
 
+/**
+ * returns to the previous page
+ */
 function goBack() {
   window.history.back();
 }
