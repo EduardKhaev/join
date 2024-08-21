@@ -5,6 +5,7 @@ function loginAsGuest(event) {
 
 function logoutUser() {
   localStorage.removeItem("loginToken");
+  window.location.replace("./login.html");
 }
 
 function validateLogin(event) {
@@ -27,6 +28,7 @@ async function checkLoginData(username, password) {
 function loginUser(displayName, initials) {
   let remember = document.getElementById("remember").checked;
   setToken(displayName, initials, remember);
+  window.location.replace("./summary.html");
 }
 
 function setToken(displayName, initials, remember) {
@@ -38,6 +40,7 @@ function setToken(displayName, initials, remember) {
     timestamp: timestamp,
   };
   saveToken(loginToken);
+  return;
 }
 
 function saveToken(loginToken) {
