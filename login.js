@@ -5,6 +5,7 @@ function loginAsGuest(event) {
 
 function logoutUser() {
   localStorage.removeItem("loginToken");
+  window.location.replace("./login.html");
 }
 
 function validateLogin(event) {
