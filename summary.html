@@ -31,40 +31,7 @@
     <link rel="stylesheet" href="summary.css" />
     <link rel="icon" type="image/png" href="./img/join-logo-blue.png" />
     <title>Join - Summary</title>
-    <style>
-      /*   .overlay {
-    position: fixed;
-    top: 96px;
-    left: 0;
-    width: 100%;
-    height: calc(100% - 180px);
-    background-color: var(--background-main);
-    display: flex; 
-    align-items: center;
-    justify-content: center; 
-    z-index: 9999;
-    opacity: 1;
-    transition: opacity 1s ease-in-out; 
-}
 
-.overlay-content {
-    text-align: center;
-}
-
-.hide {
-    opacity: 0;
-}
-
-#welcomeOverlay {
-    display: none; 
-}
-
-@media (min-width: 1000px) {
-    #welcomeOverlay {
-        display: flex;
-    }
-} */
-    </style>
   </head>
 
   <body id="body" onload="accessPage()" style="display: none">
@@ -269,21 +236,12 @@
               </div>
             </a>
           </div>
-          <div class="summary-greeting">
+          <div class="summary-greeting" id="summary-greeting">
             <div id="greetingMessage"></div>
             <span id="greetingUserName"></span>
           </div>
         </div>
       </div>
-
-      <!--
-<div id="welcomeOverlay" class="overlay">
-    <div class="overlay-content">
-        <h1 id="welcomeText"></h1>
-        <h2 id="welcomeUserName"></h2>
-    </div>
-</div>
--->
     </div>
   </body>
 </html>

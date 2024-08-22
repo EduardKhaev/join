@@ -11,7 +11,6 @@ async function initSummary() {
   showGreetingAndUserName();
   displayTaskStatistics();
   showLoggedInInitials();
-  //showWelcomeOverlay();
 }
 
 /**
@@ -67,13 +66,16 @@ function showGreetingAndUserName() {
     let greeting;
     if (curHr < 12) {
       greeting = "Good morning,";
-    } else if (curHr >= 12 && curHr < 16) {
+    } else if (curHr >= 12 && curHr < 18) {
       greeting = "Good afternoon,";
     } else {
       greeting = "Good evening,";
     }
     document.getElementById("greetingMessage").innerHTML = greeting;
     document.getElementById("greetingUserName").innerHTML = loggedIn.name;
+  }
+  else {
+    document.getElementById('summary-greeting').remove();
   }
 }
 
@@ -99,16 +101,3 @@ function getNextTaskDeadline(allTasks) {
 function redirectToPage() {
   window.location.href = 'board.html';
 }
-
-//function showWelcomeOverlay() {
-// let overlay = document.getElementById("welcomeOverlay");
-//  let welcomeUserNameElement = document.getElementById("welcomeUserName");
-//  welcomeUserNameElement.innerHTML = loggedIn.name;
-//  overlay.style.display = "flex";
-//setTimeout(() => {
-//  overlay.classList.add("hide");
-// setTimeout(() => {
-//      overlay.style.display = "none";
-//  }, 1000);
-// }, 3000);
-//}
