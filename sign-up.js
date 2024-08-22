@@ -17,7 +17,7 @@ let registeredUsers = [];
  * 
  * @returns {void} - No return value.
  */
-function validateSignUp(event) {
+async function validateSignUp(event) {
   event.preventDefault();
 
   let [email, password, confirmPassword, name] = getSignUpFormData();
@@ -37,6 +37,17 @@ function validateSignUp(event) {
     name: name,
     initials: getInitials(name),
   };
+
+  await postData("/users", registeredUser);
+  console.log(registeredUser);
+  loginUser(registeredUser);
+}
+
+function loginUser(user){
+
+  loggedIn.name = user.name;
+  loggedIn.initials = user.initials;
+  window.location.href = "login.html";
 }
 
 /**
