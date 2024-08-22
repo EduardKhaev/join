@@ -301,7 +301,7 @@
     height: 100vh;
     height: 100vh;
     z-index: 10;
-    animation: backgroundanimresponsive 1s linear 0s 1 normal forwards;
+    animation: backgroundanimresponsive 2s linear 300ms 1 normal forwards;
   }
 
   @keyframes backgroundanimresponsive {
@@ -320,10 +320,10 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    height: 78px;
-    width: 64px;
+    height: 160px;
+    width: 146px;
     z-index: 10;
-    animation: moveLogoresponsive 1s linear 0s 1 normal forwards;
+    animation: moveLogoresponsive 2s linear 300ms 1 normal forwards;
   }
 
   @keyframes moveLogoresponsive {
@@ -346,6 +346,16 @@
       opacity: 0;
       z-index: -1;
     }
+  }
+
+  .log-joinlogo path {
+    fill: white;
+    animation: none;
+  }
+
+  .log-joinlogo path[fill="#29ABE2"] {
+    fill: #29abe2;
+    animation: none;
   }
 
   .login-container {
