@@ -252,9 +252,7 @@
     flex-direction: column-reverse;
     height: auto;
   }
-  .login-container {
-    margin-top: 150px !important;
-  }
+
   .log-head {
     display: flex;
     justify-content: center;
@@ -306,6 +304,7 @@
     background-color: #2a3647;
     position: absolute;
     width: 100%;
+    height: 100vh;
     height: 100vh;
     z-index: 10;
     animation: backgroundanimresponsive 1s linear 0s 1 normal forwards;
