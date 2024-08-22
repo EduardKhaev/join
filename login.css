@@ -1,24 +1,30 @@
-body{
+body {
   height: 100vh;
 }
+
+a {
+  text-decoration: none;
+}
+
 .log-head {
   height: 150px;
   display: flex;
   align-items: center;
   justify-content: flex-end;
 }
+
 .log-head-elements {
   display: flex;
   align-items: center;
   gap: 35px;
   margin-right: 120px;
 }
+
 .log-maincontainer {
   display: flex;
   justify-content: center;
   align-items: center;
   flex: 1;
-  
 }
 
 .loginsitecontainers {
