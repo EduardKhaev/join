@@ -15,16 +15,14 @@
     <script src="data.js"></script>
     <script src="shared.js"></script>
     <script src="utility.js"></script>
-    <script src="Dragndrop.js"></script>
-    <script src="templates.js"></script>
-    <script src="search.js"></script>
-    <script src="apiscripts.js"></script>
     <script src="task.js"></script>
     <script src="board.js"></script>
     <script src="auth.js"></script>
+    <script src="login.js"></script>
+    <script src="auth_help.js"></script>
 </head>
 
-<body onload="accessPage()">
+<body onload="accessPage()" id="body">
 
     <header>
         <div class="header-left">
@@ -204,7 +202,6 @@
   let footerNotes = document.getElementById('footer-notes');
 
   if (hasAccess) {
-    document.getElementById("body").style = "";
     sidebar.style.display = 'block'; 
     footerNotes.style.display = 'block'; 
 
@@ -213,6 +210,8 @@
     footerNotes.style.display = 'none'; 
   }
 }
-    
+
+
+
 </script>
 </html>
