@@ -1,4 +1,4 @@
-let registeredUsers = [{ 'name': 'max mustermann', 'e-mail': 'muster@gmx.de', 'pw': '12345', 'confirm-pw': '12345' }];
+let registeredUsers = [];
 
 function validateSignUp(event) {
   // read data Max
@@ -11,6 +11,12 @@ function validateSignUp(event) {
   event.preventDefault();
 
   let [email, password, confirmPassword, name] = getSignUpFormData();
+
+  name.trim();
+  if (!hasTwoWords(name)) {
+    showInvalidSignUp("two-words", "entername");
+    return false;
+  }
 
   if (password !== confirmPassword) {
     passwordsDoNotMatch();
@@ -47,4 +53,10 @@ function showInvalidSignUp(labelId, inputId) {
 
 function passwordsDoNotMatch() {
   showInvalidSignUp("incorrect-repeat-pw", "enter-repeat-password");
+}
+
+
+function hasTwoWords(text) {
+  let words = text.split(" ").filter(word => word.length > 0);
+  return words.length >= 2;
 }

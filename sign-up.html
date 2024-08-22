@@ -40,9 +40,10 @@
             <div class="login-input">
               <label for="entername" class="login-required" id="username"
                 ><span id="sign-in-name" style="display: none"
-                  >Please enter name</span
-                ></label
-              >
+                  >Please enter name</span>
+                  <span id="two-words" style="display: none"
+                  >A name has to consist of at least two words</span
+                  ></label>
               <input
                 required
                 oninvalid="event.preventDefault(); showInvalidSignUp('sign-in-name', 'entername')"
