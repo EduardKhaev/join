@@ -166,16 +166,6 @@
     margin-top: 165px !important;
   }
 
-  body {
-    overflow-y: scroll;
-    overflow-x: hidden;
-    /*  height: auto !important; */
-  }
-
-  body::-webkit-scrollbar {
-    display: none;
-  }
-
   .login-input-container {
     width: 90%;
   }
