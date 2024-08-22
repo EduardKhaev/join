@@ -7,6 +7,7 @@ async function initBoard() {
   await loadTasks();
   await groupTasks();
   await tasksByDate();
+  showLoggedInInitials();
   renderTasks();
 }
 

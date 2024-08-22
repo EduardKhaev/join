@@ -6,4 +6,5 @@ function accessPage() {
   if (hasAccess) {
     document.getElementById("sidebar").style = "";
   }
+  showLoggedInInitials();
 }

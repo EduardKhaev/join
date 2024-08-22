@@ -4,6 +4,7 @@
 async function initContacts() {
   await loadUsers();
   sortAllUsers();
+  showLoggedInInitials();
   displayUsers();
 }
 
