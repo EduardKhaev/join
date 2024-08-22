@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Join - Sign Up</title>
@@ -10,22 +9,28 @@
     <link rel="icon" type="image/png" href="./img/join-logo-blue.png" />
     <script src="data.js"></script>
     <script src="apiscripts.js"></script>
-    <script src="sign-up.js"></script>
     <script src="auth.js"></script>
+    <script src="login.js"></script>
     <script src="utility.js"></script>
-</head>
+    <script src="sign-up.js"></script>
+  </head>
 
-<body>
+  <body>
     <div class="log-maincontainer">
       <div class="login-container">
-        <img class="si-back-arrow" src="./img/arrow-left-icon.png" alt="go back" onclick="goBack()">
+        <img
+          class="si-back-arrow"
+          src="./img/arrow-left-icon.png"
+          alt="go back"
+          onclick="goBack()"
+        />
         <div class="login-headline-container">
           <h1>Sign up</h1>
           <div class="login-separator"></div>
         </div>
 
         <form
-          onsubmit="validateLogin(event)"
+          onsubmit="validateSignUp(event)"
           class="login-form"
           id="login-form"
         >
@@ -38,7 +43,7 @@
               >
               <input
                 required
-                oninvalid="event.preventDefault(); showInvalidLogin('sign-in-email', 'entermail')"
+                oninvalid="event.preventDefault(); showInvalidLogin('sign-in-name', 'entermail')"
                 onfocus="removeInvalidLogin('username', 'entermail')"
                 class="inputfield-basic-design log-nameinput"
                 type="text"
@@ -49,23 +54,23 @@
               />
             </div>
             <div class="login-input">
-                <label for="entermail" class="login-required" id="usermail"
-                  ><span id="sign-in-email" style="display: none"
-                    >Please enter email</span
-                  ></label
-                >
-                <input
-                  required
-                  oninvalid="event.preventDefault(); showInvalidLogin('sign-in-email', 'entermail')"
-                  onfocus="removeInvalidLogin('usermail', 'entermail')"
-                  class="inputfield-basic-design log-mailinput"
-                  type="email"
-                  autocomplete="usermail"
-                  id="entermail"
-                  name="email"
-                  placeholder="Email"
-                />
-              </div>
+              <label for="entermail" class="login-required" id="usermail"
+                ><span id="sign-in-email" style="display: none"
+                  >Please enter email</span
+                ></label
+              >
+              <input
+                required
+                oninvalid="event.preventDefault(); showInvalidLogin('sign-in-email', 'entermail')"
+                onfocus="removeInvalidLogin('usermail', 'entermail')"
+                class="inputfield-basic-design log-mailinput"
+                type="email"
+                autocomplete="usermail"
+                id="entermail"
+                name="email"
+                placeholder="Email"
+              />
+            </div>
             <div class="login-input">
               <label for="enterpassword" id="sign-in-pw" class="login-required"
                 ><span id="missing-pw" style="display: none"
@@ -84,24 +89,27 @@
               />
             </div>
             <div class="login-input">
-                <label for="enter-repeat-password" id="sign-in-repeat-pw" class="login-required"
-                  ><span id="missing-repeat-pw" style="display: none"
-                    >Please repeat password</span
-                  ><span id="incorrect-repeat-pw" style="display: none"
-                    >Repeated Password is incorrect</span
-                  ></label
-                >
-                <input
-                  required
-                  oninvalid="event.preventDefault(); showInvalidLogin('missing-repeat-pw', 'enter-repeat-password')"
-                  onfocus="removeInvalidLogin('sign-in-repeat-pw', 'enter-repeat-password')"
-                  class="inputfield-basic-design log-pwinput"
-                  type="password"
-                  id="enter-repeat-password"
-                  name="repeat-password"
-                  placeholder="Repeat password"
-                />
-              </div>
+              <label
+                for="enter-repeat-password"
+                id="sign-in-repeat-pw"
+                class="login-required"
+                ><span id="missing-repeat-pw" style="display: none"
+                  >Please repeat password</span
+                ><span id="incorrect-repeat-pw" style="display: none"
+                  >Repeated Password is incorrect</span
+                ></label
+              >
+              <input
+                required
+                oninvalid="event.preventDefault(); showInvalidLogin('missing-repeat-pw', 'enter-repeat-password')"
+                onfocus="removeInvalidLogin('sign-in-repeat-pw', 'enter-repeat-password')"
+                class="inputfield-basic-design log-pwinput"
+                type="password"
+                id="enter-repeat-password"
+                name="repeat-password"
+                placeholder="Repeat password"
+              />
+            </div>
             <div class="remember-container">
               <input
                 type="checkbox"
@@ -145,13 +153,19 @@
                     />
                   </svg>
                 </div>
-                <span>I Accept the</span> <a class="privacy-link" href="privacy_policy.html">Privacy policy</a>
+                <span>I Accept the</span>
+                <a class="privacy-link" href="privacy_policy.html"
+                  >Privacy policy</a
+                >
               </label>
             </div>
             <div class="login-buttons-container">
-              <button type="submit" class="button-primary action-button-text su-button">
-                Sign up</button
+              <button
+                type="submit"
+                class="button-primary action-button-text su-button"
               >
+                Sign up
+              </button>
             </div>
           </div>
         </form>
@@ -161,7 +175,10 @@
       <a href="privacy_policy.html">Privacy Policy</a>
       <a href="impressum.html">Legal notice</a>
     </div>
-    <img class="log-joinlogo" src="img/join-animation-logo.png" alt="Join logo" />
+    <img
+      class="log-joinlogo"
+      src="img/join-animation-logo.png"
+      alt="Join logo"
+    />
   </body>
-
 </html>

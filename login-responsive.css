@@ -166,16 +166,6 @@
     margin-top: 165px !important;
   }
 
-  body {
-    overflow-y: scroll;
-    overflow-x: hidden;
-    height: auto !important;
-  }
-
-  body::-webkit-scrollbar {
-    display: none;
-  }
-
   .login-input-container {
     width: 90%;
   }
@@ -250,10 +240,9 @@
   .loginsitecontainers {
     display: flex;
     flex-direction: column-reverse;
+    height: auto;
   }
-  .login-container {
-    margin-top: 150px !important;
-  }
+
   .log-head {
     display: flex;
     justify-content: center;
@@ -280,83 +269,7 @@
     margin-right: 0px;
   }
 }
-@media (max-width: 700px) {
-  .login-container {
-    width: 93%;
-    margin-top: 165px !important;
-  }
 
-  .login-input-container {
-    width: 90%;
-  }
-
-  .background-animation {
-    background-color: #2a3647;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    animation: backgroundanimresponsive 2s ease 0s 1 normal forwards;
-  }
-  @keyframes backgroundanimresponsive {
-    0% {
-      opacity: 1;
-      transform: scale(1);
-      z-index: 10;
-    }
-
-    100% {
-      opacity: 0;
-      transform: scale(1);
-      z-index: -1;
-    }
-  }
-  .log-joinlogo {
-    position: absolute;
-    top: 80px;
-    height: 78px;
-    width: 64px;
-    z-index: 10;
-    animation: moveLogoresponsive 1s linear forwards;
-  }
-
-  @keyframes fillAnimation {
-    0% {
-      fill: white;
-    }
-    100% {
-      fill: #2a3647;
-    }
-  }
-
-  .log-joinlogo path {
-    animation: fillAnimation 2s forwards;
-  }
-
-  .log-joinlogo path[fill="#29ABE2"] {
-    animation: none;
-  }
-
-  @keyframes moveLogoresponsive {
-    0% {
-      height: 300px;
-      width: 284px;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
-    40% {
-      height: 300px;
-      width: 284px;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
-    100% {
-      top: 37px;
-      left: 38px;
-    }
-  }
-}
 @media (max-width: 550px) {
   body {
     margin: 0px 0px !important;
@@ -376,14 +289,12 @@
   }
 }
 
-@media (max-height: 815px) and (max-width: 376px) {
-  .loginsitecontainers {
-    margin-top: 0px !important;
-  }
+@media (max-height: 815px) and (max-width: 700px) {
   .background-animation {
     background-color: #2a3647;
     position: absolute;
     width: 100%;
+    height: 100vh;
     height: 100vh;
     z-index: 10;
     animation: backgroundanimresponsive 1s linear 0s 1 normal forwards;
