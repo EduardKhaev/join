@@ -22,6 +22,6 @@ let groupedTasks = {};
 let currentDraggedTask;
 
 let loggedIn = {
-  name: "Sofia Müller",
-  initials: "SM",
+  name: "",
+  initials: "",
 };

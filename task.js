@@ -4,7 +4,9 @@
 async function initTask() {
   await loadUsers();
   sortAllUsers();
+  showLoggedInInitials();
   await insertContactsToInput();
+  
   updateDate();
 }
 
