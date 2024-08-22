@@ -19,7 +19,7 @@
     <script src="board.js"></script>
     <script src="auth.js"></script>
     <script src="login.js"></script>
-    <script src="auth_help.js"></script>
+    <script src="auth_legal.js"></script>
 </head>
 
 <body onload="accessPage()" id="body">
@@ -39,7 +39,7 @@
                     <a class="help-span" href="help.html">Help</a>
                     <a href="impressum.html">Legal Notice</a>
                     <a href="privacy_policy.html">Privacy Policy</a>
-                    <a href="login.html">Log Out</a>
+                    <a onclick="logoutUser()">Log Out</a>
                 </div>
             </div>
         </div>
@@ -47,7 +47,7 @@
     <div class="navigation">
         <img class="join-logo" src="./img/join-logo.png" alt="Join Logo" />
         <div class="navigation-main">
-            <div class="navigation-items-section" id="sidebar">
+            <div class="navigation-items-section" id="sidebar" style="display: none;">
                 <div class="navigation-item" onclick="setSummaryActive(this)">
 
                     <svg xmlns="http://www.w3.org/2000/svg">
@@ -191,27 +191,4 @@
     </div>
     </div>
 </body>
-<script>
-
-/**
- * check if user is logged in
- */
- function accessPage() {
-  let hasAccess = checkAuthState();
-  let sidebar = document.getElementById('sidebar');
-  let footerNotes = document.getElementById('footer-notes');
-
-  if (hasAccess) {
-    sidebar.style.display = 'block'; 
-    footerNotes.style.display = 'block'; 
-
-  } else {
-    sidebar.style.display = 'none'; 
-    footerNotes.style.display = 'none'; 
-  }
-}
-
-
-
-</script>
 </html>
