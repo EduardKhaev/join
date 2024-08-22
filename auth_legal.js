@@ -5,6 +5,7 @@ function accessPage() {
   hasAccess = checkAuthState();
   if (hasAccess) {
     document.getElementById("sidebar").style = "";
+    document.getElementById("header-right").style = "";
   }
   showLoggedInInitials();
 }
