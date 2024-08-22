@@ -392,12 +392,10 @@
   @keyframes backgroundanimresponsive {
     0% {
       opacity: 1;
-
       z-index: 10;
     }
     100% {
       opacity: 0;
-
       z-index: -1;
     }
   }
