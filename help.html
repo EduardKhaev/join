@@ -44,7 +44,7 @@
             <a class="help-span" href="help.html">Help</a>
             <a href="impressum.html">Legal Notice</a>
             <a href="privacy_policy.html">Privacy Policy</a>
-            <a href="login.html">Log Out</a>
+            <a onclick="logoutUser()">Log Out</a>
           </div>
         </div>
       </div>
@@ -189,15 +189,4 @@
       </div>
     </div>
   </body>
-
-  <script>
-    function toggleSidebar() {
-      let sidebar = document.getElementById("sidebar");
-      if (!loggedIn) {
-        sidebar.style.display = "none";
-      } else {
-        sidebar.style.display = "block";
-      }
-    }
-  </script>
 </html>
