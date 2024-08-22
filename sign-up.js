@@ -9,12 +9,12 @@ let registeredUsers = [];
 
 /**
  * Validates the sign-up form data and processes user registration.
- * 
+ *
  * Prevents the default form submission, checks if the name contains at least
  * two words, ensures the passwords match, and creates a `registeredUser` object.
  *
  * @param {Event} event - The form submit event.
- * 
+ *
  * @returns {void} - No return value.
  */
 async function validateSignUp(event) {
@@ -38,16 +38,8 @@ async function validateSignUp(event) {
     initials: getInitials(name),
   };
 
-  await postData("/users", registeredUser);
-  console.log(registeredUser);
-  loginUser(registeredUser);
-}
-
-function loginUser(user){
-
-  loggedIn.name = user.name;
-  loggedIn.initials = user.initials;
-  window.location.href = "login.html";
+  await postData("/logindata", registeredUser);
+  loginUser(registeredUser.name, registeredUser.initials, false);
 }
 
 /**
@@ -86,7 +78,7 @@ function validateName(name) {
     showInvalidLogin("two-words", "entername");
     return false;
   }
-  
+
   return true;
 }
 
@@ -119,4 +111,3 @@ function resetAcceptCheck() {
   document.getElementById("accept-text").style = "";
   document.getElementById("accept-invalid").style = "display: none";
 }
-
