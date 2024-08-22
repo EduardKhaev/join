@@ -60,7 +60,7 @@
   body {
     margin: 0px 0px !important;
   }
-  
+
   .background-animation {
     background-color: #2a3647;
     position: absolute;
@@ -167,13 +167,7 @@
   } 
 
   body {
-    overflow-y: scroll;
-    overflow-x: hidden;
     height: auto !important;
-  }
-
-  body::-webkit-scrollbar {
-    display: none;
   }
 
   .login-input-container {
@@ -251,9 +245,7 @@
     display: flex;
     flex-direction: column-reverse;
   }
-  .login-container {
-    margin-top: 150px !important;
-  }
+
   .log-head {
     display: flex;
     justify-content: center;
@@ -280,7 +272,8 @@
     margin-right: 0px;
   }
 }
-@media (max-width: 700px) {
+
+/* @media (max-width: 700px) {
   .login-container {
     width: 93%;
     margin-top: 165px !important;
@@ -356,7 +349,7 @@
       left: 38px;
     }
   }
-}
+} */
 @media (max-width: 550px) {
   body {
     margin: 0px 0px !important;
@@ -384,7 +377,7 @@
     background-color: #2a3647;
     position: absolute;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     z-index: 10;
     animation: backgroundanimresponsive 1s linear 0s 1 normal forwards;
   }
@@ -426,7 +419,6 @@
       top: 37px;
       left: 38px;
       opacity: 0; /* Am Ende der Animation unsichtbar */
-      display: none; /* Am Ende der Animation komplett aus dem Layout entfernen */
     }
   }
 
