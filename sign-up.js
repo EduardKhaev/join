@@ -25,6 +25,10 @@ function validateSignUp(event) {
   registerNewUser(registeredUser);
 }
 
+/**
+ * registers new user to db if username doesn't already exist
+ * @param {object} user
+ */
 async function registerNewUser(user) {
   let loginData = await getLoginData();
   let index = await findLoginName(loginData, user.login);
@@ -34,6 +38,9 @@ async function registerNewUser(user) {
   } else usernameTaken();
 }
 
+/**
+ * shows username as invalid if already taken
+ */
 function usernameTaken() {
   showInvalidLogin("email-taken", "entermail");
 }
@@ -94,6 +101,9 @@ function hasTwoWords(name) {
   return words.length >= 2;
 }
 
+/**
+ * marks privacy policy red if unchecked
+ */
 function invalidAcceptCheck() {
   let elements = document.getElementsByClassName("unchecked");
   elements[0].style = "stroke: red;";
@@ -101,6 +111,9 @@ function invalidAcceptCheck() {
   document.getElementById("accept-invalid").style = "";
 }
 
+/**
+ * unmarks privacy policy checkbox after focus
+ */
 function resetAcceptCheck() {
   document.getElementById("accept-text").style = "";
   document.getElementById("accept-invalid").style = "display: none";
