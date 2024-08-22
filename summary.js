@@ -96,6 +96,9 @@ function getNextTaskDeadline(allTasks) {
 
   return formattedDate;
 }
+function redirectToPage() {
+  window.location.href = 'board.html';
+}
 
 //function showWelcomeOverlay() {
 // let overlay = document.getElementById("welcomeOverlay");

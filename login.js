@@ -46,8 +46,9 @@ async function checkLoginData(username, password) {
  * @param {string} displayName name of user from db
  * @param {string} initials initials of user
  */
-function loginUser(displayName, initials) {
-  let remember = document.getElementById("remember").checked;
+function loginUser(displayName, initials, fromLogIn = true) {
+  let remember = false;
+  if (fromLogIn) remember = document.getElementById("remember").checked;
   setToken(displayName, initials, remember, true);
   window.location.replace("./summary.html");
 }
