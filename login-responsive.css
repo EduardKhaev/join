@@ -3,10 +3,10 @@
     background-color: #f6f7f8;
     position: absolute;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     animation: backgroundanim 3s ease 1s 1 none forwards;
   }
-  
+
   @keyframes backgroundanim {
     0% {
       opacity: 1;
@@ -60,12 +60,12 @@
   body {
     margin: 0px 0px !important;
   }
-  
+
   .background-animation {
     background-color: #2a3647;
     position: absolute;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     animation: backgroundanimresponsive 1s ease 200ms 1 normal forwards;
   }
   @keyframes backgroundanimresponsive {
@@ -164,7 +164,7 @@
   .login-container {
     width: 93%;
     margin-top: 165px !important;
-  } 
+  }
 
   body {
     overflow-y: scroll;
@@ -184,7 +184,7 @@
     background-color: #2a3647;
     position: absolute;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     animation: backgroundanimresponsive 1s ease 200ms 1 normal forwards;
   }
   @keyframes backgroundanimresponsive {
@@ -284,7 +284,7 @@
   .login-container {
     width: 93%;
     margin-top: 165px !important;
-  } 
+  }
 
   .login-input-container {
     width: 90%;
@@ -370,7 +370,7 @@
   .su-button {
     width: 60%;
   }
-  
+
   .log-siteinfo {
     margin-top: 20px !important;
   }
@@ -384,7 +384,7 @@
     background-color: #2a3647;
     position: absolute;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     z-index: 10;
     animation: backgroundanimresponsive 1s linear 0s 1 normal forwards;
   }
@@ -392,19 +392,19 @@
   @keyframes backgroundanimresponsive {
     0% {
       opacity: 1;
-      transform: scale(1);
       z-index: 10;
     }
     100% {
       opacity: 0;
-      transform: scale(1);
       z-index: -1;
     }
   }
 
   .log-joinlogo {
     position: absolute;
-    top: 80px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     height: 78px;
     width: 64px;
     z-index: 10;
@@ -417,16 +417,19 @@
       width: 146px;
       top: 50%;
       left: 50%;
-      z-index: 1;
+      z-index: 10;
       transform: translate(-50%, -50%);
       opacity: 1;
     }
 
     100% {
-      top: 37px;
-      left: 38px;
-      opacity: 0; /* Am Ende der Animation unsichtbar */
-      display: none; /* Am Ende der Animation komplett aus dem Layout entfernen */
+      height: 160px;
+      width: 146px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      z-index: -1;
     }
   }
 
