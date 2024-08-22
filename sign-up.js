@@ -7,15 +7,23 @@ let registeredUsers = [];
 // login user (new parameter for login after sign-up) Galina
 // }
 
+/**
+ * Validates the sign-up form data and processes user registration.
+ * 
+ * Prevents the default form submission, checks if the name contains at least
+ * two words, ensures the passwords match, and creates a `registeredUser` object.
+ *
+ * @param {Event} event - The form submit event.
+ * 
+ * @returns {void} - No return value.
+ */
 function validateSignUp(event) {
   event.preventDefault();
 
   let [email, password, confirmPassword, name] = getSignUpFormData();
 
-  name.trim();
-  if (!hasTwoWords(name)) {
-    showInvalidSignUp("two-words", "entername");
-    return false;
+  if (!validateName(name)) {
+    return;
   }
 
   if (password !== confirmPassword) {
@@ -29,11 +37,13 @@ function validateSignUp(event) {
     name: name,
     initials: getInitials(name),
   };
-
-  registeredUsers.push(registeredUser);
-  console.log(registeredUsers);
 }
 
+/**
+ * Retrieves the sign-up form data from the input fields.
+ *
+ * @returns {Array<string>} An array containing the email, password, confirm password, and name from the form.
+ */
 function getSignUpFormData() {
   let email = getSignUpFieldData("entermail");
   let password = getSignUpFieldData("enterpassword");
@@ -42,21 +52,48 @@ function getSignUpFormData() {
   return [email, password, confirmPassword, name];
 }
 
+/**
+ * Retrieves the value from a specific input field.
+ *
+ * @param {string} inputId - The ID of the input field.
+ * @returns {string} The value of the input field.
+ */
 function getSignUpFieldData(inputId) {
   return document.getElementById(inputId).value;
 }
 
-function showInvalidSignUp(labelId, inputId) {
-  document.getElementById(inputId).style.borderColor = "red";
-  document.getElementById(labelId).style = "";
+/**
+ * Validates the name field to ensure it contains at least two words.
+ *
+ * @param {string} name - The name to validate.
+ * @returns {boolean} - Returns true if the name contains at least two words, otherwise false.
+ */
+function validateName(name) {
+  name = name.trim();
+
+  if (!hasTwoWords(name)) {
+    showInvalidLogin("two-words", "entername");
+    return false;
+  }
+  
+  return true;
 }
 
+/**
+ * Shows an error message indicating that the passwords do not match.
+ */
 function passwordsDoNotMatch() {
-  showInvalidSignUp("incorrect-repeat-pw", "enter-repeat-password");
+  showInvalidLogin("incorrect-repeat-pw", "enter-repeat-password");
 }
 
-function hasTwoWords(text) {
-  let words = text.split(" ").filter((word) => word.length > 0);
+/**
+ * Checks if the provided name contains at least two words.
+ *
+ * @param {string} name - The name to check.
+ * @returns {boolean} - Returns true if the name contains at least two words, otherwise false.
+ */
+function hasTwoWords(name) {
+  let words = name.split(" ").filter((word) => word.length > 0);
   return words.length >= 2;
 }
 
@@ -71,3 +108,4 @@ function resetAcceptCheck() {
   document.getElementById("accept-text").style = "";
   document.getElementById("accept-invalid").style = "display: none";
 }
+
