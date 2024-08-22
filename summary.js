@@ -11,7 +11,6 @@ async function initSummary() {
   showGreetingAndUserName();
   displayTaskStatistics();
   showLoggedInInitials();
-  //showWelcomeOverlay();
 }
 
 /**
@@ -74,6 +73,9 @@ function showGreetingAndUserName() {
     }
     document.getElementById("greetingMessage").innerHTML = greeting;
     document.getElementById("greetingUserName").innerHTML = loggedIn.name;
+  }
+  else {
+    document.getElementById('summary-greeting').remove();
   }
 }
 
