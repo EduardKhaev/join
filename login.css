@@ -35,8 +35,8 @@ a {
 
 .login-container {
   width: 650px;
-  padding-top: 32px;
-  padding-bottom: 32px;
+  padding-top: 48px;
+  padding-bottom: 48px;
   background-color: white;
   box-shadow: 0 0 14px 3px rgba(0, 0, 0, 0.04);
   display: flex;

@@ -6,6 +6,10 @@
     height: 100vh;
     animation: backgroundanim 3s ease 1s 1 none forwards;
   }
+  .login-container {
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
 
   @keyframes backgroundanim {
     0% {
