@@ -1,12 +1,3 @@
-let registeredUsers = [];
-
-// function validateSignUp(event) {
-// read data Max
-// compare passwords Max
-// save to db Galina
-// login user (new parameter for login after sign-up) Galina
-// }
-
 /**
  * Validates the sign-up form data and processes user registration.
  *
@@ -17,29 +8,41 @@ let registeredUsers = [];
  *
  * @returns {void} - No return value.
  */
-async function validateSignUp(event) {
+function validateSignUp(event) {
   event.preventDefault();
-
   let [email, password, confirmPassword, name] = getSignUpFormData();
-
-  if (!validateName(name)) {
-    return;
-  }
-
+  if (!validateName(name)) return;
   if (password !== confirmPassword) {
     passwordsDoNotMatch();
     return;
   }
-
   let registeredUser = {
     login: email,
     password: password,
     name: name,
     initials: getInitials(name),
   };
+  registerNewUser(registeredUser);
+}
 
-  await postData("/logindata", registeredUser);
-  loginUser(registeredUser.name, registeredUser.initials, false);
+/**
+ * registers new user to db if username doesn't already exist
+ * @param {object} user
+ */
+async function registerNewUser(user) {
+  let loginData = await getLoginData();
+  let index = await findLoginName(loginData, user.login);
+  if (index === -1) {
+    await postData("/logindata", user);
+    loginUser(user.name, user.initials, false);
+  } else usernameTaken();
+}
+
+/**
+ * shows username as invalid if already taken
+ */
+function usernameTaken() {
+  showInvalidLogin("email-taken", "entermail");
 }
 
 /**
@@ -73,12 +76,10 @@ function getSignUpFieldData(inputId) {
  */
 function validateName(name) {
   name = name.trim();
-
   if (!hasTwoWords(name)) {
     showInvalidLogin("two-words", "entername");
     return false;
   }
-
   return true;
 }
 
@@ -100,6 +101,9 @@ function hasTwoWords(name) {
   return words.length >= 2;
 }
 
+/**
+ * marks privacy policy red if unchecked
+ */
 function invalidAcceptCheck() {
   let elements = document.getElementsByClassName("unchecked");
   elements[0].style = "stroke: red;";
@@ -107,6 +111,9 @@ function invalidAcceptCheck() {
   document.getElementById("accept-invalid").style = "";
 }
 
+/**
+ * unmarks privacy policy checkbox after focus
+ */
 function resetAcceptCheck() {
   document.getElementById("accept-text").style = "";
   document.getElementById("accept-invalid").style = "display: none";
