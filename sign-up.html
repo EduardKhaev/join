@@ -14,6 +14,7 @@
     <script src="utility.js"></script>
     <script src="check.js"></script>
     <script src="sign-up.js"></script>
+    <script src="contacts.js"></script>
   </head>
 
   <body>
@@ -44,7 +45,7 @@
               >
               <input
                 required
-                oninvalid="event.preventDefault(); showInvalidLogin('sign-in-name', 'entername')"
+                oninvalid="event.preventDefault(); showInvalidSignUp('sign-in-name', 'entername')"
                 onfocus="removeInvalidLogin('username', 'entername')"
                 class="inputfield-basic-design log-nameinput"
                 type="text"
@@ -57,12 +58,12 @@
             <div class="login-input">
               <label for="entermail" class="login-required" id="usermail"
                 ><span id="sign-in-email" style="display: none"
-                  >Please enter email</span
+                  >Please enter e-mail</span
                 ></label
               >
               <input
                 required
-                oninvalid="event.preventDefault(); showInvalidLogin('sign-in-email', 'entermail')"
+                oninvalid="event.preventDefault(); showInvalidSignUp('sign-in-email', 'entermail')"
                 onfocus="removeInvalidLogin('usermail', 'entermail')"
                 class="inputfield-basic-design log-mailinput"
                 type="email"
@@ -80,7 +81,7 @@
               >
               <input
                 required
-                oninvalid="event.preventDefault(); showInvalidLogin('missing-pw', 'enterpassword')"
+                oninvalid="event.preventDefault(); showInvalidSignUp('missing-pw', 'enterpassword')"
                 onfocus="removeInvalidLogin('sign-in-pw', 'enterpassword')"
                 class="inputfield-basic-design log-pwinput"
                 type="password"
@@ -95,14 +96,14 @@
                 id="sign-in-repeat-pw"
                 class="login-required"
                 ><span id="missing-repeat-pw" style="display: none"
-                  >Please repeat password</span
+                  >Please confirm password</span
                 ><span id="incorrect-repeat-pw" style="display: none"
-                  >Repeated Password is incorrect</span
+                  >Passwords do not match</span
                 ></label
               >
               <input
                 required
-                oninvalid="event.preventDefault(); showInvalidLogin('missing-repeat-pw', 'enter-repeat-password')"
+                oninvalid="event.preventDefault(); showInvalidSignUp('missing-repeat-pw', 'enter-repeat-password')"
                 onfocus="removeInvalidLogin('sign-in-repeat-pw', 'enter-repeat-password')"
                 class="inputfield-basic-design log-pwinput"
                 type="password"
