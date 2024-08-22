@@ -1,11 +1,11 @@
 let registeredUsers = [];
 
-function validateSignUp(event) {
-  // read data Max
-  // compare passwords Max
-  // save to db Galina
-  // login user (new parameter for login after sign-up) Galina
-}
+// function validateSignUp(event) {
+// read data Max
+// compare passwords Max
+// save to db Galina
+// login user (new parameter for login after sign-up) Galina
+// }
 
 function validateSignUp(event) {
   event.preventDefault();
@@ -55,8 +55,19 @@ function passwordsDoNotMatch() {
   showInvalidSignUp("incorrect-repeat-pw", "enter-repeat-password");
 }
 
-
 function hasTwoWords(text) {
-  let words = text.split(" ").filter(word => word.length > 0);
+  let words = text.split(" ").filter((word) => word.length > 0);
   return words.length >= 2;
+}
+
+function invalidAcceptCheck() {
+  let elements = document.getElementsByClassName("unchecked");
+  elements[0].style = "stroke: red;";
+  document.getElementById("accept-text").style = "display: none";
+  document.getElementById("accept-invalid").style = "";
+}
+
+function resetAcceptCheck() {
+  document.getElementById("accept-text").style = "";
+  document.getElementById("accept-invalid").style = "display: none";
 }
