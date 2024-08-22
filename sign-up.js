@@ -33,8 +33,12 @@ async function registerNewUser(user) {
   let loginData = await getLoginData();
   let index = await findLoginName(loginData, user.login);
   if (index === -1) {
+    document.getElementById("sign-in-submit").disabled = true;
     await postData("/logindata", user);
-    loginUser(user.name, user.initials, false);
+    showChangeSuccess("You are now signed up");
+    setTimeout(() => {
+      loginUser(user.name, user.initials, false);
+    }, 2500);
   } else usernameTaken();
 }
 
