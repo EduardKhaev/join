@@ -13,6 +13,7 @@
     <script src="login.js"></script>
     <script src="utility.js"></script>
     <script src="sign-up.js"></script>
+    <script src="contacts.js"></script>
   </head>
 
   <body>
@@ -39,15 +40,18 @@
               <label for="entername" class="login-required" id="username"
                 ><span id="sign-in-name" style="display: none"
                   >Please enter name</span
+                >
+                <span id="two-words" style="display: none"
+                  >A name has to consist of at least two words</span
                 ></label
               >
               <input
                 required
-                oninvalid="event.preventDefault(); showInvalidLogin('sign-in-name', 'entermail')"
-                onfocus="removeInvalidLogin('username', 'entermail')"
+                oninvalid="event.preventDefault(); showInvalidSignUp('sign-in-name', 'entername')"
+                onfocus="removeInvalidLogin('username', 'entername')"
                 class="inputfield-basic-design log-nameinput"
                 type="text"
-                autocomplete="username"
+                autocomplete="name"
                 id="entername"
                 name="name"
                 placeholder="Name"
@@ -56,16 +60,16 @@
             <div class="login-input">
               <label for="entermail" class="login-required" id="usermail"
                 ><span id="sign-in-email" style="display: none"
-                  >Please enter email</span
+                  >Please enter e-mail</span
                 ></label
               >
               <input
                 required
-                oninvalid="event.preventDefault(); showInvalidLogin('sign-in-email', 'entermail')"
+                oninvalid="event.preventDefault(); showInvalidSignUp('sign-in-email', 'entermail')"
                 onfocus="removeInvalidLogin('usermail', 'entermail')"
                 class="inputfield-basic-design log-mailinput"
                 type="email"
-                autocomplete="usermail"
+                autocomplete="email"
                 id="entermail"
                 name="email"
                 placeholder="Email"
@@ -79,7 +83,7 @@
               >
               <input
                 required
-                oninvalid="event.preventDefault(); showInvalidLogin('missing-pw', 'enterpassword')"
+                oninvalid="event.preventDefault(); showInvalidSignUp('missing-pw', 'enterpassword')"
                 onfocus="removeInvalidLogin('sign-in-pw', 'enterpassword')"
                 class="inputfield-basic-design log-pwinput"
                 type="password"
@@ -94,14 +98,14 @@
                 id="sign-in-repeat-pw"
                 class="login-required"
                 ><span id="missing-repeat-pw" style="display: none"
-                  >Please repeat password</span
+                  >Please confirm password</span
                 ><span id="incorrect-repeat-pw" style="display: none"
-                  >Repeated Password is incorrect</span
+                  >Passwords do not match</span
                 ></label
               >
               <input
                 required
-                oninvalid="event.preventDefault(); showInvalidLogin('missing-repeat-pw', 'enter-repeat-password')"
+                oninvalid="event.preventDefault(); showInvalidSignUp('missing-repeat-pw', 'enter-repeat-password')"
                 onfocus="removeInvalidLogin('sign-in-repeat-pw', 'enter-repeat-password')"
                 class="inputfield-basic-design log-pwinput"
                 type="password"
@@ -113,11 +117,14 @@
             <div class="remember-container">
               <input
                 type="checkbox"
-                id="remember"
-                name="remember"
+                id="acceptPP"
+                name="acceptPP"
                 class="custom-checkbox"
+                required="true"
+                oninvalid="event.preventDefault(); invalidAcceptCheck()"
+                onchange="resetAcceptCheck()"
               />
-              <label for="remember" class="custom-checkbox-login">
+              <label for="acceptPP" class="custom-checkbox-login">
                 <div class="checkbox-icon">
                   <svg
                     width="19"
@@ -153,7 +160,10 @@
                     />
                   </svg>
                 </div>
-                <span>I Accept the</span>
+                <span id="accept-text">I accept the</span>
+                <span id="accept-invalid" style="display: none"
+                  >Please accept the</span
+                >
                 <a class="privacy-link" href="privacy_policy.html"
                   >Privacy policy</a
                 >
