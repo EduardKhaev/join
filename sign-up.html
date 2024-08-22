@@ -12,6 +12,7 @@
     <script src="auth.js"></script>
     <script src="login.js"></script>
     <script src="utility.js"></script>
+    <script src="check.js"></script>
     <script src="sign-up.js"></script>
   </head>
 
@@ -43,8 +44,8 @@
               >
               <input
                 required
-                oninvalid="event.preventDefault(); showInvalidLogin('sign-in-name', 'entermail')"
-                onfocus="removeInvalidLogin('username', 'entermail')"
+                oninvalid="event.preventDefault(); showInvalidLogin('sign-in-name', 'entername')"
+                onfocus="removeInvalidLogin('username', 'entername')"
                 class="inputfield-basic-design log-nameinput"
                 type="text"
                 autocomplete="username"
@@ -113,11 +114,14 @@
             <div class="remember-container">
               <input
                 type="checkbox"
-                id="remember"
-                name="remember"
+                id="acceptPP"
+                name="acceptPP"
                 class="custom-checkbox"
+                required="true"
+                oninvalid="event.preventDefault(); invalidAcceptCheck()"
+                onchange="resetAcceptCheck()"
               />
-              <label for="remember" class="custom-checkbox-login">
+              <label for="acceptPP" class="custom-checkbox-login">
                 <div class="checkbox-icon">
                   <svg
                     width="19"
@@ -153,7 +157,10 @@
                     />
                   </svg>
                 </div>
-                <span>I Accept the</span>
+                <span id="accept-text">I accept the</span>
+                <span id="accept-invalid" style="display: none"
+                  >Please accept the</span
+                >
                 <a class="privacy-link" href="privacy_policy.html"
                   >Privacy policy</a
                 >
