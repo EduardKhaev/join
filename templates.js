@@ -9,9 +9,9 @@ function returnContactListItems(i, user) {
           <div class="ci-mailaddress max-mail-length">${user.email}</div>
       </div>
   </div>`;
-  }
-  
-  function returnUserDetails(index, user) {
+}
+
+function returnUserDetails(index, user) {
   return `
   <div class="full-contact-text">
       <div class="ci-head">
@@ -49,9 +49,9 @@ function returnContactListItems(i, user) {
       </div>
   </div>
   `;
-  }
-  
-  function returnEditUserChoice(index) {
+}
+
+function returnEditUserChoice(index) {
   return `
   <div class="choice-container" id="choice-container">
       <div class="ci-actions-item-responsive" onclick="renderEditUserInputField(${index})">
@@ -71,9 +71,9 @@ function returnContactListItems(i, user) {
           <div>Delete</div>
       </div>
   </div>`;
-  }
-  
-  function returnUserDetailsSmall(index, user) {
+}
+
+function returnUserDetailsSmall(index, user) {
   return `
   <div class="small-details-container">
       <svg onclick="closeUserDetails()" width="38" height="38" viewBox="0 0 38 38" fill="none"
@@ -124,9 +124,9 @@ function returnContactListItems(i, user) {
       </div>
   </div>
   `;
-  }
-  
-  function getAddUserInputHtml() {
+}
+
+function getAddUserInputHtml() {
   return `
   <section id="adduser-maincontainer" class="adduser-maincontainer">
   
@@ -174,9 +174,9 @@ function returnContactListItems(i, user) {
       </div>
   </section>
   `;
-  }
-  
-  function getUserEditHtml(user) {
+}
+
+function getUserEditHtml(user) {
   return `
   <section id="adduser-maincontainer" class="adduser-maincontainer">
   
@@ -225,9 +225,9 @@ function returnContactListItems(i, user) {
       </div>
   </section>
   `;
-  }
-  
-  function renderConfirmationModal(userId) {
+}
+
+function renderConfirmationModal(userId) {
   return `
   <div class="confirmation-modal" id="confirmation-modal">
       <div class="modal-text">
@@ -245,15 +245,15 @@ function returnContactListItems(i, user) {
           </div>
       </div>
   </div>`;
-  }
-  
-  function renderContactDropdown(user) {
+}
+
+function renderContactDropdown(user) {
   return `
   <li onclick="markContactAssigned('${user.id}')">
       <div class="task-avatar cl-avatar-space" style="background-color: ${user.color};">${user.initials}</div>
       <span class="assigned-person">${user.name}</span>
       <input type="checkbox" id="${user.id}" name="assignedTo" class="custom-checkbox assigned-user" />
-      <label for="${user.id}"" class=" custom-checkbox-label">
+      <label for="${user.id}"" class="custom-checkbox-label">
           <div class="checkbox-icon">
               <svg width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <rect class="unchecked" x="1.38818" y="1" width="16" height="16" rx="3" stroke="#2A3647"
@@ -269,9 +269,9 @@ function returnContactListItems(i, user) {
   </li>
   
   `;
-  }
-  
-  function addSubtaskHTML(subtaskValue, index) {
+}
+
+function addSubtaskHTML(subtaskValue, index) {
   return `
   <li id="subtask-${index}" class="subtask-list-element">
       <input id="subtask-${index}-input" type="text" class="subtask-input subtask-value" value="${subtaskValue}"
@@ -287,9 +287,9 @@ function returnContactListItems(i, user) {
           <div class="delete-svg" onclick="deleteSubtask(${index})"></div>
       </div>
   </li>`;
-  }
-  
-  function getTaskLargeContentHtml(task, date, priorityMarker, categoryColor) {
+}
+
+function getTaskLargeContentHtml(task, date, priorityMarker, categoryColor) {
   return `
   <div class="task-large" id="task-large">
       <div class="task-large-content" onclick="event.stopPropagation()">
@@ -350,9 +350,9 @@ function returnContactListItems(i, user) {
       </div>
   </div>
   `;
-  }
-  
-  function getSubtaskContentHtml(subtask, i, taskId) {
+}
+
+function getSubtaskContentHtml(subtask, i, taskId) {
   return `
   <div class="tl-sub-check">
       <input type="checkbox" id="checkbox${i}" class="custom-checkbox"
@@ -373,20 +373,20 @@ function returnContactListItems(i, user) {
       </label>
   </div>
   `;
-  }
-  
-  function getAssignmentsHtml(user) {
+}
+
+function getAssignmentsHtml(user) {
   return `
   <div class="tl-person">
       <div class="tl-avatar" style="background-color: ${user.color};">${user.initials}</div>
       <div class="tl-name">${user.name}</div>
   </div>
   `;
-  }
-  
-  function getPriorityMarker(marker) {
+}
+
+function getPriorityMarker(marker) {
   if (marker == "low") {
-  marker = `
+    marker = `
   <svg width="21" height="16" viewBox="0 0 21 16" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path
           d="M10.8555 9.69779C10.6209 9.69819 10.3923 9.62335 10.2035 9.48427L1.30038 2.91453C1.18454 2.82898 1.0867 2.72146 1.01245 2.59812C0.938193 2.47478 0.888977 2.33803 0.867609 2.19569C0.824455 1.90821 0.897354 1.61537 1.07027 1.3816C1.24319 1.14782 1.50196 0.992265 1.78965 0.949143C2.07734 0.906021 2.3704 0.978866 2.60434 1.15165L10.8555 7.23414L19.1066 1.15165C19.2224 1.0661 19.354 1.00418 19.4938 0.969432C19.6336 0.934685 19.7788 0.927791 19.9213 0.949143C20.0637 0.970495 20.2006 1.01967 20.324 1.09388C20.4474 1.16808 20.555 1.26584 20.6407 1.3816C20.7263 1.49735 20.7883 1.62882 20.823 1.7685C20.8578 1.90818 20.8647 2.05334 20.8433 2.19569C20.822 2.33803 20.7727 2.47478 20.6985 2.59812C20.6242 2.72146 20.5264 2.82898 20.4106 2.91453L11.5075 9.48427C11.3186 9.62335 11.0901 9.69819 10.8555 9.69779Z"
@@ -396,7 +396,7 @@ function returnContactListItems(i, user) {
           fill="#7AE229" />
   </svg>`;
   } else if (marker == "medium") {
-  marker = `
+    marker = `
   <svg width="21" height="8" viewBox="0 0 21 8" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path
           d="M19.7596 7.91693H1.95136C1.66071 7.91693 1.38197 7.80063 1.17645 7.59362C0.970928 7.3866 0.855469 7.10584 0.855469 6.81308C0.855469 6.52032 0.970928 6.23955 1.17645 6.03254C1.38197 5.82553 1.66071 5.70923 1.95136 5.70923H19.7596C20.0502 5.70923 20.329 5.82553 20.5345 6.03254C20.74 6.23955 20.8555 6.52032 20.8555 6.81308C20.8555 7.10584 20.74 7.3866 20.5345 7.59362C20.329 7.80063 20.0502 7.91693 19.7596 7.91693Z"
@@ -406,7 +406,7 @@ function returnContactListItems(i, user) {
           fill="#FFA800" />
   </svg>`;
   } else {
-  marker = `
+    marker = `
   <svg width="21" height="16" viewBox="0 0 21 16" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path
           d="M19.2597 15.4464C19.0251 15.4468 18.7965 15.3719 18.6077 15.2328L10.3556 9.14965L2.10356 15.2328C1.98771 15.3184 1.85613 15.3803 1.71633 15.4151C1.57652 15.4498 1.43124 15.4567 1.28877 15.4354C1.14631 15.414 1.00944 15.3648 0.885997 15.2906C0.762552 15.2164 0.654943 15.1186 0.569314 15.0029C0.483684 14.8871 0.421712 14.7556 0.386936 14.6159C0.352159 14.4762 0.345259 14.331 0.366629 14.1887C0.409788 13.9012 0.565479 13.6425 0.799451 13.4697L9.70356 6.89926C9.89226 6.75967 10.1208 6.68433 10.3556 6.68433C10.5904 6.68433 10.819 6.75967 11.0077 6.89926L19.9118 13.4697C20.0977 13.6067 20.2356 13.7988 20.3057 14.0186C20.3759 14.2385 20.3747 14.4749 20.3024 14.6941C20.2301 14.9133 20.0904 15.1041 19.9031 15.2391C19.7159 15.3742 19.4907 15.4468 19.2597 15.4464Z"
@@ -417,21 +417,21 @@ function returnContactListItems(i, user) {
   </svg>`;
   }
   return marker;
-  }
-  
-  /**
-  * Creates the HTML for a single task.
-  *
-  * @param {Object} toDo - The to-do item object.
-  * @param {number} index - The index of the task.
-  * @param {string} categoryColor - The background color for the category.
-  * @param {string} description - The shortened description of the task.
-  * @param {number} percentage - The completion percentage of subtasks.
-  * @param {number} completedSubtasks - The number of completed subtasks.
-  * @param {number} subtasksNumber - The total number of subtasks.
-  * @returns {string} - The HTML string for the task.
-  */
-  function createTaskHTML(
+}
+
+/**
+ * Creates the HTML for a single task.
+ *
+ * @param {Object} toDo - The to-do item object.
+ * @param {number} index - The index of the task.
+ * @param {string} categoryColor - The background color for the category.
+ * @param {string} description - The shortened description of the task.
+ * @param {number} percentage - The completion percentage of subtasks.
+ * @param {number} completedSubtasks - The number of completed subtasks.
+ * @param {number} subtasksNumber - The total number of subtasks.
+ * @returns {string} - The HTML string for the task.
+ */
+function createTaskHTML(
   task,
   index,
   categoryColor,
@@ -439,18 +439,20 @@ function returnContactListItems(i, user) {
   percentage,
   completedSubtasks,
   subtasksNumber
-  ) {
+) {
   return `
   <div class="task-small-main" id="task-small${
-          task.id
-        }" onclick="showTaskDetails('${
-        task.id
-      }')" draggable="true" ondragstart="startDragging(event, '${
-        task.id
-      }')" ondragend="stopDragging()" id="${task.id}">
+    task.id
+  }" onclick="showTaskDetails('${
+    task.id
+  }')" draggable="true" ondragstart="startDragging(event, '${
+    task.id
+  }')" ondragend="stopDragging()" id="${task.id}">
       <div class="ts-content">
           <div class="move-icon-container">
-              <div class="move-icon" onclick="toggleDragMenue(event, '${task.id}')">
+              <div class="move-icon" onclick="toggleDragMenue(event, '${
+                task.id
+              }')">
                   <svg width="800px" height="800px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <g id="SVGRepo_bgCarrier" stroke-width="0" />
   
@@ -476,13 +478,19 @@ function returnContactListItems(i, user) {
                 task.id
               }">
                   <div class="dropdown-content">
-                      <div onclick="moveByButton(event, 'to do', '${task.id}');">
+                      <div onclick="moveByButton(event, 'to do', '${
+                        task.id
+                      }');">
                           To Do
                       </div>
-                      <div onclick="moveByButton(event, 'in progress', '${task.id}');">
+                      <div onclick="moveByButton(event, 'in progress', '${
+                        task.id
+                      }');">
                           In Progress
                       </div>
-                      <div onclick="moveByButton(event, 'await feedback', '${task.id}');">
+                      <div onclick="moveByButton(event, 'await feedback', '${
+                        task.id
+                      }');">
                           Await Feedback
                       </div>
                       <div onclick="moveByButton(event, 'done', '${task.id}');">
@@ -492,15 +500,15 @@ function returnContactListItems(i, user) {
               </div>
           </div>
           <div class="ts-category" style="background-color: ${categoryColor};">${
-              task.category
-              }</div>
+    task.category
+  }</div>
           <div class="ts-text-container">
               <div class="ts-title">${task.title}</div>
               <div class="ts-description">${description}</div>
           </div>
           ${
-          subtasksNumber > 0
-          ? `<div class="ts-subtasks">
+            subtasksNumber > 0
+              ? `<div class="ts-subtasks">
               <div class="ts-bar">
                   <div class="ts-bar-percentage" style="width: ${percentage}%;"></div>
               </div>
@@ -508,7 +516,7 @@ function returnContactListItems(i, user) {
                   ${completedSubtasks}/${subtasksNumber} Subtasks
               </div>
           </div>`
-          : ""
+              : ""
           }
           <div class="ts-footer">
               <div class="ts-avatars" id="ts-avatars${index}"></div>
@@ -517,9 +525,9 @@ function returnContactListItems(i, user) {
       </div>
   </div>
   `;
-  }
-  
-  function addTaskBoardHTML(status = "to do") {
+}
+
+function addTaskBoardHTML(status = "to do") {
   return `
   <div class="addtask-overlaycontainer" id="addtask-overlaycontainer" onclick="closeDetails(event)">
       <div class="addtask-overlay-close">
@@ -647,7 +655,8 @@ function returnContactListItems(i, user) {
                   </button>
   
                   <button type="submit" class="button-primary action-button-text" data-urgency="${
-                    selectedUrgency ? selectedUrgency : " medium" }">
+                    selectedUrgency ? selectedUrgency : "medium"
+                  }">
                       Create Task <img src="img/check.png" alt="" />
                   </button>
               </div>
@@ -655,9 +664,9 @@ function returnContactListItems(i, user) {
       </form>
   </div>
   `;
-  }
-  
-  function getEditTaskContentHtml(task) {
+}
+
+function getEditTaskContentHtml(task) {
   return ` <div class="task-large-edit" id="task-large-edit" onclick="closeDetails(event)">
       <div class="header">
           <div class="tl-close-btn" onclick="closeEditTask()">
@@ -666,37 +675,36 @@ function returnContactListItems(i, user) {
       </div>
       <div class="form-container">
           <form onsubmit="saveEditedTask(event, '${task.id}', '${
-        task.taskState
-      }')">
+    task.taskState
+  }')">
               <div>
                   <label for="entertitle">Title</label>
                   <input required oninvalid="event.preventDefault(); showInvalid(this); validateCategory()"
                       onfocus="removeInvalid(this)" class="inputfield-basic-design" type="text" id="entertitle"
                       name="title" placeholder="Enter a title" value="${
-                              task.title
-                            }" />
+                        task.title
+                      }" />
               </div>
               <div>
                   <label for="task-description">Description</label>
                   <textarea class="inputfield-basic-design" id="task-description" name="description"
                       placeholder="Enter a Description">${
-                              task.description
-                            }</textarea>
+                        task.description
+                      }</textarea>
               </div>
   
               <div>
                   <label for="due-date">Due date</label>
                   <input required oninvalid="event.preventDefault(); showInvalid(this); validateCategory()"
                       onfocus="removeInvalid(this)" class="inputfield-basic-design" type="date" name="begin" id="due-date"
-                      placeholder="dd/mm/yyyy" value="${
-                              task.date
-                            }" required />
+                      placeholder="dd/mm/yyyy" value="${task.date}" required />
   
               </div>
               <label class="label-spacing" for="priority"><b>Priority</b></label>
               <div class="outer">
                   <button type="button" class="urgency-button ${
-                          task.priority === " urgent" ? "urgent-active" : "" }" id="urgent-button"
+                    task.priority === "urgent" ? "urgent-active" : ""
+                  }" id="urgent-button"
                       onclick="setUrgency(event, 'urgent')">Urgent<svg width="21" height="16" viewBox="0 0 21 16"
                           fill="none" xmlns="http://www.w3.org/2000/svg">
                           <path
@@ -707,7 +715,8 @@ function returnContactListItems(i, user) {
                               fill="#FF3D00"></path>
                       </svg></button>
                   <button type="button" class="urgency-button ${
-                          task.priority === " medium" ? "medium-active" : "" }" id="medium-button"
+                    task.priority === "medium" ? "medium-active" : ""
+                  }" id="medium-button"
                       onclick="setUrgency(event, 'medium')">Medium<svg width="21" height="8" viewBox="0 0 21 8"
                           fill="none" xmlns="http://www.w3.org/2000/svg">
                           <path
@@ -718,7 +727,8 @@ function returnContactListItems(i, user) {
                               fill="#FFA800"></path>
                       </svg></button>
                   <button type="button" class="urgency-button ${
-                          task.priority === " low" ? "low-active" : "" }" id="low-button"
+                    task.priority === "low" ? "low-active" : ""
+                  }" id="low-button"
                       onclick="setUrgency(event, 'low')">Low<svg width="21" height="16" viewBox="0 0 21 16" fill="none"
                           xmlns="http://www.w3.org/2000/svg">
                           <path
@@ -772,4 +782,4 @@ function returnContactListItems(i, user) {
       </form>
   </div>
   `;
-  }
+}
