@@ -98,6 +98,10 @@ function getNextTaskDeadline(allTasks) {
 
   return formattedDate;
 }
+
+/**
+ * changes the current location of the browser to 'board.html'
+ */
 function redirectToPage() {
   window.location.href = 'board.html';
 }
