@@ -9,6 +9,7 @@
   overflow-y: auto;
   max-height: calc(100% - 216px);
   padding-bottom: 120px;
+  max-width: 1920px;
 }
 
 .legal-notice-section {
